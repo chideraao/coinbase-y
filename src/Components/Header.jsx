@@ -7,7 +7,7 @@ function Header() {
 				<div className="flex">
 					<a href="/">
 						{" "}
-						<h1 className="logo">coinbase</h1>
+						<h1 className="logo">basecoin</h1>
 					</a>
 					<nav>
 						<ul>

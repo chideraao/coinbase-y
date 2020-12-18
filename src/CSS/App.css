@@ -4,7 +4,7 @@
 	--primary-color: #1652f0;
 	--button-color: rgb(5, 177, 105);
 	--dark-color: rgb(5, 15, 25);
-	--light-color: #f4f4f4;
+	--white-color: rgb(255, 255, 255);
 }
 
 * {
@@ -158,6 +158,8 @@ img {
 .banner {
 	color: var(--dark-color);
 	padding-top: 2rem;
+	height: 25rem;
+	background-color: var(--white-color);
 }
 
 .banner .grid {
@@ -168,7 +170,7 @@ img {
 .banner-text {
 	align-items: flex-start;
 	padding-top: 5rem;
-	padding-right: 9rem;
+	padding-right: 7rem;
 }
 
 .banner .banner-text h2 {
@@ -181,26 +183,75 @@ img {
 }
 
 .banner .banner-icons .flex {
-	justify-items: flex-start;
+	justify-content: start;
+	align-items: flex-start;
+	padding: 0.5rem;
+	padding-left: 1rem;
+}
+
+.banner .banner-icons a {
+	color: var(--dark-color);
+}
+
+.banner .banner-icons {
+	width: 35rem;
+	background-color: transparent;
 }
 
 .banner-icons .icon-item h2 {
 	font-size: 22px;
 	font-weight: 500;
+	padding: 0.5rem;
+	padding-bottom: 0.7rem;
+}
+
+.banner-icons .icon-item h3 {
+	padding: 0.7rem;
+}
+
+.banner-icons .icon-item span {
 	padding: 1rem;
+	padding-left: 7rem;
+	font-size: 22px;
+	color: var(--button-color);
+}
+
+.banner-icons .icon-item .comp-span {
+	padding-left: 5rem;
 }
 
 .banner-icons .icon-item img {
+	padding-top: 0.5rem;
+	justify-self: flex-start;
 	width: 2.5rem;
 	height: 3rem;
 }
 
 .icon-item:hover {
-	background-color: #fff;
+	background-color: transparent;
 	border-radius: 10px;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-	padding: 20px;
-	margin: 10px;
-	color: rgb(10, 70, 228);
-	transition: color, 0.2s ease 0s;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
+	transition: 0.2s ease 0s;
+}
+
+.banner-icons .banner-btn {
+	color: var(--primary-color) !important;
+	font-weight: 500;
+	font-size: 19px;
+}
+
+.overview {
+	padding-top: 3rem;
+	background-color: var(--white-color);
+	text-align: center;
+}
+
+.overview .overview-text h1 {
+	font-size: 40px;
+	font-weight: 500;
+}
+
+.overview img {
+	width: 50rem;
+	height: 40rem;
 }
