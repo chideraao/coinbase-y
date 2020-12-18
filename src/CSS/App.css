@@ -157,8 +157,50 @@ img {
 
 .banner {
 	color: var(--dark-color);
+	padding-top: 2rem;
+}
+
+.banner .grid {
+	gap: 10rem;
+	justify-items: start;
+}
+
+.banner-text {
+	align-items: flex-start;
+	padding-top: 5rem;
+	padding-right: 9rem;
+}
+
+.banner .banner-text h2 {
+	font-size: 32px;
+	font-weight: 500;
 }
 
 .banner .banner-text a {
 	background-color: var(--primary-color);
+}
+
+.banner .banner-icons .flex {
+	justify-items: flex-start;
+}
+
+.banner-icons .icon-item h2 {
+	font-size: 22px;
+	font-weight: 500;
+	padding: 1rem;
+}
+
+.banner-icons .icon-item img {
+	width: 2.5rem;
+	height: 3rem;
+}
+
+.icon-item:hover {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 20px;
+	margin: 10px;
+	color: rgb(10, 70, 228);
+	transition: color, 0.2s ease 0s;
 }
