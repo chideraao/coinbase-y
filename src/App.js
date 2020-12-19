@@ -8,9 +8,17 @@ import { ReactComponent as Portfolio } from "./logos/manage-portfolio.svg";
 import { ReactComponent as Vault } from "./logos/vault-protection.svg";
 import { ReactComponent as Recurring } from "./logos/recurring-buys.svg";
 import { ReactComponent as Mobile } from "./logos/mobile-apps.svg";
+import { ReactComponent as Secure } from "./logos/secure-storage.svg";
+import { ReactComponent as Insurance } from "./logos/insurance.svg";
+import { ReactComponent as CreateAccount } from "./logos/create-account.svg";
+import { ReactComponent as BestPractice } from "./logos/best-practices.svg";
+import { ReactComponent as LinkAccount } from "./logos/link-bank-account.svg";
+import { ReactComponent as Buying } from "./logos/start-buying.svg";
+import bannerimg from "./logos/earn-upsell-desktop.852a74929173d0974480694525be02ab.jpg";
 import Header from "./Components/Header";
 import overlay from "./logos/coinbase-app.3b0bfd4cb6b7a7614c1e18472187f6b9.webp";
 import ChartTable from "./Components/ChartTable";
+import Footer from "./Components/Footer";
 
 function App() {
 	return (
@@ -97,9 +105,9 @@ function App() {
 				<div className="container">
 					{" "}
 					<div className="overlay-head">
-						<h1>Create your cryptocurrency portfolio today</h1>
+						<h2>Create your cryptocurrency portfolio today</h2>
 						<p>
-							Coinbase has a variety of features that make it the best place to
+							Basecoin has a variety of features that make it the best place to
 							start trading
 						</p>
 					</div>
@@ -145,7 +153,7 @@ function App() {
 								<div>
 									<h2>Mobile apps</h2>
 									<p>
-										Stay on top of the markets with the Coinbase app for Android
+										Stay on top of the markets with the Basecoin app for Android
 										or iOS.
 									</p>
 								</div>
@@ -153,11 +161,126 @@ function App() {
 						</div>
 						<div className="overlay-img">
 							{" "}
-							<img src={overlay} alt="coinbase overlay" />
+							<img src={overlay} alt="Basecoin overlay" />
 						</div>
 					</div>
 				</div>
 			</section>
+			<hr />
+			<section className="features">
+				<div className="container">
+					<div className="features-head">
+						<h2>The most trusted cryptocurrency platform</h2>
+						<p>Here are a few reasons why you should choose Basecoin</p>
+					</div>
+					<div className="features-icons grid">
+						<div className="features-text ">
+							<Secure className="features-svg" />
+							<h2>Secure storage</h2>
+							<p>
+								We store the vast majority of the digital assets in secure
+								offline storage.
+							</p>
+							<a href="/">
+								Learn how Basecoin keeps your funds safe and secure {">"}
+							</a>
+						</div>
+						<div className="features-text ">
+							<Insurance className="features-svg" />
+							<h2>Protected by insurance</h2>
+							<p>
+								Cryptocurrency stored on our servers is covered by our insurance
+								policy.
+							</p>
+							<a href="/">
+								Learn how your crypto is covered by our insurance policy {">"}
+							</a>
+						</div>
+						<div className="features-text ">
+							<BestPractice className="features-svg" />
+							<h2>Industry best practices</h2>
+							<p>
+								Basecoin supports a variety of the most popular digital
+								currencies.
+							</p>
+							<a href="/">
+								Learn how we implement industry best practices for account
+								security {">"}{" "}
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section className="stats">
+				<div className="container grid">
+					<div className="stats-text">
+						<h2>$300B+</h2>
+						<p>Total Volume Traded</p>
+					</div>
+					<div className="stats-text">
+						<h2>100+</h2>
+						<p>Countries supported</p>
+					</div>
+					<div className="stats-text">
+						<h2>35M+</h2>
+						<p>Verified Users</p>
+					</div>
+				</div>
+			</section>
+			<section className="quickstart">
+				<div className="container">
+					<div className="quickstart-head">
+						<h2>Get started in a few minutes</h2>
+						<p>
+							Coinbase supports a variety of the most popular digital
+							currencies.
+						</p>
+					</div>
+					<div className="quickstart-icons grid">
+						<div className="quickstart-text flex">
+							<div>
+								<CreateAccount className="quickstart-svg" />
+								<h2>Create an account</h2>
+							</div>
+							<div className="quickstart-line">_______________</div>
+						</div>
+						<div className="quickstart-text flex">
+							<div>
+								<LinkAccount className="quickstart-svg" />
+								<h2>Link your bank account</h2>
+							</div>
+							<div className="quickstart-line">_______________</div>
+						</div>
+						<div className="quickstart-text flex">
+							<div>
+								<Buying className="quickstart-svg" />
+								<h2>Start buying & selling</h2>
+							</div>
+							<div className="quickstart-line hidden">_______________</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="banner-footer ">
+				<div className=" grid">
+					{" "}
+					<div className="banner-footer-text">
+						<h2>Earn up to $164 worth of crypto</h2>
+						<p>
+							Discover how specific cryptocurrencies work — and get a bit of
+							each crypto to try out for yourself.
+						</p>
+						<a href="" className="btn btn-outline">
+							Start earning
+						</a>
+					</div>
+					<div>
+						<img src={bannerimg} alt="astronauts in space" />
+					</div>
+				</div>
+			</section>
+			<Footer />
 			<ChartTable />
 		</div>
 	);

@@ -1,10 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,500;1,700&display=swap");
 
 :root {
 	--primary-color: #1652f0;
 	--button-color: rgb(5, 177, 105);
 	--dark-color: rgb(5, 15, 25);
-	--white-color: rgb(255, 255, 255);
+	--secondary-color: rgb(255, 255, 255);
+	--dark-blue-text: rgb(0, 47, 107);
+	--light-grey-text: rgb(144, 161, 184);
+	--light-blue: rgb(233, 246, 255);
 }
 
 * {
@@ -158,7 +161,7 @@ img {
 	color: var(--dark-color);
 	padding-top: 2rem;
 	height: 25rem;
-	background-color: var(--white-color);
+	background-color: var(--secondary-color);
 }
 
 .banner .grid {
@@ -241,11 +244,16 @@ img {
 
 .overlay {
 	padding-top: 3rem;
-	background-color: var(--white-color);
+	background-color: var(--secondary-color);
 	text-align: center;
+	margin-bottom: 3rem;
 }
 
-.overlay .overlay-head h1 {
+.overlay .overlay-head {
+	padding-bottom: 2rem;
+}
+
+.overlay .overlay-head h2 {
 	font-size: 40px;
 	font-weight: 500;
 	padding-bottom: 1rem;
@@ -277,8 +285,170 @@ img {
 
 .overlay .overlay-text h2 {
 	font-weight: 500;
+	font-size: 20px;
 }
 
 .overlay img {
 	height: 35rem;
+}
+
+hr {
+	font-weight: 100;
+}
+
+.features {
+	padding-top: 3rem;
+	background-color: var(--secondary-color);
+	text-align: center;
+	margin-bottom: 3rem;
+	margin-top: 2rem;
+}
+
+.features .features-head h2 {
+	font-size: 40px;
+	font-weight: 500;
+	padding-bottom: 1rem;
+}
+
+.features .features-head {
+	margin-bottom: 5rem;
+}
+
+.features .grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.features-svg {
+	margin-bottom: 4rem;
+}
+
+.features .features-text {
+	margin-bottom: 4rem;
+}
+
+.features .features-text h2 {
+	color: var(--dark-blue-text);
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 2rem;
+}
+
+.features .features-text p {
+	color: var(--light-grey-text);
+	padding: 0 2rem;
+	margin-bottom: 3rem;
+}
+
+.features .features-text a {
+	color: var(--primary-color);
+	padding: 1rem 2rem;
+}
+
+.stats {
+	padding-top: 2rem;
+	background-color: var(--primary-color);
+	text-align: center;
+	margin-bottom: 3rem;
+	margin-top: 2rem;
+	color: var(--secondary-color);
+}
+
+.stats .grid {
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	justify-content: center;
+}
+
+.stats .stats-text h2 {
+	font-weight: 500;
+	font-size: 56px;
+	padding-top: 0rem;
+}
+
+.stats .stats-text p {
+	color: var(--light-grey-text);
+	font-weight: 300;
+	margin-bottom: 4rem;
+}
+
+.quickstart {
+	padding-top: 1rem;
+	background-color: var(--secondary-color);
+	text-align: center;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+.quickstart .quickstart-head h2 {
+	font-size: 40px;
+	font-weight: 500;
+	padding-bottom: 1rem;
+}
+
+.quickstart .quickstart-head {
+	margin-bottom: 5rem;
+}
+
+.quickstart .grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.quickstart-icons {
+	padding: 0 4rem;
+}
+
+.quickstart-svg {
+	margin-bottom: 1.5rem;
+}
+
+.quickstart .quickstart-text {
+	margin-bottom: 4rem;
+}
+
+.quickstart-line {
+	color: rgb(186, 197, 212);
+	margin-bottom: 4rem;
+	margin-left: 2rem;
+}
+
+.quickstart .quickstart-text h2 {
+	color: var(--dark-blue-text);
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 0rem;
+}
+
+.banner-footer {
+	color: var(--dark-color);
+	height: auto;
+	width: auto;
+	background-color: var(--light-blue);
+	margin-bottom: 2rem;
+}
+
+.banner-footer .grid {
+	justify-items: start;
+}
+
+.banner-footer-text {
+	align-items: flex-start;
+	padding-top: 5rem;
+	margin-left: 10rem;
+	padding-right: 6rem;
+}
+
+.banner-footer .banner-footer-text h2 {
+	font-size: 32px;
+	font-weight: 500;
+}
+
+.banner-footer .banner-footer-text a {
+	background-color: var(--primary-color);
+}
+
+.banner-footer img {
+	width: auto;
 }
