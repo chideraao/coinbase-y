@@ -336,7 +336,7 @@ hr {
 .features .features-text p {
 	color: var(--light-grey-text);
 	padding: 0 2rem;
-	margin-bottom: 3rem;
+	margin-bottom: 1.5rem;
 }
 
 .features .features-text a {
@@ -377,9 +377,10 @@ hr {
 	text-align: center;
 	margin-bottom: 1rem;
 	margin-top: 2rem;
-	width: 100%;
-	height: 100%;
-	overflow-y: hidden;
+}
+
+.quickstart .container {
+	overflow: hidden;
 }
 
 .quickstart .quickstart-head h2 {
@@ -394,6 +395,7 @@ hr {
 
 .quickstart .grid {
 	grid-template-columns: repeat(3, 1fr);
+	padding-right: 1rem;
 }
 
 .quickstart-icons {
@@ -451,4 +453,63 @@ hr {
 
 .banner-footer img {
 	width: auto;
+}
+
+.footer .grid {
+	padding-top: 3rem;
+	align-items: flex-start;
+	grid-template-columns: repeat(5, 1fr);
+	margin-bottom: 5rem;
+}
+
+.footer .selectbox .flex {
+	justify-content: start;
+}
+
+.footer .bulletpoint {
+	font-size: 16px;
+	font-weight: 700;
+	opacity: 0.7;
+	color: rgb(17, 51, 85);
+	max-width: 170px;
+	text-decoration: none;
+	margin: 6px 2px;
+}
+
+.footer a,
+.footer p {
+	color: var(--light-grey-text);
+}
+
+.footer .selectbox h2 {
+	color: var(--primary-color);
+}
+
+.footer h2 {
+	color: var(--dark-blue-text);
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 0rem;
+	padding-bottom: 1rem;
+}
+
+.footer .products,
+.footer .learn,
+.footer .company,
+.footer .support {
+	flex-direction: column;
+	align-self: start;
+	justify-content: flex-start;
+}
+
+.footer .products a,
+.footer .learn a,
+.footer .company a,
+.footer .support a {
+	padding-bottom: 0.5rem;
+}
+
+.signout {
+	text-align: center;
+	padding-bottom: 3rem;
 }
