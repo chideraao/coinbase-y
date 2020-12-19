@@ -4,6 +4,10 @@ import band from "./logos/band.svg";
 import comp from "./logos/compound-comp-logo.svg";
 import celo from "./logos/celo-celo-logo.svg";
 import maker from "./logos/maker-mkr-logo.svg";
+import { ReactComponent as Portfolio } from "./logos/manage-portfolio.svg";
+import { ReactComponent as Vault } from "./logos/vault-protection.svg";
+import { ReactComponent as Recurring } from "./logos/recurring-buys.svg";
+import { ReactComponent as Mobile } from "./logos/mobile-apps.svg";
 import Header from "./Components/Header";
 import overlay from "./logos/coinbase-app.3b0bfd4cb6b7a7614c1e18472187f6b9.webp";
 import ChartTable from "./Components/ChartTable";
@@ -89,10 +93,10 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section className="overview">
+			<section className="overlay">
 				<div className="container">
 					{" "}
-					<div className="overview-text">
+					<div className="overlay-head">
 						<h1>Create your cryptocurrency portfolio today</h1>
 						<p>
 							Coinbase has a variety of features that make it the best place to
@@ -100,7 +104,57 @@ function App() {
 						</p>
 					</div>
 					<div className="overlay-icons grid">
-						<img src={overlay} alt="coinbase overlay" />
+						<div className="overlay-text-container">
+							<div className="overlay-text flex">
+								{" "}
+								<Portfolio className="overlay-svg" />
+								<div>
+									{" "}
+									<h2>Manage your portfolio</h2>
+									<p>
+										Buy and sell popular digital currencies, keep track of them
+										in the one place.
+									</p>
+								</div>
+							</div>
+							<div className="overlay-text flex">
+								{" "}
+								<Recurring className="overlay-svg" />
+								<div>
+									<h2>Recurring buys</h2>
+									<p>
+										Invest in cryptocurrency slowly over time by scheduling buys
+										daily, weekly, or monthly.
+									</p>
+								</div>
+							</div>
+							<div className="overlay-text flex">
+								{" "}
+								<Vault className="overlay-svg" />
+								<div>
+									<h2>Vault protection</h2>
+									<p>
+										For added security, store your funds in a vault with time
+										delayed withdrawals.
+									</p>
+								</div>
+							</div>
+							<div className="overlay-text flex">
+								{" "}
+								<Mobile className="overlay-svg" />
+								<div>
+									<h2>Mobile apps</h2>
+									<p>
+										Stay on top of the markets with the Coinbase app for Android
+										or iOS.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className="overlay-img">
+							{" "}
+							<img src={overlay} alt="coinbase overlay" />
+						</div>
 					</div>
 				</div>
 			</section>

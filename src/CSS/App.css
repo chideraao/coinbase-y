@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500;1,700&display=swap");
 
 :root {
 	--primary-color: #1652f0;
@@ -14,7 +14,7 @@
 }
 
 * body {
-	font-family: "Lato", sans-serif;
+	font-family: "Roboto", sans-serif;
 	color: #333;
 	line-height: 1.6;
 	font-size: 16px;
@@ -107,7 +107,7 @@ img {
 
 .showcase h1 {
 	font-size: 48px;
-	font-weight: 800;
+	font-weight: 700;
 	line-height: 52px;
 	padding: 0 4rem;
 	padding-bottom: 1rem;
@@ -122,9 +122,8 @@ img {
 
 .showcase-form input[type="email"] {
 	width: 17rem;
-	font-family: Graphik, sans-serif;
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: 400;
 	line-height: 1.75;
 	height: 4.5rem;
 	border-radius: 6px;
@@ -240,18 +239,46 @@ img {
 	font-size: 19px;
 }
 
-.overview {
+.overlay {
 	padding-top: 3rem;
 	background-color: var(--white-color);
 	text-align: center;
 }
 
-.overview .overview-text h1 {
+.overlay .overlay-head h1 {
 	font-size: 40px;
+	font-weight: 500;
+	padding-bottom: 1rem;
+}
+
+.overlay .grid {
+	grid-template-columns: 2fr 3fr;
+}
+
+.svg-container {
+	height: 72px;
+	width: 72px;
+	box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
+	border-radius: 50%;
+}
+
+.overlay-svg {
+	height: 50px;
+	/* align-self: start; */
+	width: 50px;
+	margin: 2rem;
+	box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
+	z-index: 1;
+}
+
+.overlay .overlay-text {
+	text-align: start;
+}
+
+.overlay .overlay-text h2 {
 	font-weight: 500;
 }
 
-.overview img {
-	width: 50rem;
-	height: 40rem;
+.overlay img {
+	height: 35rem;
 }
