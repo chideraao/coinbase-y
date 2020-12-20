@@ -1,16 +1,11 @@
 import "./CSS/App.css";
 import "./CSS/Utilities.css";
-import Header from "./Components/Header";
-// import ChartTable from "./Components/ChartTable";
-import Footer from "./Components/Footer";
-import Body from "./Components/Body";
+import Careers from "./Pages/Careers";
 
 function App() {
 	return (
 		<div className="App">
-			<Header />
-			<Body />
-			<Footer />
+			<Careers />
 		</div>
 	);
 }

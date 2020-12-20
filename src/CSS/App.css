@@ -162,6 +162,7 @@ img {
 	padding-top: 2rem;
 	height: 25rem;
 	background-color: var(--secondary-color);
+	overflow: hidden;
 }
 
 .banner .grid {
@@ -512,4 +513,42 @@ hr {
 .signout {
 	text-align: center;
 	padding-bottom: 3rem;
+}
+
+/* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
+/* .header-container {
+  position: relative;
+  height: 70rem;
+  width: 100%;
+  margin-bottom: 4rem;
+} */
+
+.careers .showcase {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 100;
+}
+
+.careers .showcase h1 {
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 4rem;
+	padding: 0 4rem;
+	padding-bottom: 5rem;
+}
+
+.careers .video-container {
+	flex-direction: column;
+	position: absolute;
+	top: 20rem;
+	left: 0;
+	z-index: 9;
+}
+
+.careers .video-container a {
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	padding: 1rem 2rem;
+	margin: 2.5rem 1rem;
 }
