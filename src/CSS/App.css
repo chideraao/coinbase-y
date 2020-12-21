@@ -55,11 +55,13 @@ img {
 
 .header {
 	background-color: var(--primary-color);
-	padding: 1rem;
+	/* padding: 1rem; */
+	padding-bottom: 1rem;
 }
 
 .header .navbar {
 	justify-content: space-between;
+	padding-bottom: 1rem;
 }
 
 .logo {
@@ -68,11 +70,6 @@ img {
 	font-weight: 400;
 	font-size: 16px;
 }
-
-/* .navbar {
-	display: grid;
-	grid-template-columns: 5fr 2fr;
-} */
 
 .navbar a:hover {
 	color: rgba(255, 255, 255, 0.4);
@@ -93,7 +90,7 @@ img {
 }
 
 .navbar .flex a {
-	padding: 0 1rem;
+	padding: 1rem 1rem;
 }
 
 .showcase {
@@ -516,22 +513,28 @@ hr {
 }
 
 /* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
-/* .header-container {
-  position: relative;
-  height: 70rem;
-  width: 100%;
-  margin-bottom: 4rem;
-} */
+.careers .company {
+	border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.header-container {
+	position: relative;
+	text-align: center;
+	height: 40rem;
+	width: 100%;
+	margin-bottom: 8rem;
+}
 
 .careers .showcase {
 	position: absolute;
-	top: 0;
+	width: 100%;
+	/* top: 0; */
 	left: 0;
 	right: 100;
 }
 
 .careers .showcase h1 {
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: 500;
 	line-height: 4rem;
 	padding: 0 4rem;
@@ -541,9 +544,13 @@ hr {
 .careers .video-container {
 	flex-direction: column;
 	position: absolute;
-	top: 20rem;
-	left: 0;
+	top: 12.5rem;
+	left: 19rem;
 	z-index: 9;
+}
+
+.careers .video-container .flex {
+	flex-direction: column;
 }
 
 .careers .video-container a {
@@ -551,4 +558,47 @@ hr {
 	border-color: var(--primary-color);
 	padding: 1rem 2rem;
 	margin: 2.5rem 1rem;
+}
+
+.careers .info {
+	padding-top: 1rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
+}
+
+.careers .info h2 {
+	font-weight: 500;
+	font-weight: 1.3rem;
+}
+
+.careers .info img,
+.careers .info iframe {
+	width: 33rem;
+	height: 19rem;
+	border-radius: 0.5rem;
+	margin: 1rem;
+}
+
+.careers .info .grid {
+	gap: 4rem;
+}
+
+.careers .info .info-media {
+	align-self: start;
+	justify-self: start;
+}
+
+.careers .info-text {
+	margin-left: 1rem;
+}
+
+#mid-frame {
+	margin-left: 3rem;
+	align-self: flex-end;
+}
+
+.careers .info a {
+	color: var(--primary-color);
 }

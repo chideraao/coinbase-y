@@ -9,19 +9,27 @@ function Header() {
 						{" "}
 						<h1 className="logo">basecoin</h1>
 					</a>
-					<nav>
+					<nav className="nav">
 						<ul>
 							<li>
-								<a href="/prices">Prices</a>
+								<a className="prices" href="/prices">
+									Prices
+								</a>
 							</li>
 							<li>
-								<a href="/products">Products</a>
+								<a className="products" href="/products">
+									Products
+								</a>
 							</li>
 							<li>
-								<a href="/company">Company</a>
+								<a className="company" href="/company">
+									Company
+								</a>
 							</li>
 							<li>
-								<a href="/crypto">Crypto</a>
+								<a className="crypto" href="/crypto">
+									Crypto
+								</a>
 							</li>
 						</ul>
 					</nav>
