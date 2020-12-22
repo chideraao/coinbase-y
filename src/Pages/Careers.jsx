@@ -4,17 +4,22 @@ import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import { ReviewsContext } from "../State/ReviewsContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Careers() {
 	const [review, setReview] = useContext(ReviewsContext);
 	const [index, setIndex] = useState(0);
 
 	const increment = () => {
-		setIndex(index + 1);
+		if (index <= 5) {
+			setIndex(index + 1);
+		}
 	};
 	console.log(index);
 	const decrement = () => {
-		setIndex(index - 1);
+		if (index >= 1) {
+			setIndex(index - 1);
+		}
 	};
 
 	console.log(review);
@@ -125,24 +130,48 @@ function Careers() {
 			</section>
 			<hr />
 			<section className="testimonials">
-				<div className="container">
-					<div className="testimonials-header">
-						<h1>What people say</h1>
+				<div className="container flex">
+					{index >= 1 ? (
+						<FontAwesomeIcon
+							className="font-awesome"
+							fontWeight="light"
+							icon="chevron-left"
+							onClick={decrement}
+							size="3x"
+						/>
+					) : (
+						""
+					)}
+					<div className="testimonials-container">
+						<div className="testimonials-header">
+							<h1>What people say</h1>
+						</div>
+						<div className="testimonials-quote">
+							<h1>" {review[index].text} "</h1>
+						</div>
+						<div className="testimonials-details flex">
+							<img src={review[index].img} alt={`${review[index].name} img`} />
+							<div className="testimonials-credentials">
+								<h3>{review[index].name}</h3>
+								<p>{review[index].title} </p>
+							</div>
+						</div>
 					</div>
-					<div className="testimonials-quote">
-						<h1>{review[index].text}</h1>
-					</div>
+
+					{index <= 5 ? (
+						<FontAwesomeIcon
+							className="font-awesome"
+							fontWeight="light"
+							icon="chevron-right"
+							onClick={increment}
+							size="3x"
+						/>
+					) : (
+						""
+					)}
 				</div>
-				<div className="testimonials-details flex">
-					<img src={review[index].img} alt={`${review[index].name} img`} />
-					<div className="testimonials-credentials">
-						<h2>{review[index].name}</h2>
-						<p>{review[index].title} </p>
-					</div>
-				</div>
-				<button onClick={increment}>increment</button>
-				<button onClick={decrement}>decrement</button>
 			</section>
+			<hr />
 
 			<Banner />
 			<Footer />
