@@ -606,7 +606,8 @@ hr {
 .careers .testimonials {
 	text-align: center;
 	margin: 3rem 0;
-	margin-bottom: 10rem;
+	margin-bottom: 5rem;
+	padding-bottom: 4rem;
 }
 
 .careers .testimonials-header h1 {
@@ -616,8 +617,8 @@ hr {
 
 .careers .testimonials-quote h1 {
 	margin: 0 10rem;
-	padding: 3rem 3rem;
-	margin-top: 1.9rem;
+	padding: 2rem 3rem;
+	margin-top: 1rem;
 	text-align: center;
 	margin-bottom: 3rem;
 	font-size: 1.4rem;
@@ -630,6 +631,7 @@ hr {
 	color: rgb(131, 143, 160);
 	font-size: 3rem;
 	font-weight: 100;
+	opacity: 0.2;
 }
 
 .careers .testimonials img {
@@ -638,6 +640,10 @@ hr {
 	border-radius: 50%;
 	/* margin: 1rem; */
 	margin-bottom: 3rem;
+}
+
+.careers .font-awesome:hover {
+	opacity: 0.4;
 }
 
 .careers .testimonials .testimonials-details {
@@ -656,4 +662,24 @@ hr {
 .careers .testimonials p {
 	text-align: center;
 	padding-left: 1rem;
+}
+
+.careers .testimonials .testimonials-dot {
+	width: 10px;
+	height: 10px;
+	opacity: 0.1;
+	margin-left: 5px;
+	cursor: pointer;
+	background: rgb(0, 0, 0);
+	border-radius: 50%;
+}
+
+.careers .testimonials .testimonials-dot-active {
+	width: 10px;
+	height: 10px;
+	opacity: 0.4;
+	margin-left: 5px;
+	cursor: pointer;
+	background: rgb(0, 0, 0);
+	border-radius: 50%;
 }

@@ -7,18 +7,31 @@ import { ReviewsContext } from "../State/ReviewsContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Careers() {
-	const [review, setReview] = useContext(ReviewsContext);
+	const [career, setCareer] = useContext(ReviewsContext);
 	const [index, setIndex] = useState(0);
+	const [slideIn, setSlideIn] = useState(false);
+
+	const { review, openings } = career;
 
 	const increment = () => {
 		if (index <= 5) {
+			setSlideIn(true);
 			setIndex(index + 1);
+
+			setTimeout(() => {
+				setSlideIn(null);
+			}, 1000);
 		}
 	};
 	console.log(index);
 	const decrement = () => {
 		if (index >= 1) {
+			setSlideIn(false);
 			setIndex(index - 1);
+
+			setTimeout(() => {
+				setSlideIn(null);
+			}, 1000);
 		}
 	};
 
@@ -64,7 +77,7 @@ function Careers() {
 							<img src={office} alt="colleagues having a discussion" />
 						</div>
 						<div className="info-text">
-							<h2>Working at Coinbase</h2>
+							<h2>Working at Basecoin</h2>
 							<p>
 								We’ve taken a huge challenge and made it into our mission: To
 								create an open financial system for the world. To achieve this,
@@ -130,45 +143,89 @@ function Careers() {
 			</section>
 			<hr />
 			<section className="testimonials">
-				<div className="container flex">
-					{index >= 1 ? (
-						<FontAwesomeIcon
-							className="font-awesome"
-							fontWeight="light"
-							icon="chevron-left"
-							onClick={decrement}
-							size="3x"
-						/>
-					) : (
-						""
-					)}
-					<div className="testimonials-container">
-						<div className="testimonials-header">
-							<h1>What people say</h1>
-						</div>
-						<div className="testimonials-quote">
-							<h1>" {review[index].text} "</h1>
-						</div>
-						<div className="testimonials-details flex">
-							<img src={review[index].img} alt={`${review[index].name} img`} />
-							<div className="testimonials-credentials">
-								<h3>{review[index].name}</h3>
-								<p>{review[index].title} </p>
+				<div className="container">
+					<div className="flex">
+						{index >= 1 ? (
+							<FontAwesomeIcon
+								className="font-awesome"
+								fontWeight="light"
+								icon="chevron-left"
+								onClick={decrement}
+								size="3x"
+							/>
+						) : (
+							""
+						)}
+						<div className="testimonials-container">
+							<div className="testimonials-header">
+								<h1>What people say</h1>
+							</div>
+							<div className={slideIn ? "slide-in" : "slide-out"}>
+								<div className="testimonials-quote">
+									<h1>" {review[index].text} "</h1>
+								</div>
+								<div className="testimonials-details flex">
+									<img
+										src={review[index].img}
+										alt={`${review[index].name} img`}
+									/>
+									<div className="testimonials-credentials">
+										<h3>{review[index].name}</h3>
+										<p>{review[index].title} </p>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					{index <= 5 ? (
-						<FontAwesomeIcon
-							className="font-awesome"
-							fontWeight="light"
-							icon="chevron-right"
-							onClick={increment}
-							size="3x"
-						/>
-					) : (
-						""
-					)}
+						{index <= 5 ? (
+							<FontAwesomeIcon
+								className="font-awesome"
+								fontWeight="light"
+								icon="chevron-right"
+								onClick={increment}
+								size="3x"
+							/>
+						) : (
+							""
+						)}
+					</div>
+					<div className="testimonials-dots flex">
+						<div
+							className={
+								index === 0 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 1 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 2 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 3 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 4 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 5 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+						<div
+							className={
+								index === 6 ? "testimonials-dot-active" : "testimonials-dot"
+							}
+						></div>
+					</div>
 				</div>
 			</section>
 			<hr />
