@@ -1,12 +1,15 @@
 import "./CSS/App.css";
 import "./CSS/Utilities.css";
 import Careers from "./Pages/Careers";
+import { ReviewsProvider } from "./State/ReviewsContext";
 
 function App() {
 	return (
-		<div className="App">
-			<Careers />
-		</div>
+		<ReviewsProvider>
+			<div className="App">
+				<Careers />
+			</div>
+		</ReviewsProvider>
 	);
 }
 

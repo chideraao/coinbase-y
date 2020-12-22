@@ -602,3 +602,14 @@ hr {
 .careers .info a {
 	color: var(--primary-color);
 }
+
+.careers .testimonials {
+	text-align: center;
+}
+
+.careers .testimonials img {
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	margin: 1rem;
+}
