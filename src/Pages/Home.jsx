@@ -231,7 +231,7 @@ function Home() {
 					<div className="quickstart-head">
 						<h2>Get started in a few minutes</h2>
 						<p>
-							Coinbase supports a variety of the most popular digital
+							Basecoin supports a variety of the most popular digital
 							currencies.
 						</p>
 					</div>

@@ -160,6 +160,7 @@ img {
 	height: 25rem;
 	background-color: var(--secondary-color);
 	overflow: hidden;
+	margin: 1rem 7rem;
 }
 
 .banner .grid {
@@ -292,6 +293,7 @@ img {
 
 hr {
 	font-weight: 100;
+	opacity: 0.3;
 }
 
 .features {
@@ -564,8 +566,7 @@ hr {
 	padding-top: 1rem;
 	background-color: var(--secondary-color);
 	text-align: start;
-	margin-bottom: 1rem;
-	margin-top: 2rem;
+	margin: 1rem 7rem;
 }
 
 .careers .info h2 {
@@ -638,7 +639,7 @@ hr {
 	height: 3rem;
 	width: 3rem;
 	border-radius: 50%;
-	/* margin: 1rem; */
+	margin-left: 2rem;
 	margin-bottom: 3rem;
 }
 
@@ -653,6 +654,9 @@ hr {
 .careers .testimonials .testimonials-credentials {
 	/* margin: 1rem; */
 	margin-bottom: 3rem;
+	margin-left: 1rem;
+	flex-direction: column;
+	align-items: start;
 }
 
 .careers .testimonials h3 {
@@ -661,7 +665,6 @@ hr {
 
 .careers .testimonials p {
 	text-align: center;
-	padding-left: 1rem;
 }
 
 .careers .testimonials .testimonials-dot {
@@ -682,4 +685,131 @@ hr {
 	cursor: pointer;
 	background: rgb(0, 0, 0);
 	border-radius: 50%;
+}
+
+.careers .locations {
+	padding-top: 2rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 2rem 7rem;
+}
+
+.careers .locations h1 {
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+.careers .locations-container .card {
+	color: var(--secondary-color);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.careers .locations-container .card:hover {
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.careers .locations .locations-container h2 {
+	color: var(--light-grey-text);
+	font-size: 1.2rem;
+}
+
+.careers .locations .locations-container p {
+	font-size: 1rem;
+	padding-bottom: 1rem;
+	color: var(--light-grey-text);
+}
+
+.careers .locations .locations-container {
+	grid-template-columns: repeat(4, 1fr);
+	justify-content: center;
+	align-content: center;
+	margin: 0 5rem;
+}
+
+.careers .locations .locations-container > *:last-child {
+	grid-row: 3;
+	grid-column: 3;
+}
+
+.careers .locations .locations-container > *:nth-child(9) {
+	grid-row: 3;
+	grid-column: 2;
+}
+
+.careers .openings {
+	padding-top: 1rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 1rem 1rem;
+}
+
+.careers .openings h1 {
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+.careers .openings a {
+	color: var(--dark-color);
+}
+
+.careers .openings .openings-items {
+	justify-content: space-between;
+	align-items: flex-end;
+	border-bottom: 1px solid rgb(218, 225, 233);
+	margin: 0.5rem 1rem;
+}
+
+.careers .openings .openings-items h2 {
+	font-size: 1.4rem;
+	font-weight: 500;
+	padding-bottom: 0.5rem;
+	margin-bottom: 0.8rem;
+}
+
+.careers .openings .openings-items .openings-number h2 {
+	padding: 0.5rem 1rem;
+	font-size: 1.2rem;
+	background-color: rgb(155, 194, 236);
+	text-align: center;
+	margin-right: 0.5rem;
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+	width: 1.9rem;
+	height: 1.9rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	padding: 3px 0px 1px;
+}
+
+.careers .openings .font-awesome {
+	font-size: 1rem;
+	opacity: 0.5;
+}
+
+.careers .legal {
+	padding-top: 1rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 1rem 7rem;
+}
+
+.careers .legal a {
+	color: var(--primary-color);
+}
+
+.careers .legal p {
+	font-size: 0.9rem;
+	line-height: 1.5rem;
+	color: rgb(78, 92, 110);
+	margin: auto;
+	padding: 0.4rem 0;
 }
