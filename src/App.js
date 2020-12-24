@@ -16,7 +16,6 @@ function App() {
 	return (
 		<ReviewsProvider>
 			<div className="App">
-				<Home />
 				<Careers />
 			</div>
 		</ReviewsProvider>

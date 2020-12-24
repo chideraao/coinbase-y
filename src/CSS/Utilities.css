@@ -92,3 +92,7 @@
 		transform: translateX(0);
 	}
 }
+
+button:disabled {
+	opacity: 0;
+}

@@ -5,7 +5,14 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import { ReviewsContext } from "../State/ReviewsContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Carousel from "react-bootstrap/Carousel";
+import {
+	ButtonBack,
+	ButtonNext,
+	CarouselProvider,
+	Slide,
+	Slider,
+} from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 function Careers() {
 	const [career, setCareer] = useContext(ReviewsContext);
@@ -13,8 +20,6 @@ function Careers() {
 	const [slideIn, setSlideIn] = useState(false);
 
 	const { reviews, openings, locations } = career;
-
-	console.log(locations);
 
 	const increment = () => {
 		if (index <= 5) {
@@ -37,8 +42,6 @@ function Careers() {
 			}, 1000);
 		}
 	};
-
-	console.log(career);
 	return (
 		<div className="careers">
 			<Header />
@@ -148,111 +151,52 @@ function Careers() {
 
 			<section className="testimonials">
 				<div className="container">
-					{/* <div className="testimonials-container">
+					<div className="testimonials-container">
 						<div className="testimonials-header">
 							<h1>What people say</h1>
 						</div>
-						<Carousel>
-							{reviews.map((review) => {
-								return (
-									<Carousel.Item>
-										<div className="testimonials-quote">
-											<h1>" {review.text} "</h1>
-										</div>
-										<div className="testimonials-details flex">
-											<img src={review.img} alt={`${review.name} img`} />
-											<div className="testimonials-credentials">
-												<h3>{review.name}</h3>
-												<p>{review.title} </p>
+						<CarouselProvider
+							totalSlides={7}
+							naturalSlideWidth={100}
+							naturalSlideHeight={40}
+							className="carousel grid"
+						>
+							<ButtonBack className="carousel-button">
+								<FontAwesomeIcon
+									className="font-awesome"
+									fontWeight="light"
+									icon="chevron-left"
+									size="3x"
+								/>
+							</ButtonBack>
+							<Slider>
+								{reviews.map((review) => {
+									return (
+										<Slide index={`${review.id - 1}`}>
+											<div className="testimonials-quote">
+												<h1>" {review.text} "</h1>
 											</div>
-										</div>
-									</Carousel.Item>
-								);
-							})}
-						</Carousel>
-					</div> */}
-
-					<div className="flex">
-						{index >= 1 ? (
-							<FontAwesomeIcon
-								className="font-awesome"
-								fontWeight="light"
-								icon="chevron-left"
-								onClick={decrement}
-								size="3x"
-							/>
-						) : (
-							""
-						)}
-						<div className="testimonials-container">
-							<div className="testimonials-header">
-								<h1>What people say</h1>
-							</div>
-							<div className={slideIn ? "slide-in" : "slide-out"}>
-								<div className="testimonials-quote">
-									<h1>" {reviews[index].text} "</h1>
-								</div>
-								<div className="testimonials-details flex">
-									<img
-										src={reviews[index].img}
-										alt={`${reviews[index].name} img`}
-									/>
-									<div className="testimonials-credentials flex">
-										<h3>{reviews[index].name}</h3>
-										<p>{reviews[index].title} </p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						{index <= 5 ? (
-							<FontAwesomeIcon
-								className="font-awesome"
-								fontWeight="light"
-								icon="chevron-right"
-								onClick={increment}
-								size="3x"
-							/>
-						) : (
-							""
-						)}
-					</div>
-					<div className="testimonials-dots flex">
-						<div
-							className={
-								index === 0 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 1 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 2 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 3 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 4 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 5 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
-						<div
-							className={
-								index === 6 ? "testimonials-dot-active" : "testimonials-dot"
-							}
-						></div>
+											<div className="testimonials-details flex">
+												<img src={review.img} alt={`${review.name} img`} />
+												<div className="testimonials-credentials">
+													<h3>{review.name}</h3>
+													<p>{review.title} </p>
+												</div>
+											</div>
+										</Slide>
+									);
+								})}
+							</Slider>
+							<ButtonNext className="carousel-button">
+								<FontAwesomeIcon
+									className="font-awesome"
+									fontWeight="light"
+									icon="chevron-right"
+									onClick={increment}
+									size="3x"
+								/>
+							</ButtonNext>
+						</CarouselProvider>
 					</div>
 				</div>
 			</section>
@@ -264,7 +208,6 @@ function Careers() {
 					</div>
 					<div className="locations-container grid">
 						{locations.map((location) => {
-							console.log(location.svg);
 							return (
 								<a href="#">
 									{" "}

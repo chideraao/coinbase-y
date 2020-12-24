@@ -36,7 +36,7 @@ export const ReviewsProvider = (props) => {
 				title: "Consumer Advocate",
 				img: Priyanka,
 				text:
-					"People here don’t just care about what you know, they care about you as a person. When you interview here, it’s not about just whether you’ll be good for Coinbase, but if Coinbase will be good for you.",
+					"People here don’t just care about what you know, they care about you as a person. When you interview here, it’s not about just whether you’ll be good for Basecoin, but if Basecoin will be good for you.",
 			},
 			{
 				id: 3,
@@ -44,7 +44,7 @@ export const ReviewsProvider = (props) => {
 				title: "Engineering Manager",
 				img: Jesse,
 				text:
-					"Coinbase is growing fast, but there are still more challenges than there are people. So if finding and solving problems lights you up, you’ll have fun here.",
+					"Basecoin is growing fast, but there are still more challenges than there are people. So if finding and solving problems lights you up, you’ll have fun here.",
 			},
 			{
 				id: 4,
@@ -60,7 +60,7 @@ export const ReviewsProvider = (props) => {
 				title: "Product Manager",
 				img: Reuben,
 				text:
-					"There are really good friendships here. Coinbase people are driven, passionate, generous with their time—it’s unbelievable how kind everyone is.",
+					"There are really good friendships here. Basecoin people are driven, passionate, generous with their time—it’s unbelievable how kind everyone is.",
 			},
 			{
 				id: 6,
