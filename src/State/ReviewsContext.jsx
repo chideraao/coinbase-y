@@ -21,6 +21,7 @@ export const ReviewsContext = React.createContext();
 
 export const ReviewsProvider = (props) => {
 	const [career, setCareer] = useState({
+		/**state for carousel in Careers*/
 		reviews: [
 			{
 				id: 1,
@@ -79,6 +80,8 @@ export const ReviewsProvider = (props) => {
 					"There are so few barriers to good ideas and opportunities here—you can create change regardless of your role. It’s inspiring to know that we want to maintain that culture as we grow.",
 			},
 		],
+
+		/* state for the joblist items*/
 		openings: [
 			{ title: "Business Development & Sales", num: 4 },
 			{ title: "Business Operations & Startegy", num: 7 },
@@ -104,6 +107,7 @@ export const ReviewsProvider = (props) => {
 			{ title: "Unlisted", num: 1 },
 		],
 
+		/**state for locations container */
 		locations: [
 			{ svg: SanFrancisco, city: "San Francisco, CA", number: 54 },
 			{ svg: Redwood, city: "Redwood City, CA", number: 1 },

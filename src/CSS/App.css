@@ -106,23 +106,23 @@ img {
 }
 
 .showcase h1 {
-	font-size: 48px;
+	font-size: 3.4rem;
 	font-weight: 700;
-	line-height: 52px;
+	line-height: 2.5rem;
 	padding: 0 4rem;
 	padding-bottom: 1rem;
 }
 
 .showcase p {
-	font-size: 16px;
-	line-height: 28px;
+	font-size: 1rem;
+	line-height: 1.8rem;
 	padding-bottom: 2rem;
 	font-weight: 100;
 }
 
 .showcase-form input[type="email"] {
 	width: 17rem;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.75;
 	height: 4.5rem;
@@ -175,7 +175,7 @@ img {
 }
 
 .banner .banner-text h2 {
-	font-size: 32px;
+	font-size: 2rem;
 	font-weight: 500;
 }
 
@@ -200,7 +200,7 @@ img {
 }
 
 .banner-icons .icon-item h2 {
-	font-size: 22px;
+	font-size: 1.6rem;
 	font-weight: 500;
 	padding: 0.5rem;
 	padding-bottom: 0.7rem;
@@ -213,7 +213,7 @@ img {
 .banner-icons .icon-item span {
 	padding: 1rem;
 	padding-left: 7rem;
-	font-size: 22px;
+	font-size: 1.6rem;
 	color: var(--button-color);
 }
 
@@ -230,7 +230,7 @@ img {
 
 .icon-item:hover {
 	background-color: transparent;
-	border-radius: 10px;
+	border-radius: 0.7rem;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
 	transition: 0.2s ease 0s;
 }
@@ -238,7 +238,7 @@ img {
 .banner-icons .banner-btn {
 	color: var(--primary-color) !important;
 	font-weight: 500;
-	font-size: 19px;
+	font-size: 1.3rem;
 }
 
 .overlay {
@@ -253,7 +253,7 @@ img {
 }
 
 .overlay .overlay-head h2 {
-	font-size: 40px;
+	font-size: 2.4rem;
 	font-weight: 500;
 	padding-bottom: 1rem;
 }
@@ -833,4 +833,98 @@ hr {
 	text-align: start;
 	padding-bottom: 2rem;
 	margin: 1rem 7rem;
+}
+
+/*------------------------------------------ ABOUT PAGE  --------------------------------------------------------------------- */
+
+.about-header {
+	background-color: var(--primary-color);
+	padding-bottom: 1rem;
+}
+
+.about-header .navbar {
+	justify-content: space-between;
+	padding-bottom: 1rem;
+}
+
+.logo {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.about-header .navbar a:hover {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.about-header .auth a {
+	font-size: 0.8rem;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.about-header .auth .btn-outline {
+	border: 2px solid;
+	padding: 0.5rem;
+	border-radius: 1px;
+}
+
+.about-header .auth .btn-outline:hover {
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border: 2px solid var(--secondary-color);
+}
+
+.navbar .auth {
+	justify-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar .flex a {
+	padding: 1rem 1rem;
+}
+
+.about .showcase {
+	background-color: var(--primary-color);
+	color: #fff;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: auto;
+	padding: 0 24px;
+	height: 12rem;
+}
+
+.about .showcase h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	line-height: 3.4;
+	padding: 0 4rem;
+	padding-bottom: 1rem;
+}
+
+.about .subnav a {
+	color: var(--dark-color);
+	padding-bottom: 1rem;
+	font-size: 0.8rem;
+}
+
+.about .subnav .nav li {
+	padding: 1rem 1.5rem;
+	padding-bottom: 1rem;
+	opacity: 0.5;
+}
+
+.about .subnav .nav ul > *:first-child {
+	opacity: 1;
+}
+
+.about .subnav .nav .about {
+	border-bottom: 1px solid var(--dark-color);
+	padding-bottom: 1.22rem;
 }

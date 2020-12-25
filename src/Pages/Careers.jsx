@@ -16,32 +16,9 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 function Careers() {
 	const [career, setCareer] = useContext(ReviewsContext);
-	const [index, setIndex] = useState(0);
-	const [slideIn, setSlideIn] = useState(false);
 
 	const { reviews, openings, locations } = career;
 
-	const increment = () => {
-		if (index <= 5) {
-			setSlideIn(true);
-			setIndex(index + 1);
-
-			setTimeout(() => {
-				setSlideIn(null);
-			}, 1000);
-		}
-	};
-
-	const decrement = () => {
-		if (index >= 1) {
-			setSlideIn(false);
-			setIndex(index - 1);
-
-			setTimeout(() => {
-				setSlideIn(null);
-			}, 1000);
-		}
-	};
 	return (
 		<div className="careers">
 			<Header />
@@ -192,7 +169,6 @@ function Careers() {
 									className="font-awesome"
 									fontWeight="light"
 									icon="chevron-right"
-									onClick={increment}
 									size="3x"
 								/>
 							</ButtonNext>
