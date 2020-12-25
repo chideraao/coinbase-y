@@ -827,14 +827,6 @@ hr {
 	padding: 0.4rem 0;
 }
 
-.sections {
-	padding-top: 1rem;
-	background-color: var(--secondary-color);
-	text-align: start;
-	padding-bottom: 2rem;
-	margin: 1rem 7rem;
-}
-
 /*------------------------------------------ ABOUT PAGE  --------------------------------------------------------------------- */
 
 .about-header {
@@ -927,4 +919,64 @@ hr {
 .about .subnav .nav .about {
 	border-bottom: 1px solid var(--dark-color);
 	padding-bottom: 1.22rem;
+}
+
+.about .main {
+	padding-top: 0rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 1rem 7rem;
+}
+
+.about .main .main-text {
+	margin: 0rem 1.4rem;
+	margin-bottom: 6rem;
+}
+
+.about .main .main-text h2 {
+	margin-bottom: 1.2em;
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.about .main .main-text p {
+	font-size: 1.1rem;
+}
+
+.about .main .main-stats {
+	margin: 1rem 7rem;
+	margin-top: 4em;
+}
+
+.about .main .main-stats h2 {
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.about .main .main-stats h3 {
+	font-weight: 300;
+	color: #1874c1;
+	font-size: 2rem;
+	padding: 0;
+	text-align: left;
+	margin: 1.2rem 0 0;
+}
+
+.about .main .main-stats h4 {
+	display: block;
+	color: #536676;
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-weight: 100;
+}
+
+.execs {
+	padding-top: 2rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 2rem 7rem;
 }
