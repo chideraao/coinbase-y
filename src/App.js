@@ -7,6 +7,7 @@ import {
 import "./CSS/App.css";
 import "./CSS/Utilities.css";
 import About from "./Pages/About";
+import { AboutProvider } from "./State/AboutContext";
 // import Careers from "./Pages/Careers";
 // import Home from "./Pages/Home";
 import { ReviewsProvider } from "./State/ReviewsContext";
@@ -15,11 +16,13 @@ library.add(faChevronLeft, faChevronRight);
 
 function App() {
 	return (
-		<ReviewsProvider>
-			<div className="App">
-				<About />
-			</div>
-		</ReviewsProvider>
+		<AboutProvider>
+			<ReviewsProvider>
+				<div className="App">
+					<About />
+				</div>
+			</ReviewsProvider>
+		</AboutProvider>
 	);
 }
 

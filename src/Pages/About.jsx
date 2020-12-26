@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import AboutFooter from "../Components/AboutFooter";
 import AboutHeader from "../Components/AboutHeader";
+import { AboutContext } from "../State/AboutContext";
 
 function About() {
+	const [about, , setAbout] = useContext(AboutContext);
+
+	const { execs, board, logos } = about;
+
+	console.log(execs);
+	console.log(board);
+	console.log(logos);
+
 	return (
 		<div className="about">
 			<AboutHeader />
