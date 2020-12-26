@@ -55,7 +55,7 @@ export const AboutProvider = (props) => {
 				position: "Executive VP of Engineering",
 			},
 		],
-		board: [
+		boards: [
 			{
 				name: "Brian Armstrong",
 				img: Brian,
@@ -67,14 +67,14 @@ export const AboutProvider = (props) => {
 				position: "Co-Founder & Board Director",
 			},
 			{ name: "Fred Wilson", img: FredW, position: "Board Director" },
-			{ name: "Katie Haunx", img: Katie, position: "Board Director" },
+			{ name: "Katie Haun", img: Katie, position: "Board Director" },
 			{ name: "Gokul Rajaram", img: Gokul, position: "Board Director" },
 			{ name: "Marc Andreessen", img: Marc, position: "Board Director" },
 			{ name: "Kelly Kramer", img: Kelly, position: "Board Director" },
 			{ name: "Barry Schuler", img: Barry, position: "Board Observer" },
 			{ name: "Tom Loverro", img: Tom, position: "Board Observer" },
 		],
-		logos: [
+		investors: [
 			Andreessen,
 			Tiger,
 			IVP,

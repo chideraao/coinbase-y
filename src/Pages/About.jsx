@@ -2,15 +2,16 @@ import React, { useContext } from "react";
 import AboutFooter from "../Components/AboutFooter";
 import AboutHeader from "../Components/AboutHeader";
 import { AboutContext } from "../State/AboutContext";
+import office from "../logos/office2-51b6aa31b086d8bd194fee5b57fd0102d85f172ed587790fe1a154223a4dc6ef.jpg";
 
 function About() {
 	const [about, , setAbout] = useContext(AboutContext);
 
-	const { execs, board, logos } = about;
+	const { execs, boards, investors } = about;
 
 	console.log(execs);
-	console.log(board);
-	console.log(logos);
+	console.log(boards);
+	console.log(investors);
 
 	return (
 		<div className="about">
@@ -90,8 +91,76 @@ function About() {
 				</div>
 			</section>
 			<hr />
-			<section className="execs">
-				<div className="container"></div>
+			<section className="executives">
+				<div className="container grid">
+					<div className="execs">
+						<h3>Our Executive Team</h3>
+						<div className="grid">
+							{execs.map((exec) => {
+								return (
+									<div className="execs-wrapper">
+										<img src={exec.img} alt="" />
+										<p>
+											<a href="#">{exec.name}</a>
+											<br />
+											<h5>{exec.position}</h5>
+										</p>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+					<div className="vertical-line"></div>
+					<div className="board">
+						<h3>Our Board of Directors</h3>
+						<div className="grid">
+							{boards.map((board) => {
+								return (
+									<div className="board-wrapper">
+										<img src={board.img} alt="" />
+										<p>
+											<a href="#">{board.name}</a>
+											<br />
+											<h5>{board.position}</h5>
+										</p>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			</section>
+			<hr />
+			<section className="investors">
+				<div className="container">
+					<h3>$500M+ raised from world's leading investors</h3>
+					<div className="grid">
+						{investors.map((investor) => {
+							return (
+								<div className="inverstors-wrapper">
+									<img src={investor} alt="" />
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</section>
+			<section>
+				<div className=" grid">
+					<div>
+						<img src={office} alt="astronauts in space" />
+					</div>
+					<div className="banner-footer-text">
+						<h2>Earn up to $164 worth of crypto</h2>
+						<p>
+							Discover how specific cryptocurrencies work — and get a bit of
+							each crypto to try out for yourself.
+						</p>
+						<a href="" className="btn btn-outline">
+							Start earning
+						</a>
+					</div>
+				</div>
 			</section>
 			<AboutFooter />
 		</div>

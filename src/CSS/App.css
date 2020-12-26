@@ -918,7 +918,7 @@ hr {
 
 .about .subnav .nav .about {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.22rem;
+	padding-bottom: 1.21rem;
 }
 
 .about .main {
@@ -973,10 +973,91 @@ hr {
 	font-weight: 100;
 }
 
-.execs {
+.executives {
 	padding-top: 2rem;
 	background-color: var(--secondary-color);
 	text-align: start;
-	padding-bottom: 2rem;
-	margin: 2rem 7rem;
+	margin: 2rem 1rem;
+	text-align: center;
+}
+
+.executives .container {
+	max-width: 1550px;
+	margin: 2rem 3rem;
+	grid-template-columns: 4fr 1fr 4fr;
+}
+
+.executives h3 {
+	margin-bottom: 1.2em;
+	font-size: 1rem;
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.executives img {
+	height: 6rem;
+	width: 6rem;
+}
+
+.executives a {
+	color: var(--dark-color);
+	line-height: 1.4;
+	font-weight: 700;
+	font-size: 1rem;
+}
+
+.executives h5 {
+	line-height: 1.4;
+	font-weight: 400;
+	opacity: 0.9;
+	font-size: 1rem;
+}
+
+.executives .container .execs .grid,
+.executives .container .board .grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.executives .execs .execs-wrapper,
+.executives .board .board-wrapper {
+	margin-bottom: 2rem;
+}
+
+.vertical-line {
+	border-left: 2px solid var(--dark-color);
+	opacity: 0.2;
+	margin-left: 4rem;
+	margin-bottom: 4rem;
+	height: 400px;
+	background-color: #f2f2f2;
+	width: 2.5px;
+	display: block;
+}
+.investors {
+	padding-top: 2rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	margin: 2rem 1rem;
+	text-align: center;
+}
+
+.investors .grid {
+	grid-template-columns: repeat(auto-fill, 220px);
+}
+
+.investors h3 {
+	margin-bottom: 5rem;
+	font-size: 1rem;
+	text-align: start;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.investors img {
+	padding: 0 1rem;
+}
+
+.investors .container .flex {
+	flex-wrap: wrap;
 }
