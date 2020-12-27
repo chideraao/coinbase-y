@@ -67,7 +67,7 @@ img {
 .logo {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 16px;
 }
 
@@ -842,7 +842,7 @@ hr {
 .logo {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 16px;
 }
 
@@ -973,7 +973,7 @@ hr {
 	font-weight: 100;
 }
 
-.executives {
+.about .executives {
 	padding-top: 2rem;
 	background-color: var(--secondary-color);
 	text-align: start;
@@ -981,13 +981,13 @@ hr {
 	text-align: center;
 }
 
-.executives .container {
+.about .executives .container {
 	max-width: 1550px;
 	margin: 2rem 3rem;
 	grid-template-columns: 4fr 1fr 4fr;
 }
 
-.executives h3 {
+.about .executives h3 {
 	margin-bottom: 1.2em;
 	font-size: 1rem;
 	text-align: center;
@@ -995,38 +995,38 @@ hr {
 	letter-spacing: 1px;
 }
 
-.executives img {
+.about .executives img {
 	height: 6rem;
 	width: 6rem;
 }
 
-.executives a {
+.about .executives a {
 	color: var(--dark-color);
 	line-height: 1.4;
 	font-weight: 700;
 	font-size: 1rem;
 }
 
-.executives h5 {
+.about .executives h5 {
 	line-height: 1.4;
 	font-weight: 400;
 	opacity: 0.9;
 	font-size: 1rem;
 }
 
-.executives .container .execs .grid,
-.executives .container .board .grid {
+.about .executives .container .execs .grid,
+.about .executives .container .board .grid {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-.executives .execs .execs-wrapper,
-.executives .board .board-wrapper {
+.about .executives .execs .execs-wrapper,
+.about .executives .board .board-wrapper {
 	margin-bottom: 2rem;
 }
 
-.vertical-line {
+.about .vertical-line {
 	border-left: 2px solid var(--dark-color);
-	opacity: 0.2;
+	opacity: 0.1;
 	margin-left: 4rem;
 	margin-bottom: 4rem;
 	height: 400px;
@@ -1034,7 +1034,7 @@ hr {
 	width: 2.5px;
 	display: block;
 }
-.investors {
+.about .investors {
 	padding-top: 2rem;
 	background-color: var(--secondary-color);
 	text-align: start;
@@ -1042,11 +1042,11 @@ hr {
 	text-align: center;
 }
 
-.investors .grid {
+.about .investors .grid {
 	grid-template-columns: repeat(auto-fill, 220px);
 }
 
-.investors h3 {
+.about .investors h3 {
 	margin-bottom: 5rem;
 	font-size: 1rem;
 	text-align: start;
@@ -1054,10 +1054,158 @@ hr {
 	letter-spacing: 1px;
 }
 
-.investors img {
+.about .investors img {
 	padding: 0 1rem;
 }
 
-.investors .container .flex {
+.about .investors .container .flex {
 	flex-wrap: wrap;
+}
+
+.about .office {
+	padding-top: 2rem;
+	text-align: start;
+	margin: 2rem 1rem;
+	height: 27rem;
+	width: 100%;
+	text-align: center;
+	color: var(--dark-color);
+	background-size: cover;
+	background: url(../logos/office2-51b6aa31b086d8bd194fee5b57fd0102d85f172ed587790fe1a154223a4dc6ef.jpg)
+		left center #fff no-repeat;
+}
+
+.about .office .grid {
+	grid-template-columns: repeat(2, 1fr);
+	height: auto;
+	width: auto;
+	justify-items: start;
+}
+
+.about .office .footer-text {
+	background-color: var(--secondary-color);
+	text-align: start;
+	margin: 5rem 0rem;
+	margin-top: 2rem;
+	margin-left: 15rem;
+	padding: 2rem;
+	padding-right: 5rem;
+	z-index: 9;
+}
+
+.about .office .footer-text h2 {
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.about .office p {
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+.about .office .footer-text a {
+	color: var(--primary-color);
+	font-weight: 300;
+}
+
+.about .contact {
+	padding-top: 2rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 4rem;
+	margin: 1rem 7rem;
+}
+
+.about .contact h3 {
+	margin-bottom: 1.2em;
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.about .contact .grid {
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: flex-start;
+	align-items: start;
+}
+
+.about .contact .contact-svg {
+	height: 3rem;
+	width: 3rem;
+	margin-right: 2rem;
+	margin-top: 1rem;
+}
+
+.about .contact .icon-wrapper-text a {
+	color: var(--primary-color);
+	font-size: 0.9em;
+	font-weight: 300;
+}
+
+.about .contact .help-center,
+.about .contact .press,
+.about .contact .mailing {
+	align-items: flex-start;
+}
+
+.about .contact .mailing-address {
+	font-size: 0.9em;
+}
+
+.about .about-footer {
+	background-color: #f1f3f5;
+	padding-top: 2rem;
+	text-align: start;
+	padding-bottom: 2rem;
+}
+
+.about .about-footer a {
+	color: var(--light-grey-text);
+	font-size: 0.9rem;
+	font-weight: 300;
+}
+
+.about .about-footer .grid {
+	grid-template-columns: repeat(6, 1fr);
+	align-items: baseline;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+}
+
+.about .about-footer .flex {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.about .about-footer h2 {
+	color: var(--light-grey-text);
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+}
+
+.about .about-footer .selectbox h3 {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+.about .about-footer .selectbox {
+	margin-bottom: 3rem;
+}
+
+.about .about-footer .language,
+.about .about-footer .social,
+.about .about-footer .products,
+.about .about-footer .company,
+.about .about-footer .learn {
+	margin-top: 1rem;
+}
+
+.about .about-footer .products a:hover,
+.about .about-footer .learn a:hover,
+.about .about-footer .company a:hover,
+.about .about-footer .social a:hover,
+.about .about-footer .language a:hover {
+	text-decoration: underline;
 }

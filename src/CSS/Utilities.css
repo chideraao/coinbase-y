@@ -65,34 +65,6 @@
 	color: rgb(255, 255, 255);
 }
 
-.slide-in {
-	animation: slideInFromLeft 200ms ease;
-}
-
-.slide-out {
-	animation: slideInFromRight 200ms ease;
-}
-
-@keyframes slideInFromLeft {
-	0% {
-		transform: translateX(-50%);
-	}
-
-	100% {
-		transform: translateX(0);
-	}
-}
-
-@keyframes slideInFromRight {
-	0% {
-		transform: translateX(50%);
-	}
-
-	100% {
-		transform: translateX(0);
-	}
-}
-
 button:disabled {
 	opacity: 0;
 }

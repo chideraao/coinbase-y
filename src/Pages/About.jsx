@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import AboutFooter from "../Components/AboutFooter";
 import AboutHeader from "../Components/AboutHeader";
 import { AboutContext } from "../State/AboutContext";
-import office from "../logos/office2-51b6aa31b086d8bd194fee5b57fd0102d85f172ed587790fe1a154223a4dc6ef.jpg";
+import { ReactComponent as Support } from "../logos/question.svg";
+import { ReactComponent as Press } from "../logos/press.svg";
+import { ReactComponent as Mailing } from "../logos/mailing.svg";
 
 function About() {
 	const [about, , setAbout] = useContext(AboutContext);
@@ -145,20 +147,53 @@ function About() {
 					</div>
 				</div>
 			</section>
-			<section>
-				<div className=" grid">
-					<div>
-						<img src={office} alt="astronauts in space" />
-					</div>
-					<div className="banner-footer-text">
-						<h2>Earn up to $164 worth of crypto</h2>
+			<section className="office">
+				<div className="grid">
+					<div className="fake-wrapper"></div>
+					<div className="footer-text">
+						<h2>Working at Basecoin</h2>
 						<p>
-							Discover how specific cryptocurrencies work — and get a bit of
-							each crypto to try out for yourself.
+							We believe cryptocurrency is the future of money, and that
+							building a robust, trusted, and accessible cryptoeconomy will
+							create a more equitable and open financial system around the
+							world. If you are interested in helping us work toward this
+							mission, we saved a seat for you.
 						</p>
-						<a href="" className="btn btn-outline">
-							Start earning
-						</a>
+						<a href="#">View open positions {">"}</a>
+					</div>
+				</div>
+			</section>
+			<section className="contact">
+				<div className="container">
+					<h3>Contact Us</h3>
+				</div>
+				<div className="icon-wrapper grid">
+					<div className="help-center flex">
+						<Support className="contact-svg" />
+						<div className="icon-wrapper-text">
+							<p>Support</p>
+							<a href="#">Help Center</a>
+						</div>
+					</div>
+					<div className="press flex">
+						<Press className="contact-svg" />
+						<div className="icon-wrapper-text">
+							<p>Press</p>
+							<a href="#">press@basecoin.com</a> <br />
+							<a href="#">Press page {">"} </a>
+						</div>
+					</div>
+					<div className="mailing flex">
+						<Mailing className="contact-svg" />
+						<div className="icon-wrapper-text">
+							<p>Mailing Address</p>
+							<p className="mailing-address">
+								Basecoin, Inc. <br />
+								100 Pine Street <br />
+								Suite 1250 <br />
+								San Francisco, CA 94111
+							</p>
+						</div>
 					</div>
 				</div>
 			</section>
