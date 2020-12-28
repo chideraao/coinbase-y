@@ -28,7 +28,7 @@ function Header() {
 							</li>
 							<li>
 								<a className="crypto" href="/crypto">
-									Crypto
+									Earn crypto
 								</a>
 							</li>
 						</ul>

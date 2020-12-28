@@ -11,10 +11,6 @@ function About() {
 
 	const { execs, boards, investors } = about;
 
-	console.log(execs);
-	console.log(boards);
-	console.log(investors);
-
 	return (
 		<div className="about">
 			<AboutHeader />

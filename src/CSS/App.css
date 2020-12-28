@@ -8,6 +8,7 @@
 	--dark-blue-text: rgb(0, 47, 107);
 	--light-grey-text: rgb(144, 161, 184);
 	--light-blue: rgb(233, 246, 255);
+	--purple-button: rgb(22, 82, 240);
 }
 
 * {
@@ -78,6 +79,7 @@ img {
 .navbar ul {
 	display: flex;
 	justify-self: flex-start;
+
 	align-items: center;
 	justify-content: center;
 }
@@ -89,8 +91,15 @@ img {
 	justify-content: center;
 }
 
+.navbar .auth a {
+	font-size: 0.9rem;
+	margin-right: 1rem;
+}
+
 .navbar .flex a {
-	padding: 1rem 1rem;
+	padding: 1rem 0rem;
+	margin: 0rem 1rem;
+	font-size: 0.9rem;
 }
 
 .showcase {
@@ -106,7 +115,7 @@ img {
 }
 
 .showcase h1 {
-	font-size: 3.4rem;
+	font-size: 3rem;
 	font-weight: 700;
 	line-height: 2.5rem;
 	padding: 0 4rem;
@@ -218,7 +227,7 @@ img {
 }
 
 .banner-icons .icon-item .comp-span {
-	padding-left: 5rem;
+	padding-left: 2rem;
 }
 
 .banner-icons .icon-item img {
@@ -533,7 +542,7 @@ hr {
 	border-bottom: 2px solid rgb(255, 255, 255);
 }
 
-.header-container {
+.careers .header-container {
 	position: relative;
 	text-align: center;
 	height: 40rem;
@@ -869,14 +878,14 @@ hr {
 	border: 2px solid var(--secondary-color);
 }
 
-.navbar .auth {
+.about .navbar .auth {
 	justify-self: flex-end;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.navbar .flex a {
+.about .navbar .flex a {
 	padding: 1rem 1rem;
 }
 
@@ -1153,59 +1162,114 @@ hr {
 	font-size: 0.9em;
 }
 
-.about .about-footer {
+.about-footer {
 	background-color: #f1f3f5;
 	padding-top: 2rem;
 	text-align: start;
 	padding-bottom: 2rem;
 }
 
-.about .about-footer a {
+.about-footer a {
 	color: var(--light-grey-text);
 	font-size: 0.9rem;
 	font-weight: 300;
 }
 
-.about .about-footer .grid {
+.about-footer .grid {
 	grid-template-columns: repeat(6, 1fr);
 	align-items: baseline;
 	margin-top: 1rem;
 	margin-bottom: 3rem;
 }
 
-.about .about-footer .flex {
+.about-footer .flex {
 	flex-direction: column;
 	align-items: flex-start;
 }
 
-.about .about-footer h2 {
+.about-footer h2 {
 	color: var(--light-grey-text);
 	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.5px;
 }
 
-.about .about-footer .selectbox h3 {
+.about-footer .selectbox h3 {
 	color: var(--primary-color);
 	font-weight: 700;
 }
 
-.about .about-footer .selectbox {
+.about-footer .selectbox {
 	margin-bottom: 3rem;
 }
 
-.about .about-footer .language,
-.about .about-footer .social,
-.about .about-footer .products,
-.about .about-footer .company,
+.about-footer .language,
+.about-footer .social,
+.about-footer .products,
+.about-footer .company,
 .about .about-footer .learn {
 	margin-top: 1rem;
 }
 
-.about .about-footer .products a:hover,
-.about .about-footer .learn a:hover,
-.about .about-footer .company a:hover,
-.about .about-footer .social a:hover,
-.about .about-footer .language a:hover {
+.about-footer .products a:hover,
+.about-footer .learn a:hover,
+.about-footer .company a:hover,
+.about-footer .social a:hover,
+.about-footer .language a:hover {
 	text-decoration: underline;
+}
+
+/*--------------------------------------------------     EARN    -------------------------------------------------------------*/
+.earn .header-container {
+	background: url(../logos//earn_header_1.svg) no-repeat;
+	height: 60rem;
+	width: 100%;
+	/* padding: 1rem; */
+	padding-bottom: 1rem;
+}
+
+.earn .header {
+	background: none;
+}
+
+.earn .crypto {
+	border-bottom: 2px solid rgb(255, 255, 255);
+	padding: 0rem;
+}
+
+.earn .navbar .auth .btn {
+	background-color: transparent;
+	border: none;
+}
+
+.earn .navbar .auth .btn-outline {
+	border: 1px white solid;
+}
+
+.earn .showcase {
+	background: none;
+	margin: 4rem;
+	margin-top: 2rem;
+}
+
+.earn .showcase .flex {
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.earn .showcase h1 {
+	margin: 0rem 14rem;
+	line-height: 1.3;
+}
+
+.earn .showcase p {
+	font-size: 0.9rem;
+}
+
+.earn .showcase .btn {
+	background-color: var(--purple-button);
+	text-align: center;
+	font-size: 0.9rem;
+	padding: 0.8rem 1.8rem;
+	/* width: 5rem; */
 }

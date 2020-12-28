@@ -6,7 +6,8 @@ import {
 
 import "./CSS/App.css";
 import "./CSS/Utilities.css";
-import About from "./Pages/About";
+// import About from "./Pages/About";
+import Earn from "./Pages/Earn";
 import { AboutProvider } from "./State/AboutContext";
 // import Careers from "./Pages/Careers";
 // import Home from "./Pages/Home";
@@ -19,7 +20,10 @@ function App() {
 		<AboutProvider>
 			<ReviewsProvider>
 				<div className="App">
-					<About />
+					{/* <Home />
+					<Careers />
+					<About /> */}
+					<Earn />
 				</div>
 			</ReviewsProvider>
 		</AboutProvider>
