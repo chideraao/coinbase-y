@@ -508,6 +508,7 @@ hr {
 .footer .support {
 	flex-direction: column;
 	align-self: start;
+	align-items: flex-start;
 	justify-content: flex-start;
 }
 
@@ -927,7 +928,7 @@ hr {
 
 .about .subnav .nav .about {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.21rem;
+	padding-bottom: 1.15rem;
 }
 
 .about .main {
@@ -1222,11 +1223,42 @@ hr {
 /*--------------------------------------------------     EARN    -------------------------------------------------------------*/
 .earn .header-container {
 	background: url(../logos//earn_header_1.svg) no-repeat;
-	height: 60rem;
+	height: auto;
 	width: 100%;
 	/* padding: 1rem; */
 	padding-bottom: 1rem;
 }
+
+/* .careers .header-container {
+	position: relative;
+	text-align: center;
+	height: 40rem;
+	width: 100%;
+	margin-bottom: 8rem;
+}
+
+.careers .showcase {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	right: 100;
+}
+
+.careers .showcase h1 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	line-height: 4rem;
+	padding: 0 4rem;
+	padding-bottom: 5rem;
+}
+
+.careers .video-container {
+	flex-direction: column;
+	position: absolute;
+	top: 12.5rem;
+	left: 19rem;
+	z-index: 9;
+} */
 
 .earn .header {
 	background: none;
@@ -1248,7 +1280,7 @@ hr {
 
 .earn .showcase {
 	background: none;
-	margin: 4rem;
+	margin: 0 4rem;
 	margin-top: 2rem;
 }
 
@@ -1274,8 +1306,12 @@ hr {
 	/* width: 5rem; */
 }
 
+.earn .cryptos-list {
+	margin-bottom: 4rem;
+}
+
 .earn .course-container {
-	background-color: transparent;
+	background-color: var(--secondary-color);
 	border: 1px solid rgb(231, 235, 238);
 	border-radius: 0.7rem;
 	box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
@@ -1299,6 +1335,7 @@ hr {
 .earn .course-container .course-logo {
 	height: 3rem;
 	width: 6rem;
+	margin-bottom: 0.7rem;
 }
 
 .earn .course-container .course-text-wrapper .flex {
@@ -1329,6 +1366,7 @@ hr {
 	color: rgb(88, 112, 136);
 	line-height: 1.5rem;
 	font-size: 1rem;
+	padding-bottom: 1rem;
 }
 
 .earn .course-container .course-text-wrapper .main-text .flex-between p {
@@ -1341,4 +1379,37 @@ hr {
 
 .earn .course-container .course-text-wrapper .main-text .flex-between .view {
 	padding: 0.6rem 2.5rem;
+}
+
+.earn .getstarted {
+	padding-top: 3rem;
+	background-color: var(--secondary-color);
+	text-align: start;
+	padding-bottom: 2rem;
+	margin: 2rem 7rem;
+}
+
+.earn .getstarted h1 {
+	text-align: center;
+	line-height: 1.3;
+	color: var(--dark-color);
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 3rem;
+}
+
+.earn .getstarted h2 {
+	line-height: 1.3;
+	color: var(--dark-color);
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.earn .getstarted .icon-container {
+	grid-template-columns: repeat(4, 1fr);
+	text-align: center;
+}
+
+.earn .getstarted .icon-container .icon-item-container {
+	margin: 1rem;
 }
