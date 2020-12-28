@@ -12,6 +12,16 @@
 	height: 100%;
 }
 
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-between {
+	display: flex;
+	justify-content: space-between !important;
+}
+
 .grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);

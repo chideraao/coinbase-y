@@ -1273,3 +1273,72 @@ hr {
 	padding: 0.8rem 1.8rem;
 	/* width: 5rem; */
 }
+
+.earn .course-container {
+	background-color: transparent;
+	border: 1px solid rgb(231, 235, 238);
+	border-radius: 0.7rem;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+	transition: 0.2s ease 0s;
+	margin: 1.5rem;
+}
+
+.earn .course-container:hover {
+	background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
+	opacity: 1;
+	z-index: 1;
+	color: #333;
+}
+
+.earn .course-container img {
+	height: 100%;
+	width: 100%;
+}
+
+.earn .course-container .course-logo {
+	height: 3rem;
+	width: 6rem;
+}
+
+.earn .course-container .course-text-wrapper .flex {
+	justify-content: start;
+}
+
+.earn .course-container .course-text-wrapper .main-text {
+	margin-left: 1.5rem;
+}
+
+.earn .course-container .course-text-wrapper .main-text h3 {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 2rem;
+	display: inline;
+	color: var(--dark-color);
+	margin: 3px 10px 3px 0px;
+}
+.earn .course-container .course-text-wrapper .main-text h4 {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	display: inline;
+	font-weight: 500;
+	color: var(--light-grey-text);
+	margin: 0px;
+}
+.earn .course-container .course-text-wrapper .main-text p {
+	color: rgb(88, 112, 136);
+	line-height: 1.5rem;
+	font-size: 1rem;
+}
+
+.earn .course-container .course-text-wrapper .main-text .flex-between p {
+	color: var(--button-color);
+}
+
+.earn .course-container .course-text-wrapper .main-text .flex-between a {
+	padding: 0.7rem 1.3rem;
+}
+
+.earn .course-container .course-text-wrapper .main-text .flex-between .view {
+	padding: 0.6rem 2.5rem;
+}

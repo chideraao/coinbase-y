@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import X0X from "../logos/0x-png.png";
 import Algorand from "../logos/algorand-png.png";
 import Band from "../logos/band-png.png";
-import Bat from "../logos/bat-png.svg";
 import Celo from "../logos/celo-png.png";
 import Compound from "../logos/compound-png.png";
 import Dai from "../logos/dai-png.png";
@@ -14,23 +13,20 @@ import Maker from "../logos/maker-png.png";
 import Orchid from "../logos/orchid-png.png";
 import Stellar from "../logos/stellar-png.png";
 import Tezos from "../logos/tezos-png.png";
-import Zcash from "../logos/zcash-png.svg";
 import { ReactComponent as XLogo } from "../logos/0x-logo.svg";
 import { ReactComponent as AlgorandLogo } from "../logos/algorand-logo.svg";
 import { ReactComponent as BandLogo } from "../logos/band-logo.svg";
-import { ReactComponent as BATLogo } from "../logos/bat.svg";
 import { ReactComponent as CeloLogo } from "../logos/celo-logo.svg";
-import { ReactComponent as CompoundLogo } from "../logos/compound-logo.png";
-import { ReactComponent as DAILogo } from "../logos/dai-logo.png";
-import { ReactComponent as EOSLogo } from "../logos/eos-logo.png";
+import { ReactComponent as CompoundLogo } from "../logos/compound-comp-logo.svg";
+import { ReactComponent as DAILogo } from "../logos/multi-collateral-dai-dai-logo.svg";
+import { ReactComponent as EOSLogo } from "../logos/eos-eos-logo.svg";
 import { ReactComponent as FilecoinLogo } from "../logos/filecoin-logo.svg";
 import { ReactComponent as GraphLogo } from "../logos/graph-logo.svg";
 import { ReactComponent as KyberLogo } from "../logos/kyber-logo.svg";
 import { ReactComponent as MakerLogo } from "../logos/maker-logo.svg";
 import { ReactComponent as OrchidLogo } from "../logos/orchid-logo.svg";
 import { ReactComponent as StellarLogo } from "../logos/stellar-logo.svg";
-import { ReactComponent as TezosLogo } from "../logos/tezos-logo.png";
-import { ReactComponent as ZcashLogo } from "../logos/zcash.svg";
+import { ReactComponent as TezosLogo } from "../logos/tezos-xtz-logo.svg";
 
 export const EarnContext = createContext();
 
@@ -92,7 +88,7 @@ export const EarnProvider = (props) => {
 				earn: 43,
 			},
 		],
-		view: [
+		views: [
 			{
 				name: "Filecoin",
 				abbr: "FIL",
@@ -100,30 +96,6 @@ export const EarnProvider = (props) => {
 					"Filecoin is a decentralized marketplace for data storage and retrieval. Learn how it works and you'll earn up to $6 in FIL.",
 				logo: FilecoinLogo,
 				img: Filecoin,
-			},
-			{
-				name: "Algorand",
-				abbr: "ALGO",
-				text:
-					"Algorand is a blockchain platform that aims to be scalable, secure, and decentralized — all at the same time. Learn how it works and you'll earn up to $6 in ALGO.",
-				logo: AlgorandLogo,
-				img: Algorand,
-			},
-			{
-				name: "Kyber Network",
-				abbr: "KNC",
-				text:
-					"Kyber is a protocol that aims to make exchanging Ethereum tokens easy and frictionless. Learn how it works and you’ll earn up to $6 in KNC.",
-				logo: KyberLogo,
-				img: Kyber,
-			},
-			{
-				name: "Orchid",
-				abbr: "OXT",
-				text:
-					"Orchid is a crypto-powered privacy tool. Learn how it works and you’ll get free OXT to try out Orchid’s VPN service.",
-				logo: OrchidLogo,
-				img: Orchid,
 			},
 			{
 				name: "Tezos",
@@ -150,20 +122,28 @@ export const EarnProvider = (props) => {
 				img: Eos,
 			},
 			{
-				name: "Zcash",
-				abbr: "ZEC",
+				name: "Algorand",
+				abbr: "ALGO",
 				text:
-					"Zcash is a cryptocurrency with strong privacy features. Learn about how it works and you’ll earn Zcash (ZEC).",
-				logo: ZcashLogo,
-				img: Zcash,
+					"Algorand is a blockchain platform that aims to be scalable, secure, and decentralized — all at the same time. Learn how it works and you'll earn up to $6 in ALGO.",
+				logo: AlgorandLogo,
+				img: Algorand,
 			},
 			{
-				name: "Basic Attention Token",
-				abbr: "BAT",
+				name: "Kyber Network",
+				abbr: "KNC",
 				text:
-					"Brave is on a mission to fix what it believes is a broken web. Learn about Brave and you'll earn the Basic Attention Token (BAT).",
-				logo: BATLogo,
-				img: Bat,
+					"Kyber is a protocol that aims to make exchanging Ethereum tokens easy and frictionless. Learn how it works and you’ll earn up to $6 in KNC.",
+				logo: KyberLogo,
+				img: Kyber,
+			},
+			{
+				name: "Orchid",
+				abbr: "OXT",
+				text:
+					"Orchid is a crypto-powered privacy tool. Learn how it works and you’ll get free OXT to try out Orchid’s VPN service.",
+				logo: OrchidLogo,
+				img: Orchid,
 			},
 			{
 				name: "0X",
