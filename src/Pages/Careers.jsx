@@ -42,7 +42,7 @@ function Careers() {
 							></iframe>
 						</div>
 						<div className="button-div">
-							<a href="#" className="btn btn-outline">
+							<a href="#openings" className="btn btn-outline">
 								View all positions
 							</a>
 							<a href="#" className="btn btn-outline">
@@ -67,7 +67,7 @@ function Careers() {
 								we are building a team of smart, creative, passionate optimists,
 								the kind of people who see opportunity where others see
 								roadblocks. If this sounds like you,{" "}
-								<a href="#">check out our open roles.</a>
+								<a href="#openings">check out our open roles.</a>
 							</p>
 						</div>
 					</div>
@@ -199,7 +199,7 @@ function Careers() {
 				</div>
 			</section>
 
-			<section className="openings">
+			<section className="openings" id="openings">
 				<div className="container">
 					<div className="openings-heading">
 						<h1>Choose your team</h1>

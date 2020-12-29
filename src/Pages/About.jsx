@@ -159,7 +159,7 @@ function About() {
 							world. If you are interested in helping us work toward this
 							mission, we saved a seat for you.
 						</p>
-						<a href="#">View open positions {">"}</a>
+						<Link to="/careers"> View open positions {">"}</Link>
 					</div>
 				</div>
 			</section>

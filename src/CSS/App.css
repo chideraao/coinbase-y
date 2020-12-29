@@ -1230,43 +1230,12 @@ hr {
 
 /*--------------------------------------------------     EARN    -------------------------------------------------------------*/
 .earn .header-container {
-	background: url(../logos//earn_header_1.svg) no-repeat;
+	background: url(../logos/earn_header_1.svg) no-repeat;
 	height: auto;
 	width: 100%;
 	/* padding: 1rem; */
 	padding-bottom: 1rem;
 }
-
-/* .careers .header-container {
-	position: relative;
-	text-align: center;
-	height: 40rem;
-	width: 100%;
-	margin-bottom: 8rem;
-}
-
-.careers .showcase {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	right: 100;
-}
-
-.careers .showcase h1 {
-	font-size: 2.5rem;
-	font-weight: 500;
-	line-height: 4rem;
-	padding: 0 4rem;
-	padding-bottom: 5rem;
-}
-
-.careers .video-container {
-	flex-direction: column;
-	position: absolute;
-	top: 12.5rem;
-	left: 19rem;
-	z-index: 9;
-} */
 
 .earn .header {
 	background: none;
@@ -1420,4 +1389,104 @@ hr {
 
 .earn .getstarted .icon-container .icon-item-container {
 	margin: 1rem;
+}
+
+/* ------------------------------------------------------   PRESS   -------------------------------------------------------- */
+.press .header-container {
+	background: url(../logos/background-3dabdc244f91017a9d88e19e819ae499ae6f82fdb5baf52cdab3ed2cee67645a.jpg);
+	height: 20rem;
+	width: 100%;
+	/* padding: 1rem; */
+	padding-bottom: 1rem;
+}
+
+.press .about-header {
+	background: none;
+}
+
+.press .navbar .auth .btn {
+	background-color: transparent;
+	border: none;
+}
+
+.press .navbar .auth .btn-outline {
+	border: 1px white solid;
+}
+
+.press .showcase {
+	background: none;
+	margin: 4 4rem;
+	padding-bottom: 9rem;
+	height: auto;
+}
+
+.press .showcase h1 {
+	color: #fff;
+	font-weight: 700;
+	font-size: 2.5rem;
+	margin-bottom: 0;
+}
+
+.press .subnav {
+	height: auto;
+	margin-bottom: 1.5rem;
+}
+
+.press .subnav a {
+	color: var(--dark-color);
+	padding-bottom: 1rem;
+	font-size: 0.8rem;
+}
+
+.press .subnav .nav li {
+	padding: 1rem 1.5rem;
+	padding-bottom: 1rem;
+	opacity: 0.5;
+}
+
+.press .subnav .nav ul > *:last-child {
+	opacity: 1;
+}
+
+.press .subnav .nav .press {
+	border-bottom: 1px solid var(--dark-color);
+	padding-bottom: 1.2rem;
+}
+
+.press .press-main {
+	background-color: var(--secondary-color);
+	text-align: start;
+	margin: 2rem 7rem;
+	margin-top: 0rem;
+}
+
+.press .press-main a {
+	color: var(--primary-color);
+	font-size: 0.9em;
+}
+
+.press .press-main h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.press .press-main-img {
+	align-items: flex-start;
+	justify-content: start;
+}
+
+.press .press-main img {
+	height: 15rem;
+	width: auto;
+	margin: 0 0.7rem;
+}
+
+.press .press-main .press-main-img .flex-column .flex {
+	justify-content: start;
+}
+
+.press .press-main .press-main-img .flex-column .flex a {
+	font-size: 0.9em;
+	margin: 0 0.5rem;
 }
