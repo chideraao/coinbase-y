@@ -26,7 +26,7 @@ function Footer() {
 					<a href="#">Coinbase</a>
 					<a href="#">Commerce</a>
 					<a href="#">Custody</a>
-					<a href="#">Earn</a>
+					<a href="/earn">Earn</a>
 					<a href="#">Prime</a>
 					<a href="#">Pro</a>
 					<a href="#">USD Coin</a>
@@ -50,9 +50,9 @@ function Footer() {
 				</div>
 				<div className="company flex">
 					<h2>Company</h2>
-					<a href="#">About</a>
+					<a href="/about">About</a>
 					<a href="#">Affiliates</a>
-					<a href="#">Careers</a>
+					<a href="/careers">Careers</a>
 					<a href="#">Partners</a>
 					<a href="#">Press</a>
 					<a href="#">Legal & Privacy</a>

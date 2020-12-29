@@ -28,8 +28,8 @@ function AboutFooter() {
 					</div>
 					<div className="company flex">
 						<h2>Company</h2>
-						<a href="#">About</a>
-						<a href="#">Careers</a>
+						<a href="/about">About</a>
+						<a href="/careers">Careers</a>
 						<a href="#">Press</a>
 						<a href="#">Legal & Privacy</a>
 						<a href="#">Support</a>

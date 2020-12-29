@@ -13,23 +13,30 @@ import { EarnProvider } from "./State/EarnContext";
 import Careers from "./Pages/Careers";
 import Home from "./Pages/Home";
 import { ReviewsProvider } from "./State/ReviewsContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Press from "./Pages/Press";
 
 library.add(faChevronLeft, faChevronRight);
 
 function App() {
 	return (
-		<EarnProvider>
-			<AboutProvider>
-				<ReviewsProvider>
-					<div className="App">
-						<Home />
-						<Careers />
-						<About />
-						<Earn />
-					</div>
-				</ReviewsProvider>
-			</AboutProvider>
-		</EarnProvider>
+		<Router>
+			<EarnProvider>
+				<AboutProvider>
+					<ReviewsProvider>
+						<div className="App">
+							<Switch>
+								<Route path="/" component={Home} exact />
+								<Route path="/about" component={About} />
+								<Route path="/careers" component={Careers} />
+								<Route path="/earn" component={Earn} />
+								<Route path="/press" component={Press} />
+							</Switch>
+						</div>
+					</ReviewsProvider>
+				</AboutProvider>
+			</EarnProvider>
+		</Router>
 	);
 }
 

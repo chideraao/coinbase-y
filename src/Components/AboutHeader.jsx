@@ -1,32 +1,33 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function AboutHeader() {
 	return (
 		<div className="about-header">
 			<div className="navbar flex container">
 				<div className="flex">
-					<a href="/">
+					<Link to="/">
 						{" "}
 						<h1 className="logo">basecoin</h1>
-					</a>
+					</Link>
 				</div>
 				<div className="auth">
 					<nav className="nav">
 						<ul>
 							<li>
-								<a className="products" href="/products">
+								<Link className="products" to="/products">
 									Products
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a className="help" href="/help">
+								<Link className="help" href="/help">
 									Help
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a className="prices" href="/prices">
+								<Link className="prices" tp="/prices">
 									Prices
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</nav>

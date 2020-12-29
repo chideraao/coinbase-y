@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
 	return (
 		<div className="header">
 			<div className="navbar flex container">
 				<div className="flex">
-					<a href="/">
-						{" "}
+					<Link to="/">
 						<h1 className="logo">basecoin</h1>
-					</a>
+					</Link>
+
 					<nav className="nav">
 						<ul>
 							<li>
@@ -17,20 +18,22 @@ function Header() {
 								</a>
 							</li>
 							<li>
+								<a className="learn" href="/learn">
+									Learn
+								</a>
+							</li>
+							<li>
 								<a className="products" href="/products">
 									Products
 								</a>
 							</li>
-							<li>
-								<a className="company" href="/company">
-									Company
-								</a>
-							</li>
-							<li>
-								<a className="crypto" href="/crypto">
-									Earn crypto
-								</a>
-							</li>
+							<Link to="/company" className="company">
+								<li>Company</li>
+							</Link>
+
+							<Link to="/earn" className="crypto">
+								<li>Earn crypto</li>
+							</Link>
 						</ul>
 					</nav>
 				</div>

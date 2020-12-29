@@ -5,6 +5,7 @@ import { AboutContext } from "../State/AboutContext";
 import { ReactComponent as Support } from "../logos/question.svg";
 import { ReactComponent as Press } from "../logos/press.svg";
 import { ReactComponent as Mailing } from "../logos/mailing.svg";
+import { Link } from "react-router-dom";
 
 function About() {
 	const [about, , setAbout] = useContext(AboutContext);
@@ -24,24 +25,27 @@ function About() {
 					<nav className="nav">
 						<ul className="flex">
 							<li>
-								<a className="about" href="/about">
+								<Link to="/about" className="about">
 									About
-								</a>
+								</Link>
 							</li>
+
 							<li>
-								<a className="careers" href="/careers">
+								<Link to="/careers" className="careers">
 									Careers
-								</a>
+								</Link>
 							</li>
+
 							<li>
-								<a className="mission" href="/prices">
+								<Link to="/mission" className="mission">
 									Mission
-								</a>
+								</Link>
 							</li>
+
 							<li>
-								<a className="press" href="/press">
-									Press
-								</a>
+								<Link to="/press" className="press">
+									Press{" "}
+								</Link>
 							</li>
 						</ul>
 					</nav>
