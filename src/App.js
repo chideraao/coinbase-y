@@ -15,6 +15,7 @@ import Home from "./Pages/Home";
 import { ReviewsProvider } from "./State/ReviewsContext";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Press from "./Pages/Press";
+import Learn from "./Pages/Learn";
 
 library.add(faChevronLeft, faChevronRight);
 
@@ -31,6 +32,7 @@ function App() {
 								<Route path="/careers" component={Careers} />
 								<Route path="/earn" component={Earn} />
 								<Route path="/press" component={Press} />
+								<Route path="/learn" component={Learn} />
 							</Switch>
 						</div>
 					</ReviewsProvider>

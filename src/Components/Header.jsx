@@ -18,7 +18,7 @@ function Header() {
 								</a>
 							</li>
 							<li>
-								<a className="learn" href="/learn">
+								<a className="learn-head" href="/learn">
 									Learn
 								</a>
 							</li>

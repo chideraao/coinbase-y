@@ -100,7 +100,7 @@ function About() {
 						<div className="grid">
 							{execs.map((exec) => {
 								return (
-									<div className="execs-wrapper">
+									<div className="execs-wrapper" key={exec.name}>
 										<img src={exec.img} alt="" />
 										<p>
 											<a href="#">{exec.name}</a>
@@ -118,7 +118,7 @@ function About() {
 						<div className="grid">
 							{boards.map((board) => {
 								return (
-									<div className="board-wrapper">
+									<div className="board-wrapper" key={board.name}>
 										<img src={board.img} alt="" />
 										<p>
 											<a href="#">{board.name}</a>
@@ -139,7 +139,7 @@ function About() {
 					<div className="grid">
 						{investors.map((investor) => {
 							return (
-								<div className="inverstors-wrapper">
+								<div className="inverstors-wrapper" key={Math.random()}>
 									<img src={investor} alt="" />
 								</div>
 							);

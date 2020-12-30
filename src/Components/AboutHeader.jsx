@@ -20,12 +20,12 @@ function AboutHeader() {
 								</Link>
 							</li>
 							<li>
-								<Link className="help" href="/help">
+								<Link className="help" to="/help">
 									Help
 								</Link>
 							</li>
 							<li>
-								<Link className="prices" tp="/prices">
+								<Link className="prices" to="/prices">
 									Prices
 								</Link>
 							</li>
