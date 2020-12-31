@@ -97,6 +97,7 @@ img {
 .navbar .auth a {
 	font-size: 0.9rem;
 	margin-right: 1rem;
+	padding: 0.7rem 1rem;
 }
 
 .navbar .flex a {
@@ -178,6 +179,7 @@ img {
 .banner .grid {
 	gap: 10rem;
 	justify-items: start;
+	overflow: hidden;
 }
 
 .banner-text {
@@ -209,6 +211,7 @@ img {
 .banner .banner-icons {
 	width: 35rem;
 	background-color: transparent;
+	overflow: hidden;
 }
 
 .banner-icons .icon-item h2 {
@@ -1559,7 +1562,7 @@ hr {
 	background-color: var(--secondary-color);
 	color: var(--dark-color);
 	text-align: start;
-	padding-bottom: 2rem;
+	padding-bottom: 3rem;
 	margin: 0rem 5rem;
 }
 
@@ -1594,8 +1597,9 @@ hr {
 }
 
 .learn .learn-features .features-container .beginners-guide p {
+	font-size: 1.05rem;
 	line-height: 1.5rem;
-	font-weight: 400;
+	font-weight: 300;
 	margin: 0px;
 	margin: 0.5rem 0rem;
 	margin-right: 0.2rem;
@@ -1616,11 +1620,284 @@ hr {
 	margin: 1rem 0rem;
 }
 
-.learn .learn-features .features-container .link-heading {
-	font-size: 0.9rem;
-	line-height: 1rem;
-	font-weight: 700;
+.learn .link-heading {
+	font-size: 0.9rem !important;
+	line-height: 1rem !important;
+	font-weight: 700 !important;
 	color: rgba(17, 51, 83, 0.6);
+	margin: 0px !important;
+	margin-bottom: 0.2rem !important;
+}
+
+.learn .learn-features-icons {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.learn .learn-features-icons img {
+	height: 4rem;
+	width: auto;
+}
+
+.learn .learn-features .learn-features-icons a {
+	color: var(--dark-color);
+}
+
+.learn .learn-features-icons a:hover p {
+	color: var(--primary-color);
+}
+
+.learn .learn-features .learn-features-icons h3 {
+	font-size: 1.25rem;
+	line-height: 1.2rem;
+	font-weight: 500;
+	margin-bottom: 0rem;
+}
+
+.learn .learn-features .learn-features-icons p {
+	line-height: 1.5rem;
+	font-weight: 300;
+	color: var(--light-grey-text);
 	margin: 0px;
-	margin-bottom: 0.2rem;
+	margin: 0.5rem 0rem;
+	margin-right: 0.2rem;
+}
+
+.learn .learn-features .learn-features-icon {
+	margin: 0rem 0.7rem;
+}
+
+.learn .crypto-basics {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+	text-align: center;
+	padding-bottom: 3rem;
+	padding-top: 2rem;
+	margin: 2rem 5rem;
+}
+
+.learn .crypto-basics h1 {
+	font-size: 2.75rem;
+	line-height: 3.25rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.learn .crypto-basics a {
+	color: var(--dark-color);
+}
+
+.learn .crypto-basics a:hover h3 {
+	color: var(--primary-color);
+}
+
+.learn .crypto-basics .container > p {
+	line-height: 1.8rem;
+	font-weight: 400;
+	color: rgba(17, 51, 83, 0.6);
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	text-align: center;
+}
+
+.learn .crypto-basics .container .grid {
+	margin: 1rem 0rem;
+	margin-top: 5rem;
+	gap: 2.5rem;
+	text-align: justify;
+}
+
+.learn .crypto-basics .container .grid-4 {
+	margin: 2rem 0rem;
+	margin-bottom: 3rem;
+	gap: 2.5rem;
+	text-align: start;
+}
+
+.learn .crypto-basics p {
+	font-size: 1.05rem;
+	line-height: 1.5rem;
+	font-weight: 300;
+	margin: 0px;
+	margin: 0.5rem 0rem;
+	margin-right: 0.2rem;
+}
+
+.learn .crypto-basics .grid h3 {
+	font-size: 1.7rem;
+	line-height: 1.8rem;
+	font-weight: 500;
+	margin-bottom: 0.7rem;
+}
+
+.learn .crypto-basics h3 {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	font-weight: 500;
+	margin-bottom: 0.7rem;
+}
+
+.learn .crypto-basics .btn {
+	color: var(--secondary-color);
+	justify-items: center;
+	padding: 0.8rem 1.5rem;
+}
+
+.learn .tips-and-tutorials {
+	background-color: rgb(245, 247, 248);
+	color: var(--dark-color);
+	text-align: center;
+	padding: 5rem;
+}
+
+.learn .tips-and-tutorials h1 {
+	font-size: 2.75rem;
+	line-height: 3.25rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.learn .tips-and-tutorials a {
+	color: var(--dark-color);
+}
+
+.learn .tips-and-tutorials a:hover h3 {
+	color: var(--primary-color);
+}
+
+.learn .tips-and-tutorials .container > p {
+	line-height: 1.8rem;
+	font-weight: 400;
+	color: rgba(17, 51, 83, 0.6);
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	text-align: center;
+}
+
+.learn .tips-and-tutorials .container .grid {
+	margin: 1rem 0rem;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	gap: 2.5rem;
+	text-align: justify;
+}
+
+.learn .tips-and-tutorials p {
+	font-size: 1.05rem;
+	line-height: 1.5rem;
+	font-weight: 300;
+	margin: 0px;
+	margin: 0.5rem 0rem;
+	margin-right: 0.2rem;
+}
+
+.learn .tips-and-tutorials h3 {
+	font-size: 1.7rem;
+	line-height: 1.8rem;
+	font-weight: 500;
+	margin-bottom: 0.7rem;
+}
+
+.learn .tips-and-tutorials .btn {
+	color: var(--secondary-color);
+	justify-items: center;
+	padding: 0.8rem 1.5rem;
+}
+
+.learn .learn-earn {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+	text-align: start;
+	margin: 1rem 5rem;
+	padding: 1rem 0rem;
+}
+
+.learn .learn-earn .grid {
+	gap: 2.5rem;
+}
+
+.learn .learn-earn .learn-earn-text {
+	margin: 2rem 2rem;
+	margin-right: 10rem;
+}
+
+.learn .learn-earn h2 {
+	font-size: 2.75rem;
+	font-weight: 500;
+	line-height: 3.25rem;
+	margin: 0px;
+}
+
+.learn .learn-earn p {
+	font-weight: 300;
+	color: var(--light-grey-text);
+	line-height: 1.35rem;
+	margin-bottom: 2rem;
+}
+
+.learn .learn-earn .btn {
+	color: var(--secondary-color);
+	justify-items: center;
+	padding: 0.8rem 1.5rem;
+}
+
+.learn .market-updates {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+	text-align: center;
+	padding-bottom: 3rem;
+	padding-top: 2rem;
+	margin: 2rem 5rem;
+}
+
+.learn .market-updates h1 {
+	font-size: 2.75rem;
+	line-height: 3.25rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.learn .market-updates a {
+	color: var(--dark-color);
+}
+
+.learn .market-updates a:hover h3 {
+	color: var(--primary-color);
+}
+
+.learn .market-updates .container > p {
+	line-height: 1.8rem;
+	font-weight: 400;
+	color: rgba(17, 51, 83, 0.6);
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	text-align: center;
+}
+
+.learn .market-updates .container .grid {
+	margin: 1rem 0rem;
+	margin-top: 5rem;
+	gap: 2.5rem;
+	text-align: justify;
+}
+
+.learn .market-updates p {
+	font-size: 1.05rem;
+	line-height: 1.5rem;
+	font-weight: 300;
+	margin: 0px;
+	margin: 0.5rem 0rem;
+	margin-right: 0.2rem;
+}
+
+.learn .market-updates h3 {
+	font-size: 1.7rem;
+	line-height: 1.8rem;
+	font-weight: 500;
+	margin-bottom: 0.7rem;
+}
+
+.learn .market-updates .btn {
+	color: var(--secondary-color);
+	justify-items: center;
+	padding: 0.8rem 1.5rem;
 }
