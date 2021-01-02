@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link } from "react-router-dom";
 import bannerimg from "../logos/earn-upsell-desktop.852a74929173d0974480694525be02ab.jpg";
 
 function Banner() {
@@ -13,9 +15,9 @@ function Banner() {
 							Discover how specific cryptocurrencies work — and get a bit of
 							each crypto to try out for yourself.
 						</p>
-						<a href="" className="btn btn-outline">
+						<Link to="/earn" className="btn">
 							Start earning
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img src={bannerimg} alt="astronauts in space" />

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 function Footer() {
@@ -23,7 +24,7 @@ function Footer() {
 				</div>
 				<div className="products flex">
 					<h2>Products</h2>
-					<a href="#">Coinbase</a>
+					<a href="/">Coinbase</a>
 					<a href="#">Commerce</a>
 					<a href="#">Custody</a>
 					<a href="/earn">Earn</a>
@@ -54,7 +55,7 @@ function Footer() {
 					<a href="#">Affiliates</a>
 					<a href="/careers">Careers</a>
 					<a href="#">Partners</a>
-					<a href="#">Press</a>
+					<a href="/press">Press</a>
 					<a href="#">Legal & Privacy</a>
 					<a href="#">Cookie Policy</a>
 				</div>

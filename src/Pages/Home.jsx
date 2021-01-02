@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
@@ -17,6 +18,7 @@ import { ReactComponent as LinkAccount } from "../logos/link-bank-account.svg";
 import { ReactComponent as Buying } from "../logos/start-buying.svg";
 import overlay from "../logos/coinbase-app.3b0bfd4cb6b7a7614c1e18472187f6b9.webp";
 import Header from "../Components/Header";
+import { Link } from "react-router-dom";
 
 function Home() {
 	return (
@@ -54,9 +56,9 @@ function Home() {
 							Discover how specific cryptocurrencies work — and get a bit of
 							each crypto to try out for yourself.
 						</p>
-						<a href="" className="btn btn-outline">
+						<Link to="/earn" className="btn">
 							Start earning
-						</a>
+						</Link>
 					</div>
 					<div className="banner-icons">
 						<a href="/">
@@ -93,10 +95,9 @@ function Home() {
 								<span className="comp-span">Earn $43 COMP</span>
 							</div>
 						</a>
-
-						<a className="banner-btn" href="/">
-							{"View More >"}
-						</a>
+						<Link to="/earn" className="banner-btn">
+							View more {">"}
+						</Link>
 					</div>
 				</div>
 			</section>

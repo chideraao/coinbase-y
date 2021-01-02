@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import AboutFooter from "../Components/AboutFooter";
 import AboutHeader from "../Components/AboutHeader";
@@ -180,7 +182,7 @@ function About() {
 						<div className="icon-wrapper-text">
 							<p>Press</p>
 							<a href="#">press@basecoin.com</a> <br />
-							<a href="#">Press page {">"} </a>
+							<Link to="/press"> Press page {">"} </Link>
 						</div>
 					</div>
 					<div className="mailing flex">

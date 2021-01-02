@@ -60,16 +60,19 @@
 	background-color: var(--primary-color);
 	color: #fff;
 	border: none;
+	font-weight: 300;
 	border-radius: 5px;
 }
 
 .btn-outline {
 	background-color: transparent;
 	border: 1px white solid;
+	font-weight: 300;
 }
 
 .btn:hover {
 	transform: scale(0.96);
+	background-color: rgb(10, 70, 228);
 }
 
 .btn-outline:hover {

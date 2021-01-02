@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 function AboutFooter() {
@@ -30,7 +31,7 @@ function AboutFooter() {
 						<h2>Company</h2>
 						<a href="/about">About</a>
 						<a href="/careers">Careers</a>
-						<a href="#">Press</a>
+						<a href="/press">Press</a>
 						<a href="#">Legal & Privacy</a>
 						<a href="#">Support</a>
 					</div>

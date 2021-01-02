@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -39,7 +40,7 @@ function Learn() {
 							<h3 className="features-heading">Featured</h3>
 							<a href="#">
 								<div className="learn-img">
-									<img src={Learnimg} alt="learn image illustration" />
+									<img src={Learnimg} alt="learn illustration" />
 								</div>
 								<p className="link-heading">BEGINNER'S GUIDE</p>
 								<h2>What is cryptocurrency?</h2>
@@ -54,7 +55,7 @@ function Learn() {
 							<h3 className="features-heading">Popular</h3>
 							<a href="">
 								<p className="link-heading">BEGINNER'S GUIDE</p>
-								<h3>What is Bitcoin</h3>
+								<h3>What is Bitcoin?</h3>
 							</a>
 							<a href="">
 								<p className="link-heading">VIDEO TUTORIAL</p>
@@ -62,11 +63,11 @@ function Learn() {
 							</a>
 							<a href="">
 								<p className="link-heading">KEY TERM</p>
-								<h3>What is a Bitcoin halving</h3>
+								<h3>What is a Bitcoin halving?</h3>
 							</a>
 							<a href="">
 								<p className="link-heading">BEGINNER'S GUIDE</p>
-								<h3>What is a blockchain</h3>
+								<h3>What is a blockchain?</h3>
 							</a>
 							<a href="">
 								<p className="link-heading">CRYPTO RESOURCES</p>
@@ -127,7 +128,7 @@ function Learn() {
 							<div className="img-container">
 								<img src={Blockchain} alt="blockchain illustration" />
 								<p className="link-heading">BEGINNER'S GUIDE</p>
-								<h3>What is a blockchain</h3>
+								<h3>What is a blockchain?</h3>
 								<p>
 									Cryptocurrencies like Bitcoin and Ethereum are powered by a
 									technology called the blockchain.
@@ -138,7 +139,7 @@ function Learn() {
 							<div className="img-container">
 								<img src={Bitcoin} alt="bitcoin illustration" />
 								<p className="link-heading">BEGINNER'S GUIDE</p>
-								<h3>What is a Bitcoin</h3>
+								<h3>What is a Bitcoin?</h3>
 								<p>
 									Bitcoin is the world's first widely adopted cryptocurrency —
 									it allows for secure and seamless peer-to-peer transactions on
@@ -162,14 +163,14 @@ function Learn() {
 							<div className="img-container">
 								<img src={MarketCap} alt="market cap illustration" />
 								<p className="link-heading">KEY TERM</p>
-								<h3>What is market cap </h3>
+								<h3>What is market cap?</h3>
 							</div>
 						</a>
 						<a href="#">
 							<div className="img-container">
 								<img src={DeFi} alt="DeFi illustration" />
 								<p className="link-heading">KEY TERM</p>
-								<h3>What is DeFi</h3>
+								<h3>What is DeFi?</h3>
 							</div>
 						</a>
 
@@ -178,7 +179,7 @@ function Learn() {
 							<div className="img-container">
 								<img src={Protocol} alt="protocol illustration" />
 								<p className="link-heading">KEY TERM</p>
-								<h3>What is a protocol </h3>
+								<h3>What is a protocol?</h3>
 							</div>
 						</a>
 					</div>
@@ -247,8 +248,7 @@ function Learn() {
 							<a href="#">
 								<div className="img-container">
 									<img src={AroundBlock} alt="blockchain illustration" />
-									<p className="link-heading">BEGINNER'S GUIDE</p>
-									<h3>What is a blockchain</h3>
+									<h3>Issue 10: “ETH killers” and new chains</h3>
 									<p>
 										Smart contract platforms and emerging competitors vie to
 										challenge Ethereum’s dominance.
@@ -268,8 +268,7 @@ function Learn() {
 							<a href="#">
 								<div className="img-container">
 									<img src={ThisWeek} alt="bitcoin illustration" />
-									<p className="link-heading">BEGINNER'S GUIDE</p>
-									<h3>What is a Bitcoin</h3>
+									<h3>This week in Bitcoin price: Dec 22-28</h3>
 									<p>
 										With just a few days left in the year, Bitcoin hit another
 										all-time high this week, briefly cracking the $28,000 mark
@@ -285,6 +284,21 @@ function Learn() {
 							</a>
 						</div>
 					</div>
+					<a href="#" className="btn">
+						See more market updates {" >"}
+					</a>
+				</div>
+			</section>
+			<section className="get-started">
+				<div className="container">
+					<h2>Buy Bitcoin in just a few minutes</h2>
+					<p>
+						Start with as little as $25 and pay with your bank account or debit
+						card.
+					</p>
+					<a href="/prices" className="btn">
+						Get started {">"}
+					</a>
 				</div>
 			</section>
 			<Footer />
