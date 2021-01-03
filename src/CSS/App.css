@@ -223,12 +223,15 @@ img {
 
 .banner-icons .icon-item h3 {
 	padding: 0.7rem;
+	font-size: 1.2rem;
+	font-weight: 500;
 }
 
 .banner-icons .icon-item span {
 	padding: 1rem;
 	padding-left: 7rem;
-	font-size: 1.6rem;
+	font-size: 1rem;
+	font-weight: 500;
 	color: var(--button-color);
 }
 

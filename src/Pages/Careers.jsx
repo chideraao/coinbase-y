@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import office from "../logos/office.799832e7d5b5d376988f93e2e8ba006e.webp";
+import office from "../logos/office.bd0d499a315c65e93736eb25ca01f94a.jpg";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";

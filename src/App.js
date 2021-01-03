@@ -17,29 +17,32 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Press from "./Pages/Press";
 import Learn from "./Pages/Learn";
 import Prices from "./Pages/Prices";
+import { GlobalProvider } from "./State/GlobalContext";
 
 library.add(faChevronLeft, faChevronRight);
 
 function App() {
 	return (
 		<Router>
-			<EarnProvider>
-				<AboutProvider>
-					<ReviewsProvider>
-						<div className="App">
-							<Switch>
-								<Route path="/" component={Home} exact />
-								<Route path="/about" component={About} />
-								<Route path="/careers" component={Careers} />
-								<Route path="/earn" component={Earn} />
-								<Route path="/press" component={Press} />
-								<Route path="/learn" component={Learn} />
-								<Route path="/prices" component={Prices} />
-							</Switch>
-						</div>
-					</ReviewsProvider>
-				</AboutProvider>
-			</EarnProvider>
+			<GlobalProvider>
+				<EarnProvider>
+					<AboutProvider>
+						<ReviewsProvider>
+							<div className="App">
+								<Switch>
+									<Route path="/" component={Home} exact />
+									<Route path="/about" component={About} />
+									<Route path="/careers" component={Careers} />
+									<Route path="/earn" component={Earn} />
+									<Route path="/press" component={Press} />
+									<Route path="/learn" component={Learn} />
+									<Route path="/prices" component={Prices} />
+								</Switch>
+							</div>
+						</ReviewsProvider>
+					</AboutProvider>
+				</EarnProvider>
+			</GlobalProvider>
 		</Router>
 	);
 }

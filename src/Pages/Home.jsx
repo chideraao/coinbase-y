@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import band from "../logos/band.svg";
@@ -16,11 +16,35 @@ import { ReactComponent as CreateAccount } from "../logos/create-account.svg";
 import { ReactComponent as BestPractice } from "../logos/best-practices.svg";
 import { ReactComponent as LinkAccount } from "../logos/link-bank-account.svg";
 import { ReactComponent as Buying } from "../logos/start-buying.svg";
-import overlay from "../logos/coinbase-app.3b0bfd4cb6b7a7614c1e18472187f6b9.webp";
+import overlay from "../logos/coinbase-app.51b8f3dbe406092d16845f3e74870061.jpg";
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+
+const api = {
+	api:
+		"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC&convert=EUR&interval=1d,7d&per-page=100&page=1",
+	base: "https://api.openweathermap.org/data/2.5/weather?q=",
+	key: "39aa931e9188dadb3acc2ee4645d72c5",
+	timeKey: "d65e37f4206340d188baba3c12561f09",
+	timeBase: "https://api.ipgeolocation.io/timezone?",
+};
 
 function Home() {
+	useEffect(() => {
+		Axios.all([
+			Axios.get(
+				"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC&convert=EUR&interval=1d,7d&per-page=100&page=1"
+			),
+			Axios.get(
+				"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
+			),
+		]).then((response) => {
+			console.log(response[0].data);
+			console.log(response[1].data);
+		});
+	}, []);
+
 	return (
 		<div>
 			<Header />

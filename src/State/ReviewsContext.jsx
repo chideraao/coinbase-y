@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Sid from "../logos/sidcoelhoprabhu.566943ea6b5454b3e9ff80b1e9ee9a79.webp";
-import Priyanka from "../logos/priyankasood.02ea40b434473d0b165691d7f9e38672.webp";
-import Jesse from "../logos/jessepollak.2a5bb1e592e456f28495b6227822d4cb.webp";
-import Carly from "../logos/carlyemmer.54f2c08ca93550c2494789f7588ec8b5.webp";
-import Reuben from "../logos/reubenbramanathan.c9c98c78a127200e6b673069a41c79a0.webp";
-import Dianne from "../logos/dianneaskew.dfcb026ce8ea9dfad5571c6bf515966a.webp";
-import Dee from "../logos/deegoens.2310923cabf68be8fd2ad4b9656dbbdd.webp";
+import Sid from "../logos/sidcoelhoprabhu.60bcc51f9108e8abaf78de4525874472.png";
+import Priyanka from "../logos/priyankasood.ec60aa3aae4336d939d42704a87a6379.png";
+import Jesse from "../logos/jessepollak.c96316ea7cafae6de036e2527e3ef1ce.png";
+import Carly from "../logos/carlyemmer.b0f43bc4395d3a75a73e68128af68847.png";
+import Reuben from "../logos/reubenbramanathan.a646e7f318117d80abd946064919a0fc.png";
+import Dianne from "../logos/dianneaskew.d16ff82b78f82768afaaf4398c6100d6.png";
+import Dee from "../logos/deegoens.773292cd5ed31bc603eae84f7b30c8e3.png";
 import { ReactComponent as Manila } from "../logos/manila.svg";
 import { ReactComponent as Dublin } from "../logos/dublin.svg";
 import { ReactComponent as London } from "../logos/london.svg";
