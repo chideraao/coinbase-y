@@ -151,7 +151,7 @@ function Careers() {
 							<Slider>
 								{reviews.map((review) => {
 									return (
-										<Slide index={`${review.id - 1}`}>
+										<Slide index={`${review.id - 1}`} key={review.name}>
 											<div className="testimonials-quote">
 												<h1>" {review.text} "</h1>
 											</div>
@@ -187,7 +187,7 @@ function Careers() {
 					<div className="locations-container grid">
 						{locations.map((location) => {
 							return (
-								<a href="#">
+								<a href="#" key={location.city}>
 									{" "}
 									<div className="locations-card card">
 										<location.svg />
@@ -209,7 +209,7 @@ function Careers() {
 
 					{openings.map((opening) => {
 						return (
-							<a href="#">
+							<a href="#" key={opening.title}>
 								<div className="openings-items flex">
 									<h2> {opening.title}</h2>
 									<div className="openings-number flex">

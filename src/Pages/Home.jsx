@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import band from "../logos/band.svg";
@@ -20,6 +20,8 @@ import overlay from "../logos/coinbase-app.51b8f3dbe406092d16845f3e74870061.jpg"
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { CryptosContext } from "../State/GlobalContext";
+import { useTable } from "react-table";
 
 const api = {
 	api:
@@ -31,45 +33,192 @@ const api = {
 };
 
 function Home() {
+	const [cryptos, setCryptos] = useContext(CryptosContext);
+
+	const data = React.useMemo(
+		() => [
+			{
+				col1: "Hello",
+				col2: "World",
+			},
+			{
+				col1: "react-table",
+				col2: "rocks",
+			},
+			{
+				col1: "whatever",
+				col2: "you want",
+			},
+		],
+		[]
+	);
+
+	const columns = React.useMemo(
+		() => [
+			{
+				Header: "Column 1",
+				accessor: "col1", // accessor is the "key" in the data
+			},
+			{
+				Header: "Column 2",
+				accessor: "col2",
+			},
+		],
+		[]
+	);
+
+	const {
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		rows,
+		prepareRow,
+	} = useTable({ columns, data });
+
 	useEffect(() => {
-		Axios.all([
-			Axios.get(
-				"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC&convert=EUR&interval=1d,7d&per-page=100&page=1"
-			),
-			Axios.get(
-				"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
-			),
-		]).then((response) => {
-			console.log(response[0].data);
-			console.log(response[1].data);
-		});
+		// Axios.get(
+		// 	"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&interval=1d,7d&per-page=100&page=1"
+		// )
+		Axios.get(
+			"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
+		)
+			.then((response) => {
+				Axios.get(
+					`https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d,7d&per-page=100&page=1`
+				)
+					.then((res) => {
+						console.log(res.data);
+						setCryptos(res.data);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+				console.log(response.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
+	console.log(cryptos);
 
 	return (
 		<div>
 			<Header />
-			<section className="showcase">
-				<div className="container">
-					<div className=""></div>
-					<div className="showcase-text">
-						<h1>Buy and sell cryptocurrency</h1>
-						<p>
-							Basecoin is the easiest place to buy, sell, and manage your
-							cryptocurrency portfolio.
-						</p>
+			<div className="showcase-container">
+				<section className="showcase">
+					<div className="container">
+						<div className=""></div>
+						<div className="showcase-text">
+							<h1>Buy and sell cryptocurrency</h1>
+							<p>
+								Basecoin is the easiest place to buy, sell, and manage your
+								cryptocurrency portfolio.
+							</p>
+						</div>
+						<div className="showcase-form">
+							<form className="email-form flex">
+								<label htmlFor="email">
+									<input type="email" placeholder="Email address"></input>
+								</label>
+								<label htmlFor="submit-button">
+									<button className="btn btn-outline">Get Started</button>
+								</label>
+							</form>
+						</div>
 					</div>
-					<div className="showcase-form">
-						<form className="email-form flex">
-							<label htmlFor="email">
-								<input type="email" placeholder="Email address"></input>
-							</label>
-							<label htmlFor="submit-button">
-								<button className="btn btn-outline">Get Started</button>
-							</label>
-						</form>
+				</section>
+				<section className="tables">
+					<div className="container card">
+						{/* <table>
+							<thead>
+								<tr className="flex">
+									<div className="flex">
+										<th>#</th>
+										<th>Name</th>
+									</div>
+									<div className="flex end">
+										<th>Price</th>
+										<th>Volume</th>
+									</div>
+								</tr>
+							</thead>
+							<tbody>
+								{cryptos.map((crypto, index) => {
+									return (
+										<tr key={crypto.id} className="flex">
+											<div className="flex">
+												<td>{index + 1}</td>
+												<td className="flex">
+													<div className="">
+														<img
+															src={crypto.logo_url}
+															alt={`${crypto.name} icon`}
+														/>
+													</div>
+													{crypto.name} {crypto.symbol}
+												</td>
+											</div>
+											<div className="flex end">
+												{" "}
+												<td>{crypto.price}</td>
+												<td>{crypto["1d"].volume}</td>
+											</div>
+										</tr>
+									);
+								})}
+							</tbody>
+						</table> */}
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
+			{/* <table
+				className="card"
+				{...getTableProps()}
+				style={{ border: "solid 1px blue" }}
+			>
+				<thead>
+					{headerGroups.map((headerGroup) => (
+						<tr {...headerGroup.getHeaderGroupProps()}>
+							{headerGroup.headers.map((column) => (
+								<th
+									{...column.getHeaderProps()}
+									style={{
+										borderBottom: "solid 3px red",
+										background: "aliceblue",
+										color: "black",
+										fontWeight: "bold",
+									}}
+								>
+									{column.render("Header")}
+								</th>
+							))}
+						</tr>
+					))}
+				</thead>
+				<tbody {...getTableBodyProps()}>
+					{rows.map((row) => {
+						prepareRow(row);
+						return (
+							<tr {...row.getRowProps()}>
+								{row.cells.map((cell) => {
+									return (
+										<td
+											{...cell.getCellProps()}
+											style={{
+												padding: "10px",
+												border: "solid 1px gray",
+												background: "papayawhip",
+											}}
+										>
+											{cell.render("Cell")}
+										</td>
+									);
+								})}
+							</tr>
+						);
+					})}
+				</tbody>
+			</table> */}
 
 			<section className="banner ">
 				<div className="container grid">
@@ -150,7 +299,6 @@ function Home() {
 								</div>
 							</div>
 							<div className="overlay-text flex">
-								{" "}
 								<Recurring className="overlay-svg" />
 								<div>
 									<h2>Recurring buys</h2>
@@ -177,8 +325,8 @@ function Home() {
 								<div>
 									<h2>Mobile apps</h2>
 									<p>
-										Stay on top of the markets with the Basecoin app for Android
-										or iOS.
+										Stay on top of the markets with the Basecoin app for{" "}
+										<a href="#">Android</a> or <a href="#">iOS</a>.
 									</p>
 								</div>
 							</div>

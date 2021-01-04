@@ -167,25 +167,51 @@ img {
 	border-color: rgb(0, 165, 93);
 }
 
+.tables {
+	background: none;
+	margin: 0 9rem;
+	margin-top: 2rem;
+}
+
+table {
+	width: 60rem;
+	margin: 0;
+}
+
+.tables img {
+	height: 3rem;
+}
+
+.tables .container tr {
+	justify-content: space-between;
+}
+
+.tables .container .flex .end {
+	align-items: end;
+}
+
 .banner {
 	color: var(--dark-color);
 	padding-top: 2rem;
-	height: 25rem;
+	height: auto;
+	width: auto;
 	background-color: var(--secondary-color);
 	overflow: hidden;
-	margin: 1rem 7rem;
+	margin: 1rem 4rem;
+	margin-left: 10rem;
 }
 
 .banner .grid {
-	gap: 10rem;
+	gap: 3rem;
 	justify-items: start;
 	overflow: hidden;
+	grid-template-columns: 2fr 3fr;
 }
 
 .banner-text {
 	align-items: flex-start;
-	padding-top: 5rem;
-	padding-right: 7rem;
+	margin-top: 2rem;
+	margin-right: 6rem;
 }
 
 .banner .banner-text h2 {
@@ -214,6 +240,10 @@ img {
 	overflow: hidden;
 }
 
+.banner .banner-icons .icon-item {
+	margin-bottom: 1rem;
+}
+
 .banner-icons .icon-item h2 {
 	font-size: 1.6rem;
 	font-weight: 500;
@@ -228,15 +258,18 @@ img {
 }
 
 .banner-icons .icon-item span {
+	text-align: end;
 	padding: 1rem;
-	padding-left: 7rem;
+	margin-left: 12rem;
 	font-size: 1rem;
+	text-align: end;
 	font-weight: 500;
 	color: var(--button-color);
 }
 
 .banner-icons .icon-item .comp-span {
 	padding-left: 2rem;
+	margin-left: 7rem;
 }
 
 .banner-icons .icon-item img {
@@ -298,15 +331,21 @@ img {
 
 .overlay .overlay-text {
 	text-align: start;
+	margin: 1.5rem;
 }
 
 .overlay .overlay-text h2 {
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 20px;
 }
 
 .overlay img {
 	height: 35rem;
+	width: auto;
+}
+
+.overlay a {
+	color: var(--primary-color);
 }
 
 hr {
@@ -447,17 +486,23 @@ hr {
 	width: auto;
 	background-color: var(--light-blue);
 	margin-bottom: 2rem;
+	/* padding-left: 4rem; */
 }
 
 .banner-footer .grid {
 	justify-items: start;
+	grid-template-columns: 1fr 1fr;
 }
 
 .banner-footer-text {
 	align-items: flex-start;
-	padding-top: 5rem;
+	/* padding-top: 5rem;
 	margin-left: 10rem;
-	padding-right: 6rem;
+	padding-right: 6rem; */
+	align-items: flex-start;
+	margin-top: 2rem;
+	margin-right: 6rem;
+	margin-left: 10rem;
 }
 
 .banner-footer .banner-footer-text h2 {
@@ -548,6 +593,49 @@ hr {
 	padding-bottom: 3rem;
 }
 
+/* ----------------------------------------------   MEDIA QUERIES   --------------------------------------------------------- */
+@media (max-width: 1200px) {
+	.banner {
+		margin-left: 3rem;
+	}
+	.banner-text,
+	.banner-footer-text {
+		margin-top: 0rem;
+		margin-right: 0rem;
+	}
+
+	.banner-footer-text {
+		margin: 0rem;
+		margin-left: 3rem;
+	}
+}
+@media (max-width: 1140px) {
+	.banner {
+		margin: 0;
+	}
+	.overlay .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.overlay .overlay-text {
+		justify-content: start;
+		margin: 0rem;
+		margin-left: 5rem;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.banner .grid,
+	.banner-footer .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		text-align: center;
+	}
+	.banner-footer .grid img {
+		display: none;
+	}
+}
 /* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
 .careers .company {
 	border-bottom: 2px solid rgb(255, 255, 255);
@@ -1361,12 +1449,12 @@ hr {
 	color: var(--button-color);
 }
 
-.earn .course-container .course-text-wrapper .main-text .flex-between a {
-	padding: 0.7rem 1.3rem;
+.earn .course-container .course-text-wrapper .main-text .flex-between .btn {
+	padding: 0.9rem 1.3rem;
 }
 
 .earn .course-container .course-text-wrapper .main-text .flex-between .view {
-	padding: 0.6rem 2.5rem;
+	padding: 0.9rem 2.5rem;
 }
 
 .earn .getstarted {

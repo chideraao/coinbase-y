@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import Footer from "../Components/Footer";
@@ -33,7 +34,7 @@ function Earn() {
 					<div className="container">
 						{courses.map((course) => {
 							return (
-								<a href="">
+								<a href="" key={course.name}>
 									<div className="course-container card grid">
 										<div className="course-img-wrapper">
 											<img src={course.img} alt={`${course.name} img`} />
@@ -50,9 +51,7 @@ function Earn() {
 												<p> {course.text}</p>
 
 												<div className="flex flex-between">
-													<a href="#" className="btn">
-														Start Course
-													</a>
+													<button className="btn">Start Course</button>
 													<p>
 														Earn ${course.earn} {course.abbr}
 													</p>
@@ -65,8 +64,8 @@ function Earn() {
 						})}
 						{views.map((view) => {
 							return (
-								<a href="">
-									<div className="course-container card grid">
+								<a href="" key={view.abbr}>
+									<div className="course-container card grid" key={view.abbr}>
 										<div className="course-img-wrapper">
 											<img src={view.img} alt={`${view.name} img`} />
 										</div>
@@ -80,9 +79,7 @@ function Earn() {
 
 												<p> {view.text}</p>
 												<div className="flex flex-between">
-													<a href="#" className="view btn">
-														View
-													</a>
+													<button className="view btn">View</button>
 												</div>
 											</div>
 										</div>
