@@ -236,36 +236,44 @@ function Home() {
 					<div className="banner-icons">
 						<a href="/">
 							<div className="icon-item flex">
-								<img src={band} alt="band crypto svg" />
-								<h2>Band</h2>
-								<h3>BAND</h3>
-								<span>Earn $43 BAND</span>
+								<div className="flex">
+									<img src={band} alt="band crypto svg" />
+									<h2>Band</h2>
+									<h3>BAND</h3>
+								</div>
+								<span>Earn $7 BAND</span>
 							</div>
 						</a>
 						<a href="/">
 							{" "}
 							<div className="icon-item flex">
-								<img src={maker} alt="maker crypto svg" />
-								<h2>Maker</h2>
-								<h3>MKR</h3>
+								<div className="flex">
+									<img src={maker} alt="maker crypto svg" />
+									<h2>Maker</h2>
+									<h3>MKR</h3>
+								</div>
 								<span>Earn $6 MKR</span>
 							</div>
 						</a>
 						<a href="/">
 							<div className="icon-item flex">
-								<img src={celo} alt="celo crypto svg" />
-								<h2>Celo</h2>
-								<h3>CGLD</h3>
+								<div className="flex">
+									<img src={celo} alt="celo crypto svg" />
+									<h2>Celo</h2>
+									<h3>CGLD</h3>
+								</div>
 								<span>Earn $6 CGLD</span>
 							</div>
 						</a>
 						<a href="/">
 							{" "}
 							<div className="icon-item flex">
-								<img src={comp} alt="comp crypto svg" />
-								<h2>Graph</h2>
-								<h3>GRT</h3>
-								<span className="">Earn $43 COMP</span>
+								<div className="flex">
+									<img src={comp} alt="comp crypto svg" />
+									<h2>Graph</h2>
+									<h3>GRT</h3>
+								</div>
+								<span className="">Earn $9 GRT</span>
 							</div>
 						</a>
 						<Link to="/earn" className="banner-btn">
