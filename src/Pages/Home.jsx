@@ -263,9 +263,9 @@ function Home() {
 							{" "}
 							<div className="icon-item flex">
 								<img src={comp} alt="comp crypto svg" />
-								<h2>Compound</h2>
-								<h3>COMP</h3>
-								<span className="comp-span">Earn $43 COMP</span>
+								<h2>Graph</h2>
+								<h3>GRT</h3>
+								<span className="">Earn $43 COMP</span>
 							</div>
 						</a>
 						<Link to="/earn" className="banner-btn">
@@ -347,34 +347,53 @@ function Home() {
 					</div>
 					<div className="features-icons grid">
 						<div className="features-text ">
-							<Secure className="features-svg" />
-							<h2>Secure storage</h2>
-							<p>
-								We store the vast majority of the digital assets in secure
-								offline storage.
-							</p>
+							<div className="features-svg-container">
+								<Secure className="features-svg" />
+							</div>
+
+							<div className="">
+								<h2>Secure storage</h2>
+								<p>
+									We store the vast majority of the digital assets in secure
+									offline storage.
+								</p>
+							</div>
+
 							<a href="/">
 								Learn how Basecoin keeps your funds safe and secure {">"}
 							</a>
 						</div>
-						<div className="features-text ">
-							<Insurance className="features-svg" />
-							<h2>Protected by insurance</h2>
-							<p>
-								Cryptocurrency stored on our servers is covered by our insurance
-								policy.
-							</p>
+						<div className="features-text flex-column">
+							<div className="features-svg-container">
+								<Insurance className="features-svg" />
+							</div>
+
+							<div className="">
+								<h2>Protected by insurance</h2>
+
+								<p>
+									Cryptocurrency stored on our servers is covered by our
+									insurance policy.
+								</p>
+							</div>
+
 							<a href="/">
 								Learn how your crypto is covered by our insurance policy {">"}
 							</a>
 						</div>
 						<div className="features-text ">
-							<BestPractice className="features-svg" />
-							<h2>Industry best practices</h2>
-							<p>
-								Basecoin supports a variety of the most popular digital
-								currencies.
-							</p>
+							<div className="features-svg-container">
+								<BestPractice className="features-svg" />
+							</div>
+
+							<div className="">
+								<h2>Industry best practices</h2>
+								<p>
+									Basecoin supports a variety of the most popular digital
+									currencies.
+								</p>
+							</div>
+
 							<a href="/">
 								Learn how we implement industry best practices for account
 								security {">"}{" "}

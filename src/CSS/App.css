@@ -121,7 +121,7 @@ img {
 .showcase h1 {
 	font-size: 3rem;
 	font-weight: 700;
-	line-height: 2.5rem;
+	line-height: 3.5rem;
 	padding: 0 4rem;
 	padding-bottom: 1rem;
 }
@@ -303,6 +303,10 @@ table {
 	padding-bottom: 2rem;
 }
 
+.overlay .grid > *:first-child {
+	order: 2;
+}
+
 .overlay .overlay-head h2 {
 	font-size: 2.4rem;
 	font-weight: 500;
@@ -368,15 +372,19 @@ hr {
 }
 
 .features .features-head {
-	margin-bottom: 5rem;
+	margin-bottom: 3rem;
 }
 
 .features .grid {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-.features-svg {
-	margin-bottom: 4rem;
+.features .grid > *:nth-child(2) {
+	margin-top: 2rem;
+}
+
+.features .features-svg-container {
+	padding-bottom: 3rem;
 }
 
 .features .features-text {
@@ -397,6 +405,7 @@ hr {
 }
 
 .features .features-text a {
+	font-size: 0.85rem;
 	color: var(--primary-color);
 	padding: 1rem 2rem;
 }
@@ -453,6 +462,14 @@ hr {
 .quickstart .grid {
 	grid-template-columns: repeat(3, 1fr);
 	padding-right: 1rem;
+}
+
+.quickstart .grid > *:nth-child(3) {
+	margin-left: 2rem;
+}
+
+.quickstart .grid > *:nth-child(2) {
+	margin-left: 2rem;
 }
 
 .quickstart-icons {
@@ -598,6 +615,7 @@ hr {
 	.banner {
 		margin-left: 3rem;
 	}
+
 	.banner-text,
 	.banner-footer-text {
 		margin-top: 0rem;
@@ -609,14 +627,17 @@ hr {
 		margin-left: 3rem;
 	}
 }
+
 @media (max-width: 1140px) {
 	.banner {
 		margin: 0;
 	}
+
 	.overlay .grid {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
 	}
+
 	.overlay .overlay-text {
 		justify-content: start;
 		margin: 0rem;
@@ -626,14 +647,177 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.navbar .auth a {
+		font-size: 0.9rem;
+		margin-right: 0rem;
+		padding: 0.2rem 0.5rem;
+	}
+
+	.banner .container {
+		padding: 40px 0rem;
+	}
+
+	.banner .banner-icons {
+		width: auto;
+		margin: 0rem 5rem;
+	}
+
+	.banner .container .banner-btn {
+		justify-content: start;
+	}
+
+	.banner .banner-icons .icon-item {
+		border: 1px solid rgba(218, 225, 233, 0.5);
+		border-radius: 0.5rem;
+	}
+
 	.banner .grid,
 	.banner-footer .grid {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
 		text-align: center;
 	}
+
+	.banner .container,
+	.banner-footer .grid {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+	}
+
+	.banner .banner-text,
+	.banner-footer .banner-footer-text {
+		align-content: center;
+		max-width: 340px;
+	}
+
+	.banner-footer .banner-footer-text {
+		margin-left: 1rem;
+	}
+
+	.banner-footer {
+		padding: 0 3rem;
+		padding-bottom: 2rem;
+	}
+
 	.banner-footer .grid img {
 		display: none;
+	}
+
+	.features .grid {
+		gap: 2rem;
+	}
+
+	.features .grid > *:nth-child(3) {
+		margin-top: 2rem;
+	}
+
+	.features .grid > *:first-child {
+		margin-top: 2rem;
+	}
+
+	.features .features-text a {
+		padding: 0rem;
+		margin: 0rem;
+	}
+
+	.quickstart .grid > *:nth-child(3) {
+		margin-left: 2rem;
+	}
+
+	.quickstart .grid > *:nth-child(2) {
+		margin-left: 2rem;
+	}
+
+	.quickstart .quickstart-icons {
+		margin: 0rem;
+		padding: 0rem;
+		margin-left: 4rem;
+	}
+
+	.footer .grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 550px) {
+	h1 {
+		font-size: 1.8rem;
+	}
+
+	.header {
+		height: 70px;
+	}
+
+	.showcase {
+		padding: 0rem;
+		height: auto;
+		max-width: 100vw;
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.showcase .container {
+		padding: 0rem 1rem;
+	}
+
+	.showcase .showcase-text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.showcase .showcase-text h1 {
+		padding: 0rem;
+		font-size: 1.8rem;
+		line-height: 1.4;
+		max-width: 300px;
+		text-align: center;
+	}
+
+	.showcase .showcase-text p {
+		text-align: center;
+		padding-bottom: 1rem;
+	}
+
+	.showcase .showcase-form .email-form {
+		flex-direction: column;
+	}
+
+	.showcase .showcase-form .email-form > *:nth-child(2) {
+		margin-top: 1rem;
+		width: 17rem;
+	}
+
+	.showcase .showcase-form .email-form .btn {
+		width: 100%;
+	}
+
+	.banner .grid {
+		padding-bottom: 0rem;
+		margin-bottom: 0rem;
+	}
+
+	.banner .banner-icons {
+		width: 100vw;
+		margin: 0rem 1rem;
+	}
+
+	.banner-icons .icon-item h2 {
+		font-size: 1.4rem;
+	}
+
+	.banner-icons .icon-item h3 {
+		display: none;
+	}
+
+	.banner-icons .icon-item span {
+		margin: 0;
+		padding-left: 4rem;
+	}
+
+	.overlay {
+		padding-top: 1rem;
 	}
 }
 /* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
