@@ -103,33 +103,34 @@ function Home() {
 
 	return (
 		<div>
-			<Header />
-			<div className="showcase-container">
-				<section className="showcase">
-					<div className="container">
-						<div className=""></div>
-						<div className="showcase-text">
-							<h1>Buy and sell cryptocurrency</h1>
-							<p>
-								Basecoin is the easiest place to buy, sell, and manage your
-								cryptocurrency portfolio.
-							</p>
+			<div className="gbEsE_ConTAinER">
+				<Header />
+				<div className="showcase-container">
+					<section className="showcase">
+						<div className="container">
+							<div className=""></div>
+							<div className="showcase-text">
+								<h1>Buy and sell cryptocurrency</h1>
+								<p>
+									Basecoin is the easiest place to buy, sell, and manage your
+									cryptocurrency portfolio.
+								</p>
+							</div>
+							<div className="showcase-form">
+								<form className="email-form flex">
+									<label htmlFor="email">
+										<input type="email" placeholder="Email address"></input>
+									</label>
+									<label htmlFor="submit-button">
+										<button className="btn btn-outline">Get Started</button>
+									</label>
+								</form>
+							</div>
 						</div>
-						<div className="showcase-form">
-							<form className="email-form flex">
-								<label htmlFor="email">
-									<input type="email" placeholder="Email address"></input>
-								</label>
-								<label htmlFor="submit-button">
-									<button className="btn btn-outline">Get Started</button>
-								</label>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section className="tables">
-					<div className="container card">
-						{/* <table>
+					</section>
+					<section className="tables">
+						<div className="container card">
+							{/* <table>
 							<thead>
 								<tr className="flex">
 									<div className="flex">
@@ -168,9 +169,11 @@ function Home() {
 								})}
 							</tbody>
 						</table> */}
-					</div>
-				</section>
+						</div>
+					</section>
+				</div>
 			</div>
+
 			{/* <table
 				className="card"
 				{...getTableProps()}

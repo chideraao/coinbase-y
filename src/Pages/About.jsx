@@ -16,12 +16,15 @@ function About() {
 
 	return (
 		<div className="about">
-			<AboutHeader />
-			<section className="showcase">
-				<div className="container">
-					<h1>About Basecoin</h1>
-				</div>
-			</section>
+			<div className="gbEsE_ConTAinER">
+				<AboutHeader />
+				<section className="showcase">
+					<div className="container">
+						<h1>About Basecoin</h1>
+					</div>
+				</section>
+			</div>
+
 			<section className="subnav">
 				<div className="container">
 					<nav className="nav">

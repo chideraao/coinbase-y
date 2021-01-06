@@ -54,6 +54,10 @@ img {
 	width: 100%;
 }
 
+.gbEsE_ConTAinER {
+	background-color: var(--primary-color);
+}
+
 .header {
 	background-color: var(--primary-color);
 	/* padding: 1rem; */
@@ -754,6 +758,7 @@ hr {
 	}
 }
 
+/* Phones and under */
 @media (max-width: 550px) {
 	h1 {
 		font-size: 1.8rem;
@@ -1301,7 +1306,7 @@ hr {
 
 .about .subnav .nav .about {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.2rem;
+	padding-bottom: 1.26rem;
 }
 
 .about .main {
@@ -1448,7 +1453,7 @@ hr {
 .about .office {
 	padding-top: 2rem;
 	text-align: start;
-	margin: 2rem 1rem;
+	margin: 2rem 0rem;
 	height: 27rem;
 	width: 100%;
 	text-align: center;
@@ -1591,6 +1596,114 @@ hr {
 .about-footer .social a:hover,
 .about-footer .language a:hover {
 	text-decoration: underline;
+}
+
+/* ----------------------------------------ABOUT MEDIA QUERIES--------------------------------------------------------------- */
+@media (max-width: 1200px) {
+	.about .about-header {
+		width: 100vw;
+		overflow: hidden;
+		margin-right: 3rem;
+	}
+
+	.about .about-header .navbar {
+		padding: 0rem;
+		margin: 0rem;
+		justify-content: space-between;
+	}
+
+	.about .main {
+		margin-top: 4rem;
+	}
+
+	.about .main .main-stats {
+		margin-top: 0rem;
+	}
+
+	.about .executives .execs .grid,
+	.about .board .grid {
+		gap: 1rem;
+	}
+
+	.about .vertical-line {
+		margin-left: 3rem;
+	}
+
+	.about .office .footer-text {
+		margin: 0rem;
+		margin-top: 2rem;
+		margin-right: 2rem;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.showcase .container h1 {
+		padding: 0rem;
+		margin-bottom: 3rem;
+	}
+
+	.about .main {
+		margin: 1rem 0rem;
+		margin-top: 4rem;
+	}
+
+	.about .executives .grid {
+		margin: 0rem;
+	}
+
+	.about .vertical-line {
+		margin-left: 3rem;
+		visibility: hidden;
+	}
+
+	.investors .grid {
+		grid-template-columns: repeat(3, 1fr) !important;
+	}
+
+	.about .office {
+		width: 100vw;
+	}
+
+	.about .office .footer-text {
+		margin: 0rem;
+		margin-top: 2rem;
+		padding-right: 2rem;
+	}
+
+	.about .contact {
+		margin: 1rem 2rem;
+	}
+
+	.about-footer .grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Phones and under */
+@media (max-width: 550px) {
+	.showcase .container h1 {
+		font-size: 2rem;
+		padding: 0rem;
+		margin-bottom: 4rem;
+	}
+
+	.about .main .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.about .main .main-text {
+		margin-bottom: 2rem;
+	}
+
+	.about .main .main-stats {
+		margin: 1.4rem;
+	}
+
+	.about .vertical-line {
+		display: none;
+	}
 }
 
 /*--------------------------------------------------     EARN    -------------------------------------------------------------*/
