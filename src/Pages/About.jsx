@@ -144,7 +144,7 @@ function About() {
 					<div className="grid">
 						{investors.map((investor) => {
 							return (
-								<div className="inverstors-wrapper" key={Math.random()}>
+								<div className="investors-wrapper" key={Math.random()}>
 									<img src={investor} alt="" />
 								</div>
 							);

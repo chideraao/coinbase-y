@@ -1701,8 +1701,51 @@ hr {
 		margin: 1.4rem;
 	}
 
-	.about .vertical-line {
+	.executives .grid,
+	.investors .grid,
+	.about .office .grid,
+	.about .contact .grid {
+		grid-template-columns: 1fr !important;
+		grid-template-rows: 1fr;
+		gap: 0.5rem;
+		margin: 0rem 1rem !important;
+	}
+
+	.about .executives .execs .execs-wrapper,
+	.about .executives .board .board-wrapper {
+		margin-bottom: 0rem;
+	}
+
+	.about .executives .execs {
+		margin-bottom: 1rem;
+	}
+
+	.about .vertical-line,
+	.about .office .fake-wrapper {
 		display: none;
+	}
+
+	.about .investors .investors-wrapper img {
+		min-height: 7rem;
+	}
+
+	.about .office .footer-text {
+		margin: 0rem;
+		padding: 0rem;
+		margin-top: 3rem;
+	}
+
+	.about .contact {
+		padding-bottom: 2rem;
+	}
+
+	.about .contact .grid {
+		gap: 1rem;
+	}
+
+	.about-footer .grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
 	}
 }
 
