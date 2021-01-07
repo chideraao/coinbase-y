@@ -938,7 +938,7 @@ hr {
 	font-weight: 500;
 	line-height: 4rem;
 	padding: 0 4rem;
-	padding-bottom: 5rem;
+	padding-bottom: 10rem;
 }
 
 .careers .video-container {
@@ -1209,6 +1209,177 @@ hr {
 	color: rgb(78, 92, 110);
 	margin: auto;
 	padding: 0.4rem 0;
+}
+
+/* ------------------------------------------------------------  CAREERS MEDIA QUERIES ----------------------------------------------------------- */
+@media (max-width: 1140px) {
+	.careers .header-container {
+		position: relative;
+		text-align: center;
+		height: 40rem;
+		width: 100vw;
+		margin-bottom: 2rem;
+	}
+
+	.careers .showcase h1 {
+		padding-bottom: 10rem;
+	}
+
+	.careers .video-container {
+		flex-direction: column;
+		position: absolute;
+		top: 10.5rem;
+		left: 10rem;
+		z-index: 9;
+	}
+
+	.careers .video-container iframe {
+		height: 20rem;
+		width: 40rem;
+	}
+
+	.careers .info {
+		margin: 1rem 0.3rem;
+	}
+
+	.careers .info .grid {
+		gap: 1rem;
+	}
+
+	.careers .info img {
+		width: 29rem;
+		height: auto;
+	}
+
+	.careers .info iframe {
+		width: 29rem;
+	}
+
+	.careers .testimonials .carousel-button {
+		margin-bottom: 10rem;
+	}
+
+	.careers .testimonials-quote h1 {
+		margin: 0 5rem;
+		padding: 1rem 3rem;
+		margin-top: 0rem;
+		text-align: center;
+		margin-bottom: 4rem;
+		font-size: 1.4rem;
+		font-weight: 300;
+		line-height: 1.6;
+		color: rgb(131, 143, 160);
+	}
+
+	.careers .locations,
+	.careers .legal {
+		margin: 1rem;
+	}
+
+	.careers .openings .container {
+		padding: 0rem 1rem;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.careers .video-container iframe {
+		height: 20rem;
+		width: 40rem;
+	}
+
+	.careers .showcase h1 {
+		padding-bottom: 10rem !important;
+	}
+
+	.careers .video-container {
+		flex-direction: column;
+		position: absolute;
+		top: 10.5rem;
+		left: 2rem;
+		z-index: 9;
+	}
+
+	.careers .info img {
+		margin-top: 5rem;
+	}
+
+	.careers .info iframe {
+		margin-top: 10rem;
+	}
+
+	.careers .testimonials {
+		margin: 0rem;
+		margin-bottom: 2rem;
+	}
+
+	.careers .testimonials .container {
+		padding: 1rem;
+	}
+
+	.careers .testimonials-quote h1 {
+		margin: 0rem;
+		padding: 1rem;
+		margin-top: 0rem;
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 1.4rem;
+		font-weight: 300;
+		line-height: 1.6;
+		color: rgb(131, 143, 160);
+	}
+
+	.careers .testimonials .carousel-button {
+		margin-bottom: 6rem;
+	}
+
+	.careers .locations .container,
+	.careers .legal {
+		padding: 0rem;
+	}
+
+	.careers .locations .container .grid {
+		margin: 1rem;
+	}
+
+	.careers .openings {
+		margin: 1rem 0rem;
+	}
+
+	.careers .openings .container,
+	.careers .legal .container {
+		padding: 0.5rem;
+	}
+}
+
+/* Phones and under */
+@media (max-width: 550px) {
+	.careers .showcase .container {
+		padding: 0rem;
+	}
+
+	.careers .video-container iframe {
+		height: 20rem;
+		width: 20rem;
+	}
+
+	.careers .showcase h1 {
+		padding-bottom: 10rem !important;
+	}
+
+	.careers .video-container {
+		flex-direction: column;
+		position: absolute;
+		top: 10.5rem;
+		left: 0rem;
+		z-index: 9;
+	}
+
+	.careers .info .grid,
+	.careers .locations .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
 }
 
 /*------------------------------------------ ABOUT PAGE  --------------------------------------------------------------------- */
