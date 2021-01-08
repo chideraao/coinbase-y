@@ -953,6 +953,10 @@ hr {
 	flex-direction: column;
 }
 
+.careers .video-container iframe {
+	border-radius: 0.5rem;
+}
+
 .careers .video-container a {
 	color: var(--primary-color);
 	border-color: var(--primary-color);
@@ -1358,27 +1362,141 @@ hr {
 		padding: 0rem;
 	}
 
+	.careers .video-container {
+		flex-direction: column;
+		position: absolute;
+		top: 7rem;
+		left: 0rem;
+		z-index: 9;
+	}
+
 	.careers .video-container iframe {
 		height: 20rem;
 		width: 20rem;
+		margin-bottom: 1rem;
+	}
+
+	.careers .video-container a {
+		margin: 0.5rem 1rem;
+		width: 15rem;
 	}
 
 	.careers .showcase h1 {
 		padding-bottom: 10rem !important;
 	}
 
-	.careers .video-container {
-		flex-direction: column;
-		position: absolute;
-		top: 10.5rem;
-		left: 0rem;
-		z-index: 9;
+	.careers .video-container .container {
+		padding: 0rem;
 	}
 
-	.careers .info .grid,
+	.careers .info .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.careers .info .info-media {
+		order: 1;
+	}
+
+	.careers .info img,
+	.careers .info iframe {
+		margin-top: 0rem;
+	}
+
+	.careers .info iframe {
+		margin-left: 0.7rem !important;
+		width: 20rem;
+		height: auto;
+		margin-bottom: 0rem;
+	}
+
+	.careers .info .info-text {
+		max-width: 20rem;
+		margin-bottom: 1rem;
+		order: 2;
+	}
+
+	.careers .info img {
+		width: 20rem;
+		height: auto;
+		margin-bottom: 0rem;
+	}
+
+	.careers .testimonials {
+		margin: 0rem;
+		margin-bottom: 2rem;
+	}
+
+	.careers .testimonials .container {
+		padding: 0rem;
+	}
+
+	.careers .testimonials-quote h1 {
+		margin: 0rem;
+		padding: 1rem;
+		margin-top: 0rem;
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1.6;
+		color: rgb(131, 143, 160);
+	}
+
+	.careers .testimonials h3 {
+		font-size: 1rem;
+		margin-bottom: 0rem;
+	}
+
+	.careers .testimonials p {
+		margin-right: 1rem;
+		margin-top: 0rem;
+		max-width: 10rem;
+	}
+
+	.careers .testimonials .carousel-main {
+		margin-bottom: 15rem;
+	}
+
+	.careers .testimonials .carousel-button {
+		margin-bottom: 10rem;
+	}
+
+	.careers .locations {
+		margin: 0;
+	}
+
+	.careers .locations .locations-container {
+		margin: 0rem !important;
+	}
+
 	.careers .locations .grid {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
+		justify-items: center;
+	}
+
+	.careers .locations .locations-container > *:last-child {
+		grid-row: auto;
+		grid-column: auto;
+	}
+
+	.careers .locations .locations-container > *:nth-child(9) {
+		grid-row: auto;
+		grid-column: auto;
+	}
+
+	.careers .locations .locations-card {
+		padding: 1rem;
+		width: 12rem;
+	}
+
+	.careers .openings .container {
+		padding: 0rem;
+	}
+
+	.careers .openings .openings-items {
+		margin: 0.5rem 0.7rem;
 	}
 }
 

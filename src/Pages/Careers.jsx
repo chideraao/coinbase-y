@@ -151,7 +151,11 @@ function Careers() {
 							<Slider>
 								{reviews.map((review) => {
 									return (
-										<Slide index={`${review.id - 1}`} key={review.name}>
+										<Slide
+											index={`${review.id - 1}`}
+											key={review.name}
+											className="carousel-main"
+										>
 											<div className="testimonials-quote">
 												<h1>" {review.text} "</h1>
 											</div>
