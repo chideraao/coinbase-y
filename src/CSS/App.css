@@ -2334,7 +2334,7 @@ hr {
 
 .press .subnav .nav .press {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.2rem;
+	padding-bottom: 1.25rem;
 }
 
 .press .press-main {
@@ -2373,6 +2373,36 @@ hr {
 .press .press-main .press-main-img .flex-column .flex a {
 	font-size: 0.9em;
 	margin: 0 0.5rem;
+}
+
+/* --------------------------------------------------------  PRESS MEDIA QUERIES  ---------------------------------------------------------------- */
+@media (max-width: 1140px) {
+	.press .press-main {
+		margin: 2rem;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.press .press-main {
+		margin: 2rem 0.5rem;
+	}
+}
+
+/* Phones and under */
+@media (max-width: 550px) {
+	.press .press-main .container {
+		padding: 0rem;
+	}
+
+	.press .press-main .flex {
+		flex-direction: column;
+	}
+
+	.press .press-main .flex .flex-column .flex {
+		flex-direction: row;
+		margin-bottom: 1rem;
+	}
 }
 
 /* ------------------------------------------------------ LEARN ------------------------------------------------------------- */
