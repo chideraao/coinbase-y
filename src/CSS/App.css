@@ -1498,6 +1498,11 @@ hr {
 	.careers .openings .openings-items {
 		margin: 0.5rem 0.7rem;
 	}
+
+	.careers .openings .openings-items h2 {
+		font-size: 1.2rem;
+		margin-bottom: 0.4rem;
+	}
 }
 
 /*------------------------------------------ ABOUT PAGE  --------------------------------------------------------------------- */
@@ -2822,6 +2827,131 @@ hr {
 	color: var(--dark-color);
 	font-weight: 400;
 	padding: 0.8rem 1.5rem;
+}
+
+/* --------------------------------------------------------  EARN MEDIA QUERIES  ---------------------------------------------------------------- */
+@media (max-width: 1140px) {
+	.learn .learn-showcase,
+	.learn .learn-features,
+	.learn .crypto-basics,
+	.learn .learn-earn,
+	.learn .market-updates {
+		margin: 1rem;
+	}
+
+	.learn .learn-showcase .container {
+		padding: 0rem;
+	}
+
+	.learn .tips-and-tutorials {
+		padding: 1rem;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.learn .learn-showcase,
+	.learn .learn-features,
+	.learn .crypto-basics,
+	.learn .learn-earn,
+	.learn .market-updates {
+		margin: 1rem 0rem;
+	}
+
+	.learn .learn-showcase .container,
+	.learn .learn-showcase,
+	.learn .crypto-basics .container,
+	.learn .tips-and-tutorials .container,
+	.learn .market-updates .container {
+		padding: 0rem 1rem;
+	}
+
+	.learn .learn-features .container {
+		padding: 0rem;
+	}
+
+	.learn .learn-features {
+		padding-bottom: 1rem;
+	}
+
+	.learn .learn-features .features-container {
+		margin-bottom: 1rem;
+	}
+
+	.learn .tips-and-tutorials {
+		padding-bottom: 3rem;
+	}
+
+	.learn .learn-earn h2 {
+		margin-top: 1rem;
+	}
+
+	.learn .learn-earn .container .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		text-align: center;
+	}
+
+	.learn .learn-earn .learn-earn-text {
+		margin: 0rem;
+	}
+
+	.learn .learn-earn .container .grid img {
+		display: none;
+	}
+
+	.learn .get-started {
+		padding: 3rem;
+	}
+}
+
+/* Phones and under */
+@media (max-width: 550px) {
+	.learn .container .grid {
+		grid-template-columns: 1fr !important;
+		grid-template-rows: 1fr !important;
+	}
+
+	.learn .learn-showcase,
+	.learn .learn-features,
+	.learn .crypto-basics,
+	.learn .learn-earn,
+	.learn .market-updates {
+		margin: 0.5rem;
+	}
+
+	.learn .learn-showcase .container {
+		padding: 0rem;
+	}
+
+	.learn .crypto-basics .container,
+	.learn .tips-and-tutorials .container,
+	.learn .market-updates .container {
+		padding: 0rem 0.4rem;
+	}
+
+	.learn .tips-and-tutorials {
+		padding: 0.5rem;
+		padding-bottom: 3rem;
+	}
+
+	.learn .grid-4 {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.learn .learn-features .features-container .beginners-guide,
+	.learn .learn-features .features-container .popular {
+		margin: 0.5rem;
+	}
+
+	.learn .learn-features .learn-features-icons {
+		gap: 1rem;
+	}
+
+	.learn .learn-features .learn-features-icons > *:first-child {
+		margin-right: 1rem;
+	}
 }
 
 /* --------------------------------------------------   PRICE  --------------------------------------------------------------- */
