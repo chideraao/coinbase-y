@@ -18,7 +18,7 @@ import Press from "./Pages/Press";
 import Learn from "./Pages/Learn";
 import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
-import ChartTable from "./Components/CoinsSparkline";
+// import ChartTable from "./Components/CoinsSparkline";
 
 library.add(faChevronLeft, faChevronRight);
 
