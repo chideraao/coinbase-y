@@ -1,53 +1,27 @@
-// import Axios from "axios";
-// import React, { useEffect, useState } from "react";
-
-// function ChartTable() {
-// 	const [api, setApi] = useState("");
-// 	useEffect(() => {
-// 		Axios.get(
-// 			`https://api.nomics.com/v1/currencies/sparkline?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,XRP&start=2021-01-03T00%3A00%3A00Z&end=2021-01-04T00%3A00%3A00Z`
-// 		).then((res) => {
-// 			setApi(res.data);
-// 			console.log(res.data);
-// 		});
-// 	}, []);
-// 	return (
-// 		<div>
-// 			<h1>from ChartTable</h1>
-// 			<p>{JSON.stringify(api)}</p>
-// 		</div>
-// 	);
-// }
-
-// export default ChartTable;
-
 import Axios from "axios";
-import React, { Component } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js";
-// import classes from "./LineGraph.module.css";
 
-export default class chartTable extends Component {
-	constructor(props) {
-		super(props);
+function ChartTable() {
+	const [api, setApi] = useState({});
+	const chartContainer = useRef(null);
 
-		this.state = {
-			api: {},
-		};
-	}
-
-	chartRef = React.createRef();
-
-	componentDidMount() {
+	useEffect(() => {
 		Axios.get(
-			`https://api.nomics.com/v1/currencies/sparkline?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,XRP&start=2017-12-01T00%3A00%3A00Z&end=2021-01-04T00%3A00%3A00Z`
+			`https://api.nomics.com/v1/currencies/sparkline?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,XRP&start=2021-01-03T00%3A00%3A00Z&end=2021-01-04T00%3A00%3A00Z`
 		).then((res) => {
-			this.setState({ api: res.data });
+			setApi(res.data);
+			console.log(res.data);
 		});
+	}, []);
 
-		const myChartRef = this.chartRef.current.getContext("2d");
+	const myChartRef = chartContainer.current.getContext("2d");
 
-		new Chart(myChartRef, {
-			type: "line",
+	new Chart(myChartRef, {
+		type: "line",
+		data: {
+			//Bring in data
+
 			data: {
 				//Bring in data
 				labels: [
@@ -386,27 +360,102 @@ export default class chartTable extends Component {
 					},
 				],
 			},
-			options: {
-				elements: {
-					point: { radius: 0 },
-				},
-				legend: {
-					display: false,
-				},
-				scales: {
-					xAxes: [{ display: false }],
-					yAxes: [{ display: false }],
-				},
+			// labels: [api[0].timestamps],
+			// datasets: [
+			// 	{
+			// 		backgroundColor: "rgba(0,0,0,0)",
+			// 		// borderColor: "rgba(0,0,0,0)",
+			// 		label: "Prices",
+			// 		data: [api[0].prices],
+			// 	},
+			// ],
+		},
+		options: {
+			elements: {
+				point: { radius: 0 },
 			},
-		});
-	}
+			legend: {
+				display: false,
+			},
+			scales: {
+				xAxes: [{ display: false }],
+				yAxes: [{ display: false }],
+			},
+		},
+	});
 
-	render() {
-		console.log(this.state.api);
-		return (
-			<div>
-				<canvas id="myChart" ref={this.chartRef} color="red" />
-			</div>
-		);
-	}
+	return (
+		<div>
+			<h1>from ChartTable</h1>
+			<p>{JSON.stringify(api)}</p>
+			{/* <canvas id="myChart" ref={chartContainer} /> */}
+		</div>
+	);
 }
+
+export default ChartTable;
+
+// import Axios from "axios";
+// import React, { Component } from "react";
+// import Chart from "chart.js";
+// // import classes from "./LineGraph.module.css";
+
+// export default class chartTable extends Component {
+// 	constructor(props) {
+// 		super(props);
+
+// 		this.state = {
+// 			api: {},
+// 		};
+// 	}
+
+// 	chartRef = React.createRef();
+
+// 	componentDidMount() {
+// 		Axios.get(
+// 			`https://api.nomics.com/v1/currencies/sparkline?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&start=2020-12-01T00%3A00%3A00Z&end=2021-01-04T00%3A00%3A00Z`
+// 		).then((res) => {
+// 			this.setState({ api: res.data });
+// 		});
+// 		console.log(this.state.api);
+
+// 		const myChartRef = this.chartRef.current.getContext("2d");
+
+// 		new Chart(myChartRef, {
+// 			type: "line",
+// 			data: {
+// 				//Bring in data
+// 				labels: [...this.state.api[0].timestamps],
+// 				datasets: [
+// 					{
+// 						backgroundColor: "rgba(0,0,0,0)",
+// 						// borderColor: "rgba(0,0,0,0)",
+// 						label: "Prices",
+// 						data: [...this.state.api[0].prices],
+// 					},
+// 				],
+// 			},
+// 			options: {
+// 				elements: {
+// 					point: { radius: 0 },
+// 				},
+// 				legend: {
+// 					display: false,
+// 				},
+// 				scales: {
+// 					xAxes: [{ display: false }],
+// 					yAxes: [{ display: false }],
+// 				},
+// 			},
+// 		});
+// 	}
+
+// 	render() {
+// 		console.log(this.state.api);
+// 		return (
+// 			<div>
+// 				<canvas id="myChart" ref={this.chartRef} color="red" />
+// 			</div>
+// 		);
+// 	}
+// }

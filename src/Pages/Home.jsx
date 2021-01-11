@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import band from "../logos/band.svg";
@@ -36,7 +36,7 @@ const api = {
 function Home() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
 
-	useEffect(() => {
+	const onLoad = useEffect(() => {
 		// Axios.get(
 		// 	"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&interval=1d,7d&per-page=100&page=1"
 		// )
@@ -45,7 +45,7 @@ function Home() {
 		)
 			.then((response) => {
 				Axios.get(
-					`https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d,7d&per-page=100&page=1`
+					`https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d&per-page=100&page=1`
 				)
 					.then((res) => {
 						console.log(res.data);
@@ -63,34 +63,37 @@ function Home() {
 	console.log(cryptos);
 
 	const data = React.useMemo(
-		() => [
-			{
-				col0: 1,
-				col1: `${cryptos[0].name} ${cryptos[0].symbol}`,
-				col2: cryptos[0].price,
-				col3: `${cryptos[0]["1d"].price_change_pct * 100}%`,
-				col4: <ChartTable />,
-			},
-			{
-				col0: 2,
-				col1: `${cryptos[1].name} ${cryptos[1].symbol}`,
-				col2: cryptos[1].price,
-				col3: `${cryptos[1]["1d"].price_change_pct * 100}%`,
-			},
-			{
-				col0: 3,
-				col1: `${cryptos[2].name} ${cryptos[2].symbol}`,
-				col2: cryptos[2].price,
-				col3: `${cryptos[2]["1d"].price_change_pct * 100}%`,
-			},
-			{
-				col0: 4,
-				col1: `${cryptos[3].name} ${cryptos[3].symbol}`,
-				col2: cryptos[3].price,
-				col3: `${cryptos[3]["1d"].price_change_pct * 100}%`,
-			},
-		],
-		[]
+		() =>
+			!cryptos.length
+				? []
+				: [
+						{
+							col0: 1,
+							col1: `${cryptos[0].name} ${cryptos[0].symbol}`,
+							col2: cryptos[0].price,
+							col3: `${cryptos[0]["1d"].price_change_pct * 100}%`,
+							// col4: <ChartTable />,
+						},
+						{
+							col0: 2,
+							col1: `${cryptos[1].name} ${cryptos[1].symbol}`,
+							col2: cryptos[1].price,
+							col3: `${cryptos[1]["1d"].price_change_pct * 100}%`,
+						},
+						{
+							col0: 3,
+							col1: `${cryptos[2].name} ${cryptos[2].symbol}`,
+							col2: cryptos[2].price,
+							col3: `${cryptos[2]["1d"].price_change_pct * 100}%`,
+						},
+						{
+							col0: 4,
+							col1: `${cryptos[3].name} ${cryptos[3].symbol}`,
+							col2: cryptos[3].price,
+							col3: `${cryptos[3]["1d"].price_change_pct * 100}%`,
+						},
+				  ],
+		[cryptos]
 	);
 
 	const columns = React.useMemo(
@@ -196,94 +199,91 @@ function Home() {
 					</section>
 				</div>
 			</div>
-			{cryptos[0].name !== undefined ? (
-				<table
-					className="card"
-					{...getTableProps()}
-					style={{ border: "solid 1px blue" }}
-				>
-					<thead>
-						{headerGroups.map((headerGroup) => (
-							<tr {...headerGroup.getHeaderGroupProps()}>
-								{headerGroup.headers.map((column) => (
-									<th
-										{...column.getHeaderProps()}
-										style={{
-											borderBottom: "solid 3px red",
-											background: "aliceblue",
-											color: "black",
-											fontWeight: "bold",
-										}}
-									>
-										{column.render("Header")}
-									</th>
-								))}
+
+			<table
+				className="card"
+				{...getTableProps()}
+				style={{ border: "solid 1px blue" }}
+			>
+				<thead>
+					{headerGroups.map((headerGroup) => (
+						<tr {...headerGroup.getHeaderGroupProps()}>
+							{headerGroup.headers.map((column) => (
+								<th
+									{...column.getHeaderProps()}
+									style={{
+										borderBottom: "solid 3px red",
+										background: "aliceblue",
+										color: "black",
+										fontWeight: "bold",
+									}}
+								>
+									{column.render("Header")}
+								</th>
+							))}
+						</tr>
+					))}
+				</thead>
+				<tbody {...getTableBodyProps()}>
+					{rows.map((row) => {
+						prepareRow(row);
+						return (
+							<tr {...row.getRowProps()}>
+								{row.cells.map((cell) => {
+									return (
+										<td
+											{...cell.getCellProps()}
+											style={{
+												padding: "10px",
+												border: "solid 1px gray",
+												background: "papayawhip",
+											}}
+										>
+											{cell.render("Cell")}
+										</td>
+									);
+								})}
 							</tr>
-						))}
-					</thead>
-					<tbody {...getTableBodyProps()}>
-						{rows.map((row) => {
-							prepareRow(row);
-							return (
-								<tr {...row.getRowProps()}>
-									{row.cells.map((cell) => {
-										return (
-											<td
-												{...cell.getCellProps()}
-												style={{
-													padding: "10px",
-													border: "solid 1px gray",
-													background: "papayawhip",
-												}}
-											>
-												{cell.render("Cell")}
-											</td>
-										);
-									})}
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
-			) : (
-				""
-			)}
-			{/* 
-			<table class="card" role="table" style="border: 1px solid blue;">
+						);
+					})}
+				</tbody>
+			</table>
+
+			<table class="card" role="table">
 				<thead>
 					<tr role="row">
 						<th
-							colspan="1"
+							colSpan="1"
 							role="columnheader"
-							style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
+							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
 						>
 							#
 						</th>
 						<th
-							colspan="1"
+							colSpan="1"
 							role="columnheader"
-							style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
+							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
 						>
 							Column 1
 						</th>
 						<th
-							colspan="1"
+							colSpan="1"
 							role="columnheader"
-							style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
+							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
 						>
 							Column 2
 						</th>
 						<th
-							colspan="1"
+							colSpan="1"
 							role="columnheader"
-							style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
+							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
 						>
 							Column 3
 						</th>
 						<th
-							colspan="1"
+							colSpan="1"
 							role="columnheader"
-							style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
+							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
 						>
 							Column 4
 						</th>
@@ -293,125 +293,125 @@ function Home() {
 					<tr role="row">
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							1
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							Bitcoin BTC
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							15666350.34920927
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							-0.38%
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						></td>
 					</tr>
 					<tr role="row">
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							2
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							Ethereum ETH
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							471021.05624110
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							0.33%
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						></td>
 					</tr>
 					<tr role="row">
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							3
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							Litecoin LTC
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							65803.59088648
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							-1.39%
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						></td>
 					</tr>
 					<tr role="row">
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							4
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							Bitcoin Cash BCH
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							176107.23604472
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						>
 							4.53%
 						</td>
 						<td
 							role="cell"
-							style="padding: 10px; border: 1px solid gray; background: papayawhip;"
+							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
 						></td>
 					</tr>
 				</tbody>
-			</table> */}
+			</table>
 
 			<section className="banner ">
 				<div className="container grid">
