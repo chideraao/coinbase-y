@@ -20,7 +20,7 @@ import overlay from "../logos/coinbase-app.51b8f3dbe406092d16845f3e74870061.jpg"
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import { CryptosContext } from "../State/GlobalContext";
+import { CryptosContext, SparklineContext } from "../State/GlobalContext";
 import { useTable } from "react-table";
 import {
 	BCHChart,
@@ -50,28 +50,16 @@ let hour = ourDate.getHours();
 let minute = ourDate.getMinutes();
 let seconds = ourDate.getSeconds();
 
-//Log the date to our web console.
-console.log(minute);
-console.log(hour);
-console.log(seconds);
-console.log(ourDate);
-console.log(month);
-console.log(year);
-console.log(day);
-
 /** MAIN HOME COMPONENT */
 
 function Home() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
-	const [sparkLineData, setsparkLineData] = useState({});
+	const [sparkline, setSparkline] = useContext(SparklineContext);
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				Axios.all([
-					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
-					),
 					Axios.get(
 						`${api.sparklineBase}key=${
 							api.key
@@ -83,26 +71,29 @@ function Home() {
 							seconds < 10 ? `0${seconds}` : seconds
 						}Z&convert=${response.data.currency.code}`
 					),
+					Axios.get(
+						`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
+					),
 				])
 					.then((res) => {
-						setCryptos(res[0].data);
-						setsparkLineData(res[1].data);
+						setCryptos(res[1].data);
+						setSparkline(res[0].data);
 					})
 					.catch((error) => {
 						console.log(error);
 					});
-				console.log(response.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
 	console.log(cryptos);
-	console.log(sparkLineData);
+	console.log(sparkline);
 
+	/** memoization of table values and prevention of rendering before the components are redy for render */
 	const data = React.useMemo(
 		() =>
-			!cryptos.length
+			!crypto.length && !sparkline.length
 				? []
 				: [
 						{
@@ -110,31 +101,31 @@ function Home() {
 							col1: `${cryptos[0].name} ${cryptos[0].symbol}`,
 							col2: cryptos[0].price,
 							col3: `${cryptos[0]["1d"].price_change_pct * 100}%`,
-							col4: <BTCChart sparkLineData={sparkLineData} />,
+							col4: <BTCChart />,
 						},
 						{
 							col0: 2,
 							col1: `${cryptos[1].name} ${cryptos[1].symbol}`,
 							col2: cryptos[1].price,
 							col3: `${cryptos[1]["1d"].price_change_pct * 100}%`,
-							col4: <ETHChart sparkLineData={sparkLineData} />,
+							col4: <ETHChart />,
 						},
 						{
 							col0: 3,
 							col1: `${cryptos[2].name} ${cryptos[2].symbol}`,
 							col2: cryptos[2].price,
 							col3: `${cryptos[2]["1d"].price_change_pct * 100}%`,
-							col4: <LTCChart sparkLineData={sparkLineData} />,
+							col4: <LTCChart />,
 						},
 						{
 							col0: 4,
 							col1: `${cryptos[3].name} ${cryptos[3].symbol}`,
 							col2: cryptos[3].price,
 							col3: `${cryptos[3]["1d"].price_change_pct * 100}%`,
-							col4: <BCHChart sparkLineData={sparkLineData} />,
+							col4: <BCHChart className="sparkline" />,
 						},
 				  ],
-		[cryptos, sparkLineData]
+		[cryptos, sparkline]
 	);
 
 	const columns = React.useMemo(
@@ -155,6 +146,10 @@ function Home() {
 			{
 				Header: "Chart",
 				accessor: "col4",
+			},
+			{
+				Header: "Trade",
+				accessor: "col5",
 			},
 		],
 		[]
@@ -200,7 +195,7 @@ function Home() {
 							<table
 								className=""
 								{...getTableProps()}
-								style={{ border: "solid 1px blue" }}
+								style={{ border: "none" }}
 							>
 								<thead>
 									{headerGroups.map((headerGroup) => (
@@ -209,10 +204,9 @@ function Home() {
 												<th
 													{...column.getHeaderProps()}
 													style={{
-														borderBottom: "solid 3px red",
-														background: "aliceblue",
+														borderBottom: "none",
+														background: "white",
 														color: "black",
-														fontWeight: "bold",
 													}}
 												>
 													{column.render("Header")}
@@ -231,9 +225,9 @@ function Home() {
 														<td
 															{...cell.getCellProps()}
 															style={{
-																padding: "10px",
-																border: "solid 1px gray",
-																background: "papayawhip",
+																border: "none",
+																background: "white",
+																color: " black",
 															}}
 														>
 															{cell.render("Cell")}
@@ -249,6 +243,93 @@ function Home() {
 					</section>
 				</div>
 			</div>
+			{/* <table class="" role="table" style="border: none;">
+				<thead>
+					<tr role="row">
+						<th
+							colspan="1"
+							role="columnheader"
+							style="border-bottom: none; background: white; color: black;"
+						>
+							#
+						</th>
+						<th
+							colspan="1"
+							role="columnheader"
+							style="border-bottom: none; background: white; color: black;"
+						>
+							Name
+						</th>
+						<th
+							colspan="1"
+							role="columnheader"
+							style="border-bottom: none; background: white; color: black;"
+						>
+							Price
+						</th>
+						<th
+							colspan="1"
+							role="columnheader"
+							style="border-bottom: none; background: white; color: black;"
+						>
+							Change
+						</th>
+					</tr>
+				</thead>
+				<tbody role="rowgroup">
+					<tr role="row">
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						>
+							1
+						</td>
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						>
+							Bitcoin BTC
+						</td>
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						>
+							13202739.02605790
+						</td>
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						>
+							1.04%
+						</td>
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						>
+							<div class="container">
+								<div class="chartjs-size-monitor">
+									<div class="chartjs-size-monitor-expand">
+										<div class=""></div>
+									</div>
+									<div class="chartjs-size-monitor-shrink">
+										<div class=""></div>
+									</div>
+								</div>
+								<canvas
+									height="150"
+									width="300"
+									class="chartjs-render-monitor"
+									style="display: block;"
+								></canvas>
+							</div>
+						</td>
+						<td
+							role="cell"
+							style="border: none; background: white; color: black;"
+						></td>
+					</tr>
+				</tbody>
+			</table> */}
 
 			<section className="banner ">
 				<div className="container grid">

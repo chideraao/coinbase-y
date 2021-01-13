@@ -9,7 +9,7 @@ export const LanguageContext = createContext();
 
 export const GlobalProvider = (props) => {
 	const [cryptos, setCryptos] = useState([]);
-	const [sparkline, setSparkline] = useState({});
+	const [sparkline, setSparkline] = useState([]);
 	const [languages, setLanguages] = useState({});
 	// const [state, dispatch] = useReducer(globalState, { cryptos: "" });
 
