@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import band from "../logos/band.svg";
@@ -22,34 +22,71 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import { CryptosContext } from "../State/GlobalContext";
 import { useTable } from "react-table";
-import ChartTable from "../Components/CoinsSparkline";
+import {
+	BCHChart,
+	BTCChart,
+	ETHChart,
+	LTCChart,
+} from "../Components/CoinsSparkline";
 
 const api = {
-	api:
-		"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC&convert=EUR&interval=1d,7d&per-page=100&page=1",
-	base: "https://api.openweathermap.org/data/2.5/weather?q=",
-	key: "39aa931e9188dadb3acc2ee4645d72c5",
-	timeKey: "d65e37f4206340d188baba3c12561f09",
-	timeBase: "https://api.ipgeolocation.io/timezone?",
+	base: "https://api.nomics.com/v1/currencies/ticker?",
+	key: "f120f033bda2bb941c1e6925f7ecfbe1",
+	sparklineBase: "https://api.nomics.com/v1/currencies/sparkline?",
+	zoneKey: "d65e37f4206340d188baba3c12561f09",
+	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
+/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
+//Get today's date using the JavaScript Date object.
+let ourDate = new Date();
+
+//Change it so that it is the previous day
+let pastDate = ourDate.getDate() - 1;
+ourDate.setDate(pastDate);
+let month = ourDate.getMonth() + 1;
+let year = ourDate.getFullYear();
+let day = ourDate.getDate();
+let hour = ourDate.getHours();
+let minute = ourDate.getMinutes();
+let seconds = ourDate.getSeconds();
+
+//Log the date to our web console.
+console.log(minute);
+console.log(hour);
+console.log(seconds);
+console.log(ourDate);
+console.log(month);
+console.log(year);
+console.log(day);
+
+/** MAIN HOME COMPONENT */
 
 function Home() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
+	const [sparkLineData, setsparkLineData] = useState({});
 
-	const onLoad = useEffect(() => {
-		// Axios.get(
-		// 	"https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&interval=1d,7d&per-page=100&page=1"
-		// )
-		Axios.get(
-			"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
-		)
+	useEffect(() => {
+		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
-				Axios.get(
-					`https://api.nomics.com/v1/currencies/ticker?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d&per-page=100&page=1`
-				)
+				Axios.all([
+					Axios.get(
+						`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
+					),
+					Axios.get(
+						`${api.sparklineBase}key=${
+							api.key
+						}&ids=BTC,ETH,BCH,LTC&start=${year}-${
+							month < 10 ? `0${month}` : month
+						}-${day < 10 ? `0${day}` : day}T${
+							hour < 10 ? `0${hour}` : hour
+						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
+							seconds < 10 ? `0${seconds}` : seconds
+						}Z&convert=${response.data.currency.code}`
+					),
+				])
 					.then((res) => {
-						console.log(res.data);
-						setCryptos(res.data);
+						setCryptos(res[0].data);
+						setsparkLineData(res[1].data);
 					})
 					.catch((error) => {
 						console.log(error);
@@ -61,6 +98,7 @@ function Home() {
 			});
 	}, []);
 	console.log(cryptos);
+	console.log(sparkLineData);
 
 	const data = React.useMemo(
 		() =>
@@ -72,28 +110,31 @@ function Home() {
 							col1: `${cryptos[0].name} ${cryptos[0].symbol}`,
 							col2: cryptos[0].price,
 							col3: `${cryptos[0]["1d"].price_change_pct * 100}%`,
-							// col4: <ChartTable />,
+							col4: <BTCChart sparkLineData={sparkLineData} />,
 						},
 						{
 							col0: 2,
 							col1: `${cryptos[1].name} ${cryptos[1].symbol}`,
 							col2: cryptos[1].price,
 							col3: `${cryptos[1]["1d"].price_change_pct * 100}%`,
+							col4: <ETHChart sparkLineData={sparkLineData} />,
 						},
 						{
 							col0: 3,
 							col1: `${cryptos[2].name} ${cryptos[2].symbol}`,
 							col2: cryptos[2].price,
 							col3: `${cryptos[2]["1d"].price_change_pct * 100}%`,
+							col4: <LTCChart sparkLineData={sparkLineData} />,
 						},
 						{
 							col0: 4,
 							col1: `${cryptos[3].name} ${cryptos[3].symbol}`,
 							col2: cryptos[3].price,
 							col3: `${cryptos[3]["1d"].price_change_pct * 100}%`,
+							col4: <BCHChart sparkLineData={sparkLineData} />,
 						},
 				  ],
-		[cryptos]
+		[cryptos, sparkLineData]
 	);
 
 	const columns = React.useMemo(
@@ -156,262 +197,58 @@ function Home() {
 					</section>
 					<section className="tables">
 						<div className="container card">
-							{/* <table>
-							<thead>
-								<tr className="flex">
-									<div className="flex">
-										<th>#</th>
-										<th>Name</th>
-									</div>
-									<div className="flex end">
-										<th>Price</th>
-										<th>Volume</th>
-									</div>
-								</tr>
-							</thead>
-							<tbody>
-								{cryptos.map((crypto, index) => {
-									return (
-										<tr key={crypto.id} className="flex">
-											<div className="flex">
-												<td>{index + 1}</td>
-												<td className="flex">
-													<div className="">
-														<img
-															src={crypto.logo_url}
-															alt={`${crypto.name} icon`}
-														/>
-													</div>
-													{crypto.name} {crypto.symbol}
-												</td>
-											</div>
-											<div className="flex end">
-												{" "}
-												<td>{crypto.price}</td>
-												<td>{crypto["1d"].volume}</td>
-											</div>
+							<table
+								className=""
+								{...getTableProps()}
+								style={{ border: "solid 1px blue" }}
+							>
+								<thead>
+									{headerGroups.map((headerGroup) => (
+										<tr {...headerGroup.getHeaderGroupProps()}>
+											{headerGroup.headers.map((column) => (
+												<th
+													{...column.getHeaderProps()}
+													style={{
+														borderBottom: "solid 3px red",
+														background: "aliceblue",
+														color: "black",
+														fontWeight: "bold",
+													}}
+												>
+													{column.render("Header")}
+												</th>
+											))}
 										</tr>
-									);
-								})}
-							</tbody>
-						</table> */}
+									))}
+								</thead>
+								<tbody {...getTableBodyProps()}>
+									{rows.map((row) => {
+										prepareRow(row);
+										return (
+											<tr {...row.getRowProps()}>
+												{row.cells.map((cell) => {
+													return (
+														<td
+															{...cell.getCellProps()}
+															style={{
+																padding: "10px",
+																border: "solid 1px gray",
+																background: "papayawhip",
+															}}
+														>
+															{cell.render("Cell")}
+														</td>
+													);
+												})}
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
 						</div>
 					</section>
 				</div>
 			</div>
-
-			<table
-				className="card"
-				{...getTableProps()}
-				style={{ border: "solid 1px blue" }}
-			>
-				<thead>
-					{headerGroups.map((headerGroup) => (
-						<tr {...headerGroup.getHeaderGroupProps()}>
-							{headerGroup.headers.map((column) => (
-								<th
-									{...column.getHeaderProps()}
-									style={{
-										borderBottom: "solid 3px red",
-										background: "aliceblue",
-										color: "black",
-										fontWeight: "bold",
-									}}
-								>
-									{column.render("Header")}
-								</th>
-							))}
-						</tr>
-					))}
-				</thead>
-				<tbody {...getTableBodyProps()}>
-					{rows.map((row) => {
-						prepareRow(row);
-						return (
-							<tr {...row.getRowProps()}>
-								{row.cells.map((cell) => {
-									return (
-										<td
-											{...cell.getCellProps()}
-											style={{
-												padding: "10px",
-												border: "solid 1px gray",
-												background: "papayawhip",
-											}}
-										>
-											{cell.render("Cell")}
-										</td>
-									);
-								})}
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
-
-			<table class="card" role="table">
-				<thead>
-					<tr role="row">
-						<th
-							colSpan="1"
-							role="columnheader"
-							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
-						>
-							#
-						</th>
-						<th
-							colSpan="1"
-							role="columnheader"
-							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
-						>
-							Column 1
-						</th>
-						<th
-							colSpan="1"
-							role="columnheader"
-							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
-						>
-							Column 2
-						</th>
-						<th
-							colSpan="1"
-							role="columnheader"
-							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
-						>
-							Column 3
-						</th>
-						<th
-							colSpan="1"
-							role="columnheader"
-							//style="border-bottom: 3px solid red; background: aliceblue; color: black; font-weight: bold;"
-						>
-							Column 4
-						</th>
-					</tr>
-				</thead>
-				<tbody role="rowgroup">
-					<tr role="row">
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							1
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							Bitcoin BTC
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							15666350.34920927
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							-0.38%
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						></td>
-					</tr>
-					<tr role="row">
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							2
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							Ethereum ETH
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							471021.05624110
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							0.33%
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						></td>
-					</tr>
-					<tr role="row">
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							3
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							Litecoin LTC
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							65803.59088648
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							-1.39%
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						></td>
-					</tr>
-					<tr role="row">
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							4
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							Bitcoin Cash BCH
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							176107.23604472
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						>
-							4.53%
-						</td>
-						<td
-							role="cell"
-							//style="padding: 10px; border: 1px solid gray; background: papayawhip;"
-						></td>
-					</tr>
-				</tbody>
-			</table>
 
 			<section className="banner ">
 				<div className="container grid">

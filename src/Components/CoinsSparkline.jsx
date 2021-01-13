@@ -1,12 +1,11 @@
-import Axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
-import Chart from "chart.js";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 
-export default function ChartTest() {
+export function BTCChart({ sparkLineData }) {
 	const [dataChart, setDataChart] = useState({});
 
-	const [chartOptions, setChartOptions] = useState({
+	/**chart js styling options */
+	const chartOptions = {
 		elements: {
 			point: { radius: 0 },
 		},
@@ -17,38 +16,176 @@ export default function ChartTest() {
 			xAxes: [{ display: false }],
 			yAxes: [{ display: false }],
 		},
-	});
-	const [api, setApi] = useState({});
+	};
 
-	useEffect(() => {
-		Axios.get(
-			`https://api.nomics.com/v1/currencies/sparkline?key=f120f033bda2bb941c1e6925f7ecfbe1&ids=BTC,ETH,XRP&start=2021-01-03T00%3A00%3A00Z&end=2021-01-04T00%3A00%3A00Z`
-		)
-			.then((res) => {
-				setApi(res.data);
-				setDataChart({
-					labels: [...api[0].timestamps],
+	console.log(sparkLineData);
 
-					datasets: [
-						{
-							backgroundColor: "rgba(0,0,0,0)",
-							// borderColor: "rgba(0,0,0,0)",
-							label: "Prices",
-							data: [...api[0].prices],
-						},
-					],
-				});
-				console.log(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}, []);
+	/**creating empty arrays for the chart data and pushing the props gotten from home component */
+	// useEffect(() => {
+	// 	let prices = [];
+	// 	let timestamps = [];
+	// 	prices.push(sparkLineData[1].prices);
+	// 	timestamps.push(sparkLineData[1].timestamps);
 
-	useEffect(() => {}, []);
+	// 	setDataChart({
+	// 		labels: timestamps[0],
+	// 		datasets: [
+	// 			{
+	// 				label: "prices",
+	// 				data: prices[0],
+	// 			},
+	// 		],
+	// 	});
+	// }, [sparkLineData]);
+
 	return (
 		<div className="container">
-			<Line data={dataChart} />
+			{/* <Line data={dataChart} options={chartOptions} /> */}
+		</div>
+	);
+}
+
+export function ETHChart({ sparkLineData }) {
+	const [dataChart, setDataChart] = useState({});
+
+	/**chart js styling options */
+	const chartOptions = {
+		elements: {
+			point: { radius: 0 },
+		},
+		legend: {
+			display: false,
+		},
+		scales: {
+			xAxes: [{ display: false }],
+			yAxes: [{ display: false }],
+		},
+	};
+	console.log(sparkLineData);
+
+	/**creating empty arrays for the chart data and pushing the props gotten from home component */
+
+	// useEffect(() => {
+	// 	let prices = [];
+	// 	let timestamps = [];
+
+	// 	if (sparkLineData !== {}) {
+	// 		prices.push(sparkLineData[2].prices);
+	// 		timestamps.push(sparkLineData[2].timestamps);
+
+	// 		setDataChart({
+	// 			labels: timestamps[0],
+	// 			datasets: [
+	// 				{
+	// 					label: "prices",
+	// 					data: prices[0],
+	// 				},
+	// 			],
+	// 		});
+	// 	}
+	// }, [sparkLineData]);
+
+	console.log(dataChart);
+
+	return (
+		<div className="container">
+			{/* <Line data={dataChart} options={chartOptions} /> */}
+		</div>
+	);
+}
+
+export function LTCChart({ sparkLineData }) {
+	const [dataChart, setDataChart] = useState({});
+
+	/**chart js styling options */
+	const chartOptions = {
+		elements: {
+			point: { radius: 0 },
+		},
+		legend: {
+			display: false,
+		},
+		scales: {
+			xAxes: [{ display: false }],
+			yAxes: [{ display: false }],
+		},
+	};
+
+	console.log(sparkLineData);
+
+	/**creating empty arrays for the chart data and pushing the props gotten from home component */
+
+	// useEffect(() => {
+	// 	let prices = [];
+	// 	let timestamps = [];
+	// 	console.log(sparkLineData);
+
+	// 	prices.push(sparkLineData[3].prices);
+	// 	timestamps.push(sparkLineData[3].timestamps);
+
+	// 	setDataChart({
+	// 		labels: timestamps[0],
+	// 		datasets: [
+	// 			{
+	// 				label: "prices",
+	// 				data: prices[0],
+	// 			},
+	// 		],
+	// 	});
+	// }, [sparkLineData]);
+
+	console.log(dataChart);
+
+	return (
+		<div className="container">
+			{/* <Line data={dataChart} options={chartOptions} /> */}
+		</div>
+	);
+}
+
+export function BCHChart({ sparkLineData }) {
+	const [dataChart, setDataChart] = useState({});
+
+	console.log(sparkLineData);
+
+	/**chart js styling options */
+	const chartOptions = {
+		elements: {
+			point: { radius: 0 },
+		},
+		legend: {
+			display: false,
+		},
+		scales: {
+			xAxes: [{ display: false }],
+			yAxes: [{ display: false }],
+		},
+	};
+
+	/**creating empty arrays for the chart data and pushing the props gotten from home component */
+	// useEffect(() => {
+	// 	let prices = [];
+	// 	let timestamps = [];
+
+	// 	prices.push(sparkLineData[0].prices);
+	// 	timestamps.push(sparkLineData[0].timestamps);
+
+	// 	setDataChart({
+	// 		labels: timestamps[0],
+	// 		datasets: [
+	// 			{
+	// 				label: "prices",
+	// 				data: prices[0],
+	// 			},
+	// 		],
+	// 	});
+	// }, [sparkLineData]);
+
+	console.log(dataChart);
+
+	return (
+		<div className="container">
+			{/* <Line data={dataChart} options={chartOptions} /> */}
 		</div>
 	);
 }

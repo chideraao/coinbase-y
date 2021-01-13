@@ -18,7 +18,6 @@ import Press from "./Pages/Press";
 import Learn from "./Pages/Learn";
 import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
-import ChartTable from "./Components/CoinsSparkline";
 
 library.add(faChevronLeft, faChevronRight);
 
@@ -30,8 +29,7 @@ function App() {
 					<AboutProvider>
 						<ReviewsProvider>
 							<div className="App">
-								<ChartTable />
-								{/* <Switch>
+								<Switch>
 									<Route path="/" component={Home} exact />
 									<Route path="/about" component={About} />
 									<Route path="/careers" component={Careers} />
@@ -39,7 +37,7 @@ function App() {
 									<Route path="/press" component={Press} />
 									<Route path="/learn" component={Learn} />
 									<Route path="/prices" component={Prices} />
-								</Switch> */}
+								</Switch>
 							</div>
 						</ReviewsProvider>
 					</AboutProvider>
