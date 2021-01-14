@@ -50,6 +50,7 @@ export function ETHChart() {
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 	/**chart js styling options */
 	const chartOptions = {
+		// maintainAspectRatio: false,
 		elements: {
 			point: { radius: 0 },
 		},

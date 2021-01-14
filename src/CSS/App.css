@@ -182,16 +182,36 @@ table {
 	margin: 0;
 }
 
-.tables img {
+.tables table thead th {
+	font-size: 0.9rem;
+	color: var(--light-grey-text);
+	font-weight: 400;
+}
+
+.home-table table img {
 	height: 3rem;
+}
+
+table .gains {
+	color: var(--button-color);
+}
+
+table .loss {
+	color: rgb(233, 37, 37);
+}
+
+.home-table table .btn {
+	background-color: var(--button-color);
+	padding: 0.8rem 1.1rem;
+	border-radius: 0.3rem;
+}
+
+table .table-chart {
+	height: 2rem;
 }
 
 .tables .container tr {
 	justify-content: space-between;
-}
-
-.tables .container .flex .end {
-	align-items: end;
 }
 
 .banner {

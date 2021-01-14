@@ -10,7 +10,6 @@ function Prices() {
 	//Change it so that it is 7 days in the past.
 	let pastDate = ourDate.getDate() - 30;
 	ourDate.setDate(pastDate);
-	let days30 = ourDate.getMonth + 1;
 
 	//Log the date to our web console.
 	console.log(ourDate);
