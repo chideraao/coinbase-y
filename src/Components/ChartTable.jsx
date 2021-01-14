@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import {
 	CryptosContext,
 	SparklineContext,
@@ -32,6 +32,10 @@ let day = ourDate.getDate();
 let hour = ourDate.getHours();
 let minute = ourDate.getMinutes();
 let seconds = ourDate.getSeconds();
+
+const addCommasToNumber = (num) => {
+	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+};
 
 function ChartTable() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
@@ -86,8 +90,12 @@ function ChartTable() {
 								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg",
 							name: `${cryptos[0].name} `,
 							id: `${cryptos[0].symbol}`,
-							price: cryptos[0].price,
-							change: `${cryptos[0]["1d"].price_change_pct * 100}%`,
+							price: `${addCommasToNumber(
+								Math.round(cryptos[0].price * 100) / 100
+							)}`,
+							change: `${
+								Math.round(cryptos[0]["1d"].price_change_pct * 10000) / 100
+							}%`,
 							chart: <BTCChart />,
 						},
 						{
@@ -95,8 +103,12 @@ function ChartTable() {
 								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg",
 							name: `${cryptos[1].name}`,
 							id: `${cryptos[1].symbol}`,
-							price: cryptos[1].price,
-							change: `${cryptos[1]["1d"].price_change_pct * 100}%`,
+							price: `${addCommasToNumber(
+								Math.round(cryptos[1].price * 100) / 100
+							)}`,
+							change: `${
+								Math.round(cryptos[1]["1d"].price_change_pct * 10000) / 100
+							}%`,
 							chart: <ETHChart />,
 						},
 						{
@@ -104,8 +116,12 @@ function ChartTable() {
 								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ltc.svg",
 							name: `${cryptos[2].name} `,
 							id: `${cryptos[2].symbol}`,
-							price: cryptos[2].price,
-							change: `${cryptos[2]["1d"].price_change_pct * 100}%`,
+							price: `${addCommasToNumber(
+								Math.round(cryptos[2].price * 100) / 100
+							)}`,
+							change: `${
+								Math.round(cryptos[2]["1d"].price_change_pct * 10000) / 100
+							}%`,
 							chart: <LTCChart />,
 						},
 						{
@@ -113,8 +129,12 @@ function ChartTable() {
 								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bch.svg",
 							name: `${cryptos[3].name} `,
 							id: `${cryptos[3].symbol}`,
-							price: cryptos[3].price,
-							change: `${cryptos[3]["1d"].price_change_pct * 100}%`,
+							price: `${addCommasToNumber(
+								Math.round(cryptos[3].price * 100) / 100
+							)}`,
+							change: `${
+								Math.round(cryptos[3]["1d"].price_change_pct * 10000) / 100
+							}%`,
 							chart: <BCHChart />,
 						},
 				  ],
@@ -130,22 +150,25 @@ function ChartTable() {
 			) : (
 				<table role="table">
 					<thead>
-						<tr role="row">
-							{tableHeader.map((item, index) => {
-								return (
-									<th colSpan="1" role="columnheader" key={index}>
-										{item}
-									</th>
-								);
-							})}
+						<tr>
+							<th>#</th>
+							<th colSpan="2">Name</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>Price</th>
+							<th>Change</th>
+							<th>Chart</th>
+							<th>Trade</th>
 						</tr>
 					</thead>
-					<tbody role="rowgroup">
+
+					<tbody>
 						{tableData.map((item, index) => {
 							return (
-								<tr role="row" key={index}>
-									<td role="cell">{index + 1}</td>
-									<td role="cell" className="flex">
+								<tr key={index}>
+									<td>{index + 1}</td>
+									<td colSpan="2" className="flex">
 										<div className="">
 											<img src={item.imgSrc} alt="" />
 										</div>
@@ -153,25 +176,28 @@ function ChartTable() {
 											{item.name} <span>{item.id}</span>
 										</div>
 									</td>
-									<td role="cell">
+									<td className="table-chart"></td>
+									<td className="table-chart"></td>
+									<td className="table-chart"></td>
+									<td className="table-chart"></td>
+									<td>
 										{userData.currency.symbol} {item.price}
 									</td>
 									{
 										<td
-											role="cell"
 											className={
 												cryptos[3]["1d"].price_change_pct * 100 > 1
 													? "gains"
 													: "loss"
 											}
 										>
-											{item.change}
+											{cryptos[3]["1d"].price_change_pct * 100 > 1
+												? `+${item.change}`
+												: `${item.change}`}
 										</td>
 									}
-									<td role="cell" className="table-chart">
-										{item.chart}
-									</td>
-									<td role="cell">
+									<td className="table-chart">{item.chart}</td>
+									<td>
 										<button className="btn">Buy</button>
 									</td>
 								</tr>

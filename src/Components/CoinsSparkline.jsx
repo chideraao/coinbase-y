@@ -7,6 +7,7 @@ export function BTCChart() {
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 	/**chart js styling options */
 	const chartOptions = {
+		// maintainAspectRatio: false,
 		elements: {
 			point: { radius: 0 },
 		},
@@ -33,13 +34,14 @@ export function BTCChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					fill: false,
 				},
 			],
 		});
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="sparkline-container">
 			<Line data={dataChart} options={chartOptions} />
 		</div>
 	);
@@ -79,6 +81,7 @@ export function ETHChart() {
 					{
 						label: "prices",
 						data: prices[0],
+						fill: false,
 					},
 				],
 			});
@@ -124,6 +127,7 @@ export function LTCChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					fill: false,
 				},
 			],
 		});
@@ -169,6 +173,7 @@ export function BCHChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					fill: false,
 				},
 			],
 		});

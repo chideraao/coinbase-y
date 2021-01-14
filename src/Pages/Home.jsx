@@ -58,7 +58,6 @@ function Home() {
 					</section>
 				</div>
 			</div>
-
 			<section className="banner ">
 				<div className="container grid">
 					{" "}
