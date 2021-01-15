@@ -52,7 +52,7 @@ function AboutFooter() {
 					</div>
 				</div>
 				<div className="signout">
-					Made with &#x2764;&#xfe0f; by Okeke Chidera
+					Made with &#x2764;&#xfe0f; &nbsp; by Okeke Chidera
 				</div>
 			</section>
 		</>

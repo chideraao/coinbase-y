@@ -114,7 +114,7 @@ function ChartTable() {
 						{
 							imgSrc:
 								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ltc.svg",
-							name: `${cryptos[2].name} `,
+							name: `${cryptos[2].name}   `,
 							id: `${cryptos[2].symbol}`,
 							price: `${addCommasToNumber(
 								Math.round(cryptos[2].price * 100) / 100
@@ -159,7 +159,7 @@ function ChartTable() {
 							<th>Price</th>
 							<th>Change</th>
 							<th>Chart</th>
-							<th>Trade</th>
+							<th className="table-trade">Trade</th>
 						</tr>
 					</thead>
 
@@ -173,7 +173,7 @@ function ChartTable() {
 											<img src={item.imgSrc} alt="" />
 										</div>
 										<div className="">
-											{item.name} <span>{item.id}</span>
+											{item.name} &nbsp;&nbsp; <span>{item.id}</span>
 										</div>
 									</td>
 									<td className="table-chart"></td>
@@ -197,7 +197,7 @@ function ChartTable() {
 										</td>
 									}
 									<td className="table-chart">{item.chart}</td>
-									<td>
+									<td className="table-trade">
 										<button className="btn">Buy</button>
 									</td>
 								</tr>

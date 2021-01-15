@@ -34,6 +34,7 @@ export function BTCChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
 				},
 			],
@@ -81,6 +82,7 @@ export function ETHChart() {
 					{
 						label: "prices",
 						data: prices[0],
+						borderColor: "rgba(17, 51, 83, 0.3)",
 						fill: false,
 					},
 				],
@@ -89,7 +91,7 @@ export function ETHChart() {
 	}, [sparkline]);
 
 	return (
-		<div className="container">
+		<div className="sparkline-container">
 			<Line data={dataChart} options={chartOptions} />
 		</div>
 	);
@@ -127,6 +129,7 @@ export function LTCChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
 				},
 			],
@@ -134,7 +137,7 @@ export function LTCChart() {
 	}, [sparkline]);
 
 	return (
-		<div className="container">
+		<div className="sparkline-container">
 			<Line data={dataChart} options={chartOptions} />
 		</div>
 	);
@@ -173,6 +176,7 @@ export function BCHChart() {
 				{
 					label: "prices",
 					data: prices[0],
+					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
 				},
 			],
@@ -180,7 +184,7 @@ export function BCHChart() {
 	}, [sparkline]);
 
 	return (
-		<div className="container">
+		<div className="sparkline-container">
 			<Line data={dataChart} options={chartOptions} />
 		</div>
 	);

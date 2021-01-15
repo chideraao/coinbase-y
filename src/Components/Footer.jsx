@@ -73,7 +73,9 @@ function Footer() {
 					<a href="#">Pricing and fees</a>
 				</div>
 			</div>
-			<div className="signout">Made with &#x2764;&#xfe0f; by Okeke Chidera</div>
+			<div className="signout">
+				Made with &#x2764;&#xfe0f; &nbsp; by Okeke Chidera
+			</div>
 		</div>
 	);
 }

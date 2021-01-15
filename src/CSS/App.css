@@ -57,6 +57,9 @@ img {
 
 .gbEsE_ConTAinER {
 	background-color: var(--primary-color);
+	height: 36rem;
+	position: relative;
+	margin-bottom: 11rem;
 }
 
 .header {
@@ -172,15 +175,31 @@ img {
 	border-color: rgb(0, 165, 93);
 }
 
+.showcase-container {
+	position: absolute;
+	height: 40rem;
+	width: 100%;
+	top: 6.5rem;
+	z-index: 9;
+}
+
 .tables {
+	position: absolute;
+	top: 17.5rem;
+	left: 6.5rem;
 	background: none;
 	margin: 0 3rem;
 	margin-top: 2rem;
 }
 
-table {
-	width: 100%;
+.tables .card {
+	padding-bottom: 0rem;
+}
+
+.tables .home-table table {
+	width: 67rem;
 	margin: 0;
+	border-spacing: 0;
 }
 
 .tables table thead tr {
@@ -193,12 +212,9 @@ table {
 	color: var(--light-grey-text);
 	font-weight: 300;
 	text-align: start;
-	padding: 0.8rem 1rem;
-}
-
-.tables table tbody tr {
-	/* padding: 1rem; */
-	border-bottom: 1px solid black;
+	padding: 0.3rem 1rem;
+	padding-bottom: 0.7rem;
+	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
 .home-table table img {
@@ -213,8 +229,9 @@ table tbody td {
 	color: var(--dark-color);
 	font-size: 1.18rem;
 	line-height: 1.3;
-	padding: 0rem 1rem;
+	padding: 0.4rem 1rem;
 	font-weight: 300;
+	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
 table tbody td span {
@@ -240,8 +257,8 @@ table .loss {
 }
 
 table canvas {
-	height: 2rem !important;
-	width: 5rem !important;
+	height: 1.5rem !important;
+	width: 4.5rem !important;
 }
 
 table .table-chart .container .chartjs-size-monitor {
@@ -674,6 +691,13 @@ hr {
 
 /* ----------------------------------------------   MEDIA QUERIES   --------------------------------------------------------- */
 @media (max-width: 1200px) {
+	.tables {
+		top: 17.5rem;
+		left: 0rem;
+		background: none;
+		margin-left: 0rem;
+	}
+
 	.banner {
 		margin-left: 3rem;
 	}
@@ -699,6 +723,12 @@ hr {
 }
 
 @media (max-width: 1140px) {
+	.tables .home-table table {
+		width: 60rem;
+		margin: 0;
+		border-spacing: 0;
+	}
+
 	.banner {
 		margin: 0;
 	}
@@ -717,6 +747,16 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.tables .home-table table {
+		width: 90vw;
+		margin: 0;
+		border-spacing: 0;
+	}
+
+	.tables .home-table table .table-trade {
+		display: none;
+	}
+
 	.navbar .auth a {
 		font-size: 0.9rem;
 		margin-right: 0rem;
