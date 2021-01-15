@@ -151,14 +151,14 @@ function ChartTable() {
 				<table role="table">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th className="table-serial">#</th>
 							<th colSpan="2">Name</th>
-							<th></th>
-							<th></th>
-							<th></th>
+							<th className="table-empty"></th>
+							<th className="table-empty"></th>
+							<th className="table-empty"></th>
 							<th>Price</th>
 							<th>Change</th>
-							<th>Chart</th>
+							<th className="table-chart">Chart</th>
 							<th className="table-trade">Trade</th>
 						</tr>
 					</thead>
@@ -167,31 +167,34 @@ function ChartTable() {
 						{tableData.map((item, index) => {
 							return (
 								<tr key={index}>
-									<td>{index + 1}</td>
-									<td colSpan="2" className="flex">
-										<div className="">
-											<img src={item.imgSrc} alt="" />
-										</div>
-										<div className="">
-											{item.name} &nbsp;&nbsp; <span>{item.id}</span>
-										</div>
-									</td>
-									<td className="table-chart"></td>
-									<td className="table-chart"></td>
-									<td className="table-chart"></td>
-									<td className="table-chart"></td>
-									<td>
+									<td className="table-serial">{index + 1}</td>
+									<a href="#">
+										<td colSpan="2" className="flex">
+											<div className="">
+												<img src={item.imgSrc} alt="" />
+											</div>
+											<div className="hidden-flex">
+												{item.name} &nbsp;&nbsp; <span>{item.id}</span>
+											</div>
+										</td>
+									</a>
+
+									<td className="table-empty"></td>
+									<td className="table-empty"></td>
+									<td className="table-empty"></td>
+									<td className="table-empty"></td>
+									<td className="crypto-price">
 										{userData.currency.symbol} {item.price}
 									</td>
 									{
 										<td
 											className={
-												cryptos[3]["1d"].price_change_pct * 100 > 1
+												cryptos[index]["1d"].price_change_pct * 100 > 1
 													? "gains"
 													: "loss"
 											}
 										>
-											{cryptos[3]["1d"].price_change_pct * 100 > 1
+											{cryptos[index]["1d"].price_change_pct * 100 > 1
 												? `+${item.change}`
 												: `${item.change}`}
 										</td>

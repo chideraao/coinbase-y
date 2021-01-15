@@ -693,9 +693,13 @@ hr {
 @media (max-width: 1200px) {
 	.tables {
 		top: 17.5rem;
-		left: 0rem;
+		left: 4rem;
 		background: none;
 		margin-left: 0rem;
+	}
+
+	.tables .home-table table {
+		width: 60rem;
 	}
 
 	.banner {
@@ -723,6 +727,11 @@ hr {
 }
 
 @media (max-width: 1140px) {
+	.tables {
+		top: 17.5rem;
+		left: 0rem;
+	}
+
 	.tables .home-table table {
 		width: 60rem;
 		margin: 0;
@@ -747,10 +756,18 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.tables {
+		left: 0.5rem;
+	}
+
 	.tables .home-table table {
 		width: 90vw;
 		margin: 0;
 		border-spacing: 0;
+	}
+
+	table tbody td {
+		padding: 0.4rem 0rem;
 	}
 
 	.tables .home-table table .table-trade {
@@ -764,7 +781,7 @@ hr {
 	}
 
 	.banner .container {
-		padding: 40px 0rem;
+		padding: 20px 0rem;
 	}
 
 	.banner .banner-icons {
@@ -866,6 +883,12 @@ hr {
 		height: 70px;
 	}
 
+	.showcase-container {
+		width: 100%;
+		top: 3.5rem;
+		z-index: 9;
+	}
+
 	.showcase {
 		padding: 0rem;
 		height: auto;
@@ -909,6 +932,40 @@ hr {
 
 	.showcase .showcase-form .email-form .btn {
 		width: 100%;
+	}
+
+	.tables {
+		top: 22.5rem;
+		left: 0rem;
+	}
+
+	.tables .container {
+		margin-left: 0rem;
+		margin-right: 0rem;
+	}
+
+	.tables .card {
+		margin-left: 0rem;
+		margin-right: 0rem;
+		padding-left: 0.6rem;
+	}
+
+	.home-table .table-chart,
+	.home-table .table-empty,
+	.home-table th,
+	.table-serial {
+		display: none;
+	}
+
+	.tables .home-table tbody .crypto-price {
+		white-space: nowrap;
+		margin-right: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	.tables .home-table .hidden-flex {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.banner .grid {
@@ -1463,7 +1520,7 @@ hr {
 	.careers .video-container {
 		flex-direction: column;
 		position: absolute;
-		top: 7rem;
+		top: 10.5rem;
 		left: 0rem;
 		z-index: 9;
 	}
@@ -1604,6 +1661,10 @@ hr {
 }
 
 /*------------------------------------------ ABOUT PAGE  --------------------------------------------------------------------- */
+.about .gbEsE_ConTAinER {
+	height: auto;
+	margin: 0rem;
+}
 
 .about-header {
 	background-color: var(--primary-color);
@@ -1698,7 +1759,7 @@ hr {
 
 .about .subnav .nav .about {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.26rem;
+	padding-bottom: 1.21rem;
 }
 
 .about .main {
@@ -2004,6 +2065,11 @@ hr {
 		justify-content: space-between;
 	}
 
+	.about .subnav .nav .about {
+		border-bottom: 1px solid var(--dark-color);
+		padding-bottom: 1.26rem;
+	}
+
 	.about .main {
 		margin-top: 4rem;
 	}
@@ -2030,7 +2096,7 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
-	.showcase .container h1 {
+	.about .showcase .container h1 {
 		padding: 0rem;
 		margin-bottom: 3rem;
 	}
@@ -2074,7 +2140,7 @@ hr {
 
 /* Phones and under */
 @media (max-width: 550px) {
-	.showcase .container h1 {
+	.about .showcase .container h1 {
 		font-size: 2rem;
 		padding: 0rem;
 		margin-bottom: 4rem;
@@ -2188,6 +2254,7 @@ hr {
 .earn .showcase h1 {
 	max-width: 900px;
 	line-height: 1.3;
+	padding: 0rem;
 }
 
 .earn .showcase p {
@@ -2432,7 +2499,7 @@ hr {
 
 .press .subnav .nav .press {
 	border-bottom: 1px solid var(--dark-color);
-	padding-bottom: 1.25rem;
+	padding-bottom: 1.21rem;
 }
 
 .press .press-main {
