@@ -8,6 +8,9 @@ export function BTCChart() {
 	/**chart js styling options */
 	const chartOptions = {
 		// maintainAspectRatio: false,
+		tooltips: {
+			enabled: false,
+		},
 		elements: {
 			point: { radius: 0 },
 		},
@@ -54,6 +57,9 @@ export function ETHChart() {
 	/**chart js styling options */
 	const chartOptions = {
 		// maintainAspectRatio: false,
+		tooltips: {
+			enabled: false,
+		},
 		elements: {
 			point: { radius: 0 },
 		},
@@ -102,6 +108,9 @@ export function LTCChart() {
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 	/**chart js styling options */
 	const chartOptions = {
+		tooltips: {
+			enabled: false,
+		},
 		elements: {
 			point: { radius: 0 },
 		},
@@ -149,6 +158,9 @@ export function BCHChart() {
 
 	/**chart js styling options */
 	const chartOptions = {
+		tooltips: {
+			enabled: false,
+		},
 		elements: {
 			point: { radius: 0 },
 		},

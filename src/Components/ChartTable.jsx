@@ -12,6 +12,7 @@ import {
 	LTCChart,
 } from "../Components/CoinsSparkline";
 
+/**Defining API endpoints */
 const api = {
 	base: "https://api.nomics.com/v1/currencies/ticker?",
 	key: "f120f033bda2bb941c1e6925f7ecfbe1",
@@ -33,9 +34,13 @@ let hour = ourDate.getHours();
 let minute = ourDate.getMinutes();
 let seconds = ourDate.getSeconds();
 
+/**Regex for commas after every three digits */
+
 const addCommasToNumber = (num) => {
 	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 };
+
+/** Main table component */
 
 function ChartTable() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
@@ -45,7 +50,6 @@ function ChartTable() {
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
-				console.log(response);
 				setUserData(response.data);
 				Axios.all([
 					Axios.get(
@@ -74,11 +78,9 @@ function ChartTable() {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, []);
-	console.log(cryptos);
-	console.log(sparkline);
+	}, [setCryptos, setSparkline, setUserData]);
 
-	/** memoization of table values and prevention of rendering before the components are redy for render */
+	/** memoization of table values and prevention of rendering before the components are ready for render */
 
 	const tableData = React.useMemo(
 		() =>
@@ -140,8 +142,6 @@ function ChartTable() {
 				  ],
 		[cryptos, sparkline]
 	);
-
-	const tableHeader = ["#", `Name`, "Price", "Change", "Chart", "Trade"];
 
 	return (
 		<div className="home-table">
