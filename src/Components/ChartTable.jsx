@@ -79,9 +79,9 @@ function ChartTable() {
 				console.log(err);
 			});
 		return () => {
-			setCryptos([]);
-			setSparkline([]);
-			console.log("cleaned up");
+			// setCryptos([]);
+			// setSparkline([]);
+			// console.log("cleaned up");
 		};
 	}, [setCryptos, setSparkline, setUserData]);
 

@@ -8,7 +8,12 @@ function Prices() {
 	return (
 		<div className="prices">
 			<Header />
-			<PricesTable />
+			<section className="price-cryptos">
+				<div className="card container">
+					<PricesTable />
+				</div>
+			</section>
+
 			<Banner />
 			<Footer />
 		</div>
