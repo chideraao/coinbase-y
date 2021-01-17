@@ -78,6 +78,11 @@ function ChartTable() {
 			.catch((err) => {
 				console.log(err);
 			});
+		return () => {
+			setCryptos([]);
+			setSparkline([]);
+			console.log("cleaned up");
+		};
 	}, [setCryptos, setSparkline, setUserData]);
 
 	/** memoization of table values and prevention of rendering before the components are ready for render */
@@ -145,7 +150,7 @@ function ChartTable() {
 
 	return (
 		<div className="home-table">
-			{!crypto.length && !sparkline.length ? (
+			{!cryptos.length && !sparkline.length ? (
 				""
 			) : (
 				<table role="table">
@@ -189,12 +194,12 @@ function ChartTable() {
 									{
 										<td
 											className={
-												cryptos[index]["1d"].price_change_pct * 100 > 1
+												cryptos[index]["1d"].price_change_pct * 100 >= 0
 													? "gains"
 													: "loss"
 											}
 										>
-											{cryptos[index]["1d"].price_change_pct * 100 > 1
+											{cryptos[index]["1d"].price_change_pct * 100 >= 1
 												? `+${item.change}`
 												: `${item.change}`}
 										</td>

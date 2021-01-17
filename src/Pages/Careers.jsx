@@ -38,9 +38,9 @@ function Careers() {
 								width="720"
 								height="405"
 								src="https://www.youtube.com/embed/HQaegigv6jU"
-								frameborder="0"
+								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen
+								allowFullScreen
 							></iframe>
 						</div>
 						<div className="button-div">
@@ -93,9 +93,9 @@ function Careers() {
 								width="535"
 								height="301"
 								src="https://www.youtube.com/embed/Ixo93EaaIy0"
-								frameborder="0"
+								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen
+								allowFullScreen
 							></iframe>
 						</div>
 					</div>
@@ -106,9 +106,9 @@ function Careers() {
 								width="535"
 								height="301"
 								src="https://www.youtube.com/embed/iWA1eLgSmfM"
-								frameborder="0"
+								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen
+								allowFullScreen
 							></iframe>
 						</div>
 						<div className="info-text">
