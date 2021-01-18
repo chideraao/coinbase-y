@@ -3184,31 +3184,17 @@ hr {
 	color: var(--dark-color);
 }
 
-.tables {
-	position: absolute;
-	top: 17.5rem;
-	left: 6.5rem;
-	background: none;
-	margin: 0 3rem;
-	margin-top: 2rem;
+.price-cryptos {
+	margin: 0 6rem;
 }
 
-.tables .card {
-	padding-bottom: 0rem;
-}
-
-.tables .home-table table {
-	width: 67rem;
+.price-cryptos table {
+	width: 100%;
 	margin: 0;
 	border-spacing: 0;
 }
 
-.tables table thead tr {
-	margin: 1rem 0.5rem;
-	border-bottom: 1px solid black;
-}
-
-.tables table thead th {
+.price-cryptos table thead th {
 	font-size: 1rem;
 	color: var(--light-grey-text);
 	font-weight: 300;
@@ -3251,21 +3237,8 @@ table .loss {
 	color: rgb(233, 37, 37);
 }
 
-.home-table table .btn {
-	background-color: var(--button-color);
-	padding: 0.8rem 1.1rem;
+.price-cryptos table .btn {
+	background-color: var(--primary-color);
+	padding: 0.9rem 1.2rem;
 	border-radius: 0.3rem;
-}
-
-table canvas {
-	height: 1.5rem !important;
-	width: 4.5rem !important;
-}
-
-table .table-chart .container .chartjs-size-monitor {
-	height: 2rem;
-}
-
-.tables .container tr {
-	justify-content: space-between;
 }

@@ -176,7 +176,7 @@ function ChartTable() {
 									<a href="#">
 										<td colSpan="2" className="flex">
 											<div className="">
-												<img src={item.imgSrc} alt="" />
+												<img src={item.imgSrc} alt={`${item.name} logo`} />
 											</div>
 											<div className="hidden-flex">
 												{item.name} &nbsp;&nbsp; <span>{item.id}</span>

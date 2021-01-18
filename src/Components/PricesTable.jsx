@@ -17,6 +17,17 @@ const addCommasToNumber = (num) => {
 	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 };
 
+const intlFormat = (num) => {
+	return new Intl.NumberFormat().format(Math.round(num * 10) / 10);
+};
+const abbr = (num) => {
+	if (num >= 1000000000000) return intlFormat(num / 1000000000000) + "T";
+	if (num >= 1000000000) return intlFormat(num / 1000000000) + "B";
+	if (num >= 1000000) return intlFormat(num / 1000000) + "M";
+	if (num >= 1000) return intlFormat(num / 1000) + "k";
+	return intlFormat(num);
+};
+
 function PricesTable() {
 	const [cryptos, setCryptos] = useContext(PricesCryptoContext);
 	const [userData, setUserData] = useContext(UserDataContext);
@@ -41,7 +52,7 @@ function PricesTable() {
 		return () => {
 			// setCryptos([]);
 			// setSparkline([]);
-			// console.log("cleaned up");
+			console.log("cleaned up");
 		};
 	}, [setCryptos, setUserData]);
 
@@ -54,7 +65,7 @@ function PricesTable() {
 			id: crypto.id,
 			price: `${addCommasToNumber(Math.round(crypto.price * 100) / 100)}`,
 			change: `${Math.round(crypto["1d"].price_change_pct * 10000) / 100}%`,
-			marketCap: crypto.market_cap,
+			marketCap: `${abbr(crypto.market_cap)}`,
 		});
 	});
 
@@ -78,10 +89,9 @@ function PricesTable() {
 							<th className="table-empty"></th>
 							<th className="table-empty"></th>
 							<th className="table-empty"></th>
-							<th>Price</th>
-							<th>Volume</th>
+							<th colSpan="2">Price</th>
 							<th>Change</th>
-
+							<th>Volume</th>
 							<th className="table-trade">Trade</th>
 						</tr>
 					</thead>
@@ -93,7 +103,7 @@ function PricesTable() {
 									<a href="#">
 										<td colSpan="2" className="flex">
 											<div className="">
-												<img src={item.imgSrc} alt="" />
+												<img src={item.imgSrc} alt={`${item.name} logo`} />
 											</div>
 											<div className="hidden-flex">
 												{item.name} &nbsp;&nbsp; <span>{item.id}</span>
@@ -105,11 +115,8 @@ function PricesTable() {
 									<td className="table-empty"></td>
 									<td className="table-empty"></td>
 									<td className="table-empty"></td>
-									<td className="crypto-price">
+									<td className="crypto-price" colSpan="2">
 										{userData.currency.symbol} {item.price}
-									</td>
-									<td className="crypto-volume">
-										{userData.currency.symbol} {item.marketCap}
 									</td>
 									{cryptos[index] ? (
 										<td
@@ -126,6 +133,9 @@ function PricesTable() {
 									) : (
 										""
 									)}
+									<td className="crypto-volume">
+										{userData.currency.symbol} {item.marketCap}
+									</td>
 									<td className="table-trade">
 										<button className="btn">Trade</button>
 									</td>
