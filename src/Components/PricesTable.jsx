@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserDataContext } from "../State/GlobalContext";
 import { PricesCryptoContext } from "../State/PricesContext";
 
@@ -24,7 +24,7 @@ const abbr = (num) => {
 	if (num >= 1000000000000) return intlFormat(num / 1000000000000) + "T";
 	if (num >= 1000000000) return intlFormat(num / 1000000000) + "B";
 	if (num >= 1000000) return intlFormat(num / 1000000) + "M";
-	if (num >= 1000) return intlFormat(num / 1000) + "k";
+	if (num >= 1000) return intlFormat(num / 1000) + "K";
 	return intlFormat(num);
 };
 
@@ -58,6 +58,8 @@ function PricesTable() {
 
 	const tableArr = React.useMemo(() => [], []);
 
+	tableArr.length = 75;
+
 	cryptos.forEach((crypto) => {
 		tableArr.push({
 			imgSrc: crypto.logo_url,
@@ -69,6 +71,7 @@ function PricesTable() {
 		});
 	});
 
+	console.log(cryptos);
 	console.log(tableArr);
 
 	const tableData = React.useMemo(() => (!cryptos.length ? [] : tableArr), [
