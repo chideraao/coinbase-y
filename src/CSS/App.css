@@ -180,7 +180,6 @@ img {
 	height: 40rem;
 	width: 100%;
 	top: 6.5rem;
-	z-index: 9;
 }
 
 .tables {
@@ -3210,6 +3209,26 @@ hr {
 }
 .price-cryptos {
 	margin: 0 6rem;
+}
+
+.prices .prices-table .prices-nav {
+	margin: 1rem;
+}
+
+.prices .prices-table .prices-nav .grid {
+	justify-items: flex-start;
+}
+
+.prices .prices-table .prices-nav .grid div {
+	justify-self: flex-end;
+}
+
+.prices .prices-table .prices-nav ul {
+	align-items: flex-start;
+}
+
+.prices .prices-table .prices-nav ul li {
+	padding: 1rem;
 }
 
 .price-cryptos table {

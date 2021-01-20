@@ -31,13 +31,14 @@ const abbr = (num) => {
 function PricesTable() {
 	const [cryptos, setCryptos] = useContext(PricesCryptoContext);
 	const [userData, setUserData] = useContext(UserDataContext);
+	const [onOption, setOnOption] = useState(true);
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
 				Axios.get(
-					`${api.base}key=${api.key}&per-page=75&page=1&convert=${response.data.currency.code}&interval=1d`
+					`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
 				)
 					.then((res) => {
 						setCryptos(res.data);
@@ -56,35 +57,32 @@ function PricesTable() {
 		};
 	}, [setCryptos, setUserData]);
 
-	const tableArr = React.useMemo(() => [], []);
-
-	tableArr.length = 75;
-
-	cryptos.forEach((crypto) => {
-		tableArr.push({
-			imgSrc: crypto.logo_url,
-			name: crypto.name,
-			id: crypto.id,
-			price: `${addCommasToNumber(Math.round(crypto.price * 100) / 100)}`,
-			change: `${Math.round(crypto["1d"].price_change_pct * 10000) / 100}%`,
-			marketCap: `${abbr(crypto.market_cap)}`,
-		});
-	});
+	const handleClick = () => {};
 
 	console.log(cryptos);
-	console.log(tableArr);
-
-	const tableData = React.useMemo(() => (!cryptos.length ? [] : tableArr), [
-		cryptos,
-		tableArr,
-	]);
 
 	return (
 		<div className="prices-table">
+			<div className="prices-nav">
+				<div className="order-options grid">
+					<ul className="flex">
+						<li className={onOption ? "on-option" : ""} onClick={handleClick}>
+							All assets
+						</li>
+						<li className={onOption}>Top gainers</li>
+						<li>Top losers</li>
+					</ul>
+					<div className="">
+						<select name="length" id="length">
+							24hr
+						</select>
+					</div>
+				</div>
+			</div>
 			{!cryptos.length ? (
 				""
 			) : (
-				<table role="table">
+				<table role="table" className="card">
 					<thead>
 						<tr>
 							<th className="table-serial">#</th>
@@ -99,14 +97,14 @@ function PricesTable() {
 						</tr>
 					</thead>
 					<tbody>
-						{tableData.map((item, index) => {
+						{cryptos.map((item, index) => {
 							return (
 								<tr key={index}>
 									<td className="table-serial">{index + 1}</td>
 									<a href="#">
 										<td colSpan="2" className="flex">
 											<div className="">
-												<img src={item.imgSrc} alt={`${item.name} logo`} />
+												<img src={item.logo_url} alt={`${item.name} logo`} />
 											</div>
 											<div className="hidden-flex">
 												{item.name} &nbsp;&nbsp; <span>{item.id}</span>
@@ -119,7 +117,8 @@ function PricesTable() {
 									<td className="table-empty"></td>
 									<td className="table-empty"></td>
 									<td className="crypto-price" colSpan="2">
-										{userData.currency.symbol} {item.price}
+										{userData.currency.symbol}{" "}
+										{`${addCommasToNumber(Math.round(item.price * 100) / 100)}`}
 									</td>
 									{cryptos[index] ? (
 										<td
@@ -130,14 +129,20 @@ function PricesTable() {
 											}
 										>
 											{cryptos[index]["1d"].price_change_pct * 100 > 1
-												? `+${item.change}`
-												: `${item.change}`}
+												? `+${
+														Math.round(item["1d"].price_change_pct * 10000) /
+														100
+												  }%`
+												: `${
+														Math.round(item["1d"].price_change_pct * 10000) /
+														100
+												  }%`}
 										</td>
 									) : (
 										""
 									)}
 									<td className="crypto-volume">
-										{userData.currency.symbol} {item.marketCap}
+										{userData.currency.symbol} {`${abbr(item.market_cap)}`}
 									</td>
 									<td className="table-trade">
 										<button className="btn">Trade</button>

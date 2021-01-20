@@ -12,7 +12,7 @@ function Prices() {
 	const market = React.useMemo(() => {
 		return !cryptos.length
 			? ""
-			: `${Math.round(cryptos[0]["1d"].price_change_pct * 10000) / 100}`;
+			: `${Math.round(cryptos[0]["1d"].price_change_pct * 15000) / 100}`;
 	}, [cryptos]);
 
 	return (
@@ -25,7 +25,7 @@ function Prices() {
 							<span className="link-heading">In the last 24 hours</span>
 
 							<span>
-								Market is {market > 0 ? "uppity" : "down"}
+								Market is {market > 0 ? "up" : "down"}
 								<span className={market >= 0 ? "gains" : "loss"}>
 									{"  "}
 									{market}%
@@ -36,7 +36,7 @@ function Prices() {
 				</div>
 				<PricesTicker />
 				<section className="price-cryptos">
-					<div className="container card">
+					<div className="container">
 						<PricesTable />
 					</div>
 				</section>
