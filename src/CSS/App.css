@@ -3231,8 +3231,32 @@ hr {
 	padding: 1rem;
 }
 
+.prices .prices-table .prices-nav ul .asset-order {
+	margin-right: 32px;
+	background-color: transparent;
+	color: rgb(5, 15, 25);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 4px 6px;
+	border-radius: 4px;
+}
+
 .prices .prices-table .prices-nav ul .on-option {
+	margin-right: 32px;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 4px 6px;
+	border-radius: 4px;
 	color: blue;
+}
+
+.prices .font-awesome {
+	opacity: 0.5;
+	text-align: center;
+	margin: 5rem 3rem;
 }
 
 .price-cryptos table {

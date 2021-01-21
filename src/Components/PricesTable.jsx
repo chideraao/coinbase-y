@@ -1,7 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { UserDataContext } from "../State/GlobalContext";
-import { PricesCryptoContext } from "../State/PricesContext";
+import { PricesContext, PricesCryptoContext } from "../State/PricesContext";
+import { ALL_ASSETS, TOP_GAINERS, TOP_LOSERS } from "../State/PricesReducer";
 
 /**Defining API endpoints */
 const api = {
@@ -31,7 +33,8 @@ const abbr = (num) => {
 function PricesTable() {
 	const [cryptos, setCryptos] = useContext(PricesCryptoContext);
 	const [userData, setUserData] = useContext(UserDataContext);
-	const [onOption, setOnOption] = useState(true);
+	const [state, dispatch] = useContext(PricesContext);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
@@ -57,8 +60,43 @@ function PricesTable() {
 		};
 	}, [setCryptos, setUserData]);
 
-	const handleClick = () => {
-		setOnOption(!onOption);
+	const handleAllClick = () => {
+		dispatch({ type: ALL_ASSETS });
+		setIsLoading(true);
+		setTimeout(() => {
+			for (let index = 0; index < 100; index++) {
+				cryptos.sort(function (b, a) {
+					return a.market_cap - b.market_cap;
+				});
+			}
+			setIsLoading(false);
+		}, 2000);
+	};
+
+	const handleGainClick = () => {
+		dispatch({ type: TOP_GAINERS });
+		setIsLoading(true);
+		setTimeout(() => {
+			for (let index = 0; index < 100; index++) {
+				cryptos.sort((b, a) => {
+					return a["1d"].price_change_pct - b["1d"].price_change_pct;
+				});
+			}
+			setIsLoading(false);
+		}, 1500);
+	};
+
+	const handleLossClick = () => {
+		dispatch({ type: TOP_LOSERS });
+		setIsLoading(true);
+		setTimeout(() => {
+			for (let index = 0; index < 100; index++) {
+				cryptos.sort((a, b) => {
+					return a["1d"].price_change_pct - b["1d"].price_change_pct;
+				});
+			}
+			setIsLoading(false);
+		}, 1500);
 	};
 
 	console.log(cryptos);
@@ -68,16 +106,21 @@ function PricesTable() {
 			<div className="prices-nav">
 				<div className="order-options grid">
 					<ul className="flex">
-						<li className={onOption ? "on-option" : ""} onClick={handleClick}>
+						<li
+							className={state[0].onAllAssets ? "on-option" : "asset-order"}
+							onClick={handleAllClick}
+						>
 							All assets
 						</li>
 						<li
-							className={onOption ? "on-option" : ""} /*onClick={handleClick1}*/
+							className={state[1].onTopGainers ? "on-option" : "asset-order"}
+							onClick={handleGainClick}
 						>
 							Top gainers
 						</li>
 						<li
-							className={onOption ? "on-option" : ""} /*onClick={handleClick2}*/
+							className={state[2].onTopLosers ? "on-option" : "asset-order"}
+							onClick={handleLossClick}
 						>
 							Top losers
 						</li>
@@ -89,7 +132,18 @@ function PricesTable() {
 					</div>
 				</div>
 			</div>
-			{!cryptos.length ? (
+
+			{isLoading ? (
+				<div className="flex">
+					<FontAwesomeIcon
+						className="font-awesome"
+						fontWeight="light"
+						icon="circle-notch"
+						size="2x"
+						spin
+					/>
+				</div>
+			) : !cryptos.length ? (
 				""
 			) : (
 				<table role="table" className="card">

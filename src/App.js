@@ -2,6 +2,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
 	faChevronLeft,
 	faChevronRight,
+	faCircleNotch,
+	faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./CSS/App.css";
@@ -20,7 +22,7 @@ import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
 
-library.add(faChevronLeft, faChevronRight);
+library.add(faChevronLeft, faChevronRight, faCircleNotch);
 
 function App() {
 	return (
