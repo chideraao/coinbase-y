@@ -3,6 +3,7 @@ import {
 	faChevronLeft,
 	faChevronRight,
 	faCircleNotch,
+	faSearch,
 	faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,7 +23,7 @@ import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
 
-library.add(faChevronLeft, faChevronRight, faCircleNotch);
+library.add(faChevronLeft, faChevronRight, faCircleNotch, faSearch);
 
 function App() {
 	return (

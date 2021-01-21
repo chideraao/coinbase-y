@@ -35,6 +35,7 @@ function PricesTable() {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [state, dispatch] = useContext(PricesContext);
 	const [isLoading, setIsLoading] = useState(false);
+	const [input, setInput] = useState("");
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
@@ -59,6 +60,10 @@ function PricesTable() {
 			console.log("cleaned up");
 		};
 	}, [setCryptos, setUserData]);
+
+	const handleChange = (e) => {
+		setInput(e.target.value);
+	};
 
 	const handleAllClick = () => {
 		dispatch({ type: ALL_ASSETS });
@@ -98,6 +103,15 @@ function PricesTable() {
 			setIsLoading(false);
 		}, 1500);
 	};
+
+	const filtered = !input
+		? cryptos
+		: cryptos.filter((crypto) => {
+				return (
+					crypto.name.toLowerCase().includes(input.toLowerCase()) ||
+					crypto.id.toLowerCase().includes(input.toLowerCase())
+				);
+		  });
 
 	console.log(cryptos);
 
@@ -146,76 +160,97 @@ function PricesTable() {
 			) : !cryptos.length ? (
 				""
 			) : (
-				<table role="table" className="card">
-					<thead>
-						<tr>
-							<th className="table-serial">#</th>
-							<th colSpan="2">Name</th>
-							<th className="table-empty"></th>
-							<th className="table-empty"></th>
-							<th className="table-empty"></th>
-							<th colSpan="2">Price</th>
-							<th>Change</th>
-							<th>Volume</th>
-							<th className="table-trade">Trade</th>
-						</tr>
-					</thead>
-					<tbody>
-						{cryptos.map((item, index) => {
-							return (
-								<tr key={index}>
-									<td className="table-serial">{index + 1}</td>
-									<a href="#">
-										<td colSpan="2" className="flex">
-											<div className="">
-												<img src={item.logo_url} alt={`${item.name} logo`} />
-											</div>
-											<div className="hidden-flex">
-												{item.name} &nbsp;&nbsp; <span>{item.id}</span>
-											</div>
-										</td>
-									</a>
+				<div className="card">
+					<div className="flex">
+						<FontAwesomeIcon
+							className="font-awesome-search"
+							fontWeight="light"
+							icon="search"
+							size="2x"
+						/>
+						<div className="search-input">
+							<input
+								type="text"
+								name=""
+								key="random1"
+								value={input}
+								placeholder={"Search all assets..."}
+								onChange={handleChange}
+							/>
+						</div>
+					</div>
 
-									<td className="table-empty"></td>
-									<td className="table-empty"></td>
-									<td className="table-empty"></td>
-									<td className="table-empty"></td>
-									<td className="crypto-price" colSpan="2">
-										{userData.currency.symbol}{" "}
-										{`${addCommasToNumber(Math.round(item.price * 100) / 100)}`}
-									</td>
-									{cryptos[index] ? (
-										<td
-											className={
-												cryptos[index]["1d"].price_change_pct * 100 >= 0
-													? "gains"
-													: "loss"
-											}
-										>
-											{cryptos[index]["1d"].price_change_pct * 100 > 0
-												? `+${
-														Math.round(item["1d"].price_change_pct * 10000) /
-														100
-												  }%`
-												: `${
-														Math.round(item["1d"].price_change_pct * 10000) /
-														100
-												  }%`}
+					<table role="table">
+						<thead>
+							<tr>
+								<th className="table-serial">#</th>
+								<th colSpan="2">Name</th>
+								<th className="table-empty"></th>
+								<th className="table-empty"></th>
+								<th colSpan="2">Price</th>
+								<th>Change</th>
+								<th>Volume</th>
+								<th className="table-trade">Trade</th>
+							</tr>
+						</thead>
+						<tbody>
+							{filtered.map((item, index) => {
+								return (
+									<tr key={index}>
+										<td className="table-serial">{index + 1}</td>
+										<a href="#">
+											<td colSpan="2" className="flex">
+												<div className="">
+													<img src={item.logo_url} alt={`${item.name} logo`} />
+												</div>
+												<div className="hidden-flex">
+													{item.name} &nbsp;&nbsp; <span>{item.id}</span>
+												</div>
+											</td>
+										</a>
+
+										<td className="table-empty"></td>
+										<td className="table-empty"></td>
+										<td className="table-empty"></td>
+										<td className="crypto-price" colSpan="2">
+											{userData.currency.symbol}{" "}
+											{`${addCommasToNumber(
+												Math.round(item.price * 100) / 100
+											)}`}
 										</td>
-									) : (
-										""
-									)}
-									<td className="crypto-volume">
-										{userData.currency.symbol} {`${abbr(item.market_cap)}`}
-									</td>
-									<td className="table-trade">
-										<button className="btn">Trade</button>
-									</td>
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
+										{cryptos[index] ? (
+											<td
+												className={
+													cryptos[index]["1d"].price_change_pct * 100 >= 0
+														? "gains"
+														: "loss"
+												}
+											>
+												{cryptos[index]["1d"].price_change_pct * 100 > 0
+													? `+${
+															Math.round(item["1d"].price_change_pct * 10000) /
+															100
+													  }%`
+													: `${
+															Math.round(item["1d"].price_change_pct * 10000) /
+															100
+													  }%`}
+											</td>
+										) : (
+											""
+										)}
+										<td className="crypto-volume">
+											{userData.currency.symbol} {`${abbr(item.market_cap)}`}
+										</td>
+										<td className="table-trade">
+											<button className="btn">Trade</button>
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
 			)}
 		</div>
 	);

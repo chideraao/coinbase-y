@@ -3208,7 +3208,8 @@ hr {
 	margin-bottom: 1.2rem;
 }
 .price-cryptos {
-	margin: 0 6rem;
+	margin: 1 6rem;
+	margin-bottom: 2rem;
 }
 
 .prices .prices-table .prices-nav {
@@ -3244,19 +3245,57 @@ hr {
 
 .prices .prices-table .prices-nav ul .on-option {
 	margin-right: 32px;
-	background-color: transparent;
+	background-color: rgb(241, 245, 254);
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: 500;
 	padding: 4px 6px;
 	border-radius: 4px;
-	color: blue;
+	color: rgb(88, 112, 136);
 }
 
 .prices .font-awesome {
 	opacity: 0.5;
+	font-weight: 300;
 	text-align: center;
 	margin: 5rem 3rem;
+}
+
+.prices .font-awesome-search {
+	opacity: 0.5;
+	text-align: center;
+	font-size: 1.3rem;
+	margin-left: 0.9rem;
+}
+
+.prices .prices-table .card > *:first-child {
+	justify-content: flex-start;
+	border-bottom: 1px solid rgb(236, 239, 241);
+	padding-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.prices .prices-table .card .search-input {
+	width: 92%;
+}
+
+.prices .prices-table input[type="text"] {
+	background-color: var(--secondary-color);
+	border: none;
+	margin-left: 2rem;
+	width: 100%;
+	height: 2rem;
+	padding: 3px;
+	font-size: 16px;
+}
+
+.prices .prices-table input[type="text"]:focus {
+	outline: none;
+}
+
+.prices .prices-table input[type="text"]::placeholder {
+	color: var(--light-grey-text);
+	font-size: 14px;
 }
 
 .price-cryptos table {

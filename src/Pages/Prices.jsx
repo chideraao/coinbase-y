@@ -12,7 +12,7 @@ function Prices() {
 	const market = React.useMemo(() => {
 		return !cryptos.length
 			? ""
-			: `${Math.round(cryptos[0]["1d"].price_change_pct * 15000) / 100}`;
+			: `${Math.round(cryptos[0]["1d"].price_change_pct * 12000) / 100}`;
 	}, [cryptos]);
 
 	return (
@@ -34,7 +34,7 @@ function Prices() {
 						</h1>
 					</div>
 				</div>
-				<PricesTicker />
+				{/* <PricesTicker /> */}
 				<section className="price-cryptos">
 					<div className="container">
 						<PricesTable />
