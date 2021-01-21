@@ -57,7 +57,9 @@ function PricesTable() {
 		};
 	}, [setCryptos, setUserData]);
 
-	const handleClick = () => {};
+	const handleClick = () => {
+		setOnOption(!onOption);
+	};
 
 	console.log(cryptos);
 
@@ -69,8 +71,16 @@ function PricesTable() {
 						<li className={onOption ? "on-option" : ""} onClick={handleClick}>
 							All assets
 						</li>
-						<li className={onOption}>Top gainers</li>
-						<li>Top losers</li>
+						<li
+							className={onOption ? "on-option" : ""} /*onClick={handleClick1}*/
+						>
+							Top gainers
+						</li>
+						<li
+							className={onOption ? "on-option" : ""} /*onClick={handleClick2}*/
+						>
+							Top losers
+						</li>
 					</ul>
 					<div className="">
 						<select name="length" id="length">
@@ -128,7 +138,7 @@ function PricesTable() {
 													: "loss"
 											}
 										>
-											{cryptos[index]["1d"].price_change_pct * 100 > 1
+											{cryptos[index]["1d"].price_change_pct * 100 > 0
 												? `+${
 														Math.round(item["1d"].price_change_pct * 10000) /
 														100
