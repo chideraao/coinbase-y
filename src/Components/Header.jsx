@@ -1,8 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
+	const [mouseOver, setMouseOver] = useState(true);
+
+	const handleMouseOver = () => {
+		setMouseOver(!mouseOver);
+	};
+
 	return (
 		<div className="header">
 			<div className="navbar flex container">
@@ -19,8 +26,36 @@ function Header() {
 							<Link className="learn-head" to="/learn">
 								<li>Learn</li>
 							</Link>
-							<Link to="/company" className="company">
-								<li>Company</li>
+							<Link
+								to="/company"
+								className="company"
+								onMouseOver={handleMouseOver}
+							>
+								<li>
+									Company &nbsp;
+									<FontAwesomeIcon
+										className="font-awesome-header"
+										icon="chevron-down"
+										size="2x"
+									/>
+								</li>
+								{mouseOver ? (
+									<div className="card">
+										<ul className="flex-column">
+											<Link to="/about">
+												<li>About us</li>
+											</Link>
+											<Link to="/press">
+												<li>Press</li>
+											</Link>
+											<Link to="/careers">
+												<li>Careers</li>
+											</Link>
+										</ul>
+									</div>
+								) : (
+									""
+								)}
 							</Link>
 
 							<Link to="/earn" className="crypto">

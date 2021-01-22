@@ -1,5 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+	faChevronDown,
 	faChevronLeft,
 	faChevronRight,
 	faCircleNotch,
@@ -23,7 +24,13 @@ import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
 
-library.add(faChevronLeft, faChevronRight, faCircleNotch, faSearch);
+library.add(
+	faChevronLeft,
+	faChevronRight,
+	faCircleNotch,
+	faSearch,
+	faChevronDown
+);
 
 function App() {
 	return (

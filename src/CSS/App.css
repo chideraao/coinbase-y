@@ -78,6 +78,30 @@ img {
 	padding-bottom: 1rem;
 }
 
+.header .nav .font-awesome-header {
+	padding-top: 0.09rem;
+	font-size: 0.75rem;
+	opacity: 0.5;
+}
+
+.header .nav .company .card {
+	padding: 0rem;
+	width: 7rem;
+	/* margin: 0rem; */
+}
+
+.header .nav .company a {
+	width: 100%;
+	align-self: flex-start;
+	padding: 0.8rem 0rem;
+	margin-left: 0.3rem;
+	border-bottom: 1px solid rgb(236, 239, 241);
+}
+
+.header .nav .company a li {
+	margin-left: 0.5rem;
+}
+
 .logo {
 	font-weight: 700;
 	font-size: 16px;
@@ -3252,6 +3276,21 @@ hr {
 	padding: 4px 6px;
 	border-radius: 4px;
 	color: rgb(88, 112, 136);
+}
+
+.prices .prices-nav select {
+	padding: 1rem 0.8rem;
+	padding-right: 0rem;
+	cursor: pointer;
+	outline: none;
+	font-weight: 500;
+	font-size: 14px;
+	border: 1px solid rgb(236, 239, 241);
+	border-radius: 0.5rem;
+}
+
+.prices .prices-nav select:focus {
+	box-shadow: 0px 0px 1px 1px #4484c4;
 }
 
 .prices .font-awesome {

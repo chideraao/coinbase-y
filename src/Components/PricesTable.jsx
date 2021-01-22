@@ -36,6 +36,7 @@ function PricesTable() {
 	const [state, dispatch] = useContext(PricesContext);
 	const [isLoading, setIsLoading] = useState(false);
 	const [input, setInput] = useState("");
+	const [selectOption, setSelectOption] = useState("1d");
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
@@ -65,6 +66,14 @@ function PricesTable() {
 		setInput(e.target.value);
 	};
 
+	const handleSelect = (e) => {
+		setSelectOption(e.target.value);
+		setIsLoading(true);
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
+	};
+
 	const handleAllClick = () => {
 		dispatch({ type: ALL_ASSETS });
 		setIsLoading(true);
@@ -84,7 +93,10 @@ function PricesTable() {
 		setTimeout(() => {
 			for (let index = 0; index < 100; index++) {
 				cryptos.sort((b, a) => {
-					return a["1d"].price_change_pct - b["1d"].price_change_pct;
+					return (
+						a[`${selectOption}`].price_change_pct -
+						b[`${selectOption}`].price_change_pct
+					);
 				});
 			}
 			setIsLoading(false);
@@ -97,7 +109,10 @@ function PricesTable() {
 		setTimeout(() => {
 			for (let index = 0; index < 100; index++) {
 				cryptos.sort((a, b) => {
-					return a["1d"].price_change_pct - b["1d"].price_change_pct;
+					return (
+						a[`${selectOption}`].price_change_pct -
+						b[`${selectOption}`].price_change_pct
+					);
 				});
 			}
 			setIsLoading(false);
@@ -140,8 +155,17 @@ function PricesTable() {
 						</li>
 					</ul>
 					<div className="">
-						<select name="length" id="length">
-							24hr
+						<select
+							name="length"
+							id="length"
+							onChange={handleSelect}
+							value={selectOption}
+						>
+							<option value="1h">1h</option>
+							<option value="1d">1d</option>
+							<option value="7d">7d</option>
+							<option value="30d">30d</option>
+							<option value="365d">365d</option>
 						</select>
 					</div>
 				</div>
@@ -186,7 +210,7 @@ function PricesTable() {
 								<th className="table-serial">#</th>
 								<th colSpan="2">Name</th>
 								<th className="table-empty"></th>
-								<th className="table-empty"></th>
+
 								<th colSpan="2">Price</th>
 								<th>Change</th>
 								<th>Volume</th>
@@ -210,7 +234,7 @@ function PricesTable() {
 										</a>
 
 										<td className="table-empty"></td>
-										<td className="table-empty"></td>
+
 										<td className="table-empty"></td>
 										<td className="crypto-price" colSpan="2">
 											{userData.currency.symbol}{" "}
@@ -221,19 +245,25 @@ function PricesTable() {
 										{cryptos[index] ? (
 											<td
 												className={
-													cryptos[index]["1d"].price_change_pct * 100 >= 0
+													cryptos[index][`${selectOption}`].price_change_pct *
+														100 >=
+													0
 														? "gains"
 														: "loss"
 												}
 											>
-												{cryptos[index]["1d"].price_change_pct * 100 > 0
+												{cryptos[index][`${selectOption}`].price_change_pct *
+													100 >
+												0
 													? `+${
-															Math.round(item["1d"].price_change_pct * 10000) /
-															100
+															Math.round(
+																item[`${selectOption}`].price_change_pct * 10000
+															) / 100
 													  }%`
 													: `${
-															Math.round(item["1d"].price_change_pct * 10000) /
-															100
+															Math.round(
+																item[`${selectOption}`].price_change_pct * 10000
+															) / 100
 													  }%`}
 											</td>
 										) : (
