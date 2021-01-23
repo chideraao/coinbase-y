@@ -3246,6 +3246,21 @@ hr {
 	font-weight: 500;
 	margin-bottom: 1.2rem;
 }
+
+.prices .market-health .box-container a {
+	color: var(--dark-color);
+}
+
+.prices .market-health .box-container .box-img img {
+	height: 2rem;
+	width: 2rem;
+}
+
+.prices .market-health .box-container canvas {
+	height: 1.5rem !important;
+	width: 4.5rem !important;
+}
+
 .price-cryptos {
 	margin: 1 6rem;
 	margin-bottom: 2rem;
