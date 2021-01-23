@@ -5,7 +5,6 @@ import {
 	faChevronRight,
 	faCircleNotch,
 	faSearch,
-	faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./CSS/App.css";

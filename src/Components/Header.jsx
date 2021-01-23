@@ -4,10 +4,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
-	const [mouseOver, setMouseOver] = useState(true);
+	const [mouseOver, setMouseOver] = useState(false);
 
 	const handleMouseOver = () => {
-		setMouseOver(!mouseOver);
+		setMouseOver(true);
+	};
+
+	const handleMouseLeave = () => {
+		setMouseOver(false);
 	};
 
 	return (
@@ -27,9 +31,10 @@ function Header() {
 								<li>Learn</li>
 							</Link>
 							<Link
-								to="/company"
+								to="#"
 								className="company"
 								onMouseOver={handleMouseOver}
+								onMouseLeave={handleMouseLeave}
 							>
 								<li>
 									Company &nbsp;
@@ -40,7 +45,10 @@ function Header() {
 									/>
 								</li>
 								{mouseOver ? (
-									<div className="card">
+									<div
+										className="mouse-over card"
+										onMouseOver={handleMouseOver}
+									>
 										<ul className="flex-column">
 											<Link to="/about">
 												<li>About us</li>
@@ -57,12 +65,14 @@ function Header() {
 									""
 								)}
 							</Link>
-
 							<Link to="/earn" className="crypto">
 								<li>Earn crypto</li>
 							</Link>
 						</ul>
 					</nav>
+					<Link to="/earn" className="btn green-btn">
+						Get $40+
+					</Link>
 				</div>
 				<div className="auth">
 					<a href="" className="btn">

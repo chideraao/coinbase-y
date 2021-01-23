@@ -81,25 +81,32 @@ img {
 .header .nav .font-awesome-header {
 	padding-top: 0.09rem;
 	font-size: 0.75rem;
-	opacity: 0.5;
 }
 
 .header .nav .company .card {
 	padding: 0rem;
 	width: 7rem;
-	/* margin: 0rem; */
+	position: absolute;
+	top: 3rem;
+	z-index: 1;
 }
 
 .header .nav .company a {
-	width: 100%;
+	width: 95%;
+	color: var(--dark-color);
 	align-self: flex-start;
 	padding: 0.8rem 0rem;
-	margin-left: 0.3rem;
+	margin-left: 0.2rem;
 	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
 .header .nav .company a li {
 	margin-left: 0.5rem;
+	font-weight: 300;
+}
+
+.header .nav .company a:hover {
+	color: var(--primary-color) !important;
 }
 
 .logo {
@@ -117,6 +124,14 @@ img {
 
 	align-items: center;
 	justify-content: center;
+}
+
+.header .navbar .green-btn {
+	margin-top: 0.4rem;
+	color: var(--secondary-color);
+	font-size: 12px;
+	background-color: var(--button-color);
+	padding: 0.2rem 0.5rem;
 }
 
 .navbar .auth {
@@ -3294,10 +3309,10 @@ hr {
 }
 
 .prices .font-awesome {
-	opacity: 0.5;
 	font-weight: 300;
 	text-align: center;
 	margin: 5rem 3rem;
+	color: var(--primary-color);
 }
 
 .prices .font-awesome-search {

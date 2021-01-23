@@ -1,8 +1,5 @@
 import React, { createContext } from "react";
 import { useState } from "react";
-import { useReducer } from "react";
-
-// import { globalState } from "./GlobalState";
 
 export const CryptosContext = createContext();
 export const SparklineContext = createContext();
@@ -14,7 +11,6 @@ export const GlobalProvider = (props) => {
 	const [sparkline, setSparkline] = useState([]);
 	const [languages, setLanguages] = useState({});
 	const [userData, setUserData] = useState([]);
-	// const [state, dispatch] = useReducer(globalState, { cryptos: "" });
 
 	return (
 		<CryptosContext.Provider value={[cryptos, setCryptos]}>

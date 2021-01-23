@@ -2,12 +2,26 @@ import React, { useContext } from "react";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import {
+	PricesBAT,
+	PricesBTC,
+	PricesGRT,
+	PricesXTZ,
+} from "../Components/PricesSparkline";
 import PricesTable from "../Components/PricesTable";
 import PricesTicker from "../Components/PricesTicker";
-import { PricesCryptoContext } from "../State/PricesContext";
+import { UserDataContext } from "../State/GlobalContext";
+import {
+	PricesCryptoContext,
+	ShowcaseCryptosContext,
+} from "../State/PricesContext";
 
 function Prices() {
 	const [cryptos, setCryptos] = useContext(PricesCryptoContext);
+	const [userData, setUserData] = useContext(UserDataContext);
+	const [showcaseCryptos, setShowcaseCryptos] = useContext(
+		ShowcaseCryptosContext
+	);
 
 	const market = React.useMemo(() => {
 		return !cryptos.length
@@ -33,6 +47,7 @@ function Prices() {
 							</span>
 						</h1>
 					</div>
+					<div className="box-container container"></div>
 				</div>
 				{/* <PricesTicker /> */}
 				<section className="price-cryptos">

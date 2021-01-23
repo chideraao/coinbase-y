@@ -2,7 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { UserDataContext } from "../State/GlobalContext";
-import { PricesContext, PricesCryptoContext } from "../State/PricesContext";
+import {
+	PricesContext,
+	PricesCryptoContext,
+	PricesSparklineContext,
+	ShowcaseCryptosContext,
+} from "../State/PricesContext";
 import { ALL_ASSETS, TOP_GAINERS, TOP_LOSERS } from "../State/PricesReducer";
 
 /**Defining API endpoints */
@@ -13,6 +18,20 @@ const api = {
 	zoneKey: "d65e37f4206340d188baba3c12561f09",
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
+
+/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
+//Get today's date using the JavaScript Date object.
+let ourDate = new Date();
+
+//Change it so that it is the previous day
+let pastDate = ourDate.getDate() - 1;
+ourDate.setDate(pastDate);
+let month = ourDate.getMonth() + 1;
+let year = ourDate.getFullYear();
+let day = ourDate.getDate();
+let hour = ourDate.getHours();
+let minute = ourDate.getMinutes();
+let seconds = ourDate.getSeconds();
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
@@ -37,16 +56,38 @@ function PricesTable() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [input, setInput] = useState("");
 	const [selectOption, setSelectOption] = useState("1d");
+	const [sparkline, setSparkline] = useContext(PricesSparklineContext);
+	const [showcaseCryptos, setShowcaseCryptos] = useContext(
+		ShowcaseCryptosContext
+	);
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.get(
-					`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-				)
+				Axios.all([
+					Axios.get(
+						`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
+					),
+					Axios.get(
+						`${api.sparklineBase}key=${
+							api.key
+						}&ids=BTC,GRT,BAT,XTZ&start=${year}-${
+							month < 10 ? `0${month}` : month
+						}-${day < 10 ? `0${day}` : day}T${
+							hour < 10 ? `0${hour}` : hour
+						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
+							seconds < 10 ? `0${seconds}` : seconds
+						}Z&convert=${response.data.currency.code}`
+					),
+					Axios.get(
+						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,BAT&convert=${response.data.currency.code}&interval=1d`
+					),
+				])
 					.then((res) => {
-						setCryptos(res.data);
+						setCryptos(res[0].data);
+						setShowcaseCryptos(res[2].data);
+						setSparkline(res[1].data);
 					})
 					.catch((error) => {
 						console.log(error);
@@ -60,7 +101,9 @@ function PricesTable() {
 			// setSparkline([]);
 			console.log("cleaned up");
 		};
-	}, [setCryptos, setUserData]);
+	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
+
+	console.log(showcaseCryptos);
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
