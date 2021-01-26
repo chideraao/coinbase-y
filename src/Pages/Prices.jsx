@@ -14,6 +14,7 @@ import PricesTicker from "../Components/PricesTicker";
 import { UserDataContext } from "../State/GlobalContext";
 import {
 	PricesCryptoContext,
+	PricesSparklineContext,
 	ShowcaseCryptosContext,
 } from "../State/PricesContext";
 import LearnIllustration from "../logos/Learn_Illustration_Ultimate_Guide_Bitcoin.png";
@@ -37,6 +38,7 @@ const abbr = (num) => {
 function Prices() {
 	const [cryptos, setCryptos] = useContext(PricesCryptoContext);
 	const [userData, setUserData] = useContext(UserDataContext);
+	const [sparkline, setSparkline] = useContext(PricesSparklineContext);
 	const [showcaseCryptos, setShowcaseCryptos] = useContext(
 		ShowcaseCryptosContext
 	);
@@ -65,12 +67,14 @@ function Prices() {
 							</span>
 						</h1>
 					</div>
-					{showcaseCryptos ? (
+					{!showcaseCryptos.length && !sparkline.length ? (
+						""
+					) : (
 						<div className="container">
 							<div className="box-container flex">
 								<Link>
 									<div className="prices-box">
-										<h2>Top gainer(24h)</h2>
+										<h2>Top gainer (24h)</h2>
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
@@ -120,14 +124,14 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link to="/earn">
-									<div className="prices-box flex">
+								<Link to="/learn">
+									<div className="prices-box learn-box flex">
 										<div className="prices-box-text">
 											{" "}
 											<h2>Crypto questions, answered</h2>
 											<p>Learn with Basecoin</p>
 										</div>
-										<div className="">
+										<div className="learn-img">
 											<img
 												src={LearnIllustration}
 												alt="learn illustration img"
@@ -139,7 +143,7 @@ function Prices() {
 							<div className="box-container flex">
 								<Link>
 									<div className="prices-box">
-										<h2>Highest volume(24h)</h2>
+										<h2>Highest volume (24h)</h2>
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
@@ -168,7 +172,7 @@ function Prices() {
 								</Link>
 								<Link>
 									<div className="prices-box">
-										<h2>Most visited(24h)</h2>
+										<h2>Most visited (24h)</h2>
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
@@ -220,8 +224,6 @@ function Prices() {
 								</Link>
 							</div>
 						</div>
-					) : (
-						""
 					)}
 				</div>
 				{/* <PricesTicker /> */}

@@ -3247,8 +3247,32 @@ hr {
 	margin-bottom: 1.2rem;
 }
 
+.prices .market-health .box-container .prices-box {
+	width: auto;
+	border: 1px solid rgb(236, 239, 241);
+	display: none;
+}
+
+.prices .market-health .box-container .prices-box h2 {
+	color: rgb(5, 15, 25);
+	font-size: 18px;
+	font-weight: 500;
+	white-space: nowrap;
+	margin: 1rem 1.3rem;
+}
+
 .prices .market-health .box-container a {
 	color: var(--dark-color);
+}
+
+.prices .market-health .box-container .learn-img img {
+	height: 7.4rem;
+	width: auto;
+	background: none;
+}
+
+.prices .market-health .box-container .learn-box {
+	background: rgb(184, 201, 200);
 }
 
 .prices .market-health .box-container .box-img img {
