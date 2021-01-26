@@ -10,10 +10,10 @@ export const ShowcaseCryptosContext = createContext();
 export const PricesProvider = (props) => {
 	const [pricesCrypto, setPricesCrypto] = useState([]);
 	const [pricesSparkline, setPricesSparkline] = useState([
-		{ prices: "", timestamps: "" },
-		{ prices: "", timestamps: "" },
-		{ prices: "", timestamps: "" },
-		{ prices: "", timestamps: "" },
+		// { prices: "", timestamps: "" },
+		// { prices: "", timestamps: "" },
+		// { prices: "", timestamps: "" },
+		// { prices: "", timestamps: "" },
 	]);
 	const [state, dispatch] = useReducer(PricesReducer, [
 		{ onAllAssets: true },

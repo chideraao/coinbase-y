@@ -89,7 +89,7 @@ function ChartTable() {
 
 	const tableData = React.useMemo(
 		() =>
-			!crypto.length && !sparkline.length
+			!cryptos.length && !sparkline.length
 				? []
 				: [
 						{

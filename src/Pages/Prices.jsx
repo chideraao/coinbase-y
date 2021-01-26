@@ -49,6 +49,44 @@ function Prices() {
 			: `${Math.round(cryptos[0]["1d"].price_change_pct * 12000) / 100}`;
 	}, [cryptos]);
 
+	console.log(sparkline.length);
+	console.log(showcaseCryptos.length);
+
+	const marketHealth = React.useMemo(
+		() =>
+			!sparkline.length && !showcaseCryptos.length
+				? []
+				: [
+						{
+							img: `${showcaseCryptos[3].logo_url}`,
+							name: `${showcaseCryptos[3].name}`,
+							price: `${showcaseCryptos[3].price}`,
+							chart: <PricesBAT />,
+						},
+						{
+							img: showcaseCryptos[2].logo_url,
+							name: showcaseCryptos[2].name,
+							price: showcaseCryptos[2].price,
+							chart: <PricesGRT />,
+						},
+						{
+							img: showcaseCryptos[1].logo_url,
+							name: showcaseCryptos[1].name,
+							price: showcaseCryptos[1].price,
+							chart: <PricesXTZ />,
+						},
+						{
+							img: showcaseCryptos[0].logo_url,
+							name: showcaseCryptos[0].name,
+							price: showcaseCryptos[0].price,
+							volume: showcaseCryptos[0].market_cap,
+							chart: <PricesBTC />,
+						},
+						// { img: showcaseCryptos[3].logo_url,  name: showcaseCryptos[3].name, price: showcaseCryptos[3].price, chart: "" },
+				  ],
+		[showcaseCryptos, sparkline]
+	);
+
 	return (
 		<div className="prices">
 			<Header />
@@ -78,22 +116,22 @@ function Prices() {
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
-													src={showcaseCryptos[3].logo_url}
-													alt={`${showcaseCryptos[3].name} icon`}
+													src={marketHealth[0].img}
+													alt={`${marketHealth[0].name} icon`}
 												/>
 											</div>
 											<div className="box-title">
-												<h3>{showcaseCryptos[3].name}</h3>
+												<h3>{marketHealth[0].name}</h3>
 												<h3 className="gains">+40%</h3>
 											</div>
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(showcaseCryptos[3].price * 100) / 100
+														Math.round(marketHealth[0].price * 100) / 100
 													)}`}
 												</p>
-												<PricesBAT />
+												{marketHealth[0].chart}
 											</div>
 										</div>
 									</div>
@@ -104,22 +142,22 @@ function Prices() {
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
-													src={showcaseCryptos[2].logo_url}
-													alt={`${showcaseCryptos[2].name} icon`}
+													src={marketHealth[1].img}
+													alt={`${marketHealth[1].name} icon`}
 												/>
 											</div>
 											<div className="box-title">
-												<h3>{showcaseCryptos[2].name}</h3>
+												<h3>{marketHealth[1].name}</h3>
 												<h3>Added Dec 17</h3>
 											</div>
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(showcaseCryptos[2].price * 100) / 100
+														Math.round(marketHealth[1].price * 100) / 100
 													)}`}
 												</p>
-												<PricesGRT />
+												{marketHealth[1].chart}
 											</div>
 										</div>
 									</div>
@@ -147,25 +185,25 @@ function Prices() {
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
-													src={showcaseCryptos[0].logo_url}
-													alt={`${showcaseCryptos[0].name} icon`}
+													src={marketHealth[3].img}
+													alt={`${marketHealth[3].name} icon`}
 												/>
 											</div>
 											<div className="box-title">
-												<h3>{showcaseCryptos[0].name}</h3>
+												<h3>{marketHealth[3].name}</h3>
 												<h3>
 													{userData.currency.symbol}{" "}
-													{`${abbr(showcaseCryptos[0].market_cap)}`}
+													{`${abbr(marketHealth[3].volume)}`}
 												</h3>
 											</div>
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(showcaseCryptos[0].price * 100) / 100
+														Math.round(marketHealth[3].price * 100) / 100
 													)}`}
 												</p>
-												<PricesBTC />
+												{marketHealth[3].chart}
 											</div>
 										</div>
 									</div>
@@ -176,22 +214,22 @@ function Prices() {
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
-													src={showcaseCryptos[1].logo_url}
-													alt={`${showcaseCryptos[1].name} icon`}
+													src={marketHealth[2].img}
+													alt={`${marketHealth[2].name} icon`}
 												/>
 											</div>
 											<div className="box-title">
-												<h3>{showcaseCryptos[1].name}</h3>
+												<h3>{marketHealth[2].name}</h3>
 												<h3 className="gains">+220% views</h3>
 											</div>
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(showcaseCryptos[1].price * 100) / 100
+														Math.round(marketHealth[2].price * 100) / 100
 													)}`}
 												</p>
-												<PricesXTZ />
+												{marketHealth[2].chart}
 											</div>
 										</div>
 									</div>
@@ -202,22 +240,22 @@ function Prices() {
 										<div className="sparkline-container flex">
 											<div className="box-img">
 												<img
-													src={showcaseCryptos[2].logo_url}
-													alt={`${showcaseCryptos[2].name} icon`}
+													src={marketHealth[0].img}
+													alt={`${marketHealth[0].name} icon`}
 												/>
 											</div>
 											<div className="box-title">
-												<h3>{showcaseCryptos[2].name}</h3>
+												<h3>{marketHealth[0].name}</h3>
 												<h3>Earn $3 in GRT</h3>
 											</div>
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(showcaseCryptos[2].price * 100) / 100
+														Math.round(marketHealth[0].price * 100) / 100
 													)}`}
 												</p>
-												<PricesBAT />
+												{marketHealth[0].chart}
 											</div>
 										</div>
 									</div>
