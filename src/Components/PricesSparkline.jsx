@@ -213,3 +213,56 @@ export function PricesBAT() {
 		</div>
 	);
 }
+
+export function PricesBAND() {
+	const [sparkline, setSparkline] = useContext(PricesSparklineContext);
+	const [dataChart, setDataChart] = useState({});
+
+	/**chart js styling options */
+	const chartOptions = {
+		// maintainAspectRatio: false,
+		tooltips: {
+			enabled: false,
+		},
+		elements: {
+			point: { radius: 0 },
+		},
+		legend: {
+			display: false,
+		},
+		scales: {
+			xAxes: [{ display: false }],
+			yAxes: [{ display: false }],
+		},
+	};
+
+	/**creating empty arrays for the chart data and pushing the props gotten from home component */
+
+	useEffect(() => {
+		let prices = [];
+		let timestamps = [];
+
+		if (sparkline.length) {
+			prices.push(sparkline[4].prices);
+			timestamps.push(sparkline[4].timestamps);
+		}
+
+		setDataChart({
+			labels: timestamps[0],
+			datasets: [
+				{
+					label: "prices",
+					data: prices[0],
+					borderColor: "rgba(17, 51, 83, 0.3)",
+					fill: false,
+				},
+			],
+		});
+	}, [sparkline]);
+
+	return (
+		<div className="sparkline-container">
+			<Line data={dataChart} options={chartOptions} />
+		</div>
+	);
+}

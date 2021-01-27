@@ -3248,7 +3248,8 @@ hr {
 }
 
 .prices .market-health .box-container .prices-box {
-	width: auto;
+	width: 24.4rem;
+	height: 7.4rem;
 	border: 1px solid rgb(236, 239, 241);
 }
 
@@ -3260,28 +3261,87 @@ hr {
 	margin: 1rem 1.3rem;
 }
 
+.prices .market-health .box-container .prices-box .sparkline-container {
+	padding-bottom: 3rem;
+	justify-content: space-between;
+}
+
 .prices .market-health .box-container a {
 	color: var(--dark-color);
 }
 
-.prices .market-health .box-container .learn-img img {
+.prices .market-health .box-container .learn-img {
 	height: 7.4rem;
-	width: auto;
-	background: none;
+	width: 9rem;
+	/* background: none; */
+}
+
+.prices .market-health .box-container .learn-img img {
+	width: 10rem;
+	height: auto;
+	/* display: none; */
 }
 
 .prices .market-health .box-container .learn-box {
 	background: rgb(184, 201, 200);
 }
 
+.prices .market-health .box-container .learn-box h2 {
+	margin: 0rem;
+}
+
+.prices .market-health .box-container .learn-box p {
+	color: rgb(5, 15, 25);
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.prices .market-health .box-container .learn-box .prices-box-text {
+	/* margin-left: 2rem; */
+}
+
+.prices .market-health .box-container .box-title {
+	margin-bottom: 1.5rem;
+	margin-left: 0.5rem;
+}
+
+.prices .market-health .box-container .box-title p {
+	font-size: 14px;
+	line-height: 1.6;
+	font-weight: 300;
+	color: rgba(17, 51, 83, 0.6);
+}
+
+.prices .market-health .box-container .box-img {
+	margin-right: auto;
+	align-self: flex-start;
+}
+
 .prices .market-health .box-container .box-img img {
+	margin-bottom: 1rem;
+	margin-left: 1.5rem;
 	height: 2rem;
 	width: 2rem;
 }
 
+.prices .market-health .box-container .sparkline-main {
+	margin-right: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.prices .market-health .box-container .sparkline-main p {
+	font-weight: 300;
+	align-self: flex-end;
+}
+
+.prices .market-health .box-container .sparkline-main .sparkline-container {
+	align-self: flex-end;
+}
+
 .prices .market-health .box-container canvas {
-	height: 1.5rem !important;
-	width: 4.5rem !important;
+	height: 1.2rem !important;
+	width: 4rem !important;
 }
 
 .price-cryptos {
@@ -3329,6 +3389,7 @@ hr {
 	padding: 4px 6px;
 	border-radius: 4px;
 	color: rgb(88, 112, 136);
+	border-radius: 8rem;
 }
 
 .prices .prices-nav select {
@@ -3432,11 +3493,11 @@ table tr .flex {
 }
 
 .gains {
-	color: var(--button-color);
+	color: var(--button-color) !important;
 }
 
 .loss {
-	color: rgb(233, 37, 37);
+	color: rgb(233, 37, 37) !important;
 }
 
 .price-cryptos table .btn {

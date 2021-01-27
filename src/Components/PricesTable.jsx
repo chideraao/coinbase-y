@@ -72,7 +72,7 @@ function PricesTable() {
 					Axios.get(
 						`${api.sparklineBase}key=${
 							api.key
-						}&ids=BTC,GRT,BAT,XTZ&start=${year}-${
+						}&ids=BTC,GRT,BAT,XTZ,BAND&start=${year}-${
 							month < 10 ? `0${month}` : month
 						}-${day < 10 ? `0${day}` : day}T${
 							hour < 10 ? `0${hour}` : hour
@@ -81,7 +81,7 @@ function PricesTable() {
 						}Z&convert=${response.data.currency.code}`
 					),
 					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,BAT&convert=${response.data.currency.code}&interval=1d`
+						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,BAT,BAND&convert=${response.data.currency.code}&interval=1d`
 					),
 				])
 					.then((res) => {

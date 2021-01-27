@@ -8,6 +8,7 @@ import {
 	PricesBTC,
 	PricesGRT,
 	PricesXTZ,
+	PricesBAND,
 } from "../Components/PricesSparkline";
 import PricesTable from "../Components/PricesTable";
 import PricesTicker from "../Components/PricesTicker";
@@ -82,6 +83,13 @@ function Prices() {
 							volume: showcaseCryptos[0].market_cap,
 							chart: <PricesBTC />,
 						},
+						{
+							img: showcaseCryptos[4].logo_url,
+							name: showcaseCryptos[4].name,
+							price: showcaseCryptos[4].price,
+							volume: showcaseCryptos[4].market_cap,
+							chart: <PricesBAND />,
+						},
 				  ],
 		[showcaseCryptos, sparkline]
 	);
@@ -116,16 +124,19 @@ function Prices() {
 									<div className="prices-box">
 										<h2>Top gainer (24h)</h2>
 										<div className="sparkline-container flex">
-											<div className="box-img">
-												<img
-													src={marketHealth[0].img}
-													alt={`${marketHealth[0].name} icon`}
-												/>
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[0].img}
+														alt={`${marketHealth[0].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[0].name}</h3>
+													<p className="gains">+40.59%</p>
+												</div>
 											</div>
-											<div className="box-title">
-												<h3>{marketHealth[0].name}</h3>
-												<h3 className="gains">+40%</h3>
-											</div>
+
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
@@ -142,16 +153,19 @@ function Prices() {
 									<div className="prices-box">
 										<h2>New listing</h2>
 										<div className="sparkline-container flex">
-											<div className="box-img">
-												<img
-													src={marketHealth[1].img}
-													alt={`${marketHealth[1].name} icon`}
-												/>
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[1].img}
+														alt={`${marketHealth[1].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[1].name}</h3>
+													<p>Added Dec 17</p>
+												</div>
 											</div>
-											<div className="box-title">
-												<h3>{marketHealth[1].name}</h3>
-												<h3>Added Dec 17</h3>
-											</div>
+
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
@@ -166,12 +180,11 @@ function Prices() {
 								</Link>
 								<Link to="/learn">
 									<div className="prices-box learn-box flex">
-										<div className="prices-box-text">
-											{" "}
+										<div className="prices-box-text flex-column">
 											<h2>Crypto questions, answered</h2>
 											<p>Learn with Basecoin</p>
 										</div>
-										<div className="learn-img">
+										<div className="learn-img flex">
 											<img
 												src={LearnIllustration}
 												alt="learn illustration img"
@@ -185,19 +198,22 @@ function Prices() {
 									<div className="prices-box">
 										<h2>Highest volume (24h)</h2>
 										<div className="sparkline-container flex">
-											<div className="box-img">
-												<img
-													src={marketHealth[3].img}
-													alt={`${marketHealth[3].name} icon`}
-												/>
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[3].img}
+														alt={`${marketHealth[3].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[3].name}</h3>
+													<p>
+														{userData.currency.symbol}{" "}
+														{`${abbr(marketHealth[3].volume)}`}
+													</p>
+												</div>
 											</div>
-											<div className="box-title">
-												<h3>{marketHealth[3].name}</h3>
-												<h3>
-													{userData.currency.symbol}{" "}
-													{`${abbr(marketHealth[3].volume)}`}
-												</h3>
-											</div>
+
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
@@ -214,16 +230,19 @@ function Prices() {
 									<div className="prices-box">
 										<h2>Most visited (24h)</h2>
 										<div className="sparkline-container flex">
-											<div className="box-img">
-												<img
-													src={marketHealth[2].img}
-													alt={`${marketHealth[2].name} icon`}
-												/>
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[2].img}
+														alt={`${marketHealth[2].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[2].name}</h3>
+													<p className="gains">+220.69% views</p>
+												</div>
 											</div>
-											<div className="box-title">
-												<h3>{marketHealth[2].name}</h3>
-												<h3 className="gains">+220% views</h3>
-											</div>
+
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
@@ -240,24 +259,27 @@ function Prices() {
 									<div className="prices-box">
 										<h2>Earn free crypto</h2>
 										<div className="sparkline-container flex">
-											<div className="box-img">
-												<img
-													src={marketHealth[0].img}
-													alt={`${marketHealth[0].name} icon`}
-												/>
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[4].img}
+														alt={`${marketHealth[4].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[4].name}</h3>
+													<p>Earn $3 in GRT</p>
+												</div>
 											</div>
-											<div className="box-title">
-												<h3>{marketHealth[0].name}</h3>
-												<h3>Earn $3 in GRT</h3>
-											</div>
+
 											<div className="sparkline-main">
 												<p>
 													{userData.currency.symbol}{" "}
 													{`${addCommasToNumber(
-														Math.round(marketHealth[0].price * 100) / 100
+														Math.round(marketHealth[4].price * 100) / 100
 													)}`}
 												</p>
-												{marketHealth[0].chart}
+												{marketHealth[4].chart}
 											</div>
 										</div>
 									</div>
