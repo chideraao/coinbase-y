@@ -29,8 +29,11 @@ export function PricesBTC() {
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];
-		prices.push(sparkline[0].prices);
-		timestamps.push(sparkline[0].timestamps);
+
+		if (sparkline.length) {
+			prices.push(sparkline[0].prices);
+			timestamps.push(sparkline[0].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -79,8 +82,11 @@ export function PricesXTZ() {
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];
-		prices.push(sparkline[1].prices);
-		timestamps.push(sparkline[1].timestamps);
+
+		if (sparkline.length) {
+			prices.push(sparkline[1].prices);
+			timestamps.push(sparkline[1].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -129,8 +135,11 @@ export function PricesGRT() {
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];
-		prices.push(sparkline[2].prices);
-		timestamps.push(sparkline[2].timestamps);
+
+		if (sparkline.length) {
+			prices.push(sparkline[2].prices);
+			timestamps.push(sparkline[2].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -179,8 +188,11 @@ export function PricesBAT() {
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];
-		prices.push(sparkline[3].prices);
-		timestamps.push(sparkline[3].timestamps);
+
+		if (sparkline.length) {
+			prices.push(sparkline[3].prices);
+			timestamps.push(sparkline[3].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],

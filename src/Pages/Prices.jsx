@@ -82,10 +82,12 @@ function Prices() {
 							volume: showcaseCryptos[0].market_cap,
 							chart: <PricesBTC />,
 						},
-						// { img: showcaseCryptos[3].logo_url,  name: showcaseCryptos[3].name, price: showcaseCryptos[3].price, chart: "" },
 				  ],
 		[showcaseCryptos, sparkline]
 	);
+
+	console.log(showcaseCryptos);
+	console.log(sparkline);
 
 	return (
 		<div className="prices">
@@ -110,7 +112,7 @@ function Prices() {
 					) : (
 						<div className="container">
 							<div className="box-container flex">
-								<Link>
+								<Link to="#">
 									<div className="prices-box">
 										<h2>Top gainer (24h)</h2>
 										<div className="sparkline-container flex">
@@ -136,7 +138,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link>
+								<Link to="#">
 									<div className="prices-box">
 										<h2>New listing</h2>
 										<div className="sparkline-container flex">
@@ -179,7 +181,7 @@ function Prices() {
 								</Link>
 							</div>
 							<div className="box-container flex">
-								<Link>
+								<Link to="#">
 									<div className="prices-box">
 										<h2>Highest volume (24h)</h2>
 										<div className="sparkline-container flex">
@@ -208,7 +210,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link>
+								<Link to="#">
 									<div className="prices-box">
 										<h2>Most visited (24h)</h2>
 										<div className="sparkline-container flex">
@@ -234,7 +236,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link>
+								<Link to="#">
 									<div className="prices-box">
 										<h2>Earn free crypto</h2>
 										<div className="sparkline-container flex">

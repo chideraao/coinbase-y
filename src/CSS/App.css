@@ -3250,7 +3250,6 @@ hr {
 .prices .market-health .box-container .prices-box {
 	width: auto;
 	border: 1px solid rgb(236, 239, 241);
-	display: none;
 }
 
 .prices .market-health .box-container .prices-box h2 {
