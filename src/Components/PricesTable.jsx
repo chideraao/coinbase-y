@@ -72,7 +72,7 @@ function PricesTable() {
 					Axios.get(
 						`${api.sparklineBase}key=${
 							api.key
-						}&ids=BTC,GRT,BAT,XTZ,BAND&start=${year}-${
+						}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
 							month < 10 ? `0${month}` : month
 						}-${day < 10 ? `0${day}` : day}T${
 							hour < 10 ? `0${hour}` : hour
@@ -81,7 +81,7 @@ function PricesTable() {
 						}Z&convert=${response.data.currency.code}`
 					),
 					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,BAT,BAND&convert=${response.data.currency.code}&interval=1d`
+						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
 					),
 				])
 					.then((res) => {
@@ -102,8 +102,6 @@ function PricesTable() {
 			console.log("cleaned up");
 		};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
-
-	console.log(showcaseCryptos);
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
@@ -170,8 +168,6 @@ function PricesTable() {
 					crypto.id.toLowerCase().includes(input.toLowerCase())
 				);
 		  });
-
-	console.log(cryptos);
 
 	return (
 		<div className="prices-table">
@@ -266,7 +262,7 @@ function PricesTable() {
 									<tr key={index}>
 										<td className="table-serial">{index + 1}</td>
 										<a href="#">
-											<td colSpan="2" className="flex">
+											<td colSpan="2" className="crypto-name flex">
 												<div className="">
 													<img src={item.logo_url} alt={`${item.name} logo`} />
 												</div>
@@ -296,13 +292,13 @@ function PricesTable() {
 												{item[`${selectOption}`].price_change_pct * 100 > 0
 													? `+${
 															Math.round(
-																item[`${selectOption}`].price_change_pct * 10000
-															) / 100
+																item[`${selectOption}`].price_change_pct * 1000
+															) / 10
 													  }%`
 													: `${
 															Math.round(
-																item[`${selectOption}`].price_change_pct * 10000
-															) / 100
+																item[`${selectOption}`].price_change_pct * 1000
+															) / 10
 													  }%`}
 											</td>
 										) : (

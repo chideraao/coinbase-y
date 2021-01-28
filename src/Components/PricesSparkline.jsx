@@ -164,7 +164,7 @@ export function PricesGRT() {
 	);
 }
 
-export function PricesBAT() {
+export function PricesRUNE() {
 	const [sparkline, setSparkline] = useContext(PricesSparklineContext);
 	const [dataChart, setDataChart] = useState({});
 

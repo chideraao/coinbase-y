@@ -4,7 +4,7 @@ import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import {
-	PricesBAT,
+	PricesRUNE,
 	PricesBTC,
 	PricesGRT,
 	PricesXTZ,
@@ -50,9 +50,6 @@ function Prices() {
 			: `${Math.round(cryptos[0]["1d"].price_change_pct * 12000) / 100}`;
 	}, [cryptos]);
 
-	console.log(sparkline.length);
-	console.log(showcaseCryptos.length);
-
 	const marketHealth = React.useMemo(
 		() =>
 			!sparkline.length && !showcaseCryptos.length
@@ -62,7 +59,7 @@ function Prices() {
 							img: `${showcaseCryptos[3].logo_url}`,
 							name: `${showcaseCryptos[3].name}`,
 							price: `${showcaseCryptos[3].price}`,
-							chart: <PricesBAT />,
+							chart: <PricesRUNE />,
 						},
 						{
 							img: showcaseCryptos[2].logo_url,
@@ -93,9 +90,6 @@ function Prices() {
 				  ],
 		[showcaseCryptos, sparkline]
 	);
-
-	console.log(showcaseCryptos);
-	console.log(sparkline);
 
 	return (
 		<div className="prices">

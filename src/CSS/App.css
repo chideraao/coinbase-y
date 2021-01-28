@@ -3283,7 +3283,6 @@ hr {
 .prices .market-health .box-container .learn-img img {
 	width: 10rem;
 	height: auto;
-	/* display: none; */
 }
 
 .prices .market-health .box-container .learn-box {
@@ -3395,6 +3394,7 @@ hr {
 	font-weight: 500;
 	padding: 4px 6px;
 	border-radius: 4px;
+	white-space: nowrap;
 }
 
 .prices .prices-table .prices-nav ul .on-option {
@@ -3407,6 +3407,7 @@ hr {
 	border-radius: 4px;
 	color: rgb(88, 112, 136);
 	border-radius: 8rem;
+	white-space: nowrap;
 }
 
 .prices .prices-nav select {
@@ -3577,56 +3578,159 @@ table tr .flex {
 
 /* --------------------------------------------------------  PRICES MEDIA QUERIES  ---------------------------------------------------------------- */
 @media (max-width: 1140px) {
-	.prices .table-empty {
-		display: none;
+	.prices .market-health .box-container .prices-box {
+		width: 20.4rem;
+		height: 7.4rem;
+		border: 0.5px solid rgb(236, 239, 241);
+		overflow: hidden;
+	}
+
+	.prices .market-health .box-container .learn-box .prices-box-text {
+		margin-right: 1rem;
+	}
+
+	.prices .market-health .box-container .learn-img {
+		height: 7.4rem;
+		width: 9rem;
+	}
+
+	.prices .market-health .box-container .learn-img img {
+		width: 10rem;
+		height: auto;
+	}
+
+	.prices .prices-table tbody .crypto-price {
+		white-space: nowrap;
+		margin-right: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	.prices .prices-table tbody .crypto-volume {
+		white-space: nowrap;
+		margin-right: 0.5rem;
+		padding-right: 0.5rem;
 	}
 }
 
 /*Tablets and under*/
 @media (max-width: 960px) {
-	.tables .home-table table {
-		width: 90vw;
-		margin: 0;
-		border-spacing: 0;
+	.prices .market-health .box-container {
+		display: block;
+	}
+
+	.prices .market-health .box-container .prices-box {
+		width: 100%;
+		height: 7.4rem;
+		border: 0.5px solid rgb(236, 239, 241);
+		overflow: hidden;
+	}
+
+	.prices .market-health .box-container .learn-box {
+		justify-content: space-between;
+	}
+
+	.prices .market-health .box-container .learn-box .prices-box-text {
+		margin-left: 1.5rem;
+	}
+
+	.prices .market-health .box-container .learn-box .prices-box-text h2 {
+		display: block;
+	}
+
+	.prices .market-health .box-container .learn-img {
+		height: 7.4rem;
+		width: 9rem;
+	}
+
+	.prices .market-health .box-container .learn-img img {
+		width: 11rem;
+		height: auto;
+	}
+
+	.prices .price-cryptos .container {
+		padding: 0rem 0.3rem;
+	}
+
+	.prices .price-cryptos .container .prices-nav {
+		padding: 0.2rem 1rem;
 	}
 
 	table tbody td {
 		padding: 0.4rem 0rem;
 	}
 
-	.tables .home-table table .table-trade {
+	.prices .price-cryptos table .table-trade {
 		display: none;
 	}
 }
 
 /* Phones and under */
 @media (max-width: 550px) {
-	.tables .container {
-		margin-left: 0rem;
-		margin-right: 0rem;
+	.market-health .container {
+		padding: 0rem;
+		margin: 1rem;
 	}
 
-	.tables .card {
+	.prices .market-health .box-container .learn-box .prices-box-text h2 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.prices .price-cryptos .container .prices-nav {
+		padding: 0.2rem 0rem;
+		margin: 0rem;
+		max-width: 300px;
+		margin-left: 1rem;
+	}
+
+	.prices .price-cryptos .container {
+		padding: 0rem;
+	}
+
+	.prices .price-cryptos .container .prices-nav select {
+		display: none;
+	}
+
+	.prices .prices-table .prices-nav ul .asset-order {
+		margin-right: 10px;
+		padding: 4px 6px;
+	}
+
+	.prices .prices-table .prices-nav ul .on-option {
+		margin-right: 10px;
+		padding: 4px 6px;
+	}
+
+	.prices .prices-table .card {
 		margin-left: 0rem;
 		margin-right: 0rem;
 		padding-left: 0.6rem;
 	}
 
-	.home-table .table-chart,
-	.home-table .table-empty,
-	.home-table th,
-	.table-serial {
+	.prices .prices-table table {
+		width: 80vw;
+		margin: 0;
+		border-spacing: 0;
+	}
+
+	.prices .table-empty,
+	.prices .price-cryptos table th,
+	.table-serial,
+	.prices .price-cryptos .crypto-volume {
 		display: none;
 	}
 
-	.tables .home-table tbody .crypto-price {
-		white-space: nowrap;
-		margin-right: 0.5rem;
-		padding-right: 0.5rem;
-	}
-
-	.tables .home-table .hidden-flex {
+	.prices .price-cryptos .hidden-flex {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.prices .prices-table tbody .crypto-price {
+		margin-right: 0rem;
+		padding-right: 0.3rem;
+	}
+
+	.prices .prices-table .gains {
+		margin-left: 1rem;
 	}
 }

@@ -28,8 +28,11 @@ export function BTCChart() {
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];
-		prices.push(sparkline[1].prices);
-		timestamps.push(sparkline[1].timestamps);
+
+		if (sparkline.length) {
+			prices.push(sparkline[1].prices);
+			timestamps.push(sparkline[1].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -39,6 +42,7 @@ export function BTCChart() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -78,22 +82,23 @@ export function ETHChart() {
 		let prices = [];
 		let timestamps = [];
 
-		if (sparkline !== {}) {
+		if (sparkline.length) {
 			prices.push(sparkline[2].prices);
 			timestamps.push(sparkline[2].timestamps);
-
-			setDataChart({
-				labels: timestamps[0],
-				datasets: [
-					{
-						label: "prices",
-						data: prices[0],
-						borderColor: "rgba(17, 51, 83, 0.3)",
-						fill: false,
-					},
-				],
-			});
 		}
+
+		setDataChart({
+			labels: timestamps[0],
+			datasets: [
+				{
+					label: "prices",
+					data: prices[0],
+					borderColor: "rgba(17, 51, 83, 0.3)",
+					fill: false,
+					borderWidth: 2.5,
+				},
+			],
+		});
 	}, [sparkline]);
 
 	return (
@@ -129,8 +134,10 @@ export function LTCChart() {
 		let prices = [];
 		let timestamps = [];
 
-		prices.push(sparkline[3].prices);
-		timestamps.push(sparkline[3].timestamps);
+		if (sparkline.length) {
+			prices.push(sparkline[3].prices);
+			timestamps.push(sparkline[3].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -140,6 +147,7 @@ export function LTCChart() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -179,8 +187,10 @@ export function BCHChart() {
 		let prices = [];
 		let timestamps = [];
 
-		prices.push(sparkline[0].prices);
-		timestamps.push(sparkline[0].timestamps);
+		if (sparkline.length) {
+			prices.push(sparkline[0].prices);
+			timestamps.push(sparkline[0].timestamps);
+		}
 
 		setDataChart({
 			labels: timestamps[0],
@@ -190,6 +200,7 @@ export function BCHChart() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
