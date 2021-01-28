@@ -3250,7 +3250,12 @@ hr {
 .prices .market-health .box-container .prices-box {
 	width: 24.4rem;
 	height: 7.4rem;
-	border: 1px solid rgb(236, 239, 241);
+	border: 0.5px solid rgb(236, 239, 241);
+	overflow: hidden;
+}
+
+.prices .market-health .box-container-ii .prices-box {
+	border-top: none;
 }
 
 .prices .market-health .box-container .prices-box h2 {
@@ -3273,7 +3278,6 @@ hr {
 .prices .market-health .box-container .learn-img {
 	height: 7.4rem;
 	width: 9rem;
-	/* background: none; */
 }
 
 .prices .market-health .box-container .learn-img img {
@@ -3286,8 +3290,20 @@ hr {
 	background: rgb(184, 201, 200);
 }
 
+.prices .market-health .box-container .learn-box .prices-box-text {
+	margin-right: 3rem;
+}
+
 .prices .market-health .box-container .learn-box h2 {
 	margin: 0rem;
+	margin-top: 0.5rem;
+}
+
+.prices .market-health .box-container .learn-box span {
+	font-size: 18px;
+	font-weight: 500;
+	white-space: nowrap;
+	margin-bottom: 0rem;
 }
 
 .prices .market-health .box-container .learn-box p {
@@ -3296,19 +3312,20 @@ hr {
 	font-weight: 300;
 }
 
-.prices .market-health .box-container .learn-box .prices-box-text {
-	/* margin-left: 2rem; */
-}
-
 .prices .market-health .box-container .box-title {
 	margin-bottom: 1.5rem;
 	margin-left: 0.5rem;
+}
+
+.prices .market-health .box-container .box-title h3 {
+	margin-bottom: 0rem;
 }
 
 .prices .market-health .box-container .box-title p {
 	font-size: 14px;
 	line-height: 1.6;
 	font-weight: 300;
+	margin-top: 0.2rem;
 	color: rgba(17, 51, 83, 0.6);
 }
 
@@ -3505,7 +3522,7 @@ table tr .flex {
 	padding: 0.9rem 1.2rem;
 	border-radius: 0.3rem;
 }
-
+/* 
 .ticker {
 	padding: 3px;
 	border: 1px solid #e6e6e6;
@@ -3534,7 +3551,6 @@ table tr .flex {
 	float: left;
 }
 
-/* Make it move */
 @keyframes scroll {
 	0% {
 		left: 100%;
@@ -3557,4 +3573,60 @@ table tr .flex {
 	border-left: 1px solid rgb(236, 239, 241);
 	margin: 1rem;
 	padding: 0.5rem 1rem;
+} */
+
+/* --------------------------------------------------------  PRICES MEDIA QUERIES  ---------------------------------------------------------------- */
+@media (max-width: 1140px) {
+	.prices .table-empty {
+		display: none;
+	}
+}
+
+/*Tablets and under*/
+@media (max-width: 960px) {
+	.tables .home-table table {
+		width: 90vw;
+		margin: 0;
+		border-spacing: 0;
+	}
+
+	table tbody td {
+		padding: 0.4rem 0rem;
+	}
+
+	.tables .home-table table .table-trade {
+		display: none;
+	}
+}
+
+/* Phones and under */
+@media (max-width: 550px) {
+	.tables .container {
+		margin-left: 0rem;
+		margin-right: 0rem;
+	}
+
+	.tables .card {
+		margin-left: 0rem;
+		margin-right: 0rem;
+		padding-left: 0.6rem;
+	}
+
+	.home-table .table-chart,
+	.home-table .table-empty,
+	.home-table th,
+	.table-serial {
+		display: none;
+	}
+
+	.tables .home-table tbody .crypto-price {
+		white-space: nowrap;
+		margin-right: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	.tables .home-table .hidden-flex {
+		display: flex;
+		flex-direction: column;
+	}
 }

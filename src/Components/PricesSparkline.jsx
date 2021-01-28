@@ -43,6 +43,7 @@ export function PricesBTC() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -96,6 +97,7 @@ export function PricesXTZ() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -149,6 +151,7 @@ export function PricesGRT() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -202,6 +205,7 @@ export function PricesBAT() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});
@@ -255,6 +259,7 @@ export function PricesBAND() {
 					data: prices[0],
 					borderColor: "rgba(17, 51, 83, 0.3)",
 					fill: false,
+					borderWidth: 2.5,
 				},
 			],
 		});

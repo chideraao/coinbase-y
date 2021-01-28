@@ -181,7 +181,9 @@ function Prices() {
 								<Link to="/learn">
 									<div className="prices-box learn-box flex">
 										<div className="prices-box-text flex-column">
-											<h2>Crypto questions, answered</h2>
+											<h2 className="flex-column">
+												Crypto questions, <span>answered</span>
+											</h2>
 											<p>Learn with Basecoin</p>
 										</div>
 										<div className="learn-img flex">
@@ -193,7 +195,7 @@ function Prices() {
 									</div>
 								</Link>
 							</div>
-							<div className="box-container flex">
+							<div className="box-container box-container-ii flex">
 								<Link to="#">
 									<div className="prices-box">
 										<h2>Highest volume (24h)</h2>

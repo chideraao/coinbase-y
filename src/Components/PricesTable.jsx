@@ -288,16 +288,12 @@ function PricesTable() {
 										{cryptos[index] ? (
 											<td
 												className={
-													cryptos[index][`${selectOption}`].price_change_pct *
-														100 >=
-													0
+													item[`${selectOption}`].price_change_pct * 100 >= 0
 														? "gains"
 														: "loss"
 												}
 											>
-												{cryptos[index][`${selectOption}`].price_change_pct *
-													100 >
-												0
+												{item[`${selectOption}`].price_change_pct * 100 > 0
 													? `+${
 															Math.round(
 																item[`${selectOption}`].price_change_pct * 10000
