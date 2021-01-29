@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../Components/Banner";
@@ -50,6 +51,7 @@ function Prices() {
 			: `${Math.round(cryptos[0]["1d"].price_change_pct * 12000) / 100}`;
 	}, [cryptos]);
 
+	/**memoizing crypto values, rendering breaks otherwise */
 	const marketHealth = React.useMemo(
 		() =>
 			!sparkline.length && !showcaseCryptos.length
@@ -121,42 +123,13 @@ function Prices() {
 											<div className="crypto-profile flex">
 												<div className="box-img">
 													<img
-														src={marketHealth[0].img}
-														alt={`${marketHealth[0].name} icon`}
-													/>
-												</div>
-												<div className="box-title">
-													<h3>{marketHealth[0].name}</h3>
-													<p className="gains">+40.59%</p>
-												</div>
-											</div>
-
-											<div className="sparkline-main">
-												<p>
-													{userData.currency.symbol}{" "}
-													{`${addCommasToNumber(
-														Math.round(marketHealth[0].price * 100) / 100
-													)}`}
-												</p>
-												{marketHealth[0].chart}
-											</div>
-										</div>
-									</div>
-								</Link>
-								<Link to="#">
-									<div className="prices-box">
-										<h2>New listing</h2>
-										<div className="sparkline-container flex">
-											<div className="crypto-profile flex">
-												<div className="box-img">
-													<img
 														src={marketHealth[1].img}
 														alt={`${marketHealth[1].name} icon`}
 													/>
 												</div>
 												<div className="box-title">
 													<h3>{marketHealth[1].name}</h3>
-													<p>Added Dec 17</p>
+													<p className="gains">+40.59%</p>
 												</div>
 											</div>
 
@@ -168,6 +141,35 @@ function Prices() {
 													)}`}
 												</p>
 												{marketHealth[1].chart}
+											</div>
+										</div>
+									</div>
+								</Link>
+								<Link to="#">
+									<div className="prices-box">
+										<h2>New listing</h2>
+										<div className="sparkline-container flex">
+											<div className="crypto-profile flex">
+												<div className="box-img">
+													<img
+														src={marketHealth[0].img}
+														alt={`${marketHealth[0].name} icon`}
+													/>
+												</div>
+												<div className="box-title">
+													<h3>{marketHealth[0].name}</h3>
+													<p>Added Dec 17</p>
+												</div>
+											</div>
+
+											<div className="sparkline-main">
+												<p>
+													{userData.currency.symbol}{" "}
+													{`${addCommasToNumber(
+														Math.round(marketHealth[0].price * 100) / 100
+													)}`}
+												</p>
+												{marketHealth[0].chart}
 											</div>
 										</div>
 									</div>
@@ -264,7 +266,7 @@ function Prices() {
 												</div>
 												<div className="box-title">
 													<h3>{marketHealth[4].name}</h3>
-													<p>Earn $3 in GRT</p>
+													<p>Earn $3 in BAND</p>
 												</div>
 											</div>
 

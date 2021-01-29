@@ -131,7 +131,7 @@ img {
 	color: var(--secondary-color);
 	font-size: 12px;
 	background-color: var(--button-color);
-	padding: 0.2rem 0.5rem;
+	padding: 0.25rem 0.6rem;
 }
 
 .navbar .auth {
@@ -3733,4 +3733,67 @@ table tr .flex {
 	.prices .prices-table .gains {
 		margin-left: 1rem;
 	}
+}
+
+/*------------------------------------------------------------------ PRICE-ITEMS----------------------------------------------------------------------*/
+.price-items .header {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+	padding-bottom: 0rem;
+}
+
+.price-items .header .navbar {
+	padding-bottom: 0.5rem;
+}
+
+.price-items .header a {
+	padding-bottom: 0.5rem;
+}
+
+.price-items .navbar h1 {
+	color: var(--primary-color);
+}
+
+.price-items .header a {
+	color: var(--dark-color);
+}
+
+.price-items .prices {
+	border-bottom: 2px solid var(--primary-color);
+	padding: 0rem;
+}
+
+.price-items .navbar .auth .btn {
+	background-color: transparent;
+	border: none;
+	color: var(--dark-color);
+}
+
+.price-items .navbar .auth .btn-outline {
+	border: 1px white solid;
+	background-color: var(--button-color);
+	color: var(--secondary-color);
+}
+
+.price-items .navbar .nav a:hover {
+	color: var(--dark-color);
+}
+
+.price-items .priceitems-breadcrumbs {
+}
+
+.price-items .priceitems-breadcrumbs .breadcrumbs a {
+	color: rgba(17, 51, 83, 0.6);
+	cursor: pointer;
+	font-size: 19px;
+	font-weight: 300;
+}
+
+.price-items .priceitems-breadcrumbs .breadcrumbs a:hover {
+	color: var(--primary-color);
+}
+
+.price-items .priceitems-breadcrumbs .breadcrumbs .font-awesome {
+	font-size: 14px;
+	opacity: 0.6;
 }

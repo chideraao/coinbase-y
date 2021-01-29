@@ -1,5 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 import React, { useContext, useEffect } from "react";
+import Banner from "../Components/Banner";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 import {
 	CryptosContext,
 	SparklineContext,
@@ -71,7 +75,27 @@ function PriceItems() {
 				console.log(err);
 			});
 	}, [setCryptos, setSparkline, setUserData]);
-	return <div></div>;
+	return (
+		<div className="price-items">
+			<Header />
+			<section className="priceitems-breadcrumbs">
+				<div className="container">
+					<div className="breadcrumbs">
+						<a href="/prices">Price charts</a>
+						<FontAwesomeIcon
+							className="font-awesome"
+							fontWeight="light"
+							icon="chevron-right"
+							size="3x"
+						/>
+						<a href="/prices/priceitems">Bitcoin price</a>
+					</div>
+				</div>
+			</section>
+			<Banner />
+			<Footer />
+		</div>
+	);
 }
 
 export default PriceItems;

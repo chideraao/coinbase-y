@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { PricesSparklineContext } from "../State/PricesContext";
@@ -31,8 +32,8 @@ export function PricesBTC() {
 		let timestamps = [];
 
 		if (sparkline.length) {
-			prices.push(sparkline[0].prices);
-			timestamps.push(sparkline[0].timestamps);
+			prices.push(sparkline[1].prices);
+			timestamps.push(sparkline[1].timestamps);
 		}
 
 		setDataChart({
@@ -85,8 +86,8 @@ export function PricesXTZ() {
 		let timestamps = [];
 
 		if (sparkline.length) {
-			prices.push(sparkline[1].prices);
-			timestamps.push(sparkline[1].timestamps);
+			prices.push(sparkline[4].prices);
+			timestamps.push(sparkline[4].timestamps);
 		}
 
 		setDataChart({
@@ -247,8 +248,8 @@ export function PricesBAND() {
 		let timestamps = [];
 
 		if (sparkline.length) {
-			prices.push(sparkline[4].prices);
-			timestamps.push(sparkline[4].timestamps);
+			prices.push(sparkline[0].prices);
+			timestamps.push(sparkline[0].timestamps);
 		}
 
 		setDataChart({

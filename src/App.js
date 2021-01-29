@@ -22,6 +22,7 @@ import Learn from "./Pages/Learn";
 import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
+import PriceItems from "./Pages/PriceItems";
 
 library.add(
 	faChevronLeft,
@@ -47,7 +48,8 @@ function App() {
 										<Route path="/earn" component={Earn} />
 										<Route path="/press" component={Press} />
 										<Route path="/learn" component={Learn} />
-										<Route path="/prices" component={Prices} />
+										<Route path="/prices" component={Prices} exact />
+										<Route path="/prices/priceitems" component={PriceItems} />
 									</Switch>
 								</div>
 							</ReviewsProvider>

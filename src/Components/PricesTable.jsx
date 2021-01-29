@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserDataContext } from "../State/GlobalContext";
 import {
 	PricesContext,
@@ -103,6 +105,7 @@ function PricesTable() {
 		};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
 
+	/**handling selectbox options and button click events, sorting, filtering, dispatch etc */
 	const handleChange = (e) => {
 		setInput(e.target.value);
 	};
@@ -261,7 +264,7 @@ function PricesTable() {
 								return (
 									<tr key={index}>
 										<td className="table-serial">{index + 1}</td>
-										<a href="#">
+										<Link to="/prices/priceitems">
 											<td colSpan="2" className="crypto-name flex">
 												<div className="">
 													<img src={item.logo_url} alt={`${item.name} logo`} />
@@ -270,7 +273,7 @@ function PricesTable() {
 													{item.name} &nbsp;&nbsp; <span>{item.id}</span>
 												</div>
 											</td>
-										</a>
+										</Link>
 
 										<td className="table-empty"></td>
 
