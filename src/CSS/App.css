@@ -3467,6 +3467,7 @@ hr {
 .prices .prices-table input[type="text"]::placeholder {
 	color: var(--light-grey-text);
 	font-size: 14px;
+	font-weight: 300;
 }
 
 .price-cryptos table {
@@ -3482,6 +3483,7 @@ hr {
 	text-align: start;
 	padding: 0.3rem 1rem;
 	padding-bottom: 0.7rem;
+	white-space: nowrap;
 	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
@@ -3780,6 +3782,8 @@ table tr .flex {
 }
 
 .price-items .priceitems-breadcrumbs {
+	margin-bottom: 2rem;
+	margin-top: 1rem;
 }
 
 .price-items .priceitems-breadcrumbs .breadcrumbs a {

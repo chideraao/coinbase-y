@@ -49,9 +49,7 @@ function PriceItems() {
 				setUserData(response.data);
 				Axios.all([
 					Axios.get(
-						`${api.sparklineBase}key=${
-							api.key
-						}&ids=BTC,ETH,BCH,LTC&start=${year}-${
+						`${api.sparklineBase}key=${api.key}&ids=BTC&start=${year}-${
 							month < 10 ? `0${month}` : month
 						}-${day < 10 ? `0${day}` : day}T${
 							hour < 10 ? `0${hour}` : hour
@@ -60,7 +58,7 @@ function PriceItems() {
 						}Z&convert=${response.data.currency.code}`
 					),
 					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
+						`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d`
 					),
 				])
 					.then((res) => {
@@ -75,6 +73,7 @@ function PriceItems() {
 				console.log(err);
 			});
 	}, [setCryptos, setSparkline, setUserData]);
+	console.log(cryptos);
 	return (
 		<div className="price-items">
 			<Header />
@@ -91,6 +90,31 @@ function PriceItems() {
 						<a href="/prices/priceitems">Bitcoin price</a>
 					</div>
 				</div>
+			</section>
+			<div className="header-bar">
+				<div className="container flex">
+					<div className="crypto-name">
+						<div className="img-container">
+							<img src="" alt="bitcoin logo" />
+						</div>
+						<div className="text-container">
+							<h1>
+								Bitcoin price &nbsp; <span>(BTC)</span>
+							</h1>
+						</div>
+					</div>
+					<div className="crypto-actions flex">
+						<div className="crypto-share">
+							<h3>Share</h3>
+						</div>
+						<div className="crypto-watchlist">
+							<h3>Add to Watchlist</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section className="price-items-main">
+				<div className="container grid"></div>
 			</section>
 			<Banner />
 			<Footer />

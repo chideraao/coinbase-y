@@ -255,7 +255,7 @@ function PricesTable() {
 
 								<th colSpan="2">Price</th>
 								<th>Change</th>
-								<th>Volume</th>
+								<th>Market cap</th>
 								<th className="table-trade">Trade</th>
 							</tr>
 						</thead>
