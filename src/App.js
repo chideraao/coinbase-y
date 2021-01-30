@@ -23,6 +23,7 @@ import Prices from "./Pages/Prices";
 import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
 import PriceItems from "./Pages/PriceItems";
+import { PriceItemsProvider } from "./State/PriceItemsContext";
 
 library.add(
 	faChevronLeft,
@@ -37,24 +38,26 @@ function App() {
 		<Router>
 			<GlobalProvider>
 				<PricesProvider>
-					<EarnProvider>
-						<AboutProvider>
-							<ReviewsProvider>
-								<div className="App">
-									<Switch>
-										<Route path="/" component={Home} exact />
-										<Route path="/about" component={About} />
-										<Route path="/careers" component={Careers} />
-										<Route path="/earn" component={Earn} />
-										<Route path="/press" component={Press} />
-										<Route path="/learn" component={Learn} />
-										<Route path="/prices" component={Prices} exact />
-										<Route path="/prices/priceitems" component={PriceItems} />
-									</Switch>
-								</div>
-							</ReviewsProvider>
-						</AboutProvider>
-					</EarnProvider>
+					<PriceItemsProvider>
+						<EarnProvider>
+							<AboutProvider>
+								<ReviewsProvider>
+									<div className="App">
+										<Switch>
+											<Route path="/" component={Home} exact />
+											<Route path="/about" component={About} />
+											<Route path="/careers" component={Careers} />
+											<Route path="/earn" component={Earn} />
+											<Route path="/press" component={Press} />
+											<Route path="/learn" component={Learn} />
+											<Route path="/prices" component={Prices} exact />
+											<Route path="/prices/priceitems" component={PriceItems} />
+										</Switch>
+									</div>
+								</ReviewsProvider>
+							</AboutProvider>
+						</EarnProvider>
+					</PriceItemsProvider>
 				</PricesProvider>
 			</GlobalProvider>
 		</Router>
