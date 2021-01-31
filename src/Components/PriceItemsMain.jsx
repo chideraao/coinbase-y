@@ -27,11 +27,13 @@ let weekDay = WeekDate.getDate();
 let hour = WeekDate.getHours();
 let minute = WeekDate.getMinutes();
 let seconds = WeekDate.getSeconds();
+let whatever = WeekDate.getTime();
+console.log(whatever);
 
 let date24hr = new Date();
 
 //get the exact date the previous year
-let past24 = date24hr.getDate() - 365;
+let past24 = date24hr.getDate() - 1;
 date24hr.setDate(past24);
 let dayMonth = date24hr.getMonth() + 1;
 let dayYear = date24hr.getFullYear();
@@ -40,11 +42,13 @@ let dayDay = date24hr.getDate();
 let date365 = new Date();
 
 //Change it so that it is the previous day
-let past365 = date365.getDate() - 7;
+let past365 = date365.getDate() - 365;
 date365.setDate(past365);
 let yearMonth = date365.getMonth() + 1;
 let yearYear = date365.getFullYear();
 let yearDay = date365.getDate();
+let whatever1 = date365.getTime();
+console.log(whatever1);
 
 /**Regex for commas after every three digits */
 

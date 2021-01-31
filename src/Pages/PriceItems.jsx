@@ -12,14 +12,14 @@ function PriceItems() {
 			<section className="priceitems-breadcrumbs">
 				<div className="container">
 					<div className="breadcrumbs">
-						<a href="/prices">Price charts</a>
+						<a href="/prices">Price charts &nbsp;</a>
 						<FontAwesomeIcon
 							className="font-awesome"
 							fontWeight="light"
 							icon="chevron-right"
 							size="3x"
 						/>
-						<a href="/prices/priceitems">Bitcoin price</a>
+						<a href="/prices/priceitems">&nbsp; Bitcoin price</a>
 					</div>
 				</div>
 			</section>
