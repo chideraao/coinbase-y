@@ -1,4 +1,4 @@
-/**setting up the reducer */
+/**setting up the prices reducer */
 
 export const ALL_ASSETS = "ALL_ASSETS";
 export const TOP_GAINERS = "TOP_GAINERS";

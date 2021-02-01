@@ -115,7 +115,7 @@ function PricesTable() {
 		setIsLoading(true);
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 1000);
+		}, 500);
 	};
 
 	const handleAllClick = () => {
@@ -128,7 +128,7 @@ function PricesTable() {
 				});
 			}
 			setIsLoading(false);
-		}, 2000);
+		}, 700);
 	};
 
 	const handleGainClick = () => {
@@ -144,7 +144,7 @@ function PricesTable() {
 				});
 			}
 			setIsLoading(false);
-		}, 1500);
+		}, 800);
 	};
 
 	const handleLossClick = () => {

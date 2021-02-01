@@ -73,8 +73,9 @@ function Footer() {
 					<a href="#">Pricing and fees</a>
 				</div>
 			</div>
-			<div className="signout">
-				Made with &#x2764;&#xfe0f; &nbsp; by Okeke Chidera
+			<div className="signout flex-column">
+				<span>Powered by CoinGecko API, Nomics API and ipgeolocation API</span>
+				<span> Made with &#x2764;&#xfe0f; &nbsp; by Okeke Chidera</span>
 			</div>
 		</div>
 	);

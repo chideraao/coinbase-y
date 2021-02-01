@@ -727,6 +727,10 @@ hr {
 	padding-bottom: 3rem;
 }
 
+.footer .signout span {
+	margin-top: 1rem;
+}
+
 /* ----------------------------------------------   MEDIA QUERIES   --------------------------------------------------------- */
 @media (max-width: 1200px) {
 	.tables {
@@ -3800,4 +3804,13 @@ table tr .flex {
 .price-items .priceitems-breadcrumbs .breadcrumbs .font-awesome {
 	font-size: 1.5px;
 	opacity: 0.6;
+}
+
+.price-items .price-items-main .grid {
+	grid-template-columns: 2fr 1fr;
+}
+
+.price-items .price-items-main .grid canvas {
+	width: 100% !important;
+	height: 100% !important;
 }

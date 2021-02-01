@@ -1,20 +1,30 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useState } from "react";
+import { PriceItemsReducer } from "./PriceItemsReducer";
 
 export const PriceItemsCryptosContext = createContext();
 export const PriceItemsSparklineContext = createContext();
+const PriceItemsContext = createContext();
 
 export const PriceItemsProvider = (props) => {
 	const [PriceItemsCryptos, setPriceItemsCryptos] = useState([]);
 	const [priceItemsSparkline, setpriceItemsSparkline] = useState([]);
+	const [state, dispatch] = useReducer(PriceItemsReducer, [
+		{ onAllAssets: true },
+		{ onTopGainers: false },
+		{ onTopLosers: false },
+	]);
+
 	return (
-		<PriceItemsCryptosContext.Provider
-			value={[PriceItemsCryptos, setPriceItemsCryptos]}
-		>
-			<PriceItemsSparklineContext.Provider
-				value={[priceItemsSparkline, setpriceItemsSparkline]}
+		<PriceItemsContext.Provider value={[state, dispatch]}>
+			<PriceItemsCryptosContext.Provider
+				value={[PriceItemsCryptos, setPriceItemsCryptos]}
 			>
-				{props.children}
-			</PriceItemsSparklineContext.Provider>
-		</PriceItemsCryptosContext.Provider>
+				<PriceItemsSparklineContext.Provider
+					value={[priceItemsSparkline, setpriceItemsSparkline]}
+				>
+					{props.children}
+				</PriceItemsSparklineContext.Provider>
+			</PriceItemsCryptosContext.Provider>
+		</PriceItemsContext.Provider>
 	);
 };

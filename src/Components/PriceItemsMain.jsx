@@ -5,50 +5,60 @@ import {
 	PriceItemsCryptosContext,
 	PriceItemsSparklineContext,
 } from "../State/PriceItemsContext";
+import PriceItemsSparkline from "./PriceItemsSparkline";
 
 /**Defining API endpoints */
 const api = {
 	base: "https://api.nomics.com/v1/currencies/ticker?",
 	key: "f120f033bda2bb941c1e6925f7ecfbe1",
-	sparklineBase: "https://api.nomics.com/v1/currencies/sparkline?",
+	sparklineBase: "https://api.coingecko.com/api/v3/coins/",
 	zoneKey: "d65e37f4206340d188baba3c12561f09",
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 /** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
 //Get today's date using the JavaScript Date object.
+let currentDate = new Date();
+let currentUNIX = Math.floor(currentDate.getTime() / 1000);
+
 let WeekDate = new Date();
 
 //get the exact date for the past week
 let past7 = WeekDate.getDate() - 7;
 WeekDate.setDate(past7);
-let weekMonth = WeekDate.getMonth() + 1;
-let weekYear = WeekDate.getFullYear();
-let weekDay = WeekDate.getDate();
-let hour = WeekDate.getHours();
-let minute = WeekDate.getMinutes();
-let seconds = WeekDate.getSeconds();
-let whatever = WeekDate.getTime();
-console.log(whatever);
+let weekUNIX = Math.floor(WeekDate.getTime() / 1000);
 
 let date24hr = new Date();
 
-//get the exact date the previous year
+//get the exact date the previous day
 let past24 = date24hr.getDate() - 1;
 date24hr.setDate(past24);
-let dayMonth = date24hr.getMonth() + 1;
-let dayYear = date24hr.getFullYear();
-let dayDay = date24hr.getDate();
+let dayUNIX = Math.floor(date24hr.getTime() / 1000);
+
+let dateMonth = new Date();
+
+//get the exact date the previous day
+let pastMonth = dateMonth.getDate() - 30;
+dateMonth.setDate(pastMonth);
+let monthUNIX = Math.floor(dateMonth.getTime() / 1000);
+
+console.log(monthUNIX);
+console.log(currentUNIX);
 
 let date365 = new Date();
 
-//Change it so that it is the previous day
-let past365 = date365.getDate() - 365;
+//Change it so that it is the previous year
+let past365 = date365.getDate() - 366;
 date365.setDate(past365);
-let yearMonth = date365.getMonth() + 1;
-let yearYear = date365.getFullYear();
-let yearDay = date365.getDate();
-let whatever1 = date365.getTime();
-console.log(whatever1);
+let yearUNIX = Math.floor(date365.getTime() / 1000);
+
+const formatFirstTrade = (str) => {
+	let firstTrade = new Date(`${str.slice(0, -1)}.000Z`);
+	return Math.floor(firstTrade.getTime() / 1000);
+};
+
+const setLowerCase = (str) => {
+	return str.toLowerCase();
+};
 
 /**Regex for commas after every three digits */
 
@@ -65,49 +75,73 @@ function PriceItemsMain() {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.all([
-					Axios.get(
-						`${api.sparklineBase}key=${api.key}&ids=BTC&start=${weekYear}-${
-							weekMonth < 10 ? `0${weekMonth}` : weekMonth
-						}-${weekDay < 10 ? `0${weekDay}` : weekDay}T${
-							hour < 10 ? `0${hour}` : hour
-						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-							seconds < 10 ? `0${seconds}` : seconds
-						}Z&convert=${response.data.currency.code}`
-					),
-					Axios.get(
-						`${api.sparklineBase}key=${api.key}&ids=BTC&start=${dayYear}-${
-							dayMonth < 10 ? `0${dayMonth}` : dayMonth
-						}-${dayDay < 10 ? `0${dayDay}` : dayDay}T${
-							hour < 10 ? `0${hour}` : hour
-						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-							seconds < 10 ? `0${seconds}` : seconds
-						}Z&convert=${response.data.currency.code}`
-					),
-					Axios.get(
-						`${api.sparklineBase}key=${api.key}&ids=BTC&start=${yearYear}-${
-							yearMonth < 10 ? `0${yearMonth}` : yearMonth
-						}-${yearDay < 10 ? `0${yearDay}` : yearDay}T${
-							hour < 10 ? `0${hour}` : hour
-						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-							seconds < 10 ? `0${seconds}` : seconds
-						}Z&convert=${response.data.currency.code}`
-					),
-					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d`
-					),
-				])
+
+				Axios.get(
+					`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d`
+				)
+
 					.then((res) => {
-						setCryptos(res[3].data);
-						setSparkline((prevState) => {
-							return [...prevState, res[0].data];
-						});
-						setSparkline((prevState) => {
-							return [...prevState, res[1].data];
-						});
-						setSparkline((prevState) => {
-							return [...prevState, res[2].data];
-						});
+						setCryptos(res.data);
+						Axios.all([
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${dayUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${weekUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${monthUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${yearUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${formatFirstTrade(
+									res.data[0].first_trade
+								)}&to=${currentUNIX}`
+							),
+						])
+
+							.then((ress) => {
+								setSparkline((prevState) => {
+									return [...prevState, ress[0].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[1].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[2].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[3].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[4].data];
+								});
+							})
+							.catch((errr) => {
+								console.log(errr);
+							});
 					})
 					.catch((error) => {
 						console.log(error);
@@ -117,9 +151,12 @@ function PriceItemsMain() {
 				console.log(err);
 			});
 	}, [setCryptos, setSparkline, setUserData]);
-	console.log(cryptos);
-	console.log(sparkline);
-	return <div className="container grid"></div>;
+
+	return (
+		<div className="container grid">
+			<PriceItemsSparkline />
+		</div>
+	);
 }
 
 export default PriceItemsMain;
