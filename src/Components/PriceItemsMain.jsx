@@ -60,12 +60,6 @@ const setLowerCase = (str) => {
 	return str.toLowerCase();
 };
 
-/**Regex for commas after every three digits */
-
-const addCommasToNumber = (num) => {
-	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-};
-
 function PriceItemsMain() {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [userData, setUserData] = useContext(UserDataContext);
@@ -77,9 +71,8 @@ function PriceItemsMain() {
 				setUserData(response.data);
 
 				Axios.get(
-					`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d`
+					`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
 				)
-
 					.then((res) => {
 						setCryptos(res.data);
 						Axios.all([

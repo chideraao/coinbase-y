@@ -3,7 +3,7 @@ import { PriceItemsReducer } from "./PriceItemsReducer";
 
 export const PriceItemsCryptosContext = createContext();
 export const PriceItemsSparklineContext = createContext();
-const PriceItemsContext = createContext();
+export const PriceItemsContext = createContext();
 
 export const PriceItemsProvider = (props) => {
 	const [PriceItemsCryptos, setPriceItemsCryptos] = useState([]);
