@@ -142,9 +142,10 @@ function PriceItemsSparkline() {
 				<div className="card">
 					<div className="coins-header flex">
 						<div className="coins-header-text flex">
-							<span>{userData.currency.code}</span>
-							<h1>
-								{addCommasToNumber(Math.round(cryptos[0].price * 100) / 100)}
+							<span className="currency-code">{userData.currency.code}</span>
+							<h1 className="flex">
+								{addCommasToNumber(Math.round(cryptos[0].price))}{" "}
+								<span>.64</span>
 							</h1>
 							<span
 								className={
@@ -159,13 +160,13 @@ function PriceItemsSparkline() {
 									? cryptos[0][`${option}`].price_change_pct * 100 > 0
 										? `+${
 												Math.round(
-													cryptos[0][`${option}`].price_change_pct * 1000
-												) / 10
+													cryptos[0][`${option}`].price_change_pct * 10000
+												) / 100
 										  }%`
 										: `${
 												Math.round(
-													cryptos[0][`${option}`].price_change_pct * 1000
-												) / 10
+													cryptos[0][`${option}`].price_change_pct * 10000
+												) / 100
 										  }%`
 									: "+90,000.54%"}
 							</span>
