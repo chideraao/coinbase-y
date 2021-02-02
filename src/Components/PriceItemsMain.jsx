@@ -60,6 +60,9 @@ const setLowerCase = (str) => {
 	return str.toLowerCase();
 };
 
+let test = new Date();
+console.log(test.toUTCString());
+
 function PriceItemsMain() {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [userData, setUserData] = useContext(UserDataContext);

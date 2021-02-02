@@ -40,6 +40,13 @@ function PriceItems() {
 							<h3>Share</h3>
 						</div>
 						<div className="crypto-watchlist">
+							<FontAwesomeIcon
+								className="font-awesome"
+								fontWeight="light"
+								regular
+								icon={["far", "star"]}
+								size="2x"
+							/>
 							<h3>Add to Watchlist</h3>
 						</div>
 					</div>

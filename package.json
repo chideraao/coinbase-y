@@ -4,13 +4,13 @@
 	"private": true,
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.32",
+		"@fortawesome/free-regular-svg-icons": "^5.15.2",
 		"@fortawesome/free-solid-svg-icons": "^5.15.1",
 		"@fortawesome/react-fontawesome": "^0.1.13",
 		"@testing-library/jest-dom": "^5.11.6",
 		"@testing-library/react": "^11.2.2",
 		"@testing-library/user-event": "^12.6.0",
 		"axios": "^0.21.0",
-		"bootstrap": "^4.5.3",
 		"chart.js": "^2.9.4",
 		"pure-react-carousel": "^1.27.6",
 		"react": "^17.0.1",
@@ -18,7 +18,6 @@
 		"react-dom": "^17.0.1",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.1",
-		"react-table": "^7.6.2",
 		"react-ticker": "^1.2.2",
 		"web-vitals": "^0.2.4"
 	},

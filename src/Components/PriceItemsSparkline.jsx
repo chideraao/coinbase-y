@@ -21,6 +21,11 @@ const addCommasToNumber = (num) => {
 	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 };
 
+const formatDate = (str) => {
+	let newFormat = new Date(str);
+	return newFormat.toUTCString();
+};
+
 function PriceItemsSparkline() {
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
@@ -35,7 +40,7 @@ function PriceItemsSparkline() {
 	const chartOptions = {
 		// maintainAspectRatio: false,
 		tooltips: {
-			enabled: false,
+			enabled: true,
 		},
 		elements: {
 			point: { radius: 0 },
@@ -59,10 +64,10 @@ function PriceItemsSparkline() {
 
 		if (sparkline.length) {
 			sparkline[arrIndex].prices.forEach((item) => {
-				prices.push(item[1]);
+				prices.push(Math.round(item[1] * 100) / 100);
 			});
 			sparkline[arrIndex].prices.forEach((item) => {
-				timestamps.push(item[0]);
+				timestamps.push(formatDate(item[0]));
 			});
 		}
 		setDataChart({

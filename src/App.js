@@ -5,6 +5,7 @@ import {
 	faChevronRight,
 	faCircleNotch,
 	faSearch,
+	faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./CSS/App.css";
@@ -24,13 +25,16 @@ import { GlobalProvider } from "./State/GlobalContext";
 import { PricesProvider } from "./State/PricesContext";
 import PriceItems from "./Pages/PriceItems";
 import { PriceItemsProvider } from "./State/PriceItemsContext";
+import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
 	faChevronLeft,
 	faChevronRight,
 	faCircleNotch,
 	faSearch,
-	faChevronDown
+	faChevronDown,
+	faStar,
+	far
 );
 
 function App() {
