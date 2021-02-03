@@ -3863,6 +3863,10 @@ table tr .flex {
 	grid-template-columns: 2fr 1fr;
 }
 
+.price-items .price-items-main .sparkline-container .card {
+	min-width: 47rem;
+}
+
 .price-items .price-items-main .card {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

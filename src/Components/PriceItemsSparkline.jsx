@@ -26,11 +26,8 @@ const formatDate = (str) => {
 	return newFormat.toUTCString();
 };
 
-// ticks: {
-// 	callback: function (value, index, values) {
-// 		return `${userData.currency.symbol}` + value;
-// 	},
-// },
+let newFormat = new Date();
+console.log(newFormat.toUTCString());
 
 function PriceItemsSparkline() {
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
@@ -55,7 +52,34 @@ function PriceItemsSparkline() {
 			display: false,
 		},
 		scales: {
-			xAxes: [{ display: false }],
+			xAxes: [
+				{
+					gridLines: {
+						display: false,
+					},
+					distribution: "series",
+					display: true,
+					ticks: {
+						fontSize: 17,
+						lineHeight: 1.4,
+						fontFamily: '"Roboto", sans-serif',
+						fontWeight: "300",
+						padding: 0,
+						fontColor: "rgba(17, 51, 83, 0.3)",
+						maxTicksLimit: 9,
+						minRotation: 0,
+						maxRotation: 0,
+						callback: function (value, index, values) {
+							if (option === "1d") {
+								return value.slice(17, -4);
+							} else if (option === "7d" || option === "30d") {
+								return value.slice(5, -18);
+							}
+							return value.slice(8, -12);
+						},
+					},
+				},
+			],
 			yAxes: [{ display: false }],
 		},
 	};
@@ -76,6 +100,7 @@ function PriceItemsSparkline() {
 				timestamps.push(formatDate(item[0]));
 			});
 		}
+
 		setDataChart({
 			labels: timestamps,
 			datasets: [
@@ -143,7 +168,7 @@ function PriceItemsSparkline() {
 	console.log(cryptos);
 
 	return (
-		<div className="">
+		<div className="sparkline-container">
 			{sparkline.length ? (
 				<div className="card">
 					<div className="coins-header flex">
