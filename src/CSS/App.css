@@ -3841,7 +3841,7 @@ table tr .flex {
 
 .price-items .header-bar .crypto-actions .crypto-share,
 .price-items .header-bar .crypto-actions .crypto-watchlist {
-	padding: 0.5rem 0.7rem;
+	padding: 0.5rem 1rem;
 	border: 1px solid rgb(236, 239, 241);
 	border-radius: 4px;
 	border-image: initial;
@@ -3853,7 +3853,7 @@ table tr .flex {
 }
 
 .price-items .header-bar .crypto-actions .font-awesome {
-	opacity: 0.3;
+	opacity: 0.2; /**check**/
 	font-size: 1.7rem;
 	margin-right: 0.4rem;
 	margin-bottom: 0.1rem;
@@ -3864,12 +3864,17 @@ table tr .flex {
 }
 
 .price-items .price-items-main .card {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.price-items .price-items-main .card .font-awesome {
+	color: var(--primary-color);
 }
 
 .price-items .price-items-main .card .coins-header {
 	justify-content: space-between;
 	padding: 0rem 1rem;
+	padding-bottom: 2rem;
 }
 
 .price-items .price-items-main .card .coins-header span {
@@ -3893,12 +3898,27 @@ table tr .flex {
 	padding-top: 0.3rem;
 }
 
+.price-items .price-items-main .chart-duration {
+	align-self: flex-start;
+	padding-top: 0.3rem;
+}
+
 .price-items .price-items-main .card ul li {
-	margin: 0.2rem 0.5rem;
+	margin: 0.2rem 0.3rem;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(17, 51, 83, 0.3);
+}
+
+.price-items .price-items-main .card ul .on-option {
+	color: var(--primary-color);
 }
 
 .price-items .price-items-main .grid canvas {
 	width: 100% !important;
-	height: 100% !important;
+	height: 15rem !important;
 	cursor: crosshair;
 }

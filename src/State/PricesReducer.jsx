@@ -9,21 +9,21 @@ export const PricesReducer = (state, action) => {
 		case ALL_ASSETS:
 			//eslint-disable-next-line no-eval
 			return [
-				{ onAllAssets: !state[0].onAllAssets },
+				{ onAllAssets: true },
 				{ onTopGainers: false },
 				{ onTopLosers: false },
 			];
 		case TOP_GAINERS:
 			return [
 				{ onAllAssets: false },
-				{ onTopGainers: !state[1].onTopGainers },
+				{ onTopGainers: true },
 				{ onTopLosers: false },
 			];
 		case TOP_LOSERS:
 			return [
 				{ onAllAssets: false },
 				{ onTopGainers: false },
-				{ onTopLosers: !state[2].onTopLosers },
+				{ onTopLosers: true },
 			];
 		default:
 			return state;

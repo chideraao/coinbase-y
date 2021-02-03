@@ -26,6 +26,12 @@ const formatDate = (str) => {
 	return newFormat.toUTCString();
 };
 
+// ticks: {
+// 	callback: function (value, index, values) {
+// 		return `${userData.currency.symbol}` + value;
+// 	},
+// },
+
 function PriceItemsSparkline() {
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
@@ -87,9 +93,9 @@ function PriceItemsSparkline() {
 	const handleDailyClick = (e) => {
 		dispatch({ type: DAILY_CHART });
 		setIsLoading(true);
+		setOption("1d");
 		setTimeout(() => {
 			setArrIndex(e.target.value);
-			setOption("1d");
 			setIsLoading(false);
 		}, 500);
 	};
@@ -97,9 +103,9 @@ function PriceItemsSparkline() {
 	const handleWeeklyClick = (e) => {
 		dispatch({ type: WEEKLY_CHART });
 		setIsLoading(true);
+		setOption("7d");
 		setTimeout(() => {
 			setArrIndex(e.target.value);
-			setOption("7d");
 			setIsLoading(false);
 		}, 500);
 	};
@@ -107,9 +113,9 @@ function PriceItemsSparkline() {
 	const handleMonthlyClick = (e) => {
 		dispatch({ type: MONTHLY_CHART });
 		setIsLoading(true);
+		setOption("30d");
 		setTimeout(() => {
 			setArrIndex(e.target.value);
-			setOption("30d");
 			setIsLoading(false);
 		}, 500);
 	};
@@ -117,9 +123,9 @@ function PriceItemsSparkline() {
 	const handleYearlyClick = (e) => {
 		dispatch({ type: YEARLY_CHART });
 		setIsLoading(true);
+		setOption("365d");
 		setTimeout(() => {
 			setArrIndex(e.target.value);
-			setOption("365d");
 			setIsLoading(false);
 		}, 500);
 	};
@@ -127,9 +133,9 @@ function PriceItemsSparkline() {
 	const handleAllClick = (e) => {
 		dispatch({ type: ALL_CHART });
 		setIsLoading(true);
+		setOption("all");
 		setTimeout(() => {
 			setArrIndex(e.target.value);
-			setOption("");
 			setIsLoading(false);
 		}, 500);
 	};
@@ -149,14 +155,14 @@ function PriceItemsSparkline() {
 							</h1>
 							<span
 								className={
-									cryptos[0][`${option}`] !== undefined
+									option !== "all"
 										? cryptos[0][`${option}`].price_change_pct * 100 >= 0
 											? "gains"
 											: "loss"
 										: "gains"
 								}
 							>
-								{cryptos[0][`${option}`] !== undefined
+								{option !== "all"
 									? cryptos[0][`${option}`].price_change_pct * 100 > 0
 										? `+${
 												Math.round(
@@ -173,19 +179,39 @@ function PriceItemsSparkline() {
 						</div>
 						<div className="chart-duration">
 							<ul className="flex">
-								<li value="0" onClick={handleDailyClick}>
+								<li
+									value="0"
+									onClick={handleDailyClick}
+									className={option === "1d" ? "on-option" : ""}
+								>
 									24H
 								</li>
-								<li value="1" onClick={handleWeeklyClick}>
+								<li
+									value="1"
+									onClick={handleWeeklyClick}
+									className={option === "7d" ? "on-option" : ""}
+								>
 									1W
 								</li>
-								<li value="2" onClick={handleMonthlyClick}>
+								<li
+									value="2"
+									onClick={handleMonthlyClick}
+									className={option === "30d" ? "on-option" : ""}
+								>
 									1M
 								</li>
-								<li value="3" onClick={handleYearlyClick}>
+								<li
+									value="3"
+									onClick={handleYearlyClick}
+									className={option === "365d" ? "on-option" : ""}
+								>
 									1Y
 								</li>
-								<li value="4" onClick={handleAllClick}>
+								<li
+									value="4"
+									onClick={handleAllClick}
+									className={option === "all" ? "on-option" : ""}
+								>
 									ALL
 								</li>
 							</ul>

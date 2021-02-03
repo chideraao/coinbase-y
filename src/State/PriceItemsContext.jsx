@@ -9,9 +9,11 @@ export const PriceItemsProvider = (props) => {
 	const [PriceItemsCryptos, setPriceItemsCryptos] = useState([]);
 	const [priceItemsSparkline, setpriceItemsSparkline] = useState([]);
 	const [state, dispatch] = useReducer(PriceItemsReducer, [
-		{ onAllAssets: true },
-		{ onTopGainers: false },
-		{ onTopLosers: false },
+		{ onDaily: true },
+		{ onWeekly: false },
+		{ onMonthly: false },
+		{ onYearly: false },
+		{ onAll: false },
 	]);
 
 	return (
