@@ -41,9 +41,6 @@ let pastMonth = dateMonth.getDate() - 30;
 dateMonth.setDate(pastMonth);
 let monthUNIX = Math.floor(dateMonth.getTime() / 1000);
 
-console.log(monthUNIX);
-console.log(currentUNIX);
-
 let date365 = new Date();
 
 //Change it so that it is the previous year
@@ -59,9 +56,6 @@ const formatFirstTrade = (str) => {
 const setLowerCase = (str) => {
 	return str.toLowerCase();
 };
-
-let test = new Date();
-console.log(test.toUTCString());
 
 function PriceItemsMain() {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);

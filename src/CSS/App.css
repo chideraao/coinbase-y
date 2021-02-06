@@ -3845,6 +3845,7 @@ table tr .flex {
 	border: 1px solid rgb(236, 239, 241);
 	border-radius: 4px;
 	border-image: initial;
+	cursor: pointer;
 	margin: 0.7rem 1rem;
 }
 .price-items .header-bar .crypto-actions .crypto-share:hover,
@@ -3865,6 +3866,8 @@ table tr .flex {
 
 .price-items .price-items-main .sparkline-container .card {
 	min-width: 47rem;
+	padding: 20px 0;
+	margin: 10px 0;
 }
 
 .price-items .price-items-main .card {
@@ -3911,6 +3914,7 @@ table tr .flex {
 	margin: 0.2rem 0.3rem;
 	font-size: 14px;
 	font-weight: 500;
+	cursor: pointer;
 	line-height: 1;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
@@ -3922,7 +3926,28 @@ table tr .flex {
 }
 
 .price-items .price-items-main .grid canvas {
-	width: 100% !important;
-	height: 15rem !important;
+	min-width: 45rem;
+	height: 17rem !important;
 	cursor: crosshair;
+	border-bottom: 1px solid rgb(236, 239, 241);
+}
+
+.price-items .price-items-main .crypto-stats-container {
+	justify-content: space-around;
+	margin: 2rem;
+	margin-bottom: 0rem;
+}
+
+.price-items .price-items-main .crypto-stats-container .link-heading {
+	font-size: 0.9rem !important;
+	line-height: 1rem !important;
+	font-weight: 500 !important;
+	color: rgba(17, 51, 83, 0.6);
+	margin: 0px !important;
+	margin-bottom: 0.2rem !important;
+}
+
+.price-items .price-items-main .crypto-stats-container p {
+	font-size: 18px;
+	font-weight: 300;
 }

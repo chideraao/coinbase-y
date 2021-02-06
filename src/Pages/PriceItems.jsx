@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import Banner from "../Components/Banner";
@@ -50,7 +51,6 @@ function PriceItems() {
 								<FontAwesomeIcon
 									className="font-awesome"
 									fontWeight="light"
-									regular
 									icon={["far", "star"]}
 									size="2x"
 								/>
