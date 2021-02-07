@@ -4,6 +4,7 @@ import {
 	faChevronLeft,
 	faChevronRight,
 	faCircleNotch,
+	faInfoCircle,
 	faSearch,
 	faStar,
 } from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +35,8 @@ library.add(
 	faSearch,
 	faChevronDown,
 	faStar,
-	far
+	far,
+	faInfoCircle
 );
 
 function App() {

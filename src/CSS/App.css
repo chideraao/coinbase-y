@@ -3790,7 +3790,7 @@ table tr .flex {
 }
 
 .price-items .priceitems-breadcrumbs {
-	margin-bottom: 1rem;
+	margin-bottom: 0rem;
 	margin-top: 1rem;
 }
 
@@ -3810,6 +3810,10 @@ table tr .flex {
 	opacity: 0.6;
 }
 
+.price-items .header-bar {
+	margin-bottom: 0.7rem;
+}
+
 .price-items .header-bar > .flex {
 	justify-content: space-between;
 }
@@ -3819,6 +3823,7 @@ table tr .flex {
 	color: var(--dark-color);
 	font-size: 2rem;
 	font-weight: 500;
+	margin-top: 1rem;
 }
 
 .price-items .header-bar .crypto-name h1 span {
@@ -3833,6 +3838,7 @@ table tr .flex {
 	height: 3rem;
 	width: 3rem;
 	margin: 1rem;
+	margin-bottom: 0rem;
 }
 
 .price-items .header-bar .crypto-actions h3 {
@@ -3846,7 +3852,8 @@ table tr .flex {
 	border-radius: 4px;
 	border-image: initial;
 	cursor: pointer;
-	margin: 0.7rem 1rem;
+	margin: 0.4rem 1rem;
+	margin-bottom: 0.5rem;
 }
 .price-items .header-bar .crypto-actions .crypto-share:hover,
 .price-items .header-bar .crypto-actions .crypto-watchlist:hover {
@@ -3866,7 +3873,7 @@ table tr .flex {
 
 .price-items .price-items-main .sparkline-container .card {
 	min-width: 47rem;
-	padding: 20px 0;
+	padding: 20px 10px;
 	margin: 10px 0;
 }
 
@@ -3933,9 +3940,27 @@ table tr .flex {
 }
 
 .price-items .price-items-main .crypto-stats-container {
-	justify-content: space-around;
+	justify-content: space-between;
 	margin: 2rem;
 	margin-bottom: 0rem;
+	position: relative;
+	height: 3rem;
+}
+
+.price-items .price-items-main .crypto-stats-container .market-cap-stats {
+	position: absolute;
+	left: 0rem;
+}
+
+.price-items .price-items-main .crypto-stats-container .volume-stats {
+	position: absolute;
+	left: 18rem;
+}
+
+.price-items .price-items-main .crypto-stats-container .circulation-stats {
+	position: absolute;
+	left: 37rem;
+	white-space: nowrap;
 }
 
 .price-items .price-items-main .crypto-stats-container .link-heading {
@@ -3944,10 +3969,33 @@ table tr .flex {
 	font-weight: 500 !important;
 	color: rgba(17, 51, 83, 0.6);
 	margin: 0px !important;
-	margin-bottom: 0.2rem !important;
+}
+
+.price-items
+	.price-items-main
+	.crypto-stats-container
+	.link-heading
+	.font-awesome {
+	color: rgba(17, 51, 83, 0.6);
+	font-size: 0.8rem;
+	margin-left: 0.3rem;
 }
 
 .price-items .price-items-main .crypto-stats-container p {
-	font-size: 18px;
+	margin-top: 0.4rem;
+	font-size: 19px;
 	font-weight: 300;
+}
+
+.price-items .price-items-main .crypto-stats-container .hover-div {
+	background-color: var(--dark-color);
+	color: var(--light-grey-text);
+	border-radius: 8px;
+	width: 20rem;
+	height: auto;
+	padding: 0.5rem;
+}
+
+.price-items .price-items-main .crypto-stats-container .hover-div p {
+	font-size: 14px;
 }

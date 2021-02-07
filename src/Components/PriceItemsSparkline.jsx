@@ -115,8 +115,8 @@ function PriceItemsSparkline() {
 					distribution: "series",
 					display: true,
 					ticks: {
-						fontSize: 17,
-						lineHeight: 1.4,
+						fontSize: 18,
+						lineHeight: 1.2,
 						fontFamily: '"Roboto", sans-serif',
 						fontWeight: "300",
 						padding: 0,
@@ -358,53 +358,115 @@ function PriceItemsSparkline() {
 					)}
 
 					<div className="crypto-stats-container flex">
-						<div className="crypto-stats flex-column">
-							<div
-								className="link-heading"
-								onMouseOver={handleMarketCapMouseOver}
-								onMouseLeave={handleMouseLeave}
-							>
-								Market Cap <span>fontawesome</span>
+						<div className="flex">
+							{" "}
+							<div className="market-cap-stats flex-column">
 								<div
-									className="hover-div"
+									className="link-heading"
 									onMouseOver={handleMarketCapMouseOver}
-								></div>
+									onMouseLeave={handleMouseLeave}
+								>
+									Market Cap{" "}
+									<span>
+										<FontAwesomeIcon
+											className="font-awesome"
+											fontWeight="light"
+											icon="info-circle"
+											size="2x"
+										/>
+									</span>
+								</div>
+								<p>{`${userData.currency.code} ${abbr(
+									cryptos[0].market_cap
+								)}`}</p>
 							</div>
-							<p>{`${userData.currency.code} ${abbr(
-								cryptos[0].market_cap
-							)}`}</p>
-						</div>
-						<div className="crypto-stat flex-column">
-							<div
-								className="link-heading"
-								onMouseOver={handleVolumeMouseOver}
-								onMouseLeave={handleMouseLeave}
-							>
-								Volume(24hours) <span>fontawesome</span>
+							{mouseOver.marketCapMouseOver ? (
 								<div
-									className="hover-div"
+									className="hover-div market-hover-div"
+									onMouseOver={handleMarketCapMouseOver}
+								>
+									<p>
+										The current price of BTC multiplied by its current
+										circulating supply.
+									</p>
+								</div>
+							) : (
+								""
+							)}
+						</div>
+
+						<div className="flex">
+							{" "}
+							<div className="volume-stats flex-column">
+								<div
+									className="link-heading"
 									onMouseOver={handleVolumeMouseOver}
-								></div>
+									onMouseLeave={handleMouseLeave}
+								>
+									Volume (24hours)
+									<span>
+										<FontAwesomeIcon
+											className="font-awesome"
+											fontWeight="light"
+											icon="info-circle"
+											size="2x"
+										/>
+									</span>
+								</div>
+								<p>{`${userData.currency.code} ${abbr(
+									cryptos[0]["1d"].volume
+								)}`}</p>
 							</div>
-							<p>{`${userData.currency.code} ${abbr(
-								cryptos[0]["1d"].volume
-							)}`}</p>
-						</div>
-						<div className="crypto-stat flex-column">
-							<div
-								className="link-heading"
-								onMouseOver={handleCirculationMouseOver}
-								onMouseLeave={handleMouseLeave}
-							>
-								Circulating supply <span>fontawesome</span>
+							{mouseOver.volumeMouseOver ? (
 								<div
-									className="hover-div"
+									className="hover-div volume-hover-div"
+									onMouseOver={handleVolumeMouseOver}
+								>
+									<p>
+										The total dollar value of all BTC transactions over the past
+										24 hours. Includes data from all exchanges, not just
+										Coinbase.
+									</p>
+								</div>
+							) : (
+								""
+							)}
+						</div>
+
+						<div className="flex">
+							<div className="circulation-stats flex-column">
+								<div
+									className="link-heading"
 									onMouseOver={handleCirculationMouseOver}
-								></div>
+									onMouseLeave={handleMouseLeave}
+								>
+									Circulating supply{" "}
+									<span>
+										<FontAwesomeIcon
+											className="font-awesome"
+											fontWeight="light"
+											icon="info-circle"
+											size="2x"
+										/>
+									</span>
+								</div>
+								<p>{` ${abbr(cryptos[0].circulating_supply)} ${
+									cryptos[0].id
+								}`}</p>
 							</div>
-							<p>{` ${abbr(cryptos[0].circulating_supply)} ${
-								cryptos[0].id
-							}`}</p>
+							{mouseOver.circulationMouseOver ? (
+								<div
+									className="hover-div circulation-hover-div"
+									onMouseOver={handleCirculationMouseOver}
+								>
+									<p>
+										The amount of BTC that is currently liquid and in
+										circulation.
+									</p>
+								</div>
+							) : (
+								""
+							)}
 						</div>
 					</div>
 				</div>
