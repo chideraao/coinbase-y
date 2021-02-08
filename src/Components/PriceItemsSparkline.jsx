@@ -455,6 +455,7 @@ function PriceItemsSparkline() {
 								}`}</p>
 							</div>
 							{mouseOver.circulationMouseOver ? (
+								/**google how to make the message bubble */
 								<div
 									className="hover-div circulation-hover-div"
 									onMouseOver={handleCirculationMouseOver}
