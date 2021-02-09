@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Axios from "axios";
 import React, { useContext, useEffect } from "react";
 import { UserDataContext } from "../State/GlobalContext";

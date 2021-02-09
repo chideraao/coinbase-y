@@ -15,6 +15,7 @@ import {
 	WEEKLY_CHART,
 	YEARLY_CHART,
 } from "../State/PriceItemsReducer";
+import PriceItemsAbout from "./PriceItemsAbout";
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
@@ -175,7 +176,7 @@ function PriceItemsSparkline() {
 					data: prices,
 					borderColor: " #1652f0",
 					fill: false,
-					borderWidth: 1.5,
+					borderWidth: 1.7,
 				},
 			],
 		});
@@ -264,8 +265,6 @@ function PriceItemsSparkline() {
 			circulationMouseOver: false,
 		});
 	};
-
-	console.log(cryptos);
 
 	return (
 		<div className="sparkline-container">
@@ -474,6 +473,7 @@ function PriceItemsSparkline() {
 			) : (
 				""
 			)}
+			<PriceItemsAbout />
 		</div>
 	);
 }

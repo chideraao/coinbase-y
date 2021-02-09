@@ -3917,14 +3917,13 @@ table tr .flex {
 	padding-top: 0.3rem;
 }
 
-.price-items .price-items-main .card ul li {
+.price-items .price-items-main .card .chart-duration ul li {
 	margin: 0.2rem 0.3rem;
 	font-size: 14px;
 	font-weight: 500;
 	cursor: pointer;
 	line-height: 1;
 	letter-spacing: 0.1em;
-	text-transform: uppercase;
 	color: rgba(17, 51, 83, 0.3);
 }
 
@@ -3998,4 +3997,12 @@ table tr .flex {
 
 .price-items .price-items-main .crypto-stats-container .hover-div p {
 	font-size: 14px;
+}
+
+.price-items-about a {
+	color: var(--primary-color);
+}
+
+.price-items .price-items-main .price-items-about .expand-btn {
+	cursor: pointer;
 }
