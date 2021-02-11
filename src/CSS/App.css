@@ -3999,8 +3999,60 @@ table tr .flex {
 	font-size: 14px;
 }
 
+.price-items .price-items-main .price-items-about .card {
+	padding: 2rem;
+}
+
+.price-items .price-items-main .price-items-about .card .flex-column {
+	margin-bottom: 1.3rem;
+}
+
+.price-items .price-items-main .price-items-about .card h2 {
+	margin-bottom: 1.5rem;
+	font-weight: 500;
+	font-size: 22px;
+}
+
+.price-items .price-items-main .price-items-about .card h5 {
+	font-size: 0.9rem !important;
+	line-height: 1rem !important;
+	font-weight: 500 !important;
+	color: rgba(17, 51, 83, 0.6);
+	margin: 0px !important;
+	margin-bottom: 0.5rem !important;
+	letter-spacing: 0.1rem;
+}
+
 .price-items-about a {
+	font-weight: 300;
 	color: var(--primary-color);
+}
+
+.price-items .price-items-main .price-items-about .card p {
+	font-size: 0.9rem;
+	color: rgba(17, 51, 83, 0.6);
+	line-height: 1.6;
+	font-weight: 300;
+}
+
+.price-items .price-items-main .price-items-about .crypto-description a {
+	font-size: 0.9rem;
+}
+
+.price-items .price-items-main .price-items-about .crypto-description ul {
+	padding: 1rem 3rem;
+	list-style-type: square;
+	font-size: 0.9rem;
+	color: rgba(17, 51, 83, 0.6);
+	line-height: 1.6;
+	font-weight: 300;
+}
+
+.price-items .price-items-main .price-items-about .card h3 {
+	margin-bottom: 1rem;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 1.3;
 }
 
 .price-items .price-items-main .price-items-about .expand-btn {
@@ -4008,6 +4060,7 @@ table tr .flex {
 }
 
 .price-items-stories a {
+	font-weight: 300;
 	color: var(--dark-color);
 }
 

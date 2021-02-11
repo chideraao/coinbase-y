@@ -43,7 +43,7 @@ function PriceItemsAbout() {
 						</p>
 						{metadata.length ? (
 							<div className="flex-column">
-								<h4 className="link-heading">RESOURCES</h4>
+								<h5 className="link-heading">RESOURCES</h5>
 								<a href={metadata[0].website_url}>Official website</a>
 								<a href={metadata[0].whitepaper_url}>Whitepaper</a>
 							</div>
@@ -119,7 +119,8 @@ function PriceItemsAbout() {
 							</ul>
 							<h3>How can I learn more about {cryptos[0].name}</h3>
 							<p>
-								Learn more about {cryptos[0].name} by visiting our{" "}
+								Learn more about {cryptos[0].name} the technology and{" "}
+								{cryptos[0].name} the currency by visiting our by visiting our{" "}
 								<Link to="#">{cryptos[0].name} educational page</Link>{" "}
 							</p>
 						</div>

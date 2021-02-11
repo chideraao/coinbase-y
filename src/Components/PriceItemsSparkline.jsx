@@ -59,7 +59,10 @@ function PriceItemsSparkline() {
 	/**chart js styling options */
 	const chartOptions = {
 		/** tooltips styling and logic */
+		hover: { mode: "nearest", intersect: false }, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 		tooltips: {
+			mode: "nearest", //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
+			intersect: false, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 			enabled: true,
 			custom: function (tooltip) {
 				if (!tooltip) return;
@@ -177,7 +180,7 @@ function PriceItemsSparkline() {
 					data: prices,
 					borderColor: " #1652f0",
 					fill: false,
-					borderWidth: 1.7,
+					borderWidth: 2,
 				},
 			],
 		});
