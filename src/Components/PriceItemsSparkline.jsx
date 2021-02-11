@@ -16,6 +16,7 @@ import {
 	YEARLY_CHART,
 } from "../State/PriceItemsReducer";
 import PriceItemsAbout from "./PriceItemsAbout";
+import PriceItemsStories from "./PriceItemsStories";
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
@@ -424,7 +425,7 @@ function PriceItemsSparkline() {
 									<p>
 										The total dollar value of all BTC transactions over the past
 										24 hours. Includes data from all exchanges, not just
-										Coinbase.
+										Basecoin.
 									</p>
 								</div>
 							) : (
@@ -474,6 +475,7 @@ function PriceItemsSparkline() {
 				""
 			)}
 			<PriceItemsAbout />
+			<PriceItemsStories />
 		</div>
 	);
 }

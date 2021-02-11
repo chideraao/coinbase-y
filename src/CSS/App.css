@@ -3928,7 +3928,7 @@ table tr .flex {
 }
 
 .price-items .price-items-main .card ul .on-option {
-	color: var(--primary-color);
+	color: var(--primary-color) !important;
 }
 
 .price-items .price-items-main .grid canvas {
@@ -4005,4 +4005,22 @@ table tr .flex {
 
 .price-items .price-items-main .price-items-about .expand-btn {
 	cursor: pointer;
+}
+
+.price-items-stories a {
+	color: var(--dark-color);
+}
+
+.price-items-stories .bitcoin-polka {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
+	background-color: rgb(247, 147, 26);
+}
+
+.price-items-stories .eth-polka {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
+	background-color: rgb(98, 126, 234);
 }
