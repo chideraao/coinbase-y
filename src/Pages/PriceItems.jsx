@@ -23,7 +23,7 @@ function PriceItems() {
 							icon="chevron-right"
 							size="3x"
 						/>
-						<a href="/prices/priceitems">&nbsp; Bitcoin price</a>
+						<a href="/prices/priceitems">&nbsp; {cryptos[0].name} price</a>
 					</div>
 				</div>
 			</section>

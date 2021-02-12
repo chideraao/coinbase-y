@@ -1,8 +1,14 @@
 /* eslint-disable no-unused-vars */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
+
+const api = {
+	base: "https://api.nomics.com/v1/currencies?",
+	key: "f120f033bda2bb941c1e6925f7ecfbe1",
+};
 
 function PriceItemsAbout() {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
@@ -11,7 +17,7 @@ function PriceItemsAbout() {
 
 	useEffect(() => {
 		Axios.get(
-			"https://api.nomics.com/v1/currencies?key=demo-b5d84e505a11969a7184f899fbb40ae1&ids=BTC&attributes=website_url,whitepaper_url"
+			`${api.base}key=${api.key}&ids=BTC&attributes=website_url,whitepaper_url`
 		)
 			.then((res) => {
 				setMetadata(res.data);
@@ -24,8 +30,6 @@ function PriceItemsAbout() {
 	const handleClick = () => {
 		setExpand(!expand);
 	};
-
-	console.log(metadata);
 
 	return (
 		<div className="price-items-about">
@@ -44,8 +48,33 @@ function PriceItemsAbout() {
 						{metadata.length ? (
 							<div className="flex-column">
 								<h5 className="link-heading">RESOURCES</h5>
-								<a href={metadata[0].website_url}>Official website</a>
-								<a href={metadata[0].whitepaper_url}>Whitepaper</a>
+
+								<a href={metadata[0].website_url}>
+									<div className="flex">
+										<FontAwesomeIcon
+											className="font-awesome"
+											fontWeight="light"
+											icon="globe"
+											size="2x"
+										/>
+										<div className="">
+											<p>Official website</p>
+										</div>
+									</div>
+								</a>
+								<a href={metadata[0].whitepaper_url}>
+									<div className="flex">
+										<FontAwesomeIcon
+											className="font-awesome"
+											fontWeight="light"
+											icon={["far", "file-alt"]}
+											size="2x"
+										/>
+										<div className="">
+											<p>Whitepaper</p>
+										</div>
+									</div>
+								</a>
 							</div>
 						) : (
 							""
@@ -128,7 +157,7 @@ function PriceItemsAbout() {
 						""
 					)}
 					<div className="expand-btn flex" onClick={handleClick}>
-						{!expand ? <h3>More</h3> : <h3>Hide</h3>}
+						{!expand ? <h3>View more</h3> : <h3>Hide</h3>}
 					</div>
 				</div>
 			) : (

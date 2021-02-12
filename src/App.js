@@ -4,6 +4,8 @@ import {
 	faChevronLeft,
 	faChevronRight,
 	faCircleNotch,
+	faFileAlt,
+	faGlobe,
 	faInfoCircle,
 	faSearch,
 	faStar,
@@ -36,7 +38,9 @@ library.add(
 	faChevronDown,
 	faStar,
 	far,
-	faInfoCircle
+	faInfoCircle,
+	faGlobe,
+	faFileAlt
 );
 
 function App() {

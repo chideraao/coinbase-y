@@ -69,7 +69,7 @@ function PriceItemsMain() {
 				setUserData(response.data);
 
 				Axios.get(
-					`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
+					`${api.base}key=${api.key}&ids=LTC&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
 				)
 					.then((res) => {
 						setCryptos(res.data);

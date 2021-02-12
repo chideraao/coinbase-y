@@ -27,6 +27,7 @@ function PriceItemsStories() {
 							</a>
 						</div>
 					</article>
+					<hr />
 					<article className="article">
 						<h3>The 9 Public Companies With the Biggest Bitcoin Portfolios</h3>
 						<p>
@@ -43,15 +44,20 @@ function PriceItemsStories() {
 							</a>
 						</div>
 					</article>
+					<hr />
 					<article className="article grid">
-						<div className="article-text">
-							<ArticleLogo />
-							<h3>Don’t miss out on breaking news</h3>
-							<p>Get the latest headlines on your favorite cryptocurrencies.</p>
+						<div className="article-text flex">
+							<ArticleLogo className="article-logo" />
+							<div className="article-text">
+								<h3>Don’t miss out on breaking news</h3>
+								<p>
+									Get the latest headlines on your favorite cryptocurrencies.
+								</p>
+							</div>
 						</div>
 						<div className="article-btn flex-column">
-							<div className="btn">Continue</div>
-							<div className="btn">Log in</div>
+							<div className="btn flex">Continue</div>
+							<div className="btn btn-outline">Log in</div>
 						</div>
 					</article>
 				</div>

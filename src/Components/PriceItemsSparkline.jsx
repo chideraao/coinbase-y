@@ -59,10 +59,11 @@ function PriceItemsSparkline() {
 	/**chart js styling options */
 	const chartOptions = {
 		/** tooltips styling and logic */
-		hover: { mode: "nearest", intersect: false }, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
+		hover: { mode: "nearest", intersect: false, axis: "x" }, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 		tooltips: {
 			mode: "nearest", //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 			intersect: false, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
+			axis: "x",
 			enabled: true,
 			custom: function (tooltip) {
 				if (!tooltip) return;
@@ -262,12 +263,15 @@ function PriceItemsSparkline() {
 			circulationMouseOver: true,
 		});
 	};
+
 	const handleMouseLeave = () => {
+		// setTimeout(() => {
 		setmouseOver({
 			volumeMouseOver: false,
 			marketCapMouseOver: false,
 			circulationMouseOver: false,
 		});
+		// }, 4000);
 	};
 
 	return (
@@ -384,13 +388,10 @@ function PriceItemsSparkline() {
 								)}`}</p>
 							</div>
 							{mouseOver.marketCapMouseOver ? (
-								<div
-									className="hover-div market-hover-div"
-									onMouseOver={handleMarketCapMouseOver}
-								>
+								<div className="hover-div market-hover-div">
 									<p>
-										The current price of BTC multiplied by its current
-										circulating supply.
+										The current price of {cryptos[0].id} multiplied by its
+										current circulating supply.
 									</p>
 								</div>
 							) : (
@@ -421,14 +422,11 @@ function PriceItemsSparkline() {
 								)}`}</p>
 							</div>
 							{mouseOver.volumeMouseOver ? (
-								<div
-									className="hover-div volume-hover-div"
-									onMouseOver={handleVolumeMouseOver}
-								>
+								<div className="hover-div volume-hover-div">
 									<p>
-										The total dollar value of all BTC transactions over the past
-										24 hours. Includes data from all exchanges, not just
-										Basecoin.
+										The total dollar value of all {cryptos[0].id} transactions
+										over the past 24 hours. Includes data from all exchanges,
+										not just Basecoin.
 									</p>
 								</div>
 							) : (
@@ -458,14 +456,10 @@ function PriceItemsSparkline() {
 								}`}</p>
 							</div>
 							{mouseOver.circulationMouseOver ? (
-								/**google how to make the message bubble */
-								<div
-									className="hover-div circulation-hover-div"
-									onMouseOver={handleCirculationMouseOver}
-								>
+								<div className="hover-div circulation-hover-div">
 									<p>
-										The amount of BTC that is currently liquid and in
-										circulation.
+										The amount of {cryptos[0].id} that is currently liquid and
+										in circulation.
 									</p>
 								</div>
 							) : (
