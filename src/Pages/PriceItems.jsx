@@ -13,20 +13,24 @@ function PriceItems() {
 	return (
 		<div className="price-items">
 			<Header />
-			<section className="priceitems-breadcrumbs">
-				<div className="container">
-					<div className="breadcrumbs">
-						<a href="/prices">Price charts &nbsp;</a>
-						<FontAwesomeIcon
-							className="font-awesome"
-							fontWeight="light"
-							icon="chevron-right"
-							size="3x"
-						/>
-						<a href="/prices/priceitems">&nbsp; {cryptos[0].name} price</a>
+			{!cryptos.length ? (
+				""
+			) : (
+				<section className="priceitems-breadcrumbs">
+					<div className="container">
+						<div className="breadcrumbs">
+							<a href="/prices">Price charts &nbsp;</a>
+							<FontAwesomeIcon
+								className="font-awesome"
+								fontWeight="light"
+								icon="chevron-right"
+								size="3x"
+							/>
+							<a href="/prices/priceitems">&nbsp; {cryptos[0].name} price</a>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 			<div className="header-bar">
 				{!cryptos.length ? (
 					""
@@ -39,7 +43,8 @@ function PriceItems() {
 
 							<div className="text-container">
 								<h1>
-									{cryptos[0].name} price&nbsp;<span>({cryptos[0].id})</span>
+									{cryptos[0].name} price&nbsp;
+									<span>({cryptos[0].id})</span>
 								</h1>
 							</div>
 						</div>
@@ -81,6 +86,7 @@ function PriceItems() {
 					</p>
 				</div>
 			</section>
+
 			<Banner />
 			<Footer />
 		</div>

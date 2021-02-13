@@ -3867,6 +3867,10 @@ table tr .flex {
 	margin-bottom: 0.1rem;
 }
 
+.price-items .price-items-main {
+	overflow: scroll;
+}
+
 .price-items .price-items-main .grid {
 	grid-template-columns: 2fr 1fr;
 }
@@ -4238,6 +4242,7 @@ table tr .flex {
 	width: 9.5rem;
 	margin-top: 0.7rem;
 	font-size: 0.9rem;
+	font-weight: 500;
 }
 
 .price-items .price-items-stories .article .article-btn .btn-outline {
@@ -4260,4 +4265,39 @@ table tr .flex {
 	margin-top: 0rem;
 	color: rgba(17, 51, 83, 0.6);
 	font-weight: 300;
+}
+
+.price-items .price-items-main aside {
+	align-self: flex-start;
+	text-align: center;
+	width: 25rem;
+}
+
+.price-items .price-items-main aside .buy-asset h2 {
+	color: var(--primary-color);
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+}
+
+.price-items .price-items-main aside .buy-asset .buy-main {
+	margin: 2rem 0;
+}
+
+.price-items .price-items-main aside .buy-asset .buy-main > h3 {
+	font-weight: 500;
+	color: rgba(17, 51, 83, 0.3);
+	font-size: 31px;
+	line-height: 1.5;
+	margin-top: 1.5rem;
+	align-self: flex-start;
+}
+
+.price-items .price-items-main aside .buy-asset .buy-main > h2 {
+	font-size: 62px;
+	color: rgba(17, 51, 83, 0.3);
+	font-weight: 500;
+	line-height: 1.5;
+	margin-top: 8px;
 }
