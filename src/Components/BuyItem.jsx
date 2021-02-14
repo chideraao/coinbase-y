@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { UserDataContext } from "../State/GlobalContext";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
@@ -35,7 +34,7 @@ function BuyAsset() {
 							onMouseOver={handleMouseOver}
 							onMouseLeave={handleMouseLeave}
 						>
-							1+1
+							<h3>Ready to buy {cryptos[0].id}?</h3>
 						</div>
 					) : (
 						""
