@@ -61,6 +61,7 @@ function PriceItemsSparkline() {
 		/** tooltips styling and logic */
 		hover: { mode: "nearest", intersect: false, axis: "x" }, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 		tooltips: {
+			//basic styling of the tooltip(onHover)
 			mode: "nearest", //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 			intersect: false, //allow tooltip to show once the mouse is at the nearest defined data item rather than only once it intersects
 			axis: "x",
@@ -104,7 +105,8 @@ function PriceItemsSparkline() {
 			},
 		},
 		elements: {
-			point: { radius: 0 },
+			point: { radius: 0 }, //removes all the axis intersection points
+			line: { tension: 0.1 }, //makes the chart a little less curvy ;)
 		},
 		legend: {
 			display: false,
@@ -115,12 +117,13 @@ function PriceItemsSparkline() {
 					offset: true,
 					gridLines: {
 						color: "transparent",
-						display: false,
+						display: false, //removes gridline display
 						drawBorder: false,
 					},
 					distribution: "series",
 					display: true,
 					ticks: {
+						//basic styling of the ticks(axis)
 						fontSize: 18,
 						lineHeight: 1.2,
 						fontFamily: '"Roboto", sans-serif',
@@ -181,7 +184,7 @@ function PriceItemsSparkline() {
 					data: prices,
 					borderColor: " #1652f0",
 					fill: false,
-					borderWidth: 2,
+					borderWidth: 1.9,
 				},
 			],
 		});
