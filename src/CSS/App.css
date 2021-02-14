@@ -3873,6 +3873,7 @@ table tr .flex {
 
 .price-items .price-items-main .grid {
 	grid-template-columns: 2fr 1fr;
+	gap: 1.5rem;
 }
 
 .price-items .price-items-main .sparkline-container .card {
@@ -4270,7 +4271,7 @@ table tr .flex {
 .price-items .price-items-main aside {
 	align-self: flex-start;
 	text-align: center;
-	width: 25rem;
+	width: 23.5rem;
 }
 
 .price-items .price-items-main aside .buy-asset h2 {
@@ -4283,6 +4284,9 @@ table tr .flex {
 
 .price-items .price-items-main aside .buy-asset .buy-main {
 	margin: 2rem 0;
+	margin-bottom: 1rem;
+	padding: 2.2rem 0;
+	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
 .price-items .price-items-main aside .buy-asset .buy-main > h3 {
@@ -4295,9 +4299,23 @@ table tr .flex {
 }
 
 .price-items .price-items-main aside .buy-asset .buy-main > h2 {
-	font-size: 62px;
+	font-size: 65px;
 	color: rgba(17, 51, 83, 0.3);
 	font-weight: 500;
 	line-height: 1.5;
 	margin-top: 8px;
+}
+
+.price-items .price-items-main aside .buy-asset .buy-btn {
+	width: 100%;
+	height: 4rem;
+	padding: 1rem;
+	padding-top: 1.2rem;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.opaque-bg {
+	background-color: var(--secondary-color);
+	opacity: 0.1;
 }
