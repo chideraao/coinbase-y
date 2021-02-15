@@ -237,7 +237,7 @@ function Prices() {
 												</div>
 												<div className="box-title">
 													<h3>{marketHealth[2].name}</h3>
-													<p className="gains">+220.69% views</p>
+													<p className="gains">+420.69% views</p>
 												</div>
 											</div>
 

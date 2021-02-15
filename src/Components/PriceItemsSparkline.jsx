@@ -68,7 +68,7 @@ function PriceItemsSparkline() {
 			enabled: true,
 			custom: function (tooltip) {
 				if (!tooltip) return;
-				tooltip.displayColors = false;
+				tooltip.displayColors = false; //remove the tiny colored box in the tooltip label
 			},
 			titleFontFamily: '"Roboto", sans-serif',
 			titleFontSize: 20,

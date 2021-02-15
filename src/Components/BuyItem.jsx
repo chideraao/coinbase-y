@@ -16,7 +16,7 @@ function BuyAsset() {
 	};
 
 	return (
-		<div
+		<section
 			className="buy-asset"
 			onMouseOver={handleMouseOver}
 			onMouseLeave={handleMouseLeave}
@@ -45,7 +45,7 @@ function BuyAsset() {
 			) : (
 				""
 			)}
-		</div>
+		</section>
 	);
 }
 
