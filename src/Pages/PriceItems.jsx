@@ -31,40 +31,6 @@ function PriceItems() {
 					</div>
 				</section>
 			)}
-			<div className="header-bar">
-				{!cryptos.length ? (
-					""
-				) : (
-					<div className="container flex">
-						<div className="crypto-name flex">
-							<div className="img-container">
-								<img src={cryptos[0].logo_url} alt="bitcoin logo" />
-							</div>
-
-							<div className="text-container">
-								<h1>
-									{cryptos[0].name} price&nbsp;
-									<span>({cryptos[0].id})</span>
-								</h1>
-							</div>
-						</div>
-						<div className="crypto-actions flex">
-							<div className="crypto-share">
-								<h3>Share</h3>
-							</div>
-							<div className="crypto-watchlist flex">
-								<FontAwesomeIcon
-									className="font-awesome"
-									fontWeight="light"
-									icon={["far", "star"]}
-									size="2x"
-								/>
-								<h3>Add to Watchlist</h3>
-							</div>
-						</div>
-					</div>
-				)}
-			</div>
 			<section className="price-items-main">
 				<PriceItemsMain />
 			</section>

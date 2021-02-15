@@ -1,7 +1,6 @@
 import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { UserDataContext } from "../State/GlobalContext";
 
 const api = {
 	base: "https://api.nomics.com/v1/currencies/ticker?",

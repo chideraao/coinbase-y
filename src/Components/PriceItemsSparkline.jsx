@@ -279,6 +279,24 @@ function PriceItemsSparkline() {
 
 	return (
 		<div className="sparkline-container">
+			{!cryptos.length ? (
+				""
+			) : (
+				<div className="">
+					<div className="crypto-name flex">
+						<div className="img-container">
+							<img src={cryptos[0].logo_url} alt="bitcoin logo" />
+						</div>
+
+						<div className="text-container">
+							<h1>
+								{cryptos[0].name} price&nbsp;
+								<span>({cryptos[0].id})</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			)}
 			{sparkline.length ? (
 				<div className="card">
 					<div className="coins-header flex">

@@ -13,7 +13,7 @@ function Footer() {
 						disabled="disabled"
 						value="English"
 					></option>
-					<p>&copy; 2020 Basecoin</p>
+					<p>&copy; {new Date().getUTCFullYear()} Basecoin</p>
 					<div className="flex">
 						<a href="https://blog.coinbase.com">Blog</a>
 						<span className="bulletpoint">.</span>

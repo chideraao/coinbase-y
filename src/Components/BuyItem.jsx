@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { UserDataContext } from "../State/GlobalContext";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";

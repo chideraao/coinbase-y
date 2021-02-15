@@ -8,7 +8,7 @@ function AboutFooter() {
 				<div className="container grid">
 					<div className="selectbox">
 						<h3>basecoin</h3>
-						<p>&copy; 2020 Basecoin</p>
+						<p>&copy; {new Date().getUTCFullYear()} Basecoin</p>
 					</div>
 					<div className="products flex">
 						<h2>Products</h2>
