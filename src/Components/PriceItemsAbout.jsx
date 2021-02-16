@@ -10,14 +10,14 @@ const api = {
 	key: "f120f033bda2bb941c1e6925f7ecfbe1",
 };
 
-function PriceItemsAbout() {
+function PriceItemsAbout({ match }) {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [metadata, setMetadata] = useState([]);
 	const [expand, setExpand] = useState(false);
 
 	useEffect(() => {
 		Axios.get(
-			`${api.base}key=${api.key}&ids=BTC&attributes=website_url,whitepaper_url`
+			`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`
 		)
 			.then((res) => {
 				setMetadata(res.data);
@@ -25,11 +25,13 @@ function PriceItemsAbout() {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, []);
+	}, [match]);
 
 	const handleClick = () => {
 		setExpand(!expand);
 	};
+
+	console.log(metadata);
 
 	return (
 		<div className="price-items-about">

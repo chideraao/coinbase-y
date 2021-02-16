@@ -7,7 +7,7 @@ import Header from "../Components/Header";
 import PriceItemsMain from "../Components/PriceItemsMain";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
 
-function PriceItems() {
+function PriceItems({ match }) {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 
 	return (
@@ -32,7 +32,7 @@ function PriceItems() {
 				</section>
 			)}
 			<section className="price-items-main">
-				<PriceItemsMain />
+				<PriceItemsMain match={match} />
 			</section>
 			<section className="legal">
 				<div className="container legal-disclaimer">

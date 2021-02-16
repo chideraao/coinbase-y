@@ -61,7 +61,7 @@ function App() {
 											<Route path="/press" component={Press} />
 											<Route path="/learn" component={Learn} />
 											<Route path="/prices" component={Prices} exact />
-											<Route path="/prices/priceitems" component={PriceItems} />
+											<Route path="/prices/:id" component={PriceItems} />
 										</Switch>
 									</div>
 								</ReviewsProvider>

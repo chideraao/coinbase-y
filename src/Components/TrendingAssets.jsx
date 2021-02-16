@@ -110,7 +110,7 @@ function TrendingAssets() {
 			<div className="assets-main">
 				{memoizedAssets.map((asset) => {
 					return (
-						<div className="flex">
+						<div key={asset.id} className="flex">
 							<div className="asset-id flex">
 								<div className="img-container">
 									<img src={asset.img_url} alt={`${asset.name} logo`} />

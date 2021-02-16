@@ -116,7 +116,7 @@ function Prices() {
 					) : (
 						<div className="container">
 							<div className="box-container flex">
-								<Link to="#">
+								<Link to="prices/GRT">
 									<div className="prices-box">
 										<h2>Top gainer (24h)</h2>
 										<div className="sparkline-container flex">
@@ -145,7 +145,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link to="#">
+								<Link to="prices/RUNE">
 									<div className="prices-box">
 										<h2>New listing</h2>
 										<div className="sparkline-container flex">
@@ -192,7 +192,7 @@ function Prices() {
 								</Link>
 							</div>
 							<div className="box-container box-container-ii flex">
-								<Link to="#">
+								<Link to="prices/BTC">
 									<div className="prices-box">
 										<h2>Highest volume (24h)</h2>
 										<div className="sparkline-container flex">
@@ -224,7 +224,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link to="#">
+								<Link to="prices/XTZ">
 									<div className="prices-box">
 										<h2>Most visited (24h)</h2>
 										<div className="sparkline-container flex">
@@ -253,7 +253,7 @@ function Prices() {
 										</div>
 									</div>
 								</Link>
-								<Link to="#">
+								<Link to="prices/BAND">
 									<div className="prices-box">
 										<h2>Earn free crypto</h2>
 										<div className="sparkline-container flex">

@@ -41,7 +41,7 @@ const formatDate = (str) => {
 	return newFormat.toUTCString();
 };
 
-function PriceItemsSparkline() {
+function PriceItemsSparkline({ match }) {
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [state, dispatch] = useContext(PriceItemsContext);
@@ -492,7 +492,7 @@ function PriceItemsSparkline() {
 			) : (
 				""
 			)}
-			<PriceItemsAbout />
+			<PriceItemsAbout match={match} />
 			<PriceItemsStories />
 		</div>
 	);

@@ -264,7 +264,7 @@ function PricesTable() {
 								return (
 									<tr key={index}>
 										<td className="table-serial">{index + 1}</td>
-										<Link to="/prices/priceitems">
+										<Link to={`/prices/${item.id}`}>
 											<td colSpan="2" className="crypto-name flex">
 												<div className="">
 													<img src={item.logo_url} alt={`${item.name} logo`} />

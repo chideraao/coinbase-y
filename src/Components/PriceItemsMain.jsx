@@ -59,10 +59,12 @@ const setLowerCase = (str) => {
 	return str.toLowerCase();
 };
 
-function PriceItemsMain() {
+function PriceItemsMain({ match }) {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
+
+	console.log(match);
 
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
@@ -70,7 +72,7 @@ function PriceItemsMain() {
 				setUserData(response.data);
 
 				Axios.get(
-					`${api.base}key=${api.key}&ids=BTC&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
+					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
 				)
 					.then((res) => {
 						setCryptos(res.data);
@@ -142,11 +144,11 @@ function PriceItemsMain() {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, [setCryptos, setSparkline, setUserData]);
+	}, [setCryptos, setSparkline, setUserData, match]);
 
 	return (
 		<div className="container grid">
-			<PriceItemsSparkline />
+			<PriceItemsSparkline match={match} />
 			<PriceItemsAssets />
 		</div>
 	);
