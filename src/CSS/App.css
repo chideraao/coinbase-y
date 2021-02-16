@@ -839,6 +839,13 @@ hr {
 		text-align: center;
 	}
 
+	.banner-footer {
+		background-color: rgb(17, 51, 85);
+		color: var(--secondary-color);
+		padding-top: 2rem !important;
+		padding-bottom: 3rem !important;
+	}
+
 	.banner .container,
 	.banner-footer .grid {
 		display: flex;
@@ -3752,6 +3759,12 @@ table tr .flex {
 	width: 100%;
 }
 
+.price-items .price-items-main .grid {
+	gap: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
 .price-items .price-items-main .sparkline-container .crypto-name {
 	min-width: 45rem;
 	justify-content: flex-start;
@@ -3826,13 +3839,8 @@ table tr .flex {
 	overflow: scroll;
 }
 
-.price-items .price-items-main .grid {
-	grid-template-columns: 2fr 1fr;
-	gap: 1.5rem;
-}
-
 .price-items .price-items-main .sparkline-container .card {
-	min-width: 47rem;
+	width: 49rem;
 	padding: 20px 10px;
 	margin: 10px 0;
 }
@@ -3893,7 +3901,7 @@ table tr .flex {
 }
 
 .price-items .price-items-main .grid canvas {
-	min-width: 45rem;
+	width: auto;
 	height: 17rem !important;
 	cursor: crosshair;
 	border-bottom: 1px solid rgb(236, 239, 241);
@@ -4186,7 +4194,7 @@ table tr .flex {
 
 .price-items .price-items-stories .grid .flex .article-text {
 	max-width: 20rem;
-	margin-right: 4rem;
+	margin-left: 1.5rem;
 }
 
 .price-items .price-items-stories .article .article-btn {
@@ -4226,7 +4234,7 @@ table tr .flex {
 .price-items .price-items-main aside {
 	align-self: flex-start;
 	text-align: center;
-	width: 24.5rem;
+	min-width: 25rem;
 }
 
 .price-items .price-items-main aside .buy-asset {
@@ -4417,8 +4425,6 @@ table tr .flex {
 /* --------------------------------------------------------  PRICEITEMS MEDIA QUERIES  ---------------------------------------------------------------- */
 @media (max-width: 1200px) {
 	.price-items .price-items-main .container {
-		padding: 0;
-		margin: 0;
 		overflow: visible;
 	}
 }
@@ -4428,8 +4434,36 @@ table tr .flex {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.price-items .price-items-main .grid canvas {
+		width: auto;
+		height: 12rem !important;
+	}
+
+	.price-items .price-items-main aside .buy-asset {
+		display: none;
+	}
 }
 
 /* Phones and under */
 @media (max-width: 550px) {
+	.price-items .price-items-main aside {
+		display: none;
+	}
+
+	.price-items .price-items-main .card .coins-header h1 {
+		font-size: 38px;
+		margin: 0rem;
+		margin-right: 1rem;
+	}
+
+	.price-items .price-items-main .card .coins-header h1 span {
+		font-size: 17px;
+		padding-top: 0.3rem;
+	}
+
+	.price-items .price-items-main .card .coins-header span {
+		align-self: flex-start;
+		font-size: 19px;
+		font-weight: 300;
+	}
 }
