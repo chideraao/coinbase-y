@@ -64,8 +64,6 @@ function PriceItemsMain({ match }) {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	console.log(match);
-
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {

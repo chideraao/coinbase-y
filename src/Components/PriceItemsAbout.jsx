@@ -31,8 +31,6 @@ function PriceItemsAbout({ match }) {
 		setExpand(!expand);
 	};
 
-	console.log(metadata);
-
 	return (
 		<div className="price-items-about">
 			{cryptos.length ? (

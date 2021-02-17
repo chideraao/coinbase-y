@@ -199,7 +199,7 @@ function ChartTable() {
 													: "loss"
 											}
 										>
-											{cryptos[index]["1d"].price_change_pct * 100 >= 1
+											{cryptos[index]["1d"].price_change_pct * 100 >= 0
 												? `+${item.change}`
 												: `${item.change}`}
 										</td>

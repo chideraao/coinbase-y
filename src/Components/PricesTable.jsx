@@ -115,6 +115,7 @@ function PricesTable() {
 		setIsLoading(true);
 		setTimeout(() => {
 			setIsLoading(false);
+			handleAllClick();
 		}, 500);
 	};
 

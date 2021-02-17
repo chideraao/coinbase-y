@@ -12,7 +12,6 @@ import {
 	PricesBAND,
 } from "../Components/PricesSparkline";
 import PricesTable from "../Components/PricesTable";
-import PricesTicker from "../Components/PricesTicker";
 import { UserDataContext } from "../State/GlobalContext";
 import {
 	PricesCryptoContext,

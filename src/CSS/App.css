@@ -731,7 +731,7 @@ hr {
 @media (max-width: 1200px) {
 	.tables {
 		top: 17.5rem;
-		left: 4rem;
+		left: 6rem;
 		background: none;
 		margin-left: 0rem;
 	}
@@ -767,7 +767,7 @@ hr {
 @media (max-width: 1140px) {
 	.tables {
 		top: 17.5rem;
-		left: 0rem;
+		left: 2rem;
 	}
 
 	.tables .home-table table {
