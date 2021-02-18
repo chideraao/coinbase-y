@@ -11,7 +11,7 @@ function PriceItems({ match }) {
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 
 	return (
-		<div className="price-items">
+		<div className="price-items" id="price-items">
 			<Header />
 			{!cryptos.length ? (
 				""

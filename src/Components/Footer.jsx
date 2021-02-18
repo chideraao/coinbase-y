@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useEffect } from "react/cjs/react.development";
 
 function Footer() {
+	useEffect(() => {
+		const testingText = document.documentElement.innerText;
+		console.log(testingText);
+	}, []);
+
 	return (
-		<div className="footer">
+		<div className="footer" id="footer">
 			<div className="container grid">
 				<div className="selectbox">
 					<h2>basecoin</h2>

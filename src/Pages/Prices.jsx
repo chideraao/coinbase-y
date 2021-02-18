@@ -93,7 +93,7 @@ function Prices() {
 	);
 
 	return (
-		<div className="prices">
+		<div className="prices" id="prices">
 			<Header />
 			<main className="prices-main">
 				<div className="market-health">

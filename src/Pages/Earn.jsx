@@ -15,7 +15,7 @@ function Earn() {
 	const { courses, views } = earn;
 
 	return (
-		<div className="earn">
+		<div className="earn" id="earn">
 			<div className="header-container">
 				<Header />
 				<section className="showcase">

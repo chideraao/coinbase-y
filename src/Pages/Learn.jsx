@@ -20,7 +20,7 @@ import EarnPNG from "../logos/earn-full.png";
 
 function Learn() {
 	return (
-		<div className="learn">
+		<div className="learn" id="learn">
 			<Header />
 			<section className="learn-showcase">
 				<div className="container">
