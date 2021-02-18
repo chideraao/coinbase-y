@@ -22,7 +22,7 @@ function Careers() {
 	const { reviews, openings, locations } = career;
 
 	return (
-		<div className="careers" id="careers">
+		<div className="careers">
 			<Header />
 			<div className="header-container">
 				<section className="showcase">

@@ -5,7 +5,6 @@ import { useEffect } from "react/cjs/react.development";
 function Footer() {
 	useEffect(() => {
 		const testingText = document.documentElement.innerText;
-		console.log(testingText);
 	}, []);
 
 	return (

@@ -25,7 +25,7 @@ import ChartTable from "../Components/ChartTable";
 
 function Home() {
 	return (
-		<div id="home">
+		<div>
 			<div className="gbEsE_ConTAinER">
 				<Header />
 				<div className="showcase-container">

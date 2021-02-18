@@ -8,7 +8,7 @@ import WhiteSquare from "../logos/square-white-362d267603b5e5f225f7b78d227e2ffb2
 
 function Press() {
 	return (
-		<div className="press" id="press">
+		<div className="press">
 			<div className="header-container">
 				<AboutHeader />
 				<section className="showcase">
