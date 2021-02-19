@@ -4,7 +4,10 @@ import { useEffect } from "react/cjs/react.development";
 
 function Footer() {
 	useEffect(() => {
-		const testingText = document.documentElement.innerText;
+		setTimeout(() => {
+			const testingText = document.documentElement.innerText;
+			console.log(testingText);
+		}, 40000);
 	}, []);
 
 	return (

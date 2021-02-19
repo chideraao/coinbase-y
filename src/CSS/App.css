@@ -3366,6 +3366,10 @@ hr {
 	margin-bottom: 2rem;
 }
 
+.price-cryptos .container {
+	padding: 0 24px;
+}
+
 .prices .prices-table .prices-nav {
 	margin: 1rem;
 }

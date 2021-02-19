@@ -184,7 +184,7 @@ function PriceItemsSparkline({ match }) {
 					data: prices,
 					borderColor: " #1652f0",
 					fill: false,
-					borderWidth: 1.9,
+					borderWidth: 1.7,
 				},
 			],
 		});
