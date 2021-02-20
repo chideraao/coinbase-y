@@ -57,17 +57,18 @@ function Prices() {
 				? []
 				: [
 						{
-							img: `${showcaseCryptos[3].logo_url}`,
-							name: `${showcaseCryptos[3].name}`,
-							price: `${showcaseCryptos[3].price}`,
-							chart: <PricesRUNE />,
-						},
-						{
 							img: showcaseCryptos[2].logo_url,
 							name: showcaseCryptos[2].name,
 							price: showcaseCryptos[2].price,
 							chart: <PricesGRT />,
 						},
+						{
+							img: `${showcaseCryptos[3].logo_url}`,
+							name: `${showcaseCryptos[3].name}`,
+							price: `${showcaseCryptos[3].price}`,
+							chart: <PricesRUNE />,
+						},
+
 						{
 							img: showcaseCryptos[1].logo_url,
 							name: showcaseCryptos[1].name,

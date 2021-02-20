@@ -12,9 +12,9 @@ import PriceItemsSparkline from "./PriceItemsSparkline";
 /**Defining API endpoints */
 const api = {
 	base: "https://api.nomics.com/v1/currencies/ticker?",
-	key: "f120f033bda2bb941c1e6925f7ecfbe1",
+	key: process.env.REACT_APP_NOMICS_KEY,
 	sparklineBase: "https://api.coingecko.com/api/v3/coins/",
-	zoneKey: "d65e37f4206340d188baba3c12561f09",
+	zoneKey: process.env.REACT_APP_LOCATION_KEY,
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 /** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */

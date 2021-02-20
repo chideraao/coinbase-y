@@ -15,9 +15,9 @@ import { ALL_ASSETS, TOP_GAINERS, TOP_LOSERS } from "../State/PricesReducer";
 /**Defining API endpoints */
 const api = {
 	base: "https://api.nomics.com/v1/currencies/ticker?",
-	key: "f120f033bda2bb941c1e6925f7ecfbe1",
+	key: process.env.REACT_APP_NOMICS_KEY,
 	sparklineBase: "https://api.nomics.com/v1/currencies/sparkline?",
-	zoneKey: "d65e37f4206340d188baba3c12561f09",
+	zoneKey: process.env.REACT_APP_LOCATION_KEY,
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 

@@ -46,7 +46,7 @@ export function BTCChart() {
 				},
 			],
 		});
-	}, []);
+	}, [sparkline]);
 
 	return (
 		<div className="sparkline-container">

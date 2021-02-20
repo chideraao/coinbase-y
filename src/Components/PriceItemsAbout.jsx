@@ -7,7 +7,7 @@ import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
 
 const api = {
 	base: "https://api.nomics.com/v1/currencies?",
-	key: "f120f033bda2bb941c1e6925f7ecfbe1",
+	key: process.env.REACT_APP_NOMICS_KEY,
 };
 
 function PriceItemsAbout({ match }) {
