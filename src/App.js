@@ -1,5 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+	faBars,
 	faChevronDown,
 	faChevronLeft,
 	faChevronRight,
@@ -40,7 +41,8 @@ library.add(
 	far,
 	faInfoCircle,
 	faGlobe,
-	faFileAlt
+	faFileAlt,
+	faBars
 );
 
 function App() {

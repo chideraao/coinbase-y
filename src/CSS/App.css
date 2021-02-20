@@ -794,6 +794,25 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 1.5rem;
+	}
+
+	.header .narrow-header h1 {
+		font-size: 1.7rem;
+		font-weight: 500;
+		color: var(--primary-color);
+	}
+
+	.header .narrow-header .green-btn {
+		margin-top: 0.4rem;
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: var(--button-color);
+		padding: 0.25rem 0.6rem;
+	}
+
 	.tables {
 		left: 0.5rem;
 	}
@@ -2055,6 +2074,7 @@ hr {
 	align-items: baseline;
 	margin-top: 1rem;
 	margin-bottom: 3rem;
+	overflow: hidden;
 }
 
 .about-footer .flex {
@@ -2139,6 +2159,24 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.about .about-header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 1.5rem;
+	}
+
+	.about .about-header .narrow-header .menu-bar {
+		border: 2px solid var(--secondary-color);
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+	}
+
+	.about .about-header .narrow-header .font-awesome {
+		color: var(--secondary-color);
+		font-size: 1.3rem;
+	}
+
 	.about .showcase .container h1 {
 		padding: 0rem;
 		margin-bottom: 3rem;
