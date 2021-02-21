@@ -279,9 +279,7 @@ function PriceItemsSparkline({ match }) {
 
 	return (
 		<div className="sparkline-container">
-			{!cryptos.length ? (
-				""
-			) : (
+			{cryptos.length && (
 				<div className="">
 					<div className="crypto-name flex">
 						<div className="img-container">
@@ -335,35 +333,35 @@ function PriceItemsSparkline({ match }) {
 								<li
 									value="0"
 									onClick={handleDailyClick}
-									className={option === "1d" ? "on-option" : ""}
+									className={option === "1d" && "on-option"}
 								>
 									24H
 								</li>
 								<li
 									value="1"
 									onClick={handleWeeklyClick}
-									className={option === "7d" ? "on-option" : ""}
+									className={option === "7d" && "on-option"}
 								>
 									1W
 								</li>
 								<li
 									value="2"
 									onClick={handleMonthlyClick}
-									className={option === "30d" ? "on-option" : ""}
+									className={option === "30d" && "on-option"}
 								>
 									1M
 								</li>
 								<li
 									value="3"
 									onClick={handleYearlyClick}
-									className={option === "365d" ? "on-option" : ""}
+									className={option === "365d" && "on-option"}
 								>
 									1Y
 								</li>
 								<li
 									value="4"
 									onClick={handleAllClick}
-									className={option === "all" ? "on-option" : ""}
+									className={option === "all" && "on-option"}
 								>
 									ALL
 								</li>
@@ -408,15 +406,13 @@ function PriceItemsSparkline({ match }) {
 									cryptos[0].market_cap
 								)}`}</p>
 							</div>
-							{mouseOver.marketCapMouseOver ? (
+							{mouseOver.marketCapMouseOver && (
 								<div className="hover-div market-hover-div">
 									<p>
 										The current price of {cryptos[0].id} multiplied by its
 										current circulating supply.
 									</p>
 								</div>
-							) : (
-								""
 							)}
 						</div>
 
@@ -442,7 +438,7 @@ function PriceItemsSparkline({ match }) {
 									cryptos[0]["1d"].volume
 								)}`}</p>
 							</div>
-							{mouseOver.volumeMouseOver ? (
+							{mouseOver.volumeMouseOver && (
 								<div className="hover-div volume-hover-div">
 									<p>
 										The total dollar value of all {cryptos[0].id} transactions
@@ -450,8 +446,6 @@ function PriceItemsSparkline({ match }) {
 										not just Basecoin.
 									</p>
 								</div>
-							) : (
-								""
 							)}
 						</div>
 
@@ -476,15 +470,13 @@ function PriceItemsSparkline({ match }) {
 									cryptos[0].id
 								}`}</p>
 							</div>
-							{mouseOver.circulationMouseOver ? (
+							{mouseOver.circulationMouseOver && (
 								<div className="hover-div circulation-hover-div">
 									<p>
 										The amount of {cryptos[0].id} that is currently liquid and
 										in circulation.
 									</p>
 								</div>
-							) : (
-								""
 							)}
 						</div>
 					</div>

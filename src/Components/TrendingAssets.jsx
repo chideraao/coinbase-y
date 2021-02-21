@@ -110,24 +110,26 @@ function TrendingAssets() {
 			<div className="assets-main">
 				{memoizedAssets.map((asset) => {
 					return (
-						<div key={asset.id} className="flex">
-							<div className="asset-id flex">
-								<div className="img-container">
-									<img src={asset.img_url} alt={`${asset.name} logo`} />
+						<Link to={`/prices/${asset.id}`}>
+							<div key={asset.id} className="flex">
+								<div className="asset-id flex">
+									<div className="img-container">
+										<img src={asset.img_url} alt={`${asset.name} logo`} />
+									</div>
+									<div className="asset-name flex-column">
+										<h3>{asset.name}</h3>
+										<h5>{asset.id}</h5>
+									</div>
 								</div>
-								<div className="asset-name flex-column">
-									<h3>{asset.name}</h3>
-									<h5>{asset.id}</h5>
+								<div className="asset-text flex-column">
+									<h3>
+										{userData.currency.code}&nbsp;
+										{asset.price}
+									</h3>
+									<h5 className="gains">+{asset.views} views</h5>
 								</div>
 							</div>
-							<div className="asset-text flex-column">
-								<h3>
-									{userData.currency.code}&nbsp;
-									{asset.price}
-								</h3>
-								<h5 className="gains">+{asset.views} views</h5>
-							</div>
-						</div>
+						</Link>
 					);
 				})}
 			</div>

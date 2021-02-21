@@ -72,7 +72,7 @@ function Home() {
 						</Link>
 					</div>
 					<div className="banner-icons">
-						<a href="/">
+						<Link to="/prices/BAND">
 							<div className="icon-item flex">
 								<div className="flex">
 									<img src={band} alt="band crypto svg" />
@@ -81,9 +81,9 @@ function Home() {
 								</div>
 								<span>Earn $7 BAND</span>
 							</div>
-						</a>
-						<a href="/">
-							{" "}
+						</Link>
+
+						<Link to="/prices/MKR">
 							<div className="icon-item flex">
 								<div className="flex">
 									<img src={maker} alt="maker crypto svg" />
@@ -92,8 +92,9 @@ function Home() {
 								</div>
 								<span>Earn $6 MKR</span>
 							</div>
-						</a>
-						<a href="/">
+						</Link>
+
+						<Link to="/prices/CELO">
 							<div className="icon-item flex">
 								<div className="flex">
 									<img src={celo} alt="celo crypto svg" />
@@ -102,9 +103,9 @@ function Home() {
 								</div>
 								<span>Earn $6 CGLD</span>
 							</div>
-						</a>
-						<a href="/">
-							{" "}
+						</Link>
+
+						<Link to="/prices/GRT">
 							<div className="icon-item flex">
 								<div className="flex">
 									<img src={comp} alt="comp crypto svg" />
@@ -113,7 +114,8 @@ function Home() {
 								</div>
 								<span className="">Earn $9 GRT</span>
 							</div>
-						</a>
+						</Link>
+
 						<Link to="/earn" className="banner-btn">
 							View more {">"}
 						</Link>

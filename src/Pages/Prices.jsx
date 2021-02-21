@@ -111,9 +111,7 @@ function Prices() {
 							</span>
 						</h1>
 					</div>
-					{!showcaseCryptos.length && !sparkline.length ? (
-						""
-					) : (
+					{showcaseCryptos.length && sparkline.length && (
 						<div className="container">
 							<div className="box-container flex">
 								<Link to="prices/GRT">

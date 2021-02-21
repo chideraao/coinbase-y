@@ -11,6 +11,7 @@ import {
 	ETHChart,
 	LTCChart,
 } from "../Components/CoinsSparkline";
+import { Link } from "react-router-dom";
 
 /**Defining API endpoints */
 const api = {
@@ -150,9 +151,7 @@ function ChartTable() {
 
 	return (
 		<div className="home-table">
-			{!cryptos.length && !sparkline.length ? (
-				""
-			) : (
+			{cryptos.length && sparkline.length && (
 				<table role="table">
 					<thead>
 						<tr>
@@ -173,7 +172,7 @@ function ChartTable() {
 							return (
 								<tr key={index}>
 									<td className="table-serial">{index + 1}</td>
-									<a href="#">
+									<Link to={`/prices/${item.id}`}>
 										<td colSpan="2" className="flex">
 											<div className="">
 												<img src={item.imgSrc} alt={`${item.name} logo`} />
@@ -182,7 +181,7 @@ function ChartTable() {
 												{item.name} &nbsp;&nbsp; <span>{item.id}</span>
 											</div>
 										</td>
-									</a>
+									</Link>
 
 									<td className="table-empty"></td>
 									<td className="table-empty"></td>

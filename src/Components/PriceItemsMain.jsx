@@ -144,6 +144,11 @@ function PriceItemsMain({ match }) {
 			.catch((err) => {
 				console.log(err);
 			});
+
+		return () => {
+			setCryptos([]);
+			setSparkline([]);
+		};
 	}, [setCryptos, setSparkline, setUserData, match]);
 
 	return (

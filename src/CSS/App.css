@@ -4393,7 +4393,11 @@ table tr .flex {
 	margin-bottom: 2rem;
 }
 
-.price-items .price-items-main aside .trending-assets .assets-main > .flex {
+.price-items .price-items-main aside .trending-assets .assets-main a {
+	color: var(--dark-color);
+}
+
+.price-items .price-items-main aside .trending-assets .assets-main a > .flex {
 	justify-content: space-between;
 	margin-bottom: 0.7rem;
 }

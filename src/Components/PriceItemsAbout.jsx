@@ -25,6 +25,9 @@ function PriceItemsAbout({ match }) {
 			.catch((err) => {
 				console.log(err);
 			});
+		return () => {
+			setMetadata([]);
+		};
 	}, [match]);
 
 	const handleClick = () => {
@@ -33,7 +36,7 @@ function PriceItemsAbout({ match }) {
 
 	return (
 		<div className="price-items-about">
-			{cryptos.length ? (
+			{cryptos.length && (
 				<div className="card">
 					{" "}
 					<div className="">
@@ -45,7 +48,7 @@ function PriceItemsAbout({ match }) {
 							eaque laudantium. Ipsam id error sit pariatur dolores, consectetur
 							excepturi aliquid?
 						</p>
-						{metadata.length ? (
+						{metadata.length && (
 							<div className="flex-column">
 								<h5 className="link-heading">RESOURCES</h5>
 
@@ -76,11 +79,9 @@ function PriceItemsAbout({ match }) {
 									</div>
 								</a>
 							</div>
-						) : (
-							""
 						)}
 					</div>
-					{expand ? (
+					{expand && (
 						<div className="crypto-description">
 							<h3>What is {cryptos[0].name}?</h3>
 							<p>
@@ -153,15 +154,11 @@ function PriceItemsAbout({ match }) {
 								<Link to="#">{cryptos[0].name} educational page</Link>{" "}
 							</p>
 						</div>
-					) : (
-						""
 					)}
 					<div className="expand-btn flex" onClick={handleClick}>
 						{!expand ? <h3>View more</h3> : <h3>Hide</h3>}
 					</div>
 				</div>
-			) : (
-				""
 			)}
 		</div>
 	);

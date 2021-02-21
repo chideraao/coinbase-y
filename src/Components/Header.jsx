@@ -69,7 +69,7 @@ function Header() {
 											size="2x"
 										/>
 									</li>
-									{mouseOver ? (
+									{mouseOver && (
 										<div
 											className="mouse-over card"
 											onMouseOver={handleMouseOver}
@@ -86,8 +86,6 @@ function Header() {
 												</Link>
 											</ul>
 										</div>
-									) : (
-										""
 									)}
 								</Link>
 								<Link to="/earn" className="crypto">
