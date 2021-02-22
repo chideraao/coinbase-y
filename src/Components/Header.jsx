@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../customHook/UseMediaQuery";
+import { HeaderContext } from "../State/HeaderContext";
 
 function Header() {
 	const [mouseOver, setMouseOver] = useState(false);
 
+	const [menuClick, setMenuClick] = useContext(HeaderContext);
+
+	/**handling mouse events */
 	const handleMouseOver = () => {
 		setMouseOver(true);
 	};
@@ -15,6 +19,12 @@ function Header() {
 		setMouseOver(false);
 	};
 
+	/**handling click events for page resize */
+	const handleClick = () => {
+		setMenuClick(!menuClick);
+	};
+
+	/** using custom hook for page resize */
 	let isPageSmall = useMediaQuery("(max-width: 800px)");
 
 	return (
@@ -26,16 +36,18 @@ function Header() {
 							<h1 className="logo">basecoin</h1>
 						</Link>
 					</div>
-					<div className="menu-bar flex">
+					<div className="flex">
 						<Link to="/earn" className="btn green-btn">
-							Get $40+
+							Get started
 						</Link>
-						<FontAwesomeIcon
-							className="font-awesome"
-							fontWeight="light"
-							icon="bars"
-							size="2x"
-						/>
+						<div className="menu-bar" onClick={handleClick}>
+							<FontAwesomeIcon
+								className="font-awesome"
+								fontWeight="light"
+								icon="bars"
+								size="2x"
+							/>
+						</div>
 					</div>
 				</div>
 			)}
@@ -98,10 +110,10 @@ function Header() {
 						</Link>
 					</div>
 					<div className="auth">
-						<a href="" className="btn">
+						<a href="#" className="btn">
 							Sign In
 						</a>
-						<a href="" className="btn btn-outline">
+						<a href="#" className="btn btn-outline">
 							Get Started
 						</a>
 					</div>

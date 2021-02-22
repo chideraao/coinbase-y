@@ -25,9 +25,6 @@ function PriceItemsAbout({ match }) {
 			.catch((err) => {
 				console.log(err);
 			});
-		return () => {
-			setMetadata([]);
-		};
 	}, [match]);
 
 	const handleClick = () => {

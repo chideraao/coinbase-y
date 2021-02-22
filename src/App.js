@@ -10,6 +10,7 @@ import {
 	faInfoCircle,
 	faSearch,
 	faStar,
+	faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./CSS/App.css";
@@ -30,6 +31,7 @@ import { PricesProvider } from "./State/PricesContext";
 import PriceItems from "./Pages/PriceItems";
 import { PriceItemsProvider } from "./State/PriceItemsContext";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import { HeaderProvider } from "./State/HeaderContext";
 
 library.add(
 	faChevronLeft,
@@ -42,36 +44,39 @@ library.add(
 	faInfoCircle,
 	faGlobe,
 	faFileAlt,
-	faBars
+	faBars,
+	faTimes
 );
 
 function App() {
 	return (
 		<Router>
-			<GlobalProvider>
-				<PricesProvider>
-					<PriceItemsProvider>
-						<EarnProvider>
-							<AboutProvider>
-								<ReviewsProvider>
-									<div className="App">
-										<Switch>
-											<Route path="/" component={Home} exact />
-											<Route path="/about" component={About} />
-											<Route path="/careers" component={Careers} />
-											<Route path="/earn" component={Earn} />
-											<Route path="/press" component={Press} />
-											<Route path="/learn" component={Learn} />
-											<Route path="/prices" component={Prices} exact />
-											<Route path="/prices/:id" component={PriceItems} />
-										</Switch>
-									</div>
-								</ReviewsProvider>
-							</AboutProvider>
-						</EarnProvider>
-					</PriceItemsProvider>
-				</PricesProvider>
-			</GlobalProvider>
+			<HeaderProvider>
+				<GlobalProvider>
+					<PricesProvider>
+						<PriceItemsProvider>
+							<EarnProvider>
+								<AboutProvider>
+									<ReviewsProvider>
+										<div className="App">
+											<Switch>
+												<Route path="/" component={Home} exact />
+												<Route path="/about" component={About} />
+												<Route path="/careers" component={Careers} />
+												<Route path="/earn" component={Earn} />
+												<Route path="/press" component={Press} />
+												<Route path="/learn" component={Learn} />
+												<Route path="/prices" component={Prices} exact />
+												<Route path="/prices/:id" component={PriceItems} />
+											</Switch>
+										</div>
+									</ReviewsProvider>
+								</AboutProvider>
+							</EarnProvider>
+						</PriceItemsProvider>
+					</PricesProvider>
+				</GlobalProvider>
+			</HeaderProvider>
 		</Router>
 	);
 }

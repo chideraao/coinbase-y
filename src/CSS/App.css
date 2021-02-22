@@ -275,6 +275,10 @@ table tbody td span {
 	color: var(--light-grey-text);
 }
 
+table tbody tr:hover {
+	background-color: #f8f8fff8;
+}
+
 table tr .flex {
 	justify-content: flex-start;
 }
@@ -796,21 +800,44 @@ hr {
 @media (max-width: 960px) {
 	.header .narrow-header {
 		justify-content: space-between;
-		margin: 0.5rem 1.5rem;
+		margin: 0.5rem 0;
+		margin-top: 0;
+		margin-right: 2rem;
+		width: 100%;
+		padding-top: 1rem;
 	}
 
 	.header .narrow-header h1 {
-		font-size: 1.7rem;
+		margin-left: 2rem;
+		font-size: 1.4rem;
 		font-weight: 500;
-		color: var(--primary-color);
+		color: var(--secondary-color);
+	}
+
+	.header .narrow-header > *:nth-child(2) {
+		margin-right: 2rem;
 	}
 
 	.header .narrow-header .green-btn {
-		margin-top: 0.4rem;
 		color: var(--secondary-color);
 		font-size: 12px;
-		background-color: var(--button-color);
+
+		border: 1px solid var(--secondary-color);
 		padding: 0.25rem 0.6rem;
+	}
+
+	.header .narrow-header .menu-bar {
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+		margin-left: 1rem;
+	}
+
+	.header .narrow-header .font-awesome {
+		color: var(--secondary-color);
+		font-size: 1.3rem;
+		opacity: 0.6;
 	}
 
 	.tables {
@@ -843,7 +870,7 @@ hr {
 
 	.banner .banner-icons {
 		width: 90vw;
-		padding: 0rem 4rem;
+		padding: 0rem;
 	}
 
 	.banner .banner-icons .icon-item {
@@ -894,7 +921,7 @@ hr {
 	.overlay .overlay-text {
 		justify-content: start;
 		margin: 0rem;
-		margin-left: 2rem;
+		margin-left: 0;
 	}
 
 	.features .grid {
@@ -1039,7 +1066,7 @@ hr {
 
 	.banner .banner-icons {
 		width: 100vw;
-		padding: 0rem 1rem;
+		padding: 0rem 0.7rem;
 		margin: 0rem 1rem;
 	}
 
@@ -1078,9 +1105,21 @@ hr {
 		margin-left: 0rem;
 	}
 
+	.features {
+		margin-top: 0;
+	}
+
 	.features .features-icons {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
+	}
+
+	.features .features-head {
+		margin-bottom: 1rem;
+	}
+
+	.features .features-head h2 {
+		font-size: 2rem;
 	}
 
 	.features .features-svg-container {
@@ -3607,6 +3646,35 @@ table tr .flex {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.prices .header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 1.5rem;
+		margin-top: 0;
+		width: 90%;
+	}
+
+	.prices .header .narrow-header h1 {
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: var(--primary-color);
+	}
+
+	.prices .header .narrow-header .menu-bar {
+		border: 2px solid var(--primary-color);
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+		margin-left: 1rem;
+		margin-top: 1rem;
+	}
+
+	.prices .header .narrow-header .font-awesome {
+		color: var(--primary-color);
+		font-size: 1.3rem;
+		margin: 1rem;
+	}
+
 	.prices .market-health .box-container {
 		display: block;
 	}
@@ -4474,10 +4542,6 @@ table tr .flex {
 		overflow: visible;
 	}
 }
-
-@media (max-width: 1140px) {
-}
-
 /*Tablets and under*/
 @media (max-width: 960px) {
 	.price-items .price-items-main .grid canvas {
