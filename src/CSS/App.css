@@ -809,19 +809,18 @@ hr {
 
 	.header .narrow-header h1 {
 		margin-left: 2rem;
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		font-weight: 500;
 		color: var(--secondary-color);
 	}
 
 	.header .narrow-header > *:nth-child(2) {
-		margin-right: 2rem;
+		margin-right: 1rem;
 	}
 
 	.header .narrow-header .green-btn {
 		color: var(--secondary-color);
 		font-size: 12px;
-
 		border: 1px solid var(--secondary-color);
 		padding: 0.25rem 0.6rem;
 	}
@@ -831,13 +830,108 @@ hr {
 		padding: 0.1rem 0.7rem;
 		padding-top: 0.2rem;
 		cursor: pointer;
-		margin-left: 1rem;
+		margin-left: 0.5rem;
 	}
 
 	.header .narrow-header .font-awesome {
 		color: var(--secondary-color);
 		font-size: 1.3rem;
 		opacity: 0.6;
+	}
+
+	.header-menu .narrow-header {
+		justify-content: space-between;
+		margin: 0;
+		margin-right: 2rem;
+		width: 100%;
+		padding: 1rem 0;
+		border-bottom: 1px solid rgb(236, 239, 241);
+	}
+
+	.header-menu .narrow-header h1 {
+		margin-left: 2rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: var(--primary-color);
+	}
+
+	.header-menu .narrow-header > *:nth-child(2) {
+		margin-right: 2rem;
+	}
+
+	.header-menu .narrow-header .menu-bar {
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+		margin-left: 1rem;
+	}
+
+	.header-menu .narrow-header .font-awesome {
+		color: var(--primary-color);
+		font-size: 1.5rem;
+		opacity: 0.7;
+	}
+
+	.header-menu .btn-container {
+		padding: 1.5rem;
+		padding-bottom: 0rem;
+		border-bottom: 1px solid rgb(236, 239, 241);
+	}
+
+	.header-menu .btn-container .btn {
+		text-align: center;
+		width: 95vw;
+		height: 4rem;
+		padding-top: 1rem;
+		font-size: 1rem;
+		font-weight: 500;
+		align-self: center;
+	}
+
+	.header-menu .btn-container .btn-outline {
+		color: var(--primary-color);
+	}
+
+	.header-menu .nav-links {
+		padding: 1.5rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid rgb(236, 239, 241);
+	}
+
+	.header-menu .nav-links a {
+		color: var(--dark-color);
+		text-align: center;
+		width: 95vw;
+		margin-bottom: 0.5rem;
+		height: 4rem;
+		border: 1px solid rgb(236, 239, 241);
+		border-radius: 4px;
+		padding-top: 1rem;
+		font-size: 1rem;
+		font-weight: 500;
+		align-self: center;
+	}
+
+	.header-menu .earn-section {
+		padding: 1.5rem;
+		border: 1px solid rgb(236, 239, 241);
+	}
+
+	.header-menu .earn-section .flex {
+		justify-content: space-between;
+	}
+
+	.header-menu .earn-section a {
+		color: var(--primary-color);
+	}
+
+	.header-menu .earn-section .green-btn {
+		margin-top: 0.4rem;
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: var(--button-color);
+		padding: 0.25rem 0.6rem;
 	}
 
 	.tables {
@@ -2504,6 +2598,20 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.earn .header .narrow-header .green-btn {
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: transparent;
+		border: 1px solid rgb(236, 239, 241);
+		padding: 0.25rem 0.6rem;
+	}
+
+	.earn .header-menu .narrow-header .font-awesome {
+		color: var(--dark-color);
+		margin: 0;
+		opacity: 0.7;
+	}
+
 	.earn .showcase {
 		margin: 0rem;
 	}
@@ -2538,6 +2646,7 @@ hr {
 	}
 
 	.earn .showcase h1 {
+		font-size: 2.3rem;
 		margin: 0rem;
 		margin-bottom: 1rem;
 	}
@@ -3140,7 +3249,7 @@ hr {
 	padding: 0.8rem 1.5rem;
 }
 
-/* --------------------------------------------------------  EARN MEDIA QUERIES  ---------------------------------------------------------------- */
+/* --------------------------------------------------------  LEARN MEDIA QUERIES  ---------------------------------------------------------------- */
 @media (max-width: 1140px) {
 	.learn .learn-showcase,
 	.learn .learn-features,
@@ -3161,12 +3270,71 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.learn .header {
+		border-bottom: 1px solid rgb(236, 239, 241);
+		padding-bottom: 0.2rem;
+	}
+
+	.learn .header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 0;
+		margin-top: 0;
+		margin-right: 2rem;
+		width: 100%;
+		padding-top: 1rem;
+		margin-bottom: 0;
+	}
+
+	.learn .header .narrow-header h1 {
+		margin-left: 2rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: var(--primary-color);
+	}
+
+	.learn .header .narrow-header > *:nth-child(2) {
+		margin-right: 1rem;
+	}
+
+	.learn .header .narrow-header .green-btn {
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: var(--button-color);
+		border: 1px solid var(--button-color);
+		padding: 0.25rem 0.6rem;
+	}
+
+	.learn .header .narrow-header .menu-bar {
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+		margin-left: 0.5rem;
+	}
+
+	.learn .header .narrow-header .font-awesome {
+		color: var(--dark-color);
+		font-size: 1.3rem;
+		opacity: 0.7;
+		margin: 0;
+	}
+
+	.learn .header-menu .narrow-header .font-awesome {
+		color: var(--dark-color);
+		margin: 0;
+		opacity: 0.7;
+	}
+
 	.learn .learn-showcase,
 	.learn .learn-features,
 	.learn .crypto-basics,
 	.learn .learn-earn,
 	.learn .market-updates {
 		margin: 1rem 0rem;
+	}
+
+	.learn .learn-showcase h1 {
+		font-size: 3rem;
 	}
 
 	.learn .learn-showcase .container,
@@ -3648,31 +3816,52 @@ table tr .flex {
 @media (max-width: 960px) {
 	.prices .header .narrow-header {
 		justify-content: space-between;
-		margin: 0.5rem 1.5rem;
+		margin: 0.5rem 0;
 		margin-top: 0;
-		width: 90%;
+		margin-right: 2rem;
+		width: 100%;
+		padding-top: 1rem;
+		border-bottom: 1px solid rgb(236, 239, 241);
 	}
 
 	.prices .header .narrow-header h1 {
-		font-size: 1.4rem;
+		margin-left: 2rem;
+		font-size: 1.5rem;
 		font-weight: 500;
 		color: var(--primary-color);
 	}
 
+	.prices .header .narrow-header > *:nth-child(2) {
+		margin-right: 1rem;
+	}
+
+	.prices .header .narrow-header .green-btn {
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: var(--button-color);
+		border: 1px solid var(--button-color);
+		padding: 0.25rem 0.6rem;
+	}
+
 	.prices .header .narrow-header .menu-bar {
-		border: 2px solid var(--primary-color);
 		border-radius: 4px;
 		padding: 0.1rem 0.7rem;
 		padding-top: 0.2rem;
 		cursor: pointer;
-		margin-left: 1rem;
-		margin-top: 1rem;
+		margin-left: 0.5rem;
 	}
 
 	.prices .header .narrow-header .font-awesome {
-		color: var(--primary-color);
+		color: var(--dark-color);
 		font-size: 1.3rem;
-		margin: 1rem;
+		opacity: 0.7;
+		margin: 0;
+	}
+
+	.prices .header-menu .narrow-header .font-awesome {
+		color: var(--dark-color);
+		margin: 0;
+		opacity: 0.7;
 	}
 
 	.prices .market-health .box-container {
@@ -4544,6 +4733,56 @@ table tr .flex {
 }
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.price-items .header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 0;
+		margin-top: 0;
+		margin-right: 2rem;
+		width: 100%;
+		padding-top: 1rem;
+		border-bottom: 1px solid rgb(236, 239, 241);
+	}
+
+	.price-items .header .narrow-header h1 {
+		margin-left: 2rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: var(--primary-color);
+	}
+
+	.price-items .header .narrow-header > *:nth-child(2) {
+		margin-right: 1rem;
+	}
+
+	.price-items .header .narrow-header .green-btn {
+		color: var(--secondary-color);
+		font-size: 12px;
+		background-color: var(--button-color);
+		border: 1px solid var(--button-color);
+		padding: 0.25rem 0.6rem;
+	}
+
+	.price-items .header .narrow-header .menu-bar {
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+		margin-left: 0.5rem;
+	}
+
+	.price-items .header .narrow-header .font-awesome {
+		color: var(--dark-color);
+		font-size: 1.3rem;
+		opacity: 0.7;
+		margin: 0;
+	}
+
+	.price-items .header-menu .narrow-header .font-awesome {
+		color: var(--dark-color);
+		margin: 0;
+		opacity: 0.7;
+	}
+
 	.price-items .price-items-main .grid canvas {
 		width: auto;
 		height: 12rem !important;

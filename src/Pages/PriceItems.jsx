@@ -69,13 +69,13 @@ const setLowerCase = (str) => {
 };
 
 function PriceItems({ match }) {
-	// const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [menuClick, setMenuClick] = useContext(HeaderContext);
 	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
 	useEffect(() => {
+		setMenuClick(false);
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
