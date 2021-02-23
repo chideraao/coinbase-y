@@ -1,11 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../customHook/UseMediaQuery";
+import { HeaderContext } from "../State/HeaderContext";
 
 function AboutHeader() {
+	const [menuClick, setMenuClick] = useContext(HeaderContext);
+
 	let isPageSmall = useMediaQuery("(max-width: 800px)");
+
+	/**handling click events for page resize */
+	const handleClick = () => {
+		setMenuClick(!menuClick);
+	};
 
 	return (
 		<div className="about-header">
@@ -16,7 +24,7 @@ function AboutHeader() {
 							<h1 className="logo">basecoin</h1>
 						</Link>
 					</div>
-					<div className="menu-bar">
+					<div className="menu-bar" onClick={handleClick}>
 						<FontAwesomeIcon
 							className="font-awesome"
 							fontWeight="light"

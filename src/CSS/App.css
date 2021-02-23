@@ -2263,7 +2263,7 @@ hr {
 
 	.about .subnav .nav .about {
 		border-bottom: 1px solid var(--dark-color);
-		padding-bottom: 1.26rem;
+		padding-bottom: 1.21rem;
 	}
 
 	.about .main {
@@ -2298,7 +2298,7 @@ hr {
 	}
 
 	.about .about-header .narrow-header .menu-bar {
-		border: 2px solid var(--secondary-color);
+		border: 2px solid rgba(255, 255, 255, 0.8);
 		border-radius: 4px;
 		padding: 0.1rem 0.7rem;
 		padding-top: 0.2rem;
@@ -2308,6 +2308,7 @@ hr {
 	.about .about-header .narrow-header .font-awesome {
 		color: var(--secondary-color);
 		font-size: 1.3rem;
+		opacity: 0.8;
 	}
 
 	.about .showcase .container h1 {
@@ -2774,6 +2775,26 @@ hr {
 
 /*Tablets and under*/
 @media (max-width: 960px) {
+	.press .about-header .narrow-header {
+		justify-content: space-between;
+		margin: 0.5rem 1.5rem;
+		margin-top: 0;
+	}
+
+	.press .about-header .narrow-header .menu-bar {
+		border: 2px solid rgba(255, 255, 255, 0.8);
+		border-radius: 4px;
+		padding: 0.1rem 0.7rem;
+		padding-top: 0.2rem;
+		cursor: pointer;
+	}
+
+	.press .about-header .narrow-header .font-awesome {
+		color: var(--secondary-color);
+		font-size: 1.3rem;
+		opacity: 0.8;
+	}
+
 	.press .press-main {
 		margin: 2rem 0.5rem;
 	}

@@ -75,7 +75,6 @@ function PriceItems({ match }) {
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
 	useEffect(() => {
-		setMenuClick(false);
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
