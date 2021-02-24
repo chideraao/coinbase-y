@@ -166,7 +166,7 @@ function PriceItems({ match }) {
 			) : (
 				<>
 					<Header />
-					{cryptos.length && (
+					{cryptos.length ? (
 						<section className="priceitems-breadcrumbs">
 							<div className="container">
 								<div className="breadcrumbs">
@@ -183,6 +183,8 @@ function PriceItems({ match }) {
 								</div>
 							</div>
 						</section>
+					) : (
+						""
 					)}
 					<section className="price-items-main">
 						<PriceItemsMain match={match} />

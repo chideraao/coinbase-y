@@ -285,7 +285,7 @@ function PricesTable() {
 												Math.round(item.price * 100) / 100
 											)}`}
 										</td>
-										{cryptos[index] && (
+										{cryptos[index] ? (
 											<td
 												className={
 													item[`${selectOption}`].price_change_pct * 100 >= 0
@@ -305,6 +305,8 @@ function PricesTable() {
 															) / 10
 													  }%`}
 											</td>
+										) : (
+											""
 										)}
 										<td className="crypto-volume">
 											{userData.currency.symbol} {`${abbr(item.market_cap)}`}

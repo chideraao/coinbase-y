@@ -151,7 +151,7 @@ function ChartTable() {
 
 	return (
 		<div className="home-table">
-			{cryptos.length && sparkline.length && (
+			{cryptos.length && sparkline.length ? (
 				<table role="table">
 					<thead>
 						<tr>
@@ -212,6 +212,8 @@ function ChartTable() {
 						})}
 					</tbody>
 				</table>
+			) : (
+				""
 			)}
 		</div>
 	);

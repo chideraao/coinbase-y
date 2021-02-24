@@ -22,7 +22,7 @@ function BuyAsset() {
 			onMouseOver={handleMouseOver}
 			onMouseLeave={handleMouseLeave}
 		>
-			{cryptos.length && (
+			{cryptos.length ? (
 				<div className={mouseOver ? "opaque-bg card" : "card"}>
 					<h2>Buy</h2>
 					<div className="buy-main flex">
@@ -31,8 +31,10 @@ function BuyAsset() {
 					</div>
 					<div className="buy-btn btn">Buy {cryptos[0].name}</div>
 				</div>
+			) : (
+				""
 			)}
-			{mouseOver && (
+			{mouseOver ? (
 				<div className="card hover-div" onMouseOver={handleMouseOver}>
 					<h3>Ready to buy {cryptos[0].id}?</h3>
 					<div className="hover-btn flex-column">
@@ -41,6 +43,8 @@ function BuyAsset() {
 						<div className="btn btn-outline">Log in</div>
 					</div>
 				</div>
+			) : (
+				""
 			)}
 		</section>
 	);

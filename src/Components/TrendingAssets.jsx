@@ -106,12 +106,11 @@ function TrendingAssets() {
 				Assets with the biggest change in unique page views on Basecoin.com over
 				the past 24 hours
 			</p>
-
 			<div className="assets-main">
 				{memoizedAssets.map((asset) => {
 					return (
-						<Link to={`/prices/${asset.id}`}>
-							<div key={asset.id} className="flex">
+						<Link key={asset.id} to={`/prices/${asset.id}`}>
+							<div className="flex">
 								<div className="asset-id flex">
 									<div className="img-container">
 										<img src={asset.img_url} alt={`${asset.name} logo`} />

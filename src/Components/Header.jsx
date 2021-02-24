@@ -29,7 +29,7 @@ function Header() {
 
 	return (
 		<div className="header">
-			{isPageSmall && (
+			{isPageSmall ? (
 				<div className="narrow-header flex">
 					<div className="flex">
 						<Link to="/">
@@ -50,9 +50,11 @@ function Header() {
 						</div>
 					</div>
 				</div>
+			) : (
+				""
 			)}
 
-			{!isPageSmall && (
+			{!isPageSmall ? (
 				<div className="navbar flex container">
 					<div className="flex">
 						<Link to="/">
@@ -81,7 +83,7 @@ function Header() {
 											size="2x"
 										/>
 									</li>
-									{mouseOver && (
+									{mouseOver ? (
 										<div
 											className="mouse-over card"
 											onMouseOver={handleMouseOver}
@@ -98,6 +100,8 @@ function Header() {
 												</Link>
 											</ul>
 										</div>
+									) : (
+										""
 									)}
 								</Link>
 								<Link to="/earn" className="crypto">
@@ -118,6 +122,8 @@ function Header() {
 						</a>
 					</div>
 				</div>
+			) : (
+				""
 			)}
 		</div>
 	);

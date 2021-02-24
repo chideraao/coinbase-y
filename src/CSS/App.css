@@ -844,7 +844,7 @@ hr {
 		margin: 0;
 		margin-right: 2rem;
 		width: 100%;
-		padding: 1rem 0;
+		padding: 0.5rem 0;
 		border-bottom: 1px solid rgb(236, 239, 241);
 	}
 
@@ -4177,7 +4177,7 @@ table tr .flex {
 .price-items .price-items-main .card .coins-header {
 	justify-content: space-between;
 	padding: 0rem 1rem;
-	padding-bottom: 2rem;
+	padding-bottom: 1rem;
 }
 
 .price-items .price-items-main .card .coins-header span {
@@ -4224,6 +4224,7 @@ table tr .flex {
 	width: auto;
 	height: 17rem !important;
 	cursor: crosshair;
+	padding-top: 2rem;
 	border-bottom: 1px solid rgb(236, 239, 241);
 }
 
