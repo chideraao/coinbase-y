@@ -87,6 +87,9 @@ function PricesTable() {
 					),
 				])
 					.then((res) => {
+						console.log(res[0]);
+						console.log(res[1]);
+						console.log(res[2]);
 						setCryptos(res[0].data);
 						setShowcaseCryptos(res[2].data);
 						setSparkline(res[1].data);
@@ -104,6 +107,16 @@ function PricesTable() {
 			console.log("cleaned up");
 		};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
+
+	const axiosCalls = (url, options) => {
+		// Return a fetch request
+		return fetch(url, options).then((res) => {
+			// check if successful. If so, return the response transformed to json
+			if (res.ok) return res.json();
+			// else, return a call to fetchRetry
+			return axiosCalls(url, options);
+		});
+	};
 
 	/**handling selectbox options and button click events, sorting, filtering, dispatch etc */
 	const handleChange = (e) => {

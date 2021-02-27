@@ -65,7 +65,7 @@ const formatFirstTrade = (str) => {
 /**set lowercase and replace spaces */
 
 const setLowerCase = (str) => {
-	return str.toLowerCase().replace(" ", "-");
+	return str.toLowerCase().replaceAll(" ", "-");
 };
 
 function PriceItems({ match }) {
@@ -84,6 +84,7 @@ function PriceItems({ match }) {
 				)
 					.then((res) => {
 						setCryptos(res.data);
+						console.log(res);
 						Axios.all([
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
@@ -177,7 +178,7 @@ function PriceItems({ match }) {
 										icon="chevron-right"
 										size="3x"
 									/>
-									<a href="/prices/priceitems">
+									<a href={`/prices/${match.params.id}`}>
 										&nbsp; {cryptos[0].name} price
 									</a>
 								</div>

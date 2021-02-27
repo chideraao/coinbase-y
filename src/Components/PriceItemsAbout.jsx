@@ -21,6 +21,7 @@ function PriceItemsAbout({ match }) {
 		)
 			.then((res) => {
 				setMetadata(res.data);
+				console.log(res);
 			})
 			.catch((err) => {
 				console.log(err);

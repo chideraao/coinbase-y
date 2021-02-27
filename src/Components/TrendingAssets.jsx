@@ -26,6 +26,7 @@ function TrendingAssets() {
 				)
 					.then((res) => {
 						setCryptos(res.data);
+						console.log(res);
 					})
 					.catch((err) => {
 						console.log(err);
