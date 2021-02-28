@@ -67,36 +67,56 @@ function PricesTable() {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.all([
-					Axios.get(
-						`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-					),
-					Axios.get(
-						`${api.sparklineBase}key=${
-							api.key
-						}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-							month < 10 ? `0${month}` : month
-						}-${day < 10 ? `0${day}` : day}T${
-							hour < 10 ? `0${hour}` : hour
-						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-							seconds < 10 ? `0${seconds}` : seconds
-						}Z&convert=${response.data.currency.code}`
-					),
-					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-					),
-				])
-					.then((res) => {
-						console.log(res[0]);
-						console.log(res[1]);
-						console.log(res[2]);
-						setCryptos(res[0].data);
-						setShowcaseCryptos(res[2].data);
-						setSparkline(res[1].data);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+				fetchCalls(
+					`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`,
+					setCryptos
+				);
+				fetchCalls(
+					`${api.sparklineBase}key=${
+						api.key
+					}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
+						month < 10 ? `0${month}` : month
+					}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
+						minute < 10 ? `0${minute}` : minute
+					}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
+						response.data.currency.code
+					}`,
+					setSparkline
+				);
+				fetchCalls(
+					`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`,
+					setShowcaseCryptos
+				);
+				// Axios.all([
+				// 	Axios.get(
+				// 		`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.sparklineBase}key=${
+				// 			api.key
+				// 		}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
+				// 			month < 10 ? `0${month}` : month
+				// 		}-${day < 10 ? `0${day}` : day}T${
+				// 			hour < 10 ? `0${hour}` : hour
+				// 		}%3A${minute < 10 ? `0${minute}` : minute}%3A${
+				// 			seconds < 10 ? `0${seconds}` : seconds
+				// 		}Z&convert=${response.data.currency.code}`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
+				// 	),
+				// ])
+				// 	.then((res) => {
+				// 		console.log(res[0]);
+				// 		console.log(res[1]);
+				// 		console.log(res[2]);
+				// 		setCryptos(res[0].data);
+				// 		setShowcaseCryptos(res[2].data);
+				// 		setSparkline(res[1].data);
+				// 	})
+				// 	.catch((error) => {
+				// 		console.log(error);
+				// 	});
 			})
 			.catch((err) => {
 				console.log(err);
@@ -108,14 +128,41 @@ function PricesTable() {
 		};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
 
-	const axiosCalls = (url, options) => {
+	console.log(sparkline);
+	console.log(showcaseCryptos);
+	console.log(cryptos);
+
+	const fetchCalls = (url, setState) => {
 		// Return a fetch request
-		return fetch(url, options).then((res) => {
-			// check if successful. If so, return the response transformed to json
-			if (res.ok) return res.json();
-			// else, return a call to fetchRetry
-			return axiosCalls(url, options);
-		});
+		// return fetch(url).then((res) => {
+		// 	// check if successful. If so, return the response transformed to json
+		// 	if (res.ok) return res.json();
+		// 	// else, return a call to fetchRetry
+		// 	return axiosCalls(url, setState);
+		// });
+
+		fetch(url)
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					fetchCalls(url, setState);
+				}
+			})
+			.then((data) => {
+				setState(data);
+				// Do something with the response
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+
+		// 		  fetch('https://api.github.com/orgs/axios')
+		//   .then(response => response.json())    // one extra step
+		//   .then(data => {
+		//     console.log(data)
+		//   })
+		//   .catch(error => console.error(error));
 	};
 
 	/**handling selectbox options and button click events, sorting, filtering, dispatch etc */
