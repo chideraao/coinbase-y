@@ -64,36 +64,26 @@ function PricesTable() {
 	);
 
 	const fetchCalls = useCallback((url, setState) => {
-		// Return a fetch request
-		// return fetch(url).then((res) => {
-		// 	// check if successful. If so, return the response transformed to json
-		// 	if (res.ok) return res.json();
-		// 	// else, return a call to fetchRetry
-		// 	return axiosCalls(url, setState);
-		// });
-
 		fetch(url)
 			.then((res) => {
+				// check if successful. If so, return the response transformed to json
 				if (res.ok) {
 					return res.json();
-				} else {
+				}
+				// else, return a call to fetchRetry
+				else {
 					fetchCalls(url, setState);
 				}
 			})
 			.then((data) => {
-				console.log(data);
+				if (data !== undefined) {
+					setState(data);
+				}
 				// Do something with the response
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-
-		// 		  fetch('https://api.github.com/orgs/axios')
-		//   .then(response => response.json())    // one extra step
-		//   .then(data => {
-		//     console.log(data)
-		//   })
-		//   .catch(error => console.error(error));
 	}, []);
 
 	useEffect(() => {
@@ -120,179 +110,6 @@ function PricesTable() {
 					`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`,
 					setShowcaseCryptos
 				);
-
-				fetch(
-					`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-				)
-					.then((res) => {
-						if (res.ok) {
-							return res.json();
-						} else {
-							fetch(
-								`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-							);
-						}
-					})
-					.then((res) => console.log(`cryptos is ${res}`))
-					.catch((err) => console.log(err));
-				fetch(
-					`${api.sparklineBase}key=${
-						api.key
-					}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-						month < 10 ? `0${month}` : month
-					}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
-						minute < 10 ? `0${minute}` : minute
-					}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
-						response.data.currency.code
-					}`
-				)
-					.then((res) => {
-						if (res.ok) {
-							return res.json();
-						} else {
-							fetch(
-								`${api.sparklineBase}key=${
-									api.key
-								}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-									month < 10 ? `0${month}` : month
-								}-${day < 10 ? `0${day}` : day}T${
-									hour < 10 ? `0${hour}` : hour
-								}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-									seconds < 10 ? `0${seconds}` : seconds
-								}Z&convert=${response.data.currency.code}`
-							);
-						}
-					})
-					.then((res) => console.log(`sparkline is ${res}`))
-					.catch((err) => console.log(err));
-				fetch(
-					`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-				)
-					.then((res) => {
-						if (res.ok) {
-							return res.json();
-						} else {
-							fetch(
-								`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-							);
-						}
-					})
-					.then((res) => console.log(`showcase is ${res}`))
-					.catch((err) => console.log(err));
-
-				// Promise.all([
-				// 	fetch(
-				// 		`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-				// 	),
-				// 	fetch(
-				// 		`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-				// 	),
-				// 	fetch(
-				// 		`${api.sparklineBase}key=${
-				// 			api.key
-				// 		}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-				// 			month < 10 ? `0${month}` : month
-				// 		}-${day < 10 ? `0${day}` : day}T${
-				// 			hour < 10 ? `0${hour}` : hour
-				// 		}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-				// 			seconds < 10 ? `0${seconds}` : seconds
-				// 		}Z&convert=${response.data.currency.code}`
-				// 	),
-				// ])
-				// 	.then(async ([res1, res2, res3]) => {
-				// 		if (res1.ok) {
-				// 			const a = await res1.json();
-				// 			console.log(
-				// 				a.login +
-				// 					" 1has(cryptos) " +
-				// 					a.public_repos +
-				// 					" public repos on GitHub"
-				// 			);
-				// 		} else {
-				// 			console.log("i am a boy1(cryptos)");
-				// 			fetch(
-				// 				`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-				// 			);
-				// 		}
-				// 		if (res2.ok) {
-				// 			const b = await res2.json();
-				// 			console.log(
-				// 				b.login +
-				// 					" 2has(showcase) " +
-				// 					b.public_repos +
-				// 					" public repos on GitHub"
-				// 			);
-				// 		} else {
-				// 			console.log("i am a boy2(showcase) ");
-				// 			fetch(
-				// 				`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-				// 			);
-				// 		}
-				// 		if (res3.ok) {
-				// 			const c = await res2.json();
-				// 			console.log(
-				// 				c.login +
-				// 					" 3has(sparkline) " +
-				// 					c.public_repos +
-				// 					" public repos on GitHub"
-				// 			);
-				// 		} else {
-				// 			console.log("i am a boy3(sparkline)");
-				// 			fetch(
-				// 				`${api.sparklineBase}key=${
-				// 					api.key
-				// 				}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-				// 					month < 10 ? `0${month}` : month
-				// 				}-${day < 10 ? `0${day}` : day}T${
-				// 					hour < 10 ? `0${hour}` : hour
-				// 				}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-				// 					seconds < 10 ? `0${seconds}` : seconds
-				// 				}Z&convert=${response.data.currency.code}`
-				// 			);
-				// 		}
-				// 	})
-				// 	.then((data1, data2, data3) => {
-				// 		console.log(data1);
-				// 		console.log(data3);
-				// 		console.log(data2);
-				// 		setCryptos(data1);
-				// 		setShowcaseCryptos(data2);
-				// 		setSparkline(data3);
-				// 	})
-				// 	.catch((error) => {
-				// 		console.log(error);
-				// 	});
-
-				// Axios.all([
-				// 	Axios.get(
-				// 		`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
-				// 	),
-				// 	Axios.get(
-				// 		`${api.sparklineBase}key=${
-				// 			api.key
-				// 		}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-				// 			month < 10 ? `0${month}` : month
-				// 		}-${day < 10 ? `0${day}` : day}T${
-				// 			hour < 10 ? `0${hour}` : hour
-				// 		}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-				// 			seconds < 10 ? `0${seconds}` : seconds
-				// 		}Z&convert=${response.data.currency.code}`
-				// 	),
-				// 	Axios.get(
-				// 		`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`
-				// 	),
-				// ])
-				// 	.then((res) => {
-				// 		console.log(res[0]);
-				// 		console.log(res[1]);
-				// 		console.log(res[2]);
-				// 		setCryptos(res[0].data);
-				// 		setShowcaseCryptos(res[2].data);
-				// 		setSparkline(res[1].data);
-				// 	})
-				// 	.catch((error) => {
-				// 		console.log(error);
-				// 	});
 			})
 			.catch((err) => {
 				console.log(err);

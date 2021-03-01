@@ -56,10 +56,7 @@ function Prices() {
 	/**memoizing crypto values, rendering breaks otherwise */
 	const marketHealth = React.useMemo(
 		() =>
-			sparkline === undefined &&
-			showcaseCryptos === undefined &&
-			!sparkline.length &&
-			!showcaseCryptos.length
+			!sparkline.length && !showcaseCryptos.length
 				? []
 				: [
 						{
