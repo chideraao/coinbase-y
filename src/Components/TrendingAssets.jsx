@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 const api = {
@@ -17,25 +17,52 @@ function TrendingAssets() {
 	const [userData, setUserData] = useState([]);
 	const [cryptos, setCryptos] = useState([]);
 
+	const fetchCalls = useCallback((url, setState) => {
+		fetch(url)
+			.then((res) => {
+				// check if successful. If so, return the response transformed to json
+				if (res.ok) {
+					return res.json();
+				}
+				// else, return a call to fetchRetry
+				else {
+					fetchCalls(url, setState);
+				}
+			})
+			.then((data) => {
+				if (data !== undefined) {
+					setState(data);
+				}
+				// Do something with the response
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.get(
-					`${api.base}key=${api.key}&ids=XTZ,REP,FIL,DASH,ETH,AAVE&convert=${response.data.currency.code}&interval=1d`
-				)
-					.then((res) => {
-						setCryptos(res.data);
-						console.log(res);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+				fetchCalls(
+					`${api.base}key=${api.key}&ids=XTZ,REP,FIL,DASH,ETH,AAVE&convert=${response.data.currency.code}&interval=1d`,
+					setCryptos
+				);
+				// Axios.get(
+				// 	`${api.base}key=${api.key}&ids=XTZ,REP,FIL,DASH,ETH,AAVE&convert=${response.data.currency.code}&interval=1d`
+				// )
+				// 	.then((res) => {
+				// 		setCryptos(res.data);
+				// 		console.log(res);
+				// 	})
+				// 	.catch((err) => {
+				// 		console.log(err);
+				// 	});
 			})
 			.catch((errr) => {
 				console.log(errr);
 			});
-	}, []);
+	}, [fetchCalls]);
 
 	const memoizedAssets = React.useMemo(
 		() =>

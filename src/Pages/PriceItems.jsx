@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import { useEffect } from "react/cjs/react.development";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
@@ -74,53 +74,58 @@ function PriceItems({ match }) {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	useEffect(() => {
-		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
-			.then((response) => {
-				setUserData(response.data);
-
-				Axios.get(
-					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
-				)
-					.then((res) => {
-						setCryptos(res.data);
-						console.log(res);
+	const fetchCalls = useCallback(
+		(url, setState) => {
+			fetch(url)
+				.then((res) => {
+					// check if successful. If so, return the response transformed to json
+					if (res.ok) {
+						return res.json();
+					}
+					// else, return a call to fetchRetry
+					else {
+						fetchCalls(url, setState);
+					}
+				})
+				.then((data) => {
+					if (data !== undefined) {
+						setState(data);
 						Axios.all([
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
+									cryptos[0].name
 								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
+									userData.currency.code
 								}&from=${dayUNIX}&to=${currentUNIX}`
 							),
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
+									cryptos[0].name
 								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
+									userData.currency.code
 								}&from=${weekUNIX}&to=${currentUNIX}`
 							),
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
+									cryptos[0].name
 								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
+									userData.currency.code
 								}&from=${monthUNIX}&to=${currentUNIX}`
 							),
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
+									cryptos[0].name
 								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
+									userData.currency.code
 								}&from=${yearUNIX}&to=${currentUNIX}`
 							),
 							Axios.get(
 								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
+									cryptos[0].name
 								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
+									userData.currency.code
 								}&from=${formatFirstTrade(
-									res.data[0].first_trade
+									cryptos[0].first_trade
 								)}&to=${currentUNIX}`
 							),
 						])
@@ -145,10 +150,95 @@ function PriceItems({ match }) {
 							.catch((errr) => {
 								console.log(errr);
 							});
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+					}
+					// Do something with the response
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		[cryptos, setSparkline, userData]
+	);
+
+	useEffect(() => {
+		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
+			.then((response) => {
+				setUserData(response.data);
+				fetchCalls(
+					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
+					setCryptos
+				);
+
+				// Axios.get(
+				// 	`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
+				// )
+				// 	.then((res) => {
+				// 		setCryptos(res.data);
+
+				// Axios.all([
+				// 	Axios.get(
+				// 		`${api.sparklineBase}${setLowerCase(
+				// 			res.data[0].name
+				// 		)}/market_chart/range?vs_currency=${
+				// 			response.data.currency.code
+				// 		}&from=${dayUNIX}&to=${currentUNIX}`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.sparklineBase}${setLowerCase(
+				// 			res.data[0].name
+				// 		)}/market_chart/range?vs_currency=${
+				// 			response.data.currency.code
+				// 		}&from=${weekUNIX}&to=${currentUNIX}`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.sparklineBase}${setLowerCase(
+				// 			res.data[0].name
+				// 		)}/market_chart/range?vs_currency=${
+				// 			response.data.currency.code
+				// 		}&from=${monthUNIX}&to=${currentUNIX}`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.sparklineBase}${setLowerCase(
+				// 			res.data[0].name
+				// 		)}/market_chart/range?vs_currency=${
+				// 			response.data.currency.code
+				// 		}&from=${yearUNIX}&to=${currentUNIX}`
+				// 	),
+				// 	Axios.get(
+				// 		`${api.sparklineBase}${setLowerCase(
+				// 			res.data[0].name
+				// 		)}/market_chart/range?vs_currency=${
+				// 			response.data.currency.code
+				// 		}&from=${formatFirstTrade(
+				// 			res.data[0].first_trade
+				// 		)}&to=${currentUNIX}`
+				// 	),
+				// ])
+
+				// 	.then((ress) => {
+				// 		setSparkline((prevState) => {
+				// 			return [...prevState, ress[0].data];
+				// 		});
+				// 		setSparkline((prevState) => {
+				// 			return [...prevState, ress[1].data];
+				// 		});
+				// 		setSparkline((prevState) => {
+				// 			return [...prevState, ress[2].data];
+				// 		});
+				// 		setSparkline((prevState) => {
+				// 			return [...prevState, ress[3].data];
+				// 		});
+				// 		setSparkline((prevState) => {
+				// 			return [...prevState, ress[4].data];
+				// 		});
+				// 	})
+				// 	.catch((errr) => {
+				// 		console.log(errr);
+				// 	});
+				// })
+				// .catch((error) => {
+				// 	console.log(error);
+				// });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -158,7 +248,7 @@ function PriceItems({ match }) {
 			setCryptos([]);
 			setSparkline([]);
 		};
-	}, [setCryptos, setSparkline, setUserData, match]);
+	}, [setCryptos, setSparkline, setUserData, match, fetchCalls]);
 
 	return (
 		<div className="price-items">

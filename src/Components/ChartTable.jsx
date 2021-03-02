@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import {
 	CryptosContext,
 	SparklineContext,
@@ -48,49 +48,64 @@ function ChartTable() {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 
+	const fetchCalls = useCallback((url, setState) => {
+		fetch(url)
+			.then((res) => {
+				// check if successful. If so, return the response transformed to json
+				if (res.ok) {
+					return res.json();
+				}
+				// else, return a call to fetchRetry
+				else {
+					fetchCalls(url, setState);
+				}
+			})
+			.then((data) => {
+				if (data !== undefined) {
+					setState(data);
+				}
+				// Do something with the response
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.all([
-					Axios.get(
-						`${api.sparklineBase}key=${
-							api.key
-						}&ids=BTC,ETH,BCH,LTC&start=${year}-${
-							month < 10 ? `0${month}` : month
-						}-${day < 10 ? `0${day}` : day}T${
-							hour < 10 ? `0${hour}` : hour
-						}%3A${minute < 10 ? `0${minute}` : minute}%3A${
-							seconds < 10 ? `0${seconds}` : seconds
-						}Z&convert=${response.data.currency.code}`
-					),
-					Axios.get(
-						`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
-					),
-				])
-					.then((res) => {
-						setCryptos(res[1].data);
-						setSparkline(res[0].data);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+				fetchCalls(
+					`${api.sparklineBase}key=${
+						api.key
+					}&ids=BTC,ETH,BCH,LTC&start=${year}-${
+						month < 10 ? `0${month}` : month
+					}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
+						minute < 10 ? `0${minute}` : minute
+					}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
+						response.data.currency.code
+					}`,
+					setSparkline
+				);
+				fetchCalls(
+					`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`,
+					setCryptos
+				);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		return () => {
-			// setCryptos([]);
-			// setSparkline([]);
-			// console.log("cleaned up");
-		};
-	}, [setCryptos, setSparkline, setUserData]);
+		return () => {};
+	}, [setCryptos, setSparkline, setUserData, fetchCalls]);
 
 	/** memoization of table values and prevention of rendering before the components are ready for render */
 
 	const tableData = React.useMemo(
 		() =>
-			!cryptos.length && !sparkline.length
+			!cryptos.length ||
+			!sparkline.length ||
+			cryptos === undefined ||
+			sparkline === undefined
 				? []
 				: [
 						{

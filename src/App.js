@@ -82,3 +82,48 @@ function App() {
 }
 
 export default App;
+
+// const badBoys = [
+// 	{
+// 		name: "donald",
+// 		strokeGame: "rubbish",
+// 		dickGame: "rubbish",
+// 		tongueGame: "absent",
+// 	},
+// 	{
+// 		name: "jude",
+// 		strokeGame: "rubbish",
+// 		dickGame: "rubbish",
+// 		tongueGame: "rubbish",
+// 	},
+// 	{
+// 		name: "jerry",
+// 		strokeGame: "rubbish",
+// 		dickGame: "rubbish",
+// 		tongueGame: "rubbish",
+// 	},
+// 	{
+// 		name: "chidera",
+// 		strokeGame: "awesome",
+// 		dickGame: "magnificent",
+// 		tongueGame: "heavenly",
+// 	},
+// ];
+
+// <div>
+// 	{badBoys.map((badBoy,index) => {
+// 		return (
+// 			<div key={index}> {/** this is actually one of the best ways to write your keys.
+// 			 *  cause its never gonna mutate, it's sort of perfect.
+// 			 * the only exception could be when you're working with an API and there's an 'id' property.
+// 			 *  so you know that each value actually has a unique id.
+// 			 * */}
+
+// 				<p>{badBoy.name}</p>
+// 				<p>{badBoy.strokeGame}</p>
+// 				<p>{badBoy.tongueGame}</p>
+// 				<p>{badBoy.dickGame}</p>
+// 			</div>
+// 		);
+// 	})}
+// </div>;

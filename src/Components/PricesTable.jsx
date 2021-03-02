@@ -114,11 +114,7 @@ function PricesTable() {
 			.catch((err) => {
 				console.log(err);
 			});
-		return () => {
-			// setCryptos([]);
-			// setSparkline([]);
-			console.log("cleaned up");
-		};
+		return () => {};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos, fetchCalls]);
 
 	console.log(sparkline);

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
 
@@ -15,18 +15,45 @@ function PriceItemsAbout({ match }) {
 	const [metadata, setMetadata] = useState([]);
 	const [expand, setExpand] = useState(false);
 
-	useEffect(() => {
-		Axios.get(
-			`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`
-		)
+	const fetchCalls = useCallback((url, setState) => {
+		fetch(url)
 			.then((res) => {
-				setMetadata(res.data);
-				console.log(res);
+				// check if successful. If so, return the response transformed to json
+				if (res.ok) {
+					return res.json();
+				}
+				// else, return a call to fetchRetry
+				else {
+					fetchCalls(url, setState);
+				}
 			})
-			.catch((err) => {
-				console.log(err);
+			.then((data) => {
+				if (data !== undefined) {
+					setState(data);
+				}
+				// Do something with the response
+			})
+			.catch((error) => {
+				console.log(error);
 			});
-	}, [match]);
+	}, []);
+
+	useEffect(() => {
+		fetchCalls(
+			`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`,
+			setMetadata
+		);
+		// Axios.get(
+		// 	`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`
+		// )
+		// 	.then((res) => {
+		// 		setMetadata(res.data);
+		// 		console.log(res);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	});
+	}, [match, fetchCalls]);
 
 	const handleClick = () => {
 		setExpand(!expand);
