@@ -63,7 +63,7 @@ function PricesTable() {
 		ShowcaseCryptosContext
 	);
 
-	const fetchCalls = useCallback((url, setState) => {
+	const fetchCalls = useCallback((url, setState, retries = 7) => {
 		fetch(url)
 			.then((res) => {
 				// check if successful. If so, return the response transformed to json
@@ -71,8 +71,10 @@ function PricesTable() {
 					return res.json();
 				}
 				// else, return a call to fetchRetry
-				else {
-					fetchCalls(url, setState);
+				if (retries > 0) {
+					return fetchCalls(url, setState, retries - 1);
+				} else {
+					throw new Error(res);
 				}
 			})
 			.then((data) => {
