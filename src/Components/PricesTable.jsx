@@ -119,10 +119,6 @@ function PricesTable() {
 		return () => {};
 	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos, fetchCalls]);
 
-	console.log(sparkline);
-	console.log(showcaseCryptos);
-	console.log(cryptos);
-
 	/**handling selectbox options and button click events, sorting, filtering, dispatch etc */
 	const handleChange = (e) => {
 		setInput(e.target.value);

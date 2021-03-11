@@ -74,36 +74,10 @@ function PriceItems({ match }) {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	const fetchCalls = useCallback((url, setState, retries = 7) => {
-		fetch(url)
-			.then((res) => {
-				// check if successful. If so, return the response transformed to json
-				if (res.ok) {
-					return res.json();
-				}
-				// else, return a call to fetchRetry
-				if (retries > 0) {
-					return fetchCalls(url, setState, retries - 1);
-				} else {
-					throw new Error(res);
-				}
-			})
-			.then((data) => {
-				if (data !== undefined) {
-					setState(data);
-				}
-				// Do something with the response
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
-
 	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-
 				const fetchCalls = (url, setState, retries = 7) => {
 					fetch(url)
 						.then((res) => {
@@ -187,7 +161,6 @@ function PriceItems({ match }) {
 							console.log(error);
 						});
 				};
-
 				fetchCalls(
 					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
 					setCryptos
@@ -201,7 +174,7 @@ function PriceItems({ match }) {
 			setCryptos([]);
 			setSparkline([]);
 		};
-	}, [setCryptos, setSparkline, setUserData, match, fetchCalls]);
+	}, [setCryptos, setSparkline, setUserData, match]);
 
 	return (
 		<div className="price-items">

@@ -1928,6 +1928,10 @@ hr {
 	height: 12rem;
 }
 
+.about .showcase .container {
+	overflow: hidden;
+}
+
 .about .showcase h1 {
 	font-size: 2.5rem;
 	font-weight: 700;
