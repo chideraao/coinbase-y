@@ -50,16 +50,6 @@ function TrendingAssets() {
 					`${api.base}key=${api.key}&ids=XTZ,REP,FIL,DASH,ETH,AAVE&convert=${response.data.currency.code}&interval=1d`,
 					setCryptos
 				);
-				// Axios.get(
-				// 	`${api.base}key=${api.key}&ids=XTZ,REP,FIL,DASH,ETH,AAVE&convert=${response.data.currency.code}&interval=1d`
-				// )
-				// 	.then((res) => {
-				// 		setCryptos(res.data);
-				// 		console.log(res);
-				// 	})
-				// 	.catch((err) => {
-				// 		console.log(err);
-				// 	});
 			})
 			.catch((errr) => {
 				console.log(errr);

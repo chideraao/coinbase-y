@@ -32,6 +32,7 @@ import PriceItems from "./Pages/PriceItems";
 import { PriceItemsProvider } from "./State/PriceItemsContext";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { HeaderProvider } from "./State/HeaderContext";
+import Loader from "./Components/Loader";
 
 library.add(
 	faChevronLeft,
@@ -68,6 +69,7 @@ function App() {
 												<Route path="/learn" component={Learn} />
 												<Route path="/prices" component={Prices} exact />
 												<Route path="/prices/:id" component={PriceItems} />
+												<Route path="/loader" component={Loader} />
 											</Switch>
 										</div>
 									</ReviewsProvider>
@@ -82,48 +84,3 @@ function App() {
 }
 
 export default App;
-
-// const badBoys = [
-// 	{
-// 		name: "donald",
-// 		strokeGame: "rubbish",
-// 		dickGame: "rubbish",
-// 		tongueGame: "absent",
-// 	},
-// 	{
-// 		name: "jude",
-// 		strokeGame: "rubbish",
-// 		dickGame: "rubbish",
-// 		tongueGame: "rubbish",
-// 	},
-// 	{
-// 		name: "jerry",
-// 		strokeGame: "rubbish",
-// 		dickGame: "rubbish",
-// 		tongueGame: "rubbish",
-// 	},
-// 	{
-// 		name: "chidera",
-// 		strokeGame: "awesome",
-// 		dickGame: "magnificent",
-// 		tongueGame: "heavenly",
-// 	},
-// ];
-
-// <div>
-// 	{badBoys.map((badBoy,index) => {
-// 		return (
-// 			<div key={index}> {/** this is actually one of the best ways to write your keys.
-// 			 *  cause its never gonna mutate, it's sort of perfect.
-// 			 * the only exception could be when you're working with an API and there's an 'id' property.
-// 			 *  so you know that each value actually has a unique id.
-// 			 * */}
-
-// 				<p>{badBoy.name}</p>
-// 				<p>{badBoy.strokeGame}</p>
-// 				<p>{badBoy.tongueGame}</p>
-// 				<p>{badBoy.dickGame}</p>
-// 			</div>
-// 		);
-// 	})}
-// </div>;
