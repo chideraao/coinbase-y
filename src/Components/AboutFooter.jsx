@@ -1,13 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useEffect } from "react/cjs/react.development";
 
 function AboutFooter() {
-	useEffect(() => {
-		const testingText = document.documentElement.innerText;
-		console.log(testingText);
-	}, []);
-
 	return (
 		<>
 			<section className="about-footer">

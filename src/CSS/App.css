@@ -55,6 +55,18 @@ img {
 	width: 100%;
 }
 
+.loader {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader .font-awesome {
+	color: var(--primary-color);
+	font-weight: 200;
+}
+
 .gbEsE_ConTAinER {
 	background-color: var(--primary-color);
 	height: 36rem;

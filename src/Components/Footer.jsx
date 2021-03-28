@@ -1,15 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useEffect } from "react/cjs/react.development";
 
 function Footer() {
-	useEffect(() => {
-		setTimeout(() => {
-			const testingText = document.documentElement.innerText;
-			console.log(testingText);
-		}, 40000);
-	}, []);
-
 	return (
 		<div className="footer" id="footer">
 			<div className="container grid">

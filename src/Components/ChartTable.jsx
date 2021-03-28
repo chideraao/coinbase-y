@@ -1,5 +1,5 @@
-import Axios from "axios";
-import React, { useCallback, useContext, useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
 import {
 	CryptosContext,
 	SparklineContext,
@@ -13,28 +13,6 @@ import {
 } from "../Components/CoinsSparkline";
 import { Link } from "react-router-dom";
 
-/**Defining API endpoints */
-const api = {
-	base: "https://api.nomics.com/v1/currencies/ticker?",
-	key: process.env.REACT_APP_NOMICS_KEY,
-	sparklineBase: "https://api.nomics.com/v1/currencies/sparkline?",
-	zoneKey: process.env.REACT_APP_LOCATION_KEY,
-	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
-};
-/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
-//Get today's date using the JavaScript Date object.
-let ourDate = new Date();
-
-//Change it so that it is the previous day
-let pastDate = ourDate.getDate() - 1;
-ourDate.setDate(pastDate);
-let month = ourDate.getMonth() + 1;
-let year = ourDate.getFullYear();
-let day = ourDate.getDate();
-let hour = ourDate.getHours();
-let minute = ourDate.getMinutes();
-let seconds = ourDate.getSeconds();
-
 /**Regex for commas after every three digits */
 
 const addCommasToNumber = (num) => {
@@ -47,58 +25,6 @@ function ChartTable() {
 	const [cryptos, setCryptos] = useContext(CryptosContext);
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(SparklineContext);
-
-	const fetchCalls = useCallback((url, setState, retries = 7) => {
-		fetch(url)
-			.then((res) => {
-				// check if successful. If so, return the response transformed to json
-				if (res.ok) {
-					return res.json();
-				}
-				// else, return a call to fetchRetry
-				if (retries > 0) {
-					return fetchCalls(url, setState, retries - 1);
-				} else {
-					throw new Error(res);
-				}
-			})
-			.then((data) => {
-				if (data !== undefined) {
-					setState(data);
-				}
-				// Do something with the response
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
-
-	useEffect(() => {
-		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
-			.then((response) => {
-				setUserData(response.data);
-				fetchCalls(
-					`${api.sparklineBase}key=${
-						api.key
-					}&ids=BTC,ETH,BCH,LTC&start=${year}-${
-						month < 10 ? `0${month}` : month
-					}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
-						minute < 10 ? `0${minute}` : minute
-					}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
-						response.data.currency.code
-					}`,
-					setSparkline
-				);
-				fetchCalls(
-					`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`,
-					setCryptos
-				);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-		return () => {};
-	}, [setCryptos, setSparkline, setUserData, fetchCalls]);
 
 	/** memoization of table values and prevention of rendering before the components are ready for render */
 

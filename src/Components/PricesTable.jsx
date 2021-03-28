@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Axios from "axios";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserDataContext } from "../State/GlobalContext";
 import {
@@ -11,29 +10,6 @@ import {
 	ShowcaseCryptosContext,
 } from "../State/PricesContext";
 import { ALL_ASSETS, TOP_GAINERS, TOP_LOSERS } from "../State/PricesReducer";
-
-/**Defining API endpoints */
-const api = {
-	base: "https://api.nomics.com/v1/currencies/ticker?",
-	key: process.env.REACT_APP_NOMICS_KEY,
-	sparklineBase: "https://api.nomics.com/v1/currencies/sparkline?",
-	zoneKey: process.env.REACT_APP_LOCATION_KEY,
-	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
-};
-
-/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
-//Get today's date using the JavaScript Date object.
-let ourDate = new Date();
-
-//Change it so that it is the previous day
-let pastDate = ourDate.getDate() - 1;
-ourDate.setDate(pastDate);
-let month = ourDate.getMonth() + 1;
-let year = ourDate.getFullYear();
-let day = ourDate.getDate();
-let hour = ourDate.getHours();
-let minute = ourDate.getMinutes();
-let seconds = ourDate.getSeconds();
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
@@ -62,62 +38,6 @@ function PricesTable() {
 	const [showcaseCryptos, setShowcaseCryptos] = useContext(
 		ShowcaseCryptosContext
 	);
-
-	const fetchCalls = useCallback((url, setState, retries = 7) => {
-		fetch(url)
-			.then((res) => {
-				// check if successful. If so, return the response transformed to json
-				if (res.ok) {
-					return res.json();
-				}
-				// else, return a call to fetchRetry
-				if (retries > 0) {
-					return fetchCalls(url, setState, retries - 1);
-				} else {
-					throw new Error(res);
-				}
-			})
-			.then((data) => {
-				if (data !== undefined) {
-					setState(data);
-				}
-				// Do something with the response
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, []);
-
-	useEffect(() => {
-		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
-			.then((response) => {
-				setUserData(response.data);
-				fetchCalls(
-					`${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`,
-					setCryptos
-				);
-				fetchCalls(
-					`${api.sparklineBase}key=${
-						api.key
-					}&ids=BTC,GRT,RUNE,XTZ,BAND&start=${year}-${
-						month < 10 ? `0${month}` : month
-					}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
-						minute < 10 ? `0${minute}` : minute
-					}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
-						response.data.currency.code
-					}`,
-					setSparkline
-				);
-				fetchCalls(
-					`${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`,
-					setShowcaseCryptos
-				);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-		return () => {};
-	}, [setCryptos, setUserData, setSparkline, setShowcaseCryptos, fetchCalls]);
 
 	/**handling selectbox options and button click events, sorting, filtering, dispatch etc */
 	const handleChange = (e) => {

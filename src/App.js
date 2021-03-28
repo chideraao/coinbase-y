@@ -9,6 +9,7 @@ import {
 	faGlobe,
 	faInfoCircle,
 	faSearch,
+	faSpinner,
 	faStar,
 	faTimes,
 } from "@fortawesome/free-solid-svg-icons";
@@ -32,7 +33,6 @@ import PriceItems from "./Pages/PriceItems";
 import { PriceItemsProvider } from "./State/PriceItemsContext";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { HeaderProvider } from "./State/HeaderContext";
-import Loader from "./Components/Loader";
 
 library.add(
 	faChevronLeft,
@@ -46,7 +46,8 @@ library.add(
 	faGlobe,
 	faFileAlt,
 	faBars,
-	faTimes
+	faTimes,
+	faSpinner
 );
 
 function App() {
@@ -69,7 +70,6 @@ function App() {
 												<Route path="/learn" component={Learn} />
 												<Route path="/prices" component={Prices} exact />
 												<Route path="/prices/:id" component={PriceItems} />
-												<Route path="/loader" component={Loader} />
 											</Switch>
 										</div>
 									</ReviewsProvider>
