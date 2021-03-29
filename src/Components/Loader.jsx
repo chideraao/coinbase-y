@@ -4,13 +4,16 @@ import React from "react";
 function Loader() {
 	return (
 		<div className="loader">
-			<FontAwesomeIcon
-				className="font-awesome"
-				fontWeight="light"
-				icon="spinner"
-				size="2x"
-				spin
-			/>
+			<div>
+				<FontAwesomeIcon
+					className="font-awesome"
+					fontWeight="light"
+					icon="spinner"
+					size="2x"
+					spin
+				/>
+				<div>Powered by CoinGecko API, Nomics API and ipgeolocation API</div>
+			</div>
 		</div>
 	);
 }

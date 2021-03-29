@@ -60,11 +60,13 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 .loader .font-awesome {
 	color: var(--primary-color);
 	font-weight: 200;
+	margin-bottom: 1rem;
 }
 
 .gbEsE_ConTAinER {
