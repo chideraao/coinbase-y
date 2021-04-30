@@ -1,10 +1,10 @@
 ## Coinbase Clone
 
-This project was created as a semi-extensive clone of the coinbase website as at 18th January, 2021. It is responsive and includes up-to-date data for all crypto and currencies included. This project is powered by:
+This project was created as a semi-extensive clone of the coinbase website as at 18th January, 2021. This project is responsive and features live, up-to-date data for all cryptocurrencies included in all currencies, by user location. This project is powered by:
 
 - IPGEOLOCATION API - for user location and currency info.
   -NOMICS API - for crypto prices, data and sparkline.
-  -COINGECKO API - for crypto prices, data and sparkline.
+  -COINGECKO API - for sparkline.
 
 The live project is available on netlify at
 
@@ -12,6 +12,9 @@ The live project is available on netlify at
 
 - ReactJS
 - ChartJS for crypto sparkline charts
+
+## Powered by
+
 - Nomics API
 - Coingecko API
 - Ipgeolocation API
@@ -21,8 +24,8 @@ The live project is available on netlify at
 1. Clone the Repository and change directory
 
 ```
-git clone https://github.com/chideraao/weather-app-with-React.git
-cd weather-app-with-React
+git clone https://github.com/chideraao/coinbase-y.git/
+cd coinbase-y
 ```
 
 2. Install the dependencies.

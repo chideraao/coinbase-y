@@ -28,7 +28,7 @@ function Header() {
 	let isPageSmall = useMediaQuery("(max-width: 800px)");
 
 	return (
-		<div className="header">
+		<div className="header" id="header">
 			{isPageSmall ? (
 				<div className="narrow-header flex">
 					<div className="flex">

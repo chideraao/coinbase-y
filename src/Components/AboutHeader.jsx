@@ -16,7 +16,7 @@ function AboutHeader() {
 	};
 
 	return (
-		<div className="about-header">
+		<div className="about-header" id="header">
 			{isPageSmall && (
 				<div className="narrow-header flex">
 					<div className="">

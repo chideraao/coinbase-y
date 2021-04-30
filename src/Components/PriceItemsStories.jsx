@@ -17,11 +17,11 @@ function PriceItemsStories() {
 						<div className="article-details flex">
 							<p>Coindesk</p>
 							<p>2 hours ago</p>
-							<a href="#" className="flex">
+							<a href="#header" className="flex">
 								<div className="bitcoin-polka"></div>
 								<p>Bitcoin</p>
 							</a>
-							<a href="#" className="flex">
+							<a href="#header" className="flex">
 								<div className="eth-polka"></div>
 								<p>Ethereum</p>
 							</a>
@@ -38,7 +38,7 @@ function PriceItemsStories() {
 						<div className="article-details flex">
 							<p>Decrypt</p>
 							<p>2 hours ago</p>
-							<a href="#" className="flex">
+							<a href="#header" className="flex">
 								<div className="bitcoin-polka"></div>
 								<p>Bitcoin</p>
 							</a>
