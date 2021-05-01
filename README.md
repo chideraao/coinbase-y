@@ -6,7 +6,7 @@ This project was created as a semi-extensive clone of the coinbase website as at
   -NOMICS API - for crypto prices, data and sparkline.
   -COINGECKO API - for sparkline.
 
-The live project is available on netlify at
+The live project is available on netlify at friendly-ramanujan-2f68e3.netlify.app
 
 ## Built With
 
