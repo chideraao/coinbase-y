@@ -62,7 +62,7 @@ function Home() {
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 
 	const fetchCalls = useCallback((url, setState, retries = 7) => {
-		fetch(url)
+		fetch(url, { mode: "cors" })
 			.then((res) => {
 				// check if successful. If so, return the response transformed to json
 				if (res.ok) {
