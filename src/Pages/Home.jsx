@@ -63,10 +63,10 @@ function Home() {
 
 	const fetchCalls = useCallback((url, setState, retries = 7) => {
 		fetch(url, {
-			Headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "*",
-			},
+			// Headers: {
+			// 	"Content-Type": "application/json",
+			// 	"Access-Control-Allow-Origin": "*",
+			// },
 		})
 			.then((res) => {
 				// check if successful. If so, return the response transformed to json
