@@ -63,8 +63,6 @@ const formatFirstTrade = (str) => {
 	return Math.floor(firstTrade.getTime() / 1000);
 };
 
-export let fetchCalls;
-
 /**set lowercase and replace spaces */
 
 const setLowerCase = (str) => {
@@ -81,7 +79,7 @@ function PriceItems({ match }) {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				fetchCalls = (url, setState, retries = 7) => {
+				const fetchCalls = (url, setState, retries = 7) => {
 					fetch(url)
 						.then((res) => {
 							// check if successful. If so, return the response transformed to json

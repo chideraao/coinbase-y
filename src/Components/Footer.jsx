@@ -74,7 +74,10 @@ function Footer() {
 				</div>
 			</div>
 			<div className="signout flex-column">
-				<span>Powered by CoinGecko API, Nomics API and ipgeolocation API</span>
+				<a href="https://nomics.com" target="_blank" rel="noreferrer">
+					Crypto Market Cap & Pricing Data Provided by Nomics
+				</a>
+				<span>Powered by CoinGecko API and ipgeolocation API</span>
 				<span> Made with &#x2764;&#xfe0f; &nbsp; by Okeke Chidera</span>
 			</div>
 		</div>
