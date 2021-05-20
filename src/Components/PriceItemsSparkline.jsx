@@ -20,7 +20,7 @@ import PriceItemsStories from "./PriceItemsStories";
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
-	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	return Intl.NumberFormat().format(num);
 };
 
 /**  number formatter */

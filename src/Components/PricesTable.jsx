@@ -13,7 +13,7 @@ import { ALL_ASSETS, TOP_GAINERS, TOP_LOSERS } from "../State/PricesReducer";
 
 /**Regex for commas after every three digits */
 const addCommasToNumber = (num) => {
-	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	return Intl.NumberFormat().format(num);
 };
 
 const intlFormat = (num) => {

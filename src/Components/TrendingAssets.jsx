@@ -10,7 +10,7 @@ const api = {
 };
 
 const addCommasToNumber = (num) => {
-	return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	return Intl.NumberFormat().format(num);
 };
 
 function TrendingAssets() {
