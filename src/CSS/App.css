@@ -357,6 +357,10 @@ table .table-chart .container .chartjs-size-monitor {
 	background-color: var(--primary-color);
 }
 
+.banner .banner-icons {
+	margin-top: 1rem;
+}
+
 .banner .banner-icons .flex {
 	padding-left: 1rem;
 	margin-bottom: 1rem;
