@@ -75,93 +75,249 @@ function PriceItems({ match }) {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	useEffect(() => {
+	/** useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
+				Axios.get(
+					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
+				)
+					.then((res) => {
+						setCryptos(res.data);
+						// Axios.all([
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${dayUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${weekUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${monthUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${yearUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${formatFirstTrade(
+						// 			res.data[0].first_trade
+						// 		)}&to=${currentUNIX}`
+						// 	),
+						// ])
+						// 	.then((ress) => {
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[0].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[1].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[2].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[3].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[4].data];
+						// 		});
+						// 	})
+						// 	.catch((errr) => {
+						// 		console.log(errr);
+						// 	});
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+				// const fetchCalls = (url, setState, retries = 7) => {
+				// 	fetch(url)
+				// 		.then((res) => {
+				// 			// check if successful. If so, return the response transformed to json
+				// 			if (res.ok) {
+				// 				return res.json();
+				// 			}
+				// 			// else, return a call to fetchRetry
+				// 			if (retries > 0) {
+				// 				return fetchCalls(url, setState, retries - 1);
+				// 			} else {
+				// 				throw new Error(res);
+				// 			}
+				// 		})
+				// 		.then((data) => {
+				// 			if (data !== undefined) {
+				// 				setState(data);
+				// 				Axios.all([
+				// 					Axios.get(
+				// 						`${api.sparklineBase}${setLowerCase(
+				// 							data[0].name
+				// 						)}/market_chart/range?vs_currency=${
+				// 							response.data.currency.code
+				// 						}&from=${dayUNIX}&to=${currentUNIX}`
+				// 					),
+				// 					Axios.get(
+				// 						`${api.sparklineBase}${setLowerCase(
+				// 							data[0].name
+				// 						)}/market_chart/range?vs_currency=${
+				// 							response.data.currency.code
+				// 						}&from=${weekUNIX}&to=${currentUNIX}`
+				// 					),
+				// 					Axios.get(
+				// 						`${api.sparklineBase}${setLowerCase(
+				// 							data[0].name
+				// 						)}/market_chart/range?vs_currency=${
+				// 							response.data.currency.code
+				// 						}&from=${monthUNIX}&to=${currentUNIX}`
+				// 					),
+				// 					Axios.get(
+				// 						`${api.sparklineBase}${setLowerCase(
+				// 							data[0].name
+				// 						)}/market_chart/range?vs_currency=${
+				// 							response.data.currency.code
+				// 						}&from=${yearUNIX}&to=${currentUNIX}`
+				// 					),
+				// 					Axios.get(
+				// 						`${api.sparklineBase}${setLowerCase(
+				// 							data[0].name
+				// 						)}/market_chart/range?vs_currency=${
+				// 							response.data.currency.code
+				// 						}&from=${formatFirstTrade(
+				// 							data[0].first_trade
+				// 						)}&to=${currentUNIX}`
+				// 					),
+				// 				])
+				// 					.then((ress) => {
+				// 						setSparkline((prevState) => {
+				// 							return [...prevState, ress[0].data];
+				// 						});
+				// 						setSparkline((prevState) => {
+				// 							return [...prevState, ress[1].data];
+				// 						});
+				// 						setSparkline((prevState) => {
+				// 							return [...prevState, ress[2].data];
+				// 						});
+				// 						setSparkline((prevState) => {
+				// 							return [...prevState, ress[3].data];
+				// 						});
+				// 						setSparkline((prevState) => {
+				// 							return [...prevState, ress[4].data];
+				// 						});
+				// 					})
+				// 					.catch((errr) => {
+				// 						console.log(errr);
+				// 					});
+				// 			}
+				// 			// Do something with the response
+				// 		})
+				// 		.catch((error) => {
+				// 			console.log(error);
+				// 		});
+				// };
 				// fetchCalls(
-				// 	`${api.sparklineBase}key=${
-				// 		api.key
-				// 	}&ids=BTC,ETH,BCH,LTC&start=${year}-${
-				// 		month < 10 ? `0${month}` : month
-				// 	}-${day < 10 ? `0${day}` : day}T${hour < 10 ? `0${hour}` : hour}%3A${
-				// 		minute < 10 ? `0${minute}` : minute
-				// 	}%3A${seconds < 10 ? `0${seconds}` : seconds}Z&convert=${
-				// 		response.data.currency.code
-				// 	}`,
-				// 	setSparkline
-				// );
-				// fetchCalls(
-				// 	`${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`,
+				// 	`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
 				// 	setCryptos
 				// );
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		return () => {};
-	}, [setCryptos, setSparkline, setUserData]);
+
+		return () => {
+			setCryptos([]);
+			setSparkline([]);
+		};
+	}, [setCryptos, setSparkline, setUserData, match.params.id]);*/
+
+	useEffect(() => {
+		Axios.get(
+			"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
+		).then((res) => {
+			setUserData(res);
+		});
+		return () => {
+			setUserData([]);
+		};
+	}, [setUserData]);
 
 	return (
 		<div>
-			{/* {cryptos.length || sparkline.length ? ( */}
-			<div className="price-items">
-				{menuClick ? (
-					<HeaderMenu />
-				) : (
-					<>
-						<Header />
-						{cryptos.length ? (
-							<section className="priceitems-breadcrumbs">
-								<div className="container">
-									<div className="breadcrumbs">
-										<a href="/prices">Price charts &nbsp;</a>
-										<FontAwesomeIcon
-											className="font-awesome"
-											fontWeight="light"
-											icon="chevron-right"
-											size="3x"
-										/>
-										<a href={`/prices/${match.params.id}`}>
-											&nbsp; {cryptos[0].name} price
-										</a>
+			{/* {cryptos.length || sparkline.length ? (
+				<div className="price-items">
+					{menuClick ? (
+						<HeaderMenu />
+					) : (
+						<>
+							<Header />
+							{cryptos.length ? (
+								<section className="priceitems-breadcrumbs">
+									<div className="container">
+										<div className="breadcrumbs">
+											<a href="/prices">Price charts &nbsp;</a>
+											<FontAwesomeIcon
+												className="font-awesome"
+												fontWeight="light"
+												icon="chevron-right"
+												size="3x"
+											/>
+											<a href={`/prices/${match.params.id}`}>
+												&nbsp; {cryptos[0].name} price
+											</a>
+										</div>
 									</div>
+								</section>
+							) : (
+								""
+							)}
+							<section className="price-items-main">
+								<PriceItemsMain match={match} />
+							</section>
+							<section className="legal">
+								<div className="container legal-disclaimer">
+									<p>
+										This content and any information contained therein is being
+										provided to you for informational purposes only, does not
+										constitute a recommendation by Basecoin to buy, sell, or
+										hold any security, financial product, or instrument
+										referenced in the content, and does not constitute
+										investment advice, financial advice, trading advice, or any
+										other sort of advice. Data presented may reflect assets
+										traded on Basecoin’s exchange and select other
+										cryptocurrency exchanges. Certain content has been prepared
+										by third parties not affiliated with Basecoin Inc. or any of
+										its affiliates and Basecoin is not responsible for such
+										content. Basecoin is not liable for any errors or delays in
+										content, or for any actions taken in reliance on any
+										content.
+									</p>
 								</div>
 							</section>
-						) : (
-							""
-						)}
-						<section className="price-items-main">
-							<PriceItemsMain match={match} />
-						</section>
-						<section className="legal">
-							<div className="container legal-disclaimer">
-								<p>
-									This content and any information contained therein is being
-									provided to you for informational purposes only, does not
-									constitute a recommendation by Basecoin to buy, sell, or hold
-									any security, financial product, or instrument referenced in
-									the content, and does not constitute investment advice,
-									financial advice, trading advice, or any other sort of advice.
-									Data presented may reflect assets traded on Basecoin’s
-									exchange and select other cryptocurrency exchanges. Certain
-									content has been prepared by third parties not affiliated with
-									Basecoin Inc. or any of its affiliates and Basecoin is not
-									responsible for such content. Basecoin is not liable for any
-									errors or delays in content, or for any actions taken in
-									reliance on any content.
-								</p>
-							</div>
-						</section>
 
-						<Banner />
-						<Footer />
-					</>
-				)}
-			</div>
-			{/* ) : (
+							<Banner />
+							<Footer />
+						</>
+					)}
+				</div>
+			) : (
 				<Loader />
 			)} */}
+			<h1>OBI IS A BOY</h1>
 		</div>
 	);
 }
