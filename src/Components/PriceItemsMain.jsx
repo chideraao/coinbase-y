@@ -6,7 +6,7 @@ import PriceItemsSparkline from "./PriceItemsSparkline";
 function PriceItemsMain({ match }) {
 	return (
 		<div className="container grid">
-			<PriceItemsSparkline match={match} />
+			{/* <PriceItemsSparkline match={match} /> */}
 			<PriceItemsAssets />
 		</div>
 	);
