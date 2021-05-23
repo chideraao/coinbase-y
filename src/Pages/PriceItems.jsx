@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
-import React, { useCallback, useContext } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useCallback, useContext, useEffect } from "react";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -75,7 +74,7 @@ function PriceItems({ match }) {
 	const [userData, setUserData] = useContext(UserDataContext);
 	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	/** useEffect(() => {
+	useEffect(() => {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
@@ -84,65 +83,65 @@ function PriceItems({ match }) {
 				)
 					.then((res) => {
 						setCryptos(res.data);
-						// Axios.all([
-						// 	Axios.get(
-						// 		`${api.sparklineBase}${setLowerCase(
-						// 			res.data[0].name
-						// 		)}/market_chart/range?vs_currency=${
-						// 			response.data.currency.code
-						// 		}&from=${dayUNIX}&to=${currentUNIX}`
-						// 	),
-						// 	Axios.get(
-						// 		`${api.sparklineBase}${setLowerCase(
-						// 			res.data[0].name
-						// 		)}/market_chart/range?vs_currency=${
-						// 			response.data.currency.code
-						// 		}&from=${weekUNIX}&to=${currentUNIX}`
-						// 	),
-						// 	Axios.get(
-						// 		`${api.sparklineBase}${setLowerCase(
-						// 			res.data[0].name
-						// 		)}/market_chart/range?vs_currency=${
-						// 			response.data.currency.code
-						// 		}&from=${monthUNIX}&to=${currentUNIX}`
-						// 	),
-						// 	Axios.get(
-						// 		`${api.sparklineBase}${setLowerCase(
-						// 			res.data[0].name
-						// 		)}/market_chart/range?vs_currency=${
-						// 			response.data.currency.code
-						// 		}&from=${yearUNIX}&to=${currentUNIX}`
-						// 	),
-						// 	Axios.get(
-						// 		`${api.sparklineBase}${setLowerCase(
-						// 			res.data[0].name
-						// 		)}/market_chart/range?vs_currency=${
-						// 			response.data.currency.code
-						// 		}&from=${formatFirstTrade(
-						// 			res.data[0].first_trade
-						// 		)}&to=${currentUNIX}`
-						// 	),
-						// ])
-						// 	.then((ress) => {
-						// 		setSparkline((prevState) => {
-						// 			return [...prevState, ress[0].data];
-						// 		});
-						// 		setSparkline((prevState) => {
-						// 			return [...prevState, ress[1].data];
-						// 		});
-						// 		setSparkline((prevState) => {
-						// 			return [...prevState, ress[2].data];
-						// 		});
-						// 		setSparkline((prevState) => {
-						// 			return [...prevState, ress[3].data];
-						// 		});
-						// 		setSparkline((prevState) => {
-						// 			return [...prevState, ress[4].data];
-						// 		});
-						// 	})
-						// 	.catch((errr) => {
-						// 		console.log(errr);
-						// 	});
+						Axios.all([
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${dayUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${weekUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${monthUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${yearUNIX}&to=${currentUNIX}`
+							),
+							Axios.get(
+								`${api.sparklineBase}${setLowerCase(
+									res.data[0].name
+								)}/market_chart/range?vs_currency=${
+									response.data.currency.code
+								}&from=${formatFirstTrade(
+									res.data[0].first_trade
+								)}&to=${currentUNIX}`
+							),
+						])
+							.then((ress) => {
+								setSparkline((prevState) => {
+									return [...prevState, ress[0].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[1].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[2].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[3].data];
+								});
+								setSparkline((prevState) => {
+									return [...prevState, ress[4].data];
+								});
+							})
+							.catch((errr) => {
+								console.log(errr);
+							});
 					})
 					.catch((err) => {
 						console.log(err);
@@ -243,22 +242,11 @@ function PriceItems({ match }) {
 			setCryptos([]);
 			setSparkline([]);
 		};
-	}, [setCryptos, setSparkline, setUserData, match.params.id]);*/
-
-	useEffect(() => {
-		Axios.get(
-			"https://api.ipgeolocation.io/ipgeo?apiKey=d65e37f4206340d188baba3c12561f09&include=useragent"
-		).then((res) => {
-			setUserData(res);
-		});
-		return () => {
-			setUserData([]);
-		};
-	}, [setUserData]);
+	}, [setCryptos, setSparkline, setUserData, match.params.id]);
 
 	return (
 		<div>
-			{/* {cryptos.length || sparkline.length ? (
+			{cryptos.length || sparkline.length ? (
 				<div className="price-items">
 					{menuClick ? (
 						<HeaderMenu />
@@ -316,8 +304,7 @@ function PriceItems({ match }) {
 				</div>
 			) : (
 				<Loader />
-			)} */}
-			<h1>OBI IS A BOY</h1>
+			)}
 		</div>
 	);
 }
