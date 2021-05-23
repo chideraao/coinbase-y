@@ -84,65 +84,65 @@ function PriceItems({ match }) {
 				)
 					.then((res) => {
 						setCryptos(res.data);
-						Axios.all([
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${dayUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${weekUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${monthUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${yearUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${formatFirstTrade(
-									res.data[0].first_trade
-								)}&to=${currentUNIX}`
-							),
-						])
-							.then((ress) => {
-								setSparkline((prevState) => {
-									return [...prevState, ress[0].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[1].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[2].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[3].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[4].data];
-								});
-							})
-							.catch((errr) => {
-								console.log(errr);
-							});
+						// Axios.all([
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${dayUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${weekUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${monthUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${yearUNIX}&to=${currentUNIX}`
+						// 	),
+						// 	Axios.get(
+						// 		`${api.sparklineBase}${setLowerCase(
+						// 			res.data[0].name
+						// 		)}/market_chart/range?vs_currency=${
+						// 			response.data.currency.code
+						// 		}&from=${formatFirstTrade(
+						// 			res.data[0].first_trade
+						// 		)}&to=${currentUNIX}`
+						// 	),
+						// ])
+						// 	.then((ress) => {
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[0].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[1].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[2].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[3].data];
+						// 		});
+						// 		setSparkline((prevState) => {
+						// 			return [...prevState, ress[4].data];
+						// 		});
+						// 	})
+						// 	.catch((errr) => {
+						// 		console.log(errr);
+						// 	});
 					})
 					.catch((err) => {
 						console.log(err);
