@@ -45,16 +45,6 @@ function PriceItemsAbout({ match }) {
 			`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`,
 			setMetadata
 		);
-		// Axios.get(
-		// 	`${api.base}key=${api.key}&ids=${match.params.id}&attributes=website_url,whitepaper_url`
-		// )
-		// 	.then((res) => {
-		// 		setMetadata(res.data);
-		// 		console.log(res);
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 	});
 	}, [match, fetchCalls]);
 
 	const handleClick = () => {
