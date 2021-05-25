@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -78,161 +78,93 @@ function PriceItems({ match }) {
 		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
 			.then((response) => {
 				setUserData(response.data);
-				Axios.get(
-					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`
-				)
-					.then((res) => {
-						setCryptos(res.data);
-						Axios.all([
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${dayUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${weekUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${monthUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${yearUNIX}&to=${currentUNIX}`
-							),
-							Axios.get(
-								`${api.sparklineBase}${setLowerCase(
-									res.data[0].name
-								)}/market_chart/range?vs_currency=${
-									response.data.currency.code
-								}&from=${formatFirstTrade(
-									res.data[0].first_trade
-								)}&to=${currentUNIX}`
-							),
-						])
-							.then((ress) => {
-								setSparkline((prevState) => {
-									return [...prevState, ress[0].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[1].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[2].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[3].data];
-								});
-								setSparkline((prevState) => {
-									return [...prevState, ress[4].data];
-								});
-							})
-							.catch((errr) => {
-								console.log(errr);
-							});
-					})
-					.catch((err) => {
-						console.log(err);
-					});
-				// const fetchCalls = (url, setState, retries = 7) => {
-				// 	fetch(url)
-				// 		.then((res) => {
-				// 			// check if successful. If so, return the response transformed to json
-				// 			if (res.ok) {
-				// 				return res.json();
-				// 			}
-				// 			// else, return a call to fetchRetry
-				// 			if (retries > 0) {
-				// 				return fetchCalls(url, setState, retries - 1);
-				// 			} else {
-				// 				throw new Error(res);
-				// 			}
-				// 		})
-				// 		.then((data) => {
-				// 			if (data !== undefined) {
-				// 				setState(data);
-				// 				Axios.all([
-				// 					Axios.get(
-				// 						`${api.sparklineBase}${setLowerCase(
-				// 							data[0].name
-				// 						)}/market_chart/range?vs_currency=${
-				// 							response.data.currency.code
-				// 						}&from=${dayUNIX}&to=${currentUNIX}`
-				// 					),
-				// 					Axios.get(
-				// 						`${api.sparklineBase}${setLowerCase(
-				// 							data[0].name
-				// 						)}/market_chart/range?vs_currency=${
-				// 							response.data.currency.code
-				// 						}&from=${weekUNIX}&to=${currentUNIX}`
-				// 					),
-				// 					Axios.get(
-				// 						`${api.sparklineBase}${setLowerCase(
-				// 							data[0].name
-				// 						)}/market_chart/range?vs_currency=${
-				// 							response.data.currency.code
-				// 						}&from=${monthUNIX}&to=${currentUNIX}`
-				// 					),
-				// 					Axios.get(
-				// 						`${api.sparklineBase}${setLowerCase(
-				// 							data[0].name
-				// 						)}/market_chart/range?vs_currency=${
-				// 							response.data.currency.code
-				// 						}&from=${yearUNIX}&to=${currentUNIX}`
-				// 					),
-				// 					Axios.get(
-				// 						`${api.sparklineBase}${setLowerCase(
-				// 							data[0].name
-				// 						)}/market_chart/range?vs_currency=${
-				// 							response.data.currency.code
-				// 						}&from=${formatFirstTrade(
-				// 							data[0].first_trade
-				// 						)}&to=${currentUNIX}`
-				// 					),
-				// 				])
-				// 					.then((ress) => {
-				// 						setSparkline((prevState) => {
-				// 							return [...prevState, ress[0].data];
-				// 						});
-				// 						setSparkline((prevState) => {
-				// 							return [...prevState, ress[1].data];
-				// 						});
-				// 						setSparkline((prevState) => {
-				// 							return [...prevState, ress[2].data];
-				// 						});
-				// 						setSparkline((prevState) => {
-				// 							return [...prevState, ress[3].data];
-				// 						});
-				// 						setSparkline((prevState) => {
-				// 							return [...prevState, ress[4].data];
-				// 						});
-				// 					})
-				// 					.catch((errr) => {
-				// 						console.log(errr);
-				// 					});
-				// 			}
-				// 			// Do something with the response
-				// 		})
-				// 		.catch((error) => {
-				// 			console.log(error);
-				// 		});
-				// };
-				// fetchCalls(
-				// 	`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
-				// 	setCryptos
-				// );
+				const fetchCalls = (url, setState, retries = 7) => {
+					fetch(url)
+						.then((res) => {
+							// check if successful. If so, return the response transformed to json
+							if (res.ok) {
+								return res.json();
+							}
+							// else, return a call to fetchRetry
+							if (retries > 0) {
+								return fetchCalls(url, setState, retries - 1);
+							} else {
+								throw new Error(res);
+							}
+						})
+						.then((data) => {
+							if (data !== undefined) {
+								setState(data);
+								Axios.all([
+									Axios.get(
+										`${api.sparklineBase}${setLowerCase(
+											data[0].name
+										)}/market_chart/range?vs_currency=${
+											response.data.currency.code
+										}&from=${dayUNIX}&to=${currentUNIX}`
+									),
+									Axios.get(
+										`${api.sparklineBase}${setLowerCase(
+											data[0].name
+										)}/market_chart/range?vs_currency=${
+											response.data.currency.code
+										}&from=${weekUNIX}&to=${currentUNIX}`
+									),
+									Axios.get(
+										`${api.sparklineBase}${setLowerCase(
+											data[0].name
+										)}/market_chart/range?vs_currency=${
+											response.data.currency.code
+										}&from=${monthUNIX}&to=${currentUNIX}`
+									),
+									Axios.get(
+										`${api.sparklineBase}${setLowerCase(
+											data[0].name
+										)}/market_chart/range?vs_currency=${
+											response.data.currency.code
+										}&from=${yearUNIX}&to=${currentUNIX}`
+									),
+									Axios.get(
+										`${api.sparklineBase}${setLowerCase(
+											data[0].name
+										)}/market_chart/range?vs_currency=${
+											response.data.currency.code
+										}&from=${formatFirstTrade(
+											data[0].first_trade
+										)}&to=${currentUNIX}`
+									),
+								])
+									.then((ress) => {
+										setSparkline((prevState) => {
+											return [...prevState, ress[0].data];
+										});
+										setSparkline((prevState) => {
+											return [...prevState, ress[1].data];
+										});
+										setSparkline((prevState) => {
+											return [...prevState, ress[2].data];
+										});
+										setSparkline((prevState) => {
+											return [...prevState, ress[3].data];
+										});
+										setSparkline((prevState) => {
+											return [...prevState, ress[4].data];
+										});
+									})
+									.catch((errr) => {
+										console.log(errr);
+									});
+							}
+							// Do something with the response
+						})
+						.catch((error) => {
+							console.log(error);
+						});
+				};
+				fetchCalls(
+					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
+					setCryptos
+				);
 			})
 			.catch((err) => {
 				console.log(err);
