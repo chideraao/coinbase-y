@@ -87,7 +87,7 @@ function PriceItems({ match }) {
 							}
 							// else, return a call to fetchRetry
 							if (retries > 0) {
-								return fetchCalls(url, setState, retries - 1);
+								return fetchCalls(url, setState, retries - 5);
 							} else {
 								throw new Error(res);
 							}
