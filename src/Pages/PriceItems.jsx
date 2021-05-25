@@ -65,7 +65,7 @@ const formatFirstTrade = (str) => {
 /**set lowercase and replace spaces */
 
 const setLowerCase = (str) => {
-	return str.toLowerCase().replaceAll(" ", "-");
+	return str.toLowerCase().replace(/\s/g, "-");
 };
 
 function PriceItems({ match }) {
