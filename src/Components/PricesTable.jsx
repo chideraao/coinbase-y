@@ -198,56 +198,69 @@ function PricesTable() {
 							{filtered.map((item, index) => {
 								return (
 									<tr key={index}>
-										<td className="table-serial">{index + 1}</td>
-										<Link to={`/prices/${item.id}`}>
-											<td colSpan="2" className="crypto-name flex">
-												<div className="">
-													<img src={item.logo_url} alt={`${item.name} logo`} />
-												</div>
-												<div className="hidden-flex">
-													{item.name} &nbsp;&nbsp; <span>{item.id}</span>
-												</div>
-											</td>
-										</Link>
+										{item[`${selectOption}`] ? (
+											<>
+												<td className="table-serial">{index + 1}</td>
+												<Link to={`/prices/${item.id}`}>
+													<td colSpan="2" className="crypto-name flex">
+														<div className="">
+															<img
+																src={item.logo_url}
+																alt={`${item.name} logo`}
+															/>
+														</div>
+														<div className="hidden-flex">
+															{item.name} &nbsp;&nbsp; <span>{item.id}</span>
+														</div>
+													</td>
+												</Link>
 
-										<td className="table-empty"></td>
+												<td className="table-empty"></td>
 
-										<td className="table-empty"></td>
-										<td className="crypto-price" colSpan="2">
-											{userData.currency.symbol}{" "}
-											{`${addCommasToNumber(
-												Math.round(item.price * 100) / 100
-											)}`}
-										</td>
-										{cryptos[index] ? (
-											<td
-												className={
-													item[`${selectOption}`].price_change_pct * 100 >= 0
-														? "gains"
-														: "loss"
-												}
-											>
-												{item[`${selectOption}`].price_change_pct * 100 > 0
-													? `+${
-															Math.round(
-																item[`${selectOption}`].price_change_pct * 1000
-															) / 10
-													  }%`
-													: `${
-															Math.round(
-																item[`${selectOption}`].price_change_pct * 1000
-															) / 10
-													  }%`}
-											</td>
+												<td className="table-empty"></td>
+												<td className="crypto-price" colSpan="2">
+													{userData.currency.symbol}{" "}
+													{`${addCommasToNumber(
+														Math.round(item.price * 100) / 100
+													)}`}
+												</td>
+												{cryptos[index] ? (
+													<td
+														className={
+															item[`${selectOption}`].price_change_pct * 100 >=
+															0
+																? "gains"
+																: "loss"
+														}
+													>
+														{item[`${selectOption}`].price_change_pct * 100 > 0
+															? `+${
+																	Math.round(
+																		item[`${selectOption}`].price_change_pct *
+																			1000
+																	) / 10
+															  }%`
+															: `${
+																	Math.round(
+																		item[`${selectOption}`].price_change_pct *
+																			1000
+																	) / 10
+															  }%`}
+													</td>
+												) : (
+													""
+												)}
+												<td className="crypto-volume">
+													{userData.currency.symbol}{" "}
+													{`${abbr(item.market_cap)}`}
+												</td>
+												<td className="table-trade">
+													<button className="btn">Trade</button>
+												</td>
+											</>
 										) : (
 											""
 										)}
-										<td className="crypto-volume">
-											{userData.currency.symbol} {`${abbr(item.market_cap)}`}
-										</td>
-										<td className="table-trade">
-											<button className="btn">Trade</button>
-										</td>
 									</tr>
 								);
 							})}
