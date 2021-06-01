@@ -13,6 +13,9 @@ function Loader() {
 					spin
 				/>
 				<div>Powered by CoinGecko API, Nomics API and ipgeolocation API</div>
+				<div className="post-script">
+					PS: Turn of blockers on your browser, if any.
+				</div>
 			</div>
 		</div>
 	);
