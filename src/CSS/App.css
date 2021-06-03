@@ -63,10 +63,59 @@ img {
 	text-align: center;
 }
 
-.loader .font-awesome {
+.loading-1 {
+	width: 60px;
+	height: 60px;
 	color: var(--primary-color);
-	font-weight: 200;
-	margin-bottom: 1rem;
+	margin: auto;
+	margin-bottom: 2rem;
+	--c: linear-gradient(currentColor 0 0);
+	--r1: radial-gradient(farthest-side at bottom, currentColor 93%, #0000);
+	--r2: radial-gradient(farthest-side at top, currentColor 93%, #0000);
+	background: var(--c), var(--r1), var(--r2), var(--c), var(--r1), var(--r2),
+		var(--c), var(--r1), var(--r2);
+	background-repeat: no-repeat;
+	animation: db1 1s infinite alternate;
+}
+
+@keyframes db1 {
+	0%,
+	10% {
+		background-size: 8px 0, 8px 4px, 8px 4px;
+		background-position: 0 50%, 0 calc(50% - 2px), 0 calc(50% + 2px), 50% 50%,
+			50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px),
+			100% calc(50% + 2px);
+	}
+	90%,
+	100% {
+		background-size: 8px 100%, 8px 4px, 8px 4px;
+		background-position: 0 50%, 0 -2px, 0 calc(100% + 2px), 50% 50%, 50% -2px,
+			50% calc(100% + 2px), 100% 50%, 100% -2px, 100% calc(100% + 2px);
+	}
+}
+
+.loading-div {
+	height: 100%;
+}
+
+.loading-div .loading-2 {
+	width: 4px;
+	height: 4px;
+	color: var(--primary-color);
+	margin: 5rem;
+	border-radius: 50%;
+	box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+	transform: translateX(-38px);
+	animation: d1 0.5s infinite alternate linear;
+}
+
+@keyframes d1 {
+	50% {
+		box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
+	}
+	100% {
+		box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
+	}
 }
 
 .loader .post-script {

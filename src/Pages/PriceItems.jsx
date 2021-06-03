@@ -6,7 +6,7 @@ import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import HeaderMenu from "../Components/HeaderMenu";
-import Loader from "../Components/Loader";
+import { Loader } from "../Components/Loader";
 import PriceItemsMain from "../Components/PriceItemsMain";
 import { UserDataContext } from "../State/GlobalContext";
 import { HeaderContext } from "../State/HeaderContext";

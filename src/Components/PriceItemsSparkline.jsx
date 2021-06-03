@@ -15,6 +15,7 @@ import {
 	WEEKLY_CHART,
 	YEARLY_CHART,
 } from "../State/PriceItemsReducer";
+import { Loading } from "./Loader";
 import PriceItemsAbout from "./PriceItemsAbout";
 import PriceItemsStories from "./PriceItemsStories";
 
@@ -209,7 +210,7 @@ function PriceItemsSparkline({ match }) {
 		setTimeout(() => {
 			setArrIndex(e.target.value);
 			setIsLoading(false);
-		}, 500);
+		}, 1000);
 	};
 
 	const handleMonthlyClick = (e) => {
@@ -219,7 +220,7 @@ function PriceItemsSparkline({ match }) {
 		setTimeout(() => {
 			setArrIndex(e.target.value);
 			setIsLoading(false);
-		}, 500);
+		}, 1000);
 	};
 
 	const handleYearlyClick = (e) => {
@@ -229,7 +230,7 @@ function PriceItemsSparkline({ match }) {
 		setTimeout(() => {
 			setArrIndex(e.target.value);
 			setIsLoading(false);
-		}, 500);
+		}, 1000);
 	};
 
 	const handleAllClick = (e) => {
@@ -239,7 +240,7 @@ function PriceItemsSparkline({ match }) {
 		setTimeout(() => {
 			setArrIndex(e.target.value);
 			setIsLoading(false);
-		}, 500);
+		}, 1000);
 	};
 
 	/**handle mouse enter and leave */
@@ -373,13 +374,7 @@ function PriceItemsSparkline({ match }) {
 
 					{isLoading ? (
 						<div className="flex">
-							<FontAwesomeIcon
-								className="font-awesome"
-								fontWeight="light"
-								icon="circle-notch"
-								size="2x"
-								spin
-							/>
+							<Loading />
 						</div>
 					) : (
 						<Line data={dataChart} options={chartOptions} />

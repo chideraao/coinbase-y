@@ -1,17 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-function Loader() {
+export function Loader() {
 	return (
 		<div className="loader">
 			<div>
-				<FontAwesomeIcon
-					className="font-awesome"
-					fontWeight="light"
-					icon="spinner"
-					size="2x"
-					spin
-				/>
+				<div className="loading-1"></div>
 				<div>Powered by CoinGecko API, Nomics API and ipgeolocation API</div>
 				<div className="post-script">
 					PS: Turn of blockers on your browser, if any.
@@ -21,4 +14,10 @@ function Loader() {
 	);
 }
 
-export default Loader;
+export function Loading() {
+	return (
+		<div className="loading-div">
+			<div className="loading-2"></div>
+		</div>
+	);
+}

@@ -28,7 +28,7 @@ import {
 	SparklineContext,
 	UserDataContext,
 } from "../State/GlobalContext";
-import Loader from "../Components/Loader";
+import { Loader } from "../Components/Loader";
 import Axios from "axios";
 
 /**Defining API endpoints */

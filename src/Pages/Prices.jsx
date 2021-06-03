@@ -21,7 +21,7 @@ import {
 import LearnIllustration from "../logos/Learn_Illustration_Ultimate_Guide_Bitcoin.png";
 import { HeaderContext } from "../State/HeaderContext";
 import HeaderMenu from "../Components/HeaderMenu";
-import Loader from "../Components/Loader";
+import { Loader } from "../Components/Loader";
 import Axios from "axios";
 
 /**Defining API endpoints */
