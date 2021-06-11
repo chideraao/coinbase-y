@@ -6,9 +6,9 @@ import { SparklineContext } from "../State/GlobalContext";
 export function BTCChart() {
 	const [dataChart, setDataChart] = useState({});
 	const [sparkline, setSparkline] = useContext(SparklineContext);
+
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -25,7 +25,6 @@ export function BTCChart() {
 	};
 
 	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
 		let prices = [];
 		let timestamps = [];

@@ -9,7 +9,6 @@ export function PricesBTC() {
 
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -25,9 +24,8 @@ export function PricesBTC() {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
 		let prices = [];
 		let timestamps = [];
 
@@ -63,7 +61,6 @@ export function PricesXTZ() {
 
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -79,9 +76,8 @@ export function PricesXTZ() {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
 		let prices = [];
 		let timestamps = [];
 
@@ -117,7 +113,6 @@ export function PricesGRT() {
 
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -133,9 +128,9 @@ export function PricesGRT() {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
+
 		let prices = [];
 		let timestamps = [];
 
@@ -171,7 +166,6 @@ export function PricesRUNE() {
 
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -187,9 +181,9 @@ export function PricesRUNE() {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
+
 		let prices = [];
 		let timestamps = [];
 
@@ -225,7 +219,6 @@ export function PricesBAND() {
 
 	/**chart js styling options */
 	const chartOptions = {
-		// maintainAspectRatio: false,
 		tooltips: {
 			enabled: false,
 		},
@@ -241,9 +234,8 @@ export function PricesBAND() {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
 		let prices = [];
 		let timestamps = [];
 

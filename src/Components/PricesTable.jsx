@@ -44,6 +44,7 @@ function PricesTable() {
 		setInput(e.target.value);
 	};
 
+	/**selectbox */
 	const handleSelect = (e) => {
 		setSelectOption(e.target.value);
 		setIsLoading(true);
@@ -53,6 +54,7 @@ function PricesTable() {
 		}, 500);
 	};
 
+	/** click events for losses and gains, sorting crypto values %change in ascending and descending order */
 	const handleAllClick = () => {
 		dispatch({ type: ALL_ASSETS });
 		setIsLoading(true);
@@ -98,6 +100,7 @@ function PricesTable() {
 		}, 1500);
 	};
 
+	/** filtering during search */
 	const filtered = !input
 		? cryptos
 		: cryptos.filter((crypto) => {

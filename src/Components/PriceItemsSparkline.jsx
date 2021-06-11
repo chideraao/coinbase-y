@@ -162,9 +162,8 @@ function PriceItemsSparkline({ match }) {
 		},
 	};
 
-	/**creating empty arrays for the chart data and pushing the props gotten from home component */
-
 	useEffect(() => {
+		/**creating empty arrays for the chart data and pushing the props gotten from home component */
 		let prices = [];
 		let timestamps = [];
 
@@ -191,8 +190,7 @@ function PriceItemsSparkline({ match }) {
 		});
 	}, [sparkline, arrIndex]);
 
-	/** all onClick declarations */
-
+	/** all onClick declarations below*/
 	const handleDailyClick = (e) => {
 		dispatch({ type: DAILY_CHART });
 		setIsLoading(true);
@@ -269,13 +267,11 @@ function PriceItemsSparkline({ match }) {
 	};
 
 	const handleMouseLeave = () => {
-		// setTimeout(() => {
 		setmouseOver({
 			volumeMouseOver: false,
 			marketCapMouseOver: false,
 			circulationMouseOver: false,
 		});
-		// }, 4000);
 	};
 
 	return (

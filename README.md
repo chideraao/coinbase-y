@@ -40,6 +40,4 @@ npm install
 npm start
 ```
 
-The live project is available on netlify at
-
 ## Shalom!

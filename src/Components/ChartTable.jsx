@@ -27,7 +27,6 @@ function ChartTable() {
 	const [sparkline, setSparkline] = useContext(SparklineContext);
 
 	/** memoization of table values and prevention of rendering before the components are ready for render */
-
 	const tableData = React.useMemo(
 		() =>
 			!cryptos.length ||
