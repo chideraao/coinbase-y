@@ -24,35 +24,31 @@ const api = {
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 
-/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
-//Get today's date using the JavaScript Date object.
+/** Getting UTC data for API calls */
+
 let currentDate = new Date();
 let currentUNIX = Math.floor(currentDate.getTime() / 1000);
 
 let WeekDate = new Date();
 
-//get the exact date for the past week
 let past7 = WeekDate.getDate() - 7;
 WeekDate.setDate(past7);
 let weekUNIX = Math.floor(WeekDate.getTime() / 1000);
 
 let date24hr = new Date();
 
-//get the exact date the previous day
 let past24 = date24hr.getDate() - 1;
 date24hr.setDate(past24);
 let dayUNIX = Math.floor(date24hr.getTime() / 1000);
 
 let dateMonth = new Date();
 
-//get the exact date the previous day
 let pastMonth = dateMonth.getDate() - 30;
 dateMonth.setDate(pastMonth);
 let monthUNIX = Math.floor(dateMonth.getTime() / 1000);
 
 let date365 = new Date();
 
-//Change it so that it is the previous year
 let past365 = date365.getDate() - 366;
 date365.setDate(past365);
 let yearUNIX = Math.floor(date365.getTime() / 1000);

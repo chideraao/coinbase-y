@@ -33,11 +33,9 @@ const api = {
 	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 
-/** SETTING UP SPARKLINE DATA FOR THE PAST 24 HOURS */
-//Get today's date using the JavaScript Date object.
+/** setting up utc data for API calls */
 let ourDate = new Date();
 
-//Change it so that it is the previous day
 let pastDate = ourDate.getDate() - 1;
 ourDate.setDate(pastDate);
 let month = ourDate.getMonth() + 1;
