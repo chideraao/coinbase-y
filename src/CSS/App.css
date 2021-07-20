@@ -226,7 +226,7 @@ img {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	overflow: auto;
+	overflow: hidden;
 	padding: 0 24px;
 	height: 20rem;
 }
@@ -289,8 +289,9 @@ img {
 
 .tables {
 	position: absolute;
+	margin-left: -35rem !important;
+	left: 50%;
 	top: 17.5rem;
-	left: 6.5rem;
 	background: none;
 	margin: 0 3rem;
 	margin-top: 2rem;
@@ -801,8 +802,6 @@ hr {
 /* ----------------------------------------------   MEDIA QUERIES   --------------------------------------------------------- */
 @media (max-width: 1200px) {
 	.tables {
-		top: 17.5rem;
-		left: 6rem;
 		background: none;
 		margin-left: 0rem;
 	}
@@ -838,7 +837,7 @@ hr {
 @media (max-width: 1140px) {
 	.tables {
 		top: 17.5rem;
-		left: 2rem;
+		margin-left: -32rem !important;
 	}
 
 	.tables .home-table table {
@@ -1002,7 +1001,7 @@ hr {
 	}
 
 	.tables {
-		left: 0.5rem;
+		margin-left: -23.5rem !important;
 	}
 
 	.tables .home-table table {
@@ -1188,7 +1187,7 @@ hr {
 
 	.tables {
 		top: 22.5rem;
-		left: 0.2rem;
+		margin-left: -12.6rem !important;
 	}
 
 	.tables .container {
@@ -1332,6 +1331,12 @@ hr {
 		gap: 1rem;
 	}
 }
+
+@media (max-width: 400px) {
+	.tables {
+		margin-left: -11.4rem !important;
+	}
+}
 /* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
 .careers .company {
 	border-bottom: 2px solid rgb(255, 255, 255);
@@ -1364,7 +1369,8 @@ hr {
 	flex-direction: column;
 	position: absolute;
 	top: 12.5rem;
-	left: 19rem;
+	left: 50%;
+	margin-left: -24.5rem;
 	z-index: 9;
 }
 
@@ -1652,6 +1658,7 @@ hr {
 		position: absolute;
 		top: 10.5rem;
 		left: 10rem;
+		margin-left: 0;
 		z-index: 9;
 	}
 
@@ -2091,7 +2098,6 @@ hr {
 
 .about .executives .container {
 	max-width: 1550px;
-	margin: 2rem 3rem;
 	grid-template-columns: 4fr 1fr 4fr;
 }
 
