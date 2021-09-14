@@ -36,8 +36,7 @@ function ChartTable() {
 				? []
 				: [
 						{
-							imgSrc:
-								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg",
+							imgSrc: cryptos[0].logo_url,
 							name: `${cryptos[0].name} `,
 							id: `${cryptos[0].symbol}`,
 							price: `${addCommasToNumber(
@@ -50,7 +49,7 @@ function ChartTable() {
 						},
 						{
 							imgSrc:
-								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg",
+							cryptos[1].logo_url,
 							name: `${cryptos[1].name}`,
 							id: `${cryptos[1].symbol}`,
 							price: `${addCommasToNumber(
@@ -63,7 +62,7 @@ function ChartTable() {
 						},
 						{
 							imgSrc:
-								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ltc.svg",
+							cryptos[2].logo_url,
 							name: `${cryptos[2].name}   `,
 							id: `${cryptos[2].symbol}`,
 							price: `${addCommasToNumber(
@@ -76,7 +75,7 @@ function ChartTable() {
 						},
 						{
 							imgSrc:
-								"https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bch.svg",
+							cryptos[3].logo_url,
 							name: `${cryptos[3].name} `,
 							id: `${cryptos[3].symbol}`,
 							price: `${addCommasToNumber(
