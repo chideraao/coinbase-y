@@ -46,12 +46,12 @@ function AboutHeader() {
             <nav className="nav">
               <ul>
                 <li>
-                  <Link className="products" to="/products">
+                  <Link className="products not-allowed" to="#">
                     Products
                   </Link>
                 </li>
                 <li>
-                  <Link className="help" to="/help">
+                  <Link className="help not-allowed" to="#">
                     Help
                   </Link>
                 </li>
@@ -62,10 +62,10 @@ function AboutHeader() {
                 </li>
               </ul>
             </nav>
-            <a href="" className="btn">
+            <a href="" className="btn not-allowed">
               Sign In
             </a>
-            <a href="" className="btn btn-outline">
+            <a href="" className="btn btn-outline not-allowed">
               Sign Up
             </a>
           </div>

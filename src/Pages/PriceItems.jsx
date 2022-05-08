@@ -11,17 +11,17 @@ import PriceItemsMain from "../Components/PriceItemsMain";
 import { UserDataContext } from "../State/GlobalContext";
 import { HeaderContext } from "../State/HeaderContext";
 import {
-	PriceItemsCryptosContext,
-	PriceItemsSparklineContext,
+  PriceItemsCryptosContext,
+  PriceItemsSparklineContext,
 } from "../State/PriceItemsContext";
 
 /**Defining API endpoints */
 const api = {
-	base: "https://api.nomics.com/v1/currencies/ticker?",
-	key: process.env.REACT_APP_NOMICS_KEY,
-	sparklineBase: "https://api.coingecko.com/api/v3/coins/",
-	zoneKey: process.env.REACT_APP_LOCATION_KEY,
-	zoneBase: "https://api.ipgeolocation.io/ipgeo?",
+  base: "https://api.nomics.com/v1/currencies/ticker?",
+  key: process.env.REACT_APP_NOMICS_KEY,
+  sparklineBase: "https://api.coingecko.com/api/v3/coins/",
+  zoneKey: process.env.REACT_APP_LOCATION_KEY,
+  zoneBase: "https://api.ipgeolocation.io/ipgeo?",
 };
 
 /** Getting UTC data for API calls */
@@ -54,187 +54,187 @@ date365.setDate(past365);
 let yearUNIX = Math.floor(date365.getTime() / 1000);
 
 const formatFirstTrade = (str) => {
-	let firstTrade = new Date(`${str.slice(0, -1)}.000Z`);
-	return Math.floor(firstTrade.getTime() / 1000);
+  let firstTrade = new Date(`${str.slice(0, -1)}.000Z`);
+  return Math.floor(firstTrade.getTime() / 1000);
 };
 
 /**set lowercase and replace spaces */
 
 const setLowerCase = (str) => {
-	return str.toLowerCase().replace(/\s/g, "-");
+  return str.toLowerCase().replace(/\s/g, "-");
 };
 
 function PriceItems({ match }) {
-	const [menuClick, setMenuClick] = useContext(HeaderContext);
-	const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
-	const [userData, setUserData] = useContext(UserDataContext);
-	const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
+  const [menuClick, setMenuClick] = useContext(HeaderContext);
+  const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
+  const [userData, setUserData] = useContext(UserDataContext);
+  const [sparkline, setSparkline] = useContext(PriceItemsSparklineContext);
 
-	useEffect(() => {
-		Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
-			.then((response) => {
-				setUserData(response.data);
-				const fetchCalls = (url, setState, retries = 7) => {
-					fetch(url)
-						.then((res) => {
-							// check if successful. If so, return the response transformed to json
-							if (res.ok) {
-								return res.json();
-							}
-							// else, return a call to fetchRetry
-							if (retries > 0) {
-								return fetchCalls(url, setState, retries - 1);
-							} else {
-								throw new Error(res);
-							}
-						})
-						.then((data) => {
-							if (data !== undefined) {
-								setState(data);
-								Axios.all([
-									Axios.get(
-										`${api.sparklineBase}${setLowerCase(
-											data[0].name
-										)}/market_chart/range?vs_currency=${
-											response.data.currency.code
-										}&from=${dayUNIX}&to=${currentUNIX}`
-									),
-									Axios.get(
-										`${api.sparklineBase}${setLowerCase(
-											data[0].name
-										)}/market_chart/range?vs_currency=${
-											response.data.currency.code
-										}&from=${weekUNIX}&to=${currentUNIX}`
-									),
-									Axios.get(
-										`${api.sparklineBase}${setLowerCase(
-											data[0].name
-										)}/market_chart/range?vs_currency=${
-											response.data.currency.code
-										}&from=${monthUNIX}&to=${currentUNIX}`
-									),
-									Axios.get(
-										`${api.sparklineBase}${setLowerCase(
-											data[0].name
-										)}/market_chart/range?vs_currency=${
-											response.data.currency.code
-										}&from=${yearUNIX}&to=${currentUNIX}`
-									),
-									Axios.get(
-										`${api.sparklineBase}${setLowerCase(
-											data[0].name
-										)}/market_chart/range?vs_currency=${
-											response.data.currency.code
-										}&from=${formatFirstTrade(
-											data[0].first_trade
-										)}&to=${currentUNIX}`
-									),
-								])
-									.then((ress) => {
-										setSparkline((prevState) => {
-											return [...prevState, ress[0].data];
-										});
-										setSparkline((prevState) => {
-											return [...prevState, ress[1].data];
-										});
-										setSparkline((prevState) => {
-											return [...prevState, ress[2].data];
-										});
-										setSparkline((prevState) => {
-											return [...prevState, ress[3].data];
-										});
-										setSparkline((prevState) => {
-											return [...prevState, ress[4].data];
-										});
-									})
-									.catch((errr) => {
-										console.log(errr);
-									});
-							}
-							// Do something with the response
-						})
-						.catch((error) => {
-							console.log(error);
-						});
-				};
-				fetchCalls(
-					`${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
-					setCryptos
-				);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+  useEffect(() => {
+    Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
+      .then((response) => {
+        setUserData(response.data);
+        const fetchCalls = (url, setState, retries = 7) => {
+          fetch(url)
+            .then((res) => {
+              // check if successful. If so, return the response transformed to json
+              if (res.ok) {
+                return res.json();
+              }
+              // else, return a call to fetchRetry
+              if (retries > 0) {
+                return fetchCalls(url, setState, retries - 1);
+              } else {
+                throw new Error(res);
+              }
+            })
+            .then((data) => {
+              if (data !== undefined) {
+                setState(data);
+                Axios.all([
+                  Axios.get(
+                    `${api.sparklineBase}${setLowerCase(
+                      data[0].name
+                    )}/market_chart/range?vs_currency=${
+                      response.data.currency.code
+                    }&from=${dayUNIX}&to=${currentUNIX}`
+                  ),
+                  Axios.get(
+                    `${api.sparklineBase}${setLowerCase(
+                      data[0].name
+                    )}/market_chart/range?vs_currency=${
+                      response.data.currency.code
+                    }&from=${weekUNIX}&to=${currentUNIX}`
+                  ),
+                  Axios.get(
+                    `${api.sparklineBase}${setLowerCase(
+                      data[0].name
+                    )}/market_chart/range?vs_currency=${
+                      response.data.currency.code
+                    }&from=${monthUNIX}&to=${currentUNIX}`
+                  ),
+                  Axios.get(
+                    `${api.sparklineBase}${setLowerCase(
+                      data[0].name
+                    )}/market_chart/range?vs_currency=${
+                      response.data.currency.code
+                    }&from=${yearUNIX}&to=${currentUNIX}`
+                  ),
+                  Axios.get(
+                    `${api.sparklineBase}${setLowerCase(
+                      data[0].name
+                    )}/market_chart/range?vs_currency=${
+                      response.data.currency.code
+                    }&from=${formatFirstTrade(
+                      data[0].first_trade
+                    )}&to=${currentUNIX}`
+                  ),
+                ])
+                  .then((res) => {
+                    setSparkline((prevState) => {
+                      return [...prevState, res[0].data];
+                    });
+                    setSparkline((prevState) => {
+                      return [...prevState, res[1].data];
+                    });
+                    setSparkline((prevState) => {
+                      return [...prevState, res[2].data];
+                    });
+                    setSparkline((prevState) => {
+                      return [...prevState, res[3].data];
+                    });
+                    setSparkline((prevState) => {
+                      return [...prevState, res[4].data];
+                    });
+                  })
+                  .catch((errr) => {
+                    console.log(errr);
+                  });
+              }
+              // Do something with the response
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        };
+        fetchCalls(
+          `${api.base}key=${api.key}&ids=${match.params.id}&convert=${response.data.currency.code}&interval=1d,7d,30d,365d`,
+          setCryptos
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-		return () => {
-			setCryptos([]);
-			setSparkline([]);
-		};
-	}, [setCryptos, setSparkline, setUserData, match.params.id]);
+    return () => {
+      setCryptos([]);
+      setSparkline([]);
+    };
+  }, [setCryptos, setSparkline, setUserData, match.params.id]);
 
-	return (
-		<div>
-			{cryptos.length || sparkline.length ? (
-				<div className="price-items">
-					{menuClick ? (
-						<HeaderMenu />
-					) : (
-						<>
-							<Header />
-							{cryptos.length ? (
-								<section className="priceitems-breadcrumbs">
-									<div className="container">
-										<div className="breadcrumbs">
-											<a href="/prices">Price charts &nbsp;</a>
-											<FontAwesomeIcon
-												className="font-awesome"
-												fontWeight="light"
-												icon="chevron-right"
-												size="3x"
-											/>
-											<a href={`/prices/${match.params.id}`}>
-												&nbsp; {cryptos[0].name} price
-											</a>
-										</div>
-									</div>
-								</section>
-							) : (
-								""
-							)}
-							<section className="price-items-main">
-								<PriceItemsMain match={match} />
-							</section>
-							<section className="legal">
-								<div className="container legal-disclaimer">
-									<p>
-										This content and any information contained therein is being
-										provided to you for informational purposes only, does not
-										constitute a recommendation by Basecoin to buy, sell, or
-										hold any security, financial product, or instrument
-										referenced in the content, and does not constitute
-										investment advice, financial advice, trading advice, or any
-										other sort of advice. Data presented may reflect assets
-										traded on Basecoin’s exchange and select other
-										cryptocurrency exchanges. Certain content has been prepared
-										by third parties not affiliated with Basecoin Inc. or any of
-										its affiliates and Basecoin is not responsible for such
-										content. Basecoin is not liable for any errors or delays in
-										content, or for any actions taken in reliance on any
-										content.
-									</p>
-								</div>
-							</section>
+  return (
+    <div>
+      {cryptos.length || sparkline.length ? (
+        <div className="price-items">
+          {menuClick ? (
+            <HeaderMenu />
+          ) : (
+            <>
+              <Header />
+              {cryptos.length ? (
+                <section className="priceitems-breadcrumbs">
+                  <div className="container">
+                    <div className="breadcrumbs">
+                      <a href="/prices">Price charts &nbsp;</a>
+                      <FontAwesomeIcon
+                        className="font-awesome"
+                        fontWeight="light"
+                        icon="chevron-right"
+                        size="3x"
+                      />
+                      <a href={`/prices/${match.params.id}`}>
+                        &nbsp; {cryptos[0].name} price
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              ) : (
+                ""
+              )}
+              <section className="price-items-main">
+                <PriceItemsMain match={match} />
+              </section>
+              <section className="legal">
+                <div className="container legal-disclaimer">
+                  <p>
+                    This content and any information contained therein is being
+                    provided to you for informational purposes only, does not
+                    constitute a recommendation by Basecoin to buy, sell, or
+                    hold any security, financial product, or instrument
+                    referenced in the content, and does not constitute
+                    investment advice, financial advice, trading advice, or any
+                    other sort of advice. Data presented may reflect assets
+                    traded on Basecoin’s exchange and select other
+                    cryptocurrency exchanges. Certain content has been prepared
+                    by third parties not affiliated with Basecoin Inc. or any of
+                    its affiliates and Basecoin is not responsible for such
+                    content. Basecoin is not liable for any errors or delays in
+                    content, or for any actions taken in reliance on any
+                    content.
+                  </p>
+                </div>
+              </section>
 
-							<Banner />
-							<Footer />
-						</>
-					)}
-				</div>
-			) : (
-				<Loader />
-			)}
-		</div>
-	);
+              <Banner />
+              <Footer />
+            </>
+          )}
+        </div>
+      ) : (
+        <Loader />
+      )}
+    </div>
+  );
 }
 
 export default PriceItems;

@@ -114,10 +114,10 @@ function Header() {
             </Link>
           </div>
           <div className="auth">
-            <a href="#" className="btn">
+            <a href="#" className="btn not-allowed">
               Sign In
             </a>
-            <a href="#" className="btn btn-outline">
+            <a href="#" className="btn btn-outline not-allowed">
               Get Started
             </a>
           </div>
