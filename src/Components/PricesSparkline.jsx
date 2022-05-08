@@ -30,16 +30,20 @@ export function PricesBTC() {
     let timestamps = [];
 
     if (sparkline.length) {
-      prices.push(sparkline[1].prices);
-      timestamps.push(sparkline[1].timestamps);
+      sparkline[0].prices.forEach((item) => {
+        prices.push(Math.round(item[1] * 100) / 100);
+      });
+      sparkline[0].prices.forEach((item) => {
+        timestamps.push(item[0]);
+      });
     }
 
     setDataChart({
-      labels: timestamps[0],
+      labels: timestamps,
       datasets: [
         {
           label: "prices",
-          data: prices[0],
+          data: prices,
           borderColor: "rgba(17, 51, 83, 0.5)",
           fill: false,
           borderWidth: 2.5,
@@ -82,16 +86,20 @@ export function PricesXTZ() {
     let timestamps = [];
 
     if (sparkline.length) {
-      prices.push(sparkline[4].prices);
-      timestamps.push(sparkline[4].timestamps);
+      sparkline[3].prices.forEach((item) => {
+        prices.push(Math.round(item[1] * 100) / 100);
+      });
+      sparkline[3].prices.forEach((item) => {
+        timestamps.push(item[0]);
+      });
     }
 
     setDataChart({
-      labels: timestamps[0],
+      labels: timestamps,
       datasets: [
         {
           label: "prices",
-          data: prices[0],
+          data: prices,
           borderColor: "rgba(17, 51, 83, 0.5)",
           fill: false,
           borderWidth: 2.5,
@@ -135,16 +143,20 @@ export function PricesGRT() {
     let timestamps = [];
 
     if (sparkline.length) {
-      prices.push(sparkline[2].prices);
-      timestamps.push(sparkline[2].timestamps);
+      sparkline[1].prices.forEach((item) => {
+        prices.push(Math.round(item[1] * 100) / 100);
+      });
+      sparkline[1].prices.forEach((item) => {
+        timestamps.push(item[0]);
+      });
     }
 
     setDataChart({
-      labels: timestamps[0],
+      labels: timestamps,
       datasets: [
         {
           label: "prices",
-          data: prices[0],
+          data: prices,
           borderColor: "rgba(17, 51, 83, 0.5)",
           fill: false,
           borderWidth: 2.5,
@@ -188,16 +200,20 @@ export function PricesRUNE() {
     let timestamps = [];
 
     if (sparkline.length) {
-      prices.push(sparkline[3].prices);
-      timestamps.push(sparkline[3].timestamps);
+      sparkline[2].prices.forEach((item) => {
+        prices.push(Math.round(item[1] * 100) / 100);
+      });
+      sparkline[2].prices.forEach((item) => {
+        timestamps.push(item[0]);
+      });
     }
 
     setDataChart({
-      labels: timestamps[0],
+      labels: timestamps,
       datasets: [
         {
           label: "prices",
-          data: prices[0],
+          data: prices,
           borderColor: "rgba(17, 51, 83, 0.5)",
           fill: false,
           borderWidth: 2.5,
@@ -240,16 +256,20 @@ export function PricesBAND() {
     let timestamps = [];
 
     if (sparkline.length) {
-      prices.push(sparkline[0].prices);
-      timestamps.push(sparkline[0].timestamps);
+      sparkline[4].prices.forEach((item) => {
+        prices.push(Math.round(item[1] * 100) / 100);
+      });
+      sparkline[4].prices.forEach((item) => {
+        timestamps.push(item[0]);
+      });
     }
 
     setDataChart({
-      labels: timestamps[0],
+      labels: timestamps,
       datasets: [
         {
           label: "prices",
-          data: prices[0],
+          data: prices,
           borderColor: "rgba(17, 51, 83, 0.5)",
           fill: false,
           borderWidth: 2.5,

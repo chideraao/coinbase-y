@@ -175,7 +175,8 @@ img {
   color: var(--primary-color) !important;
 }
 
-.navbar .not-allowed {
+.navbar .not-allowed,
+.btn.not-allowed {
   cursor: not-allowed;
 }
 
@@ -4104,6 +4105,7 @@ table tr .flex {
 }
 
 /*------------------------------------------------------------------ PRICE-ITEMS----------------------------------------------------------------------*/
+
 .price-items .header {
   background-color: var(--secondary-color);
   color: var(--dark-color);
@@ -4172,8 +4174,10 @@ table tr .flex {
   opacity: 0.6;
 }
 
-.price-items .price-items-main {
+.price-items section.price-items-main {
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .price-items .price-items-main .grid {
@@ -4250,10 +4254,6 @@ table tr .flex {
   font-size: 1.7rem;
   margin-right: 0.4rem;
   margin-bottom: 0.1rem;
-}
-
-.price-items .price-items-main {
-  overflow: scroll;
 }
 
 .price-items .price-items-main .sparkline-container .card {

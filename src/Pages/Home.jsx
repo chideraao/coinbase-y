@@ -109,7 +109,7 @@ function Home() {
                             ></input>
                           </label>
                           <label htmlFor="submit-button">
-                            <button className="btn btn-outline">
+                            <button className="btn btn-outline not-allowed">
                               Get Started
                             </button>
                           </label>
@@ -376,7 +376,7 @@ function Home() {
           )}
         </div>
       ) : (
-        <Loader />
+        ""
       )}
     </div>
   );
