@@ -70,43 +70,11 @@ function Prices() {
   );
   const [menuClick, setMenuClick] = useContext(HeaderContext);
 
-  const fetchCalls = useCallback((url, setState, retries = 7) => {
-    fetch(url)
-      .then((res) => {
-        // check if successful. If so, return the response transformed to json
-        if (res.ok) {
-          return res.json();
-        }
-        // else, return a call to fetchRetry
-        if (retries > 0) {
-          return fetchCalls(url, setState, retries - 1);
-        } else {
-          throw new Error(res);
-        }
-      })
-      .then((data) => {
-        if (data !== undefined) {
-          setState(data);
-        }
-        // Do something with the response
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   useEffect(() => {
     Axios.get(`${api.zoneBase}apiKey=${api.zoneKey}&include=useragent`)
       .then((response) => {
         setUserData(response.data);
-        fetchCalls(
-          `${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`,
-          setCryptos
-        );
-        fetchCalls(
-          `${api.base}key=${api.key}&ids=BTC,GRT,XTZ,RUNE,BAND&convert=${response.data.currency.code}&interval=1d`,
-          setShowcaseCryptos
-        );
+
         Axios.all([
           Axios.get(
             `${api.sparklineBase}bitcoin/market_chart?vs_currency=${response.data.currency.code}&days=1`
@@ -123,6 +91,9 @@ function Prices() {
           Axios.get(
             `${api.sparklineBase}band-protocol/market_chart?vs_currency=${response.data.currency.code}&days=1`
           ),
+          Axios.get(
+            `${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
+          ),
         ]).then((res) => {
           setSparkline([
             res[0].data,
@@ -131,13 +102,14 @@ function Prices() {
             res[3].data,
             res[4].data,
           ]);
+          setCryptos(res[5].data);
         });
       })
       .catch((err) => {
         console.log(err);
       });
     return () => {};
-  }, [setCryptos, setUserData, setSparkline, setShowcaseCryptos, fetchCalls]);
+  }, [setCryptos, setUserData, setSparkline, setShowcaseCryptos]);
 
   const market = React.useMemo(() => {
     return !cryptos.length
@@ -149,46 +121,45 @@ function Prices() {
   const marketHealth = React.useMemo(
     () =>
       !sparkline.length ||
-      !showcaseCryptos.length ||
+      !cryptos.length ||
       sparkline === undefined ||
-      showcaseCryptos === undefined
+      cryptos === undefined
         ? []
         : [
             {
-              img: showcaseCryptos[2].logo_url,
-              name: showcaseCryptos[2].name,
-              price: showcaseCryptos[2].price,
+              img: cryptos[87].logo_url,
+              name: cryptos[87].name,
+              price: cryptos[87].price,
               chart: <PricesGRT />,
             },
             {
-              img: `${showcaseCryptos[3].logo_url}`,
-              name: `${showcaseCryptos[3].name}`,
-              price: `${showcaseCryptos[3].price}`,
+              img: cryptos[30].logo_url,
+              name: cryptos[30].name,
+              price: cryptos[30].price,
               chart: <PricesRUNE />,
             },
 
             {
-              img: showcaseCryptos[1].logo_url,
-              name: showcaseCryptos[1].name,
-              price: showcaseCryptos[1].price,
+              img: cryptos[45].logo_url,
+              name: cryptos[45].name,
+              price: cryptos[45].price,
               chart: <PricesXTZ />,
             },
             {
-              img: showcaseCryptos[0].logo_url,
-              name: showcaseCryptos[0].name,
-              price: showcaseCryptos[0].price,
-              volume: showcaseCryptos[0].market_cap,
+              img: cryptos[0].logo_url,
+              name: cryptos[0].name,
+              price: cryptos[0].price,
+              volume: cryptos[0].market_cap,
               chart: <PricesBTC />,
             },
             {
-              img: showcaseCryptos[4].logo_url,
-              name: showcaseCryptos[4].name,
-              price: showcaseCryptos[4].price,
-              volume: showcaseCryptos[4].market_cap,
+              img: cryptos[67].logo_url,
+              name: cryptos[67].name,
+              price: cryptos[67].price,
               chart: <PricesBAND />,
             },
           ],
-    [showcaseCryptos, sparkline]
+    [sparkline, cryptos]
   );
 
   return (
@@ -216,10 +187,10 @@ function Prices() {
                       </span>
                     </h1>
                   </div>
-                  {showcaseCryptos.length && sparkline.length ? (
+                  {cryptos.length && sparkline.length ? (
                     <div className="container">
                       <div className="box-container flex">
-                        <Link to="prices/GRT">
+                        <Link to={`prices/${cryptos[30].id}`}>
                           <div className="prices-box">
                             <h2>Top gainer (24h)</h2>
                             <div className="sparkline-container flex">
@@ -249,7 +220,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to="prices/RUNE">
+                        <Link to={`prices/${cryptos[87].id}`}>
                           <div className="prices-box">
                             <h2>New listing</h2>
                             <div className="sparkline-container flex">
@@ -330,7 +301,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to="prices/XTZ">
+                        <Link to={`prices/${cryptos[45].id}`}>
                           <div className="prices-box">
                             <h2>Most visited (24h)</h2>
                             <div className="sparkline-container flex">
@@ -360,7 +331,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to="prices/BAND">
+                        <Link to={`prices/${cryptos[67].id}`}>
                           <div className="prices-box">
                             <h2>Earn free crypto</h2>
                             <div className="sparkline-container flex">
@@ -373,7 +344,7 @@ function Prices() {
                                 </div>
                                 <div className="box-title">
                                   <h3>{marketHealth[4].name}</h3>
-                                  <p>Earn $3 in BAND</p>
+                                  <p>Earn $3 in {cryptos[67].id}</p>
                                 </div>
                               </div>
 

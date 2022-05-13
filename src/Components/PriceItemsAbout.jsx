@@ -5,11 +5,6 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PriceItemsCryptosContext } from "../State/PriceItemsContext";
 
-const api = {
-  base: "https://api.nomics.com/v1/currencies?",
-  key: process.env.REACT_APP_NOMICS_KEY,
-};
-
 function PriceItemsAbout({ match }) {
   const [cryptos, setCryptos] = useContext(PriceItemsCryptosContext);
   const [metadata, setMetadata] = useState([]);
