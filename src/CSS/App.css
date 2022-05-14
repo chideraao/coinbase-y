@@ -3612,6 +3612,10 @@ hr {
   margin-bottom: 1.2rem;
 }
 
+.prices .market-health .container {
+  overflow: hidden;
+}
+
 .prices .market-health .box-container .prices-box {
   width: 24.4rem;
   height: 7.4rem;

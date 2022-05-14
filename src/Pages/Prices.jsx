@@ -94,6 +94,9 @@ function Prices() {
           Axios.get(
             `${api.base}key=${api.key}&per-page=100&page=1&convert=${response.data.currency.code}&interval=1h,1d,7d,30d,365d`
           ),
+          Axios.get(
+            `/.netlify/functions/index?convert=${response.data.currency.code}`
+          ),
         ]).then((res) => {
           setSparkline([
             res[0].data,
@@ -103,6 +106,8 @@ function Prices() {
             res[4].data,
           ]);
           setCryptos(res[5].data);
+
+          setShowcaseCryptos([res[6].data.data]);
         });
       })
       .catch((err) => {
@@ -121,28 +126,31 @@ function Prices() {
   const marketHealth = React.useMemo(
     () =>
       !sparkline.length ||
-      !cryptos.length ||
+      !showcaseCryptos.length ||
       sparkline === undefined ||
-      cryptos === undefined
+      showcaseCryptos === undefined
         ? []
         : [
             {
-              img: cryptos[87].logo_url,
-              name: cryptos[87].name,
-              price: cryptos[87].price,
+              img: "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/GRT.jpg",
+              name: showcaseCryptos[0]["6719"].name,
+              price:
+                showcaseCryptos[0]["6719"].quote[userData.currency.code].price,
               chart: <PricesGRT />,
             },
             {
-              img: cryptos[30].logo_url,
-              name: cryptos[30].name,
-              price: cryptos[30].price,
+              img: "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/RUNE.png",
+              name: showcaseCryptos[0]["4157"].name,
+              price:
+                showcaseCryptos[0]["4157"].quote[userData.currency.code].price,
               chart: <PricesRUNE />,
             },
 
             {
-              img: cryptos[45].logo_url,
-              name: cryptos[45].name,
-              price: cryptos[45].price,
+              img: "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xtz.svg",
+              name: showcaseCryptos[0]["2011"].name,
+              price:
+                showcaseCryptos[0]["2011"].quote[userData.currency.code].price,
               chart: <PricesXTZ />,
             },
             {
@@ -153,13 +161,14 @@ function Prices() {
               chart: <PricesBTC />,
             },
             {
-              img: cryptos[67].logo_url,
-              name: cryptos[67].name,
-              price: cryptos[67].price,
+              img: "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BAND.png",
+              name: showcaseCryptos[0]["4679"].name,
+              price:
+                showcaseCryptos[0]["4679"].quote[userData.currency.code].price,
               chart: <PricesBAND />,
             },
           ],
-    [sparkline, cryptos]
+    [sparkline, cryptos, showcaseCryptos, userData]
   );
 
   return (
@@ -187,10 +196,10 @@ function Prices() {
                       </span>
                     </h1>
                   </div>
-                  {cryptos.length && sparkline.length ? (
+                  {showcaseCryptos.length && sparkline.length ? (
                     <div className="container">
                       <div className="box-container flex">
-                        <Link to={`prices/${cryptos[30].id}`}>
+                        <Link to="prices/RUNE">
                           <div className="prices-box">
                             <h2>Top gainer (24h)</h2>
                             <div className="sparkline-container flex">
@@ -220,7 +229,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to={`prices/${cryptos[87].id}`}>
+                        <Link to="prices/GRT">
                           <div className="prices-box">
                             <h2>New listing</h2>
                             <div className="sparkline-container flex">
@@ -301,7 +310,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to={`prices/${cryptos[45].id}`}>
+                        <Link to="prices/XTZ">
                           <div className="prices-box">
                             <h2>Most visited (24h)</h2>
                             <div className="sparkline-container flex">
@@ -331,7 +340,7 @@ function Prices() {
                             </div>
                           </div>
                         </Link>
-                        <Link to={`prices/${cryptos[67].id}`}>
+                        <Link to="prices/BAND">
                           <div className="prices-box">
                             <h2>Earn free crypto</h2>
                             <div className="sparkline-container flex">
@@ -344,7 +353,7 @@ function Prices() {
                                 </div>
                                 <div className="box-title">
                                   <h3>{marketHealth[4].name}</h3>
-                                  <p>Earn $3 in {cryptos[67].id}</p>
+                                  <p>Earn $3 in BAND</p>
                                 </div>
                               </div>
 
