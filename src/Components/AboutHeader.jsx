@@ -8,7 +8,7 @@ import { HeaderContext } from "../State/HeaderContext";
 function AboutHeader() {
   const [menuClick, setMenuClick] = useContext(HeaderContext);
 
-  let isPageSmall = useMediaQuery("(max-width: 800px)");
+  let isPageSmall = useMediaQuery("(max-width: 870px)");
 
   /**handling click events for page resize */
   const handleClick = () => {

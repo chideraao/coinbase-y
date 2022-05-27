@@ -116,7 +116,7 @@ export function ETHChart() {
   );
 }
 
-export function LTCChart() {
+export function ADAChart() {
   const [dataChart, setDataChart] = useState({});
   const [sparkline, setSparkline] = useContext(SparklineContext);
   /**chart js styling options */
@@ -172,7 +172,7 @@ export function LTCChart() {
   );
 }
 
-export function BCHChart() {
+export function SOLChart() {
   const [dataChart, setDataChart] = useState({});
   const [sparkline, setSparkline] = useContext(SparklineContext);
 

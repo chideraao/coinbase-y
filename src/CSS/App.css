@@ -236,6 +236,10 @@ img {
   height: 20rem;
 }
 
+.showcase .container {
+  overflow: hidden;
+}
+
 .showcase h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -294,7 +298,7 @@ img {
 
 .tables {
   position: absolute;
-  margin-left: -35rem !important;
+  margin-left: -34.5rem !important;
   left: 50%;
   top: 17.5rem;
   background: none;
@@ -303,7 +307,7 @@ img {
 }
 
 .tables .card {
-  padding-bottom: 0rem;
+  padding: 0.7rem 0.5rem 0 0.5rem;
 }
 
 .tables .home-table table {
@@ -1021,7 +1025,7 @@ hr {
   }
 
   .tables {
-    margin-left: -23.5rem !important;
+    margin-left: -47vw !important;
   }
 
   .tables .home-table table {
@@ -1036,6 +1040,11 @@ hr {
 
   .tables .home-table table .table-trade {
     display: none;
+  }
+
+  .tables .home-table tbody .table-serial {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .navbar .auth a {
@@ -1207,7 +1216,6 @@ hr {
 
   .tables {
     top: 22.5rem;
-    margin-left: -12.6rem !important;
   }
 
   .tables .container {
@@ -1352,11 +1360,11 @@ hr {
   }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .tables {
-    margin-left: -11.4rem !important;
+    margin-left: -11.1rem !important;
   }
-}
+} */
 /* ---------------------------      CAREERS   -------------------------------------------------------------------------------- */
 .careers .company {
   border-bottom: 2px solid rgb(255, 255, 255);
@@ -4096,6 +4104,10 @@ table tr .flex {
   .prices .price-cryptos .hidden-flex {
     display: flex;
     flex-direction: column;
+  }
+
+  .prices .prices-table .card {
+    padding-right: 0.5rem;
   }
 
   .prices .prices-table tbody .crypto-price {

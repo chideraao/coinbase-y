@@ -25,7 +25,7 @@ function Header() {
   };
 
   /** using custom hook for page resize */
-  let isPageSmall = useMediaQuery("(max-width: 800px)");
+  let isPageSmall = useMediaQuery("(max-width: 870px)");
 
   return (
     <div className="header" id="header">

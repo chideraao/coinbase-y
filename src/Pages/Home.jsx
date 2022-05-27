@@ -60,13 +60,13 @@ function Home() {
             `${api.sparklineBase}ethereum/market_chart?vs_currency=${response.data.currency.code}&days=1`
           ),
           Axios.get(
-            `${api.sparklineBase}litecoin/market_chart?vs_currency=${response.data.currency.code}&days=1`
+            `${api.sparklineBase}cardano/market_chart?vs_currency=${response.data.currency.code}&days=1`
           ),
           Axios.get(
-            `${api.sparklineBase}bitcoin-cash/market_chart?vs_currency=${response.data.currency.code}&days=1`
+            `${api.sparklineBase}solana/market_chart?vs_currency=${response.data.currency.code}&days=1`
           ),
           Axios.get(
-            `${api.base}key=${api.key}&ids=BTC,ETH,LTC,BCH&convert=${response.data.currency.code}&interval=1d`
+            `${api.base}key=${api.key}&ids=BTC,ETH,SOL,ADA&convert=${response.data.currency.code}&interval=1d`
           ),
         ]).then((res) => {
           setSparkline([res[0].data, res[1].data, res[2].data, res[3].data]);

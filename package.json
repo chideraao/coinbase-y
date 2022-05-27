@@ -26,7 +26,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "api:backend": "netlify-lambda serve .netlify/functions",
+    "start:backend": "netlify-lambda serve .netlify/functions",
     "start": "react-scripts start",
     "build": "netlify-lambda build .netlify/functions && react-scripts build",
     "test": "react-scripts test",

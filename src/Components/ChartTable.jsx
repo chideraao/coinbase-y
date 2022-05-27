@@ -6,10 +6,10 @@ import {
   UserDataContext,
 } from "../State/GlobalContext";
 import {
-  BCHChart,
+  ADAChart,
   BTCChart,
   ETHChart,
-  LTCChart,
+  SOLChart,
 } from "../Components/CoinsSparkline";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -70,7 +70,7 @@ function ChartTable() {
               change: `${
                 Math.round(cryptos[2]["1d"].price_change_pct * 10000) / 100
               }%`,
-              chart: <LTCChart />,
+              chart: <ADAChart />,
             },
             {
               imgSrc: cryptos[3].logo_url,
@@ -82,7 +82,7 @@ function ChartTable() {
               change: `${
                 Math.round(cryptos[3]["1d"].price_change_pct * 10000) / 100
               }%`,
-              chart: <BCHChart />,
+              chart: <SOLChart />,
             },
           ],
     [cryptos, sparkline]
